@@ -1,0 +1,10 @@
+artefact_url: "https://zenodo.org/record/7508499/files/wsmoses/PolygeistGPU-Docker-v0.2.1.zip"
+type: "zip"
+doi: "10.1145/3572848.3577475"
+dockerfiles:
+  - name: "polygeist:artefact"
+    location: "wsmoses-PolygeistGPU-Docker-ba18197/MocCUDA"
+    build_command: "docker build -t polygeist:artefact ."
+    check_commands:
+      - "dpkg -l"
+      # - "dpkg -l | awk '/^[hi]i/{print $2 \",\"  $3}'"

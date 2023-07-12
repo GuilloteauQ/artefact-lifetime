@@ -1,0 +1,10 @@
+artefact_url: "https://zenodo.org/record/7544675/files/SF2-code.tar.gz"
+type: "tgz"
+doi: "10.1145/3572848.3577480"
+dockerfiles:
+  - name: "bdm-publication-image-v7"
+    location: "bdm-paper-examples/docker"
+    build_command: "bash build.sh"
+    check_commands:
+      - "dpkg -l"
+      # - "dpkg -l | awk '/^[hi]i/{print $2 \",\"  $3}'"

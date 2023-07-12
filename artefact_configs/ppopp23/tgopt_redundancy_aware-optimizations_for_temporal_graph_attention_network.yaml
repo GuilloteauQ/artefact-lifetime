@@ -1,0 +1,12 @@
+artefact_url: "https://zenodo.org/record/7328505/files/tgopt-artifact.tgz"
+type: "tgz"
+doi: "10.1145/3572848.3577490"
+dockerfiles:
+  - name: "tgopt:artefact"
+    location: "tgopt-artifact"
+    build_command: "docker build -t tgopt:artefact ."
+    check_commands:
+      - "dpkg -l"
+      - "/root/.conda/bin/conda list"
+      # - "dpkg -l | awk '/^[hi]i/{print $2 \",\" $3}'"
+      # - "/root/.conda/bin/conda list | awk '/^[a-z_]/{print $1 \",\" $2}'"
