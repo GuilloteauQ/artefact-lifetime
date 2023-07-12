@@ -1,0 +1,14 @@
+artefact_url: "https://zenodo.org/record/7004393/files/deinsum/sc22-artifact-0.4.zip"
+type: "zip"
+doi: "10.5555/3571885.3571918"
+dockerfiles:
+  - name: "deinsum:artefact-cpu"
+    location: "deinsum-sc22-artifact-7559901/docker_cpu"
+    build_command: "docker build -t deinsum:artefact-cpu ."
+    check_commands:
+      - "dpkg -l"
+  - name: "deinsum:artefact_gpu"
+    location: "deinsum-sc22-artifact-7559901/docker_gpu"
+    build_command: "docker build -t deinsum:artefact-gpu ."
+    check_commands:
+      - "dpkg -l"
