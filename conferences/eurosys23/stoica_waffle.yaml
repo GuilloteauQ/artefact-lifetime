@@ -1,0 +1,55 @@
+doi: "10.1145/3552326.3567507"
+pdf: "https://bastoica.github.io/files/papers/2023_eurosys_waffle.pdf"
+date_eval: "2023-10-23"
+# ----- BADGES ----
+badges: 2 # how many badges?
+badge_avaible: true
+badge_evaluated_functional: true
+badge_reproduced: false
+
+# ----- PAPER ------
+artefact_section: false # is there a "artefact" section in the paper?
+repo_url: true # is the url of the repo given in the paper?
+dead_url: false # is the url still working?
+minimal_working_example: false # is there a minimal example?
+estimated_human_compute_time: false # is the time estimation given?
+experimental_setup: "homemade" # some random machines
+# experimental_setup: "testbed" # chameleon/grid5000
+# experimental_setup: "proprietary" # AWS/Azure/...
+
+
+# ----- REPO -----
+pinned_version: false # is the version of the code used pinned? commit/zenodo/swh?
+nb_commits_repo: 4 # how many commits in the repo?
+how_shared: "git" # how the repo/code was shared?
+# how_shared: "zenodo"
+# how_shared: "swh"
+# how_shared: "cloud" # google docs or similar
+# how_shared: "indirect" # like to the website of the project but not the repo
+
+# ----- SW ENV ------
+techno: "none"
+# techno: "docker"
+# techno: "singularity"
+# techno: "vagrant"
+# techno: "kameleon"
+bin_cache: false # is the binary of the image stored somewhere?
+bin_cache_long_term: false # can the stored image be available "forever"? (e.g. zenodo)
+recipe_in_repo: false
+sw_env:
+  # - list
+  # - list_loose_version # like >=
+  - list_strict_version # like ==
+  # - apt_commands # or other package managers
+  # - git_curl_commands_unsafe  # not checking commit/tag
+  # - git_curl_commands_safe # checking commit/tag
+  # - git_curl_commands_safest # also checking result
+  # - untagged_base_image # or latest/master
+  # - conda
+  # - pip
+  # - spack
+  # - nix
+  # - guix
+  # - container
+  # - vm
+  # - system_image

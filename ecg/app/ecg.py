@@ -58,7 +58,7 @@ def build_images(config, src_dir):
         if successful_build:
             check_env(image, src_dir)
             remove_image(image)
-   
+
 def main():
     parser = argparse.ArgumentParser(
                     prog='ecg',
@@ -71,14 +71,12 @@ def main():
     with open(args.config, "r") as config_file:
         config = yaml.safe_load(config_file)
     verbose = args.verbose
-  
+
     # if verbose:
     #    logging.info(f"Output will be stored in {output}")
 
-    
     src_dir = download_sources(config)
     build_images(config, src_dir.name)
-    
     return 0
 
 if __name__ == "__main__":

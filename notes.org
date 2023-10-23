@@ -1,0 +1,1262 @@
+#+TITLE: Artefact lifetime
+
+* EuroSys23
+
+https://dl.acm.org/doi/proceedings/10.1145/3552326
+
+** Effective Performance Issue Diagnosis with Value-Assisted Cost Profiling
+
+pdf: https://web.eecs.umich.edu/~ryanph/paper/vprof-eurosys23.pdf
+repo: https://github.com/wenglingmei/vprofAE
+
+#+BEGIN_EXAMPLE
+ All measurements were
+done on a desktop computer with a 6-core (12 hyper threads)
+Intel 2.60 GHz Core i5 CPU and 48 GB DRAM, running Ubuntu-
+20.04 with Linux kernel 5.11.0
+#+END_EXAMPLE
+
+*** [1/2] Badges
+- [X] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Others
+
+*** [2/2] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo
+
+*** Software Environment
+- [X] pip
+- [X] list of packages with loose versions
+- [ ] list of packages with strict versions
+
+** Foxhound: Server-Grade Observability for Network-Augmented Applications
+
+pdf: https://dl.acm.org/doi/pdf/10.1145/3552326.3567502
+
+*** [0/2] Badges
+- [ ] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Others
+
+*** [0/2] Criteria
+- [ ] Artefact section in paper
+- [ ] Url of repo
+
+** OFence: Pairing Barriers to Find Concurrency Bugs in the Linux Kernel
+
+pdf: https://inria.hal.science/hal-04109096/document
+
+
+
+*** [0/2] Badges
+- [ ] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Others
+
+*** [0/2] Criteria
+- [ ] Artefact section in paper
+- [ ] Url of repo
+
+** Pocket: ML Serving from the Edge
+
+pdf: https://dl.acm.org/doi/pdf/10.1145/3552326.3587459
+
+url: https://github.com/whalepark/pocket.git
+
+dead or private...
+
+On Chameleon
+
+*** [2/3] Badges
+- [X] Artifacts available
+- [X] Artifacts evaluated and functional
+- [ ] Others
+
+*** [2/2] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo but dead link https://github.com/whalepark/pocket.git
+
+*** Software Environment
+- [ ] pip
+- [ ] list of packages with loose versions
+- [X] list of packages with strict versions
+
+** Efficient and Safe I/O Operations for Intermittent Systems
+
+pdf: https://dl.acm.org/doi/pdf/10.1145/3552326.3587435
+
+url: https://github.com/tinysystems/easeIO/commit/1136f0c6c051516f77291383a93d4e6e7ca03ce2
+
+empty zenodo: https://zenodo.org/records/7735158#.ZBEOWXbMK3A
+
+*** [2/3] Badges
+- [X] Artifacts available
+- [X] Artifacts evaluated and functional
+- [ ] Others
+
+
+*** [3/3] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo 
+- [X] commit used for the expes
+
+*** Software Environment
+- [X] apt
+- [ ] pip
+- [ ] list of packages with loose versions
+- [ ] list of packages with strict versions
+
+** ICE: Collaborating Memory and Process Management for User Experience on Resource-limited Mobile Devices
+
+close access
+
+** Diagnosing Kernel Concurrency Failures with AITIA
+
+pdf: http://cps.kaist.ac.kr/papers/jeong-aitia.pdf
+
+*** [0/3] Badges
+- [ ] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Others
+
+*** [0/3] Criteria
+- [ ] Artefact section in paper
+- [ ] Url of repo 
+- [ ] commit used for the expes
+
+** WAFFLE: Exposing Memory Ordering Bugs Efficiently with Active Delay Injection
+
+close access
+
+*** [2/3] Badges
+- [X] Artifacts available
+- [X] Artifacts evaluated and functional
+- [ ] Others
+
+** Model Checking Guided Testing for Distributed Systems
+
+pdf: https://dl.acm.org/doi/pdf/10.1145/3552326.3587442
+
+url: https://github.com/tcse-iscas/Mocket
+
+zenodo: https://zenodo.org/records/7654817
+
+*** [1/3] Badges
+- [X] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Others
+
+*** [3/4] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo 
+- [ ] commit used for the expes
+- [X] frozen version of code (zenodo, swh)
+
+*** Software Environment
+- [ ] apt
+- [ ] pip
+- [ ] list of packages no version
+- [X] list of packages with loose versions
+- [ ] list of packages with strict versions
+
+** MariusGNN: Resource-Efficient Out-of-Core Training of Graph Neural Networks
+
+pdf: https://arxiv.org/pdf/2202.02365.pdf
+
+url: https://github.com/marius-team/marius
+
+*** [2/3] Badges
+- [X] Artifacts available
+- [X] Artifacts evaluated and functional
+- [ ] Others
+
+*** [4/6] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo (actually gave the link to the project website, where there is the github)
+- [ ] commit used for the expes
+- [X] branch used for the expes
+- [ ] frozen version of code (zenodo, swh)
+- [X] provide a minimal working example
+
+*** Software Environment
+- [ ] apt
+- [ ] pip
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [X] list of packages with strict versions
+- [X] docker
+  - [X] apt
+  - [X] pip
+  - [X] curl without check
+  - [X] cuda image
+
+** Accelerating Graph Mining Systems with Subgraph Morphing
+
+pdf: https://web.cs.ucla.edu/~harryxu/papers/morphing-eurosys23.pdf
+
+#+BEGIN_EXAMPLE
+All our experiments were run on a Google Cloud
+n2-highcpu-32 instance, equipped with a 2.8GHz Intel Cas-
+cade Lake processor with 32 logical cores and 32GB of RAM.
+Across all experiments, we measured the end-to-end exe-
+cution time, which includes input pattern transformation,
+mining computation, as well as result transformation
+#+END_EXAMPLE
+
+link the repo was **REMOVED**
+
+*** [1/3] Badges
+- [X] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Others
+
+*** [1/6] Criteria
+- [X] Artefact section in paper
+- [ ] Url of repo 
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [ ] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+
+
+*** Software Environment
+- [X] apt
+- [ ] pip
+- [ ] list of packages no version
+- [X] list of packages with loose versions
+- [ ] list of packages with strict versions
+- [ ] docker
+  - [ ] apt
+  - [ ] pip
+  - [ ] curl without check
+  - [ ] cuda image
+
+** TEA: A General-Purpose Temporal Graph Random Walk Engine
+
+pdf: https://dl.acm.org/doi/pdf/10.1145/3552326.3567491
+
+*** [0/3] Badges
+- [ ] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Others
+
+** ALT: Breaking the Wall between Data Layout and Loop Optimizations for Deep Learning Compilation
+
+pdf: https://arxiv.org/pdf/2210.12415v2.pdf
+
+*** [0/3] Badges
+- [ ] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Others
+
+** REFL: Resource-Efficient Federated Learning
+
+pdf: https://arxiv.org/pdf/2111.01108.pdf
+
+url: https://github.com/ahmedcs/REFL
+
+*** [2/3] Badges
+- [X] Artifacts available
+- [X] Artifacts evaluated and functional
+- [ ] Others
+
+*** [1/6] Criteria
+- [ ] Artefact section in paper
+- [X] Url of repo 
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [ ] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+
+*** Software Environment
+- [X] conda
+- [ ] apt
+- [ ] pip
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [ ] list of packages with strict versions
+- [ ] docker
+  - [ ] apt
+  - [ ] pip
+  - [ ] curl without check
+  - [ ] cuda image
+
+** Tabi: An Efficient Multi-Level Inference System for Large Language Models
+
+pdf: https://yidingwang.xyz/public/files/tabi_eurosys23.pdf
+
+*** [0/3] Badges
+- [ ] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Others
+
+** Fast and Efficient Model Serving Using Multi-GPUs with Direct-Host-Access
+
+pdf: https://jeongseob.github.io/papers/jeong_eurosys23.pdf
+
+url: https://github.com/csl-ajou/DeepPlan
+
+#+BEGIN_EXAMPLE
+To evaluate DL inference performance, we use a p3.8xlarge
+instance in AWS which has four NVIDIA V100 (16GB) GPUs
+with NVSwitch.
+#+END_EXAMPLE
+
+*** [3/4] Badges
+- [X] Artifacts available
+- [X] Artifacts evaluated and functional
+- [X] Results Reproduced
+- [ ] Others
+
+*** [2/6] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo 
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [ ] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+
+*** Software Environment
+- [ ] conda
+- [X] apt
+- [X] pip
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [X] list of packages with strict versions
+- [ ] docker
+  - [ ] apt
+  - [ ] pip
+  - [ ] curl without check
+  - [ ] cuda image
+
+** DiLOS: Do Not Trade Compatibility for Performance in Memory Disaggregation
+
+pdf: https://www.pusnow.com/publication/dilos-eurosys23.pdf
+
+url: https://github.com/ANLAB-KAIST/dilos
+
+*** [3/4] Badges
+- [X] Artifacts available
+- [X] Artifacts evaluated and functional
+- [X] Results Reproduced
+- [ ] Others
+
+*** [2/6] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo (but broken or private)
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [ ] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+
+
+** vTMM: Tiered Memory Management for Virtual Machines
+
+close access
+
+** Making Dynamic Page Coalescing Effective on Virtualized Clouds
+
+pdf: https://web.njit.edu/~dingxn/papers/gemini.pdf
+
+*** [0/4] Badges
+- [ ] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+
+** Omni-Paxos: Breaking the Barriers of Partial Connectivity
+
+pdf: https://dl.acm.org/doi/pdf/10.1145/3552326.3587441
+
+url: https://github.com/haraldng/omnipaxos-artifacts
+
+zenodo: https://zenodo.org/records/7737776
+
+
+#+BEGIN_EXAMPLE
+Hardware dependencies. Our evaluation was per-
+formed on Google Cloud Compute using nine VM instances
+of e2-standard-8, each with 8 vCPUs, 32 GB memory, and
+32GB boot disk size
+#+END_EXAMPLE
+
+*** [1/4] Badges
+- [X] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+*** [3/6] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [X] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+
+*** Software Environment
+- [ ] conda
+- [X] apt
+- [ ] pip
+- [X] curl without check
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [ ] list of packages with strict versions
+- [ ] docker
+  - [ ] apt
+  - [ ] pip
+  - [ ] curl without check
+  - [ ] cuda image
+
+** CFS: Scaling Metadata Service for Distributed File System via Pruned Scope of Critical Sections
+
+pdf: https://dl.acm.org/doi/pdf/10.1145/3552326.3587443 
+
+url: https://github.com/cfs-for-review/CFS-for-review
+
+*** [0/4] Badges
+- [ ] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+*** [1/6] Criteria
+- [ ] Artefact section in paper
+- [X] Url of repo (not really.... just some screenshots of the results)
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [ ] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+
+
+** OLPart: Online Learning based Resource Partitioning for Colocating Multiple Latency-Critical Jobs on Commodity Computers
+
+pdf: https://zenodo.org/record/7726928/files/OLPart_Camera_Ready.pdf
+
+url: https://github.com/crbnk/OpenOLPart
+
+*** [1/4] Badges
+- [X] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+*** [2/6] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [ ] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+
+
+*** Software Environment
+- [ ] conda
+- [X] apt
+- [ ] pip
+- [ ] curl without check
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [ ] list of packages with strict versions
+- [-] docker
+  - [X] apt
+  - [ ] pip
+  - [X] curl without check
+  - [ ] cuda image
+  - [X] tagged image
+
+
+** Palette Load Balancing: Locality Hints for Serverless Functions
+
+pdf: https://dspace.mit.edu/bitstream/handle/1721.1/150837/3552326.3567496.pdf?sequence=1&isAllowed=y
+
+#+BEGIN_EXAMPLE
+Setup. Unless otherwise noted, we run our experiments
+using a client VM, and a cluster of up to 48 worker VMs. The
+client VM is an Azure Standard E8asv4 VMs with 8 vCPUs
+(AMD EPYC 7452) and 64GiB of RAM, running Ubuntu 18.04.
+Each function worker runs on an Azure Standard D4sv3 with
+4 vCPUs (Intel Xeon E5-2673) and 16 GiB of RAM, running
+Ubuntu Linux v20.04
+#+END_EXAMPLE
+
+*** [0/4] Badges
+- [ ] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+** With Great Freedom Comes Great Opportunity: Rethinking Resource Allocation for Serverless Functions
+
+pdf: https://arxiv.org/pdf/2105.14845.pdf FROM 2021 ???
+
+url: https://github.com/MBtech/rethinking-serverless
+
+#+BEGIN_EXAMPLE
+The code to enable anyone to create EC2 infrastructure in AWS, setup OpenFaaS and run a benchmark to collect performance data is not yet part of this repository.
+#+END_EXAMPLE
+
+*** [2/4] Badges
+- [X] Artifacts available
+- [X] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+
+*** [0/6] Criteria
+- [ ] Artefact section in paper
+- [ ] Url of repo
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [ ] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+
+
+*** Software Environment
+- [ ] conda
+- [X] apt
+- [X] pip
+- [ ] curl without check
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [ ] list of packages with strict versions
+- [ ] docker
+  - [ ] apt
+  - [ ] pip
+  - [ ] curl without check
+  - [ ] cuda image
+  - [ ] tagged image
+
+
+** Groundhog: Efficient Request Isolation in FaaS
+
+pdf: https://dl.acm.org/doi/pdf/10.1145/3552326.3567503
+
+url: https://gitlab.mpi-sws.org/groundhog/groundhog/-/tree/main?ref_type=heads
+
+detailed instructions: https://gitlab.mpi-sws.org/groundhog/instructions
+
+2 commits in the repo
+
+*** [3/4] Badges
+- [X] Artifacts available
+- [X] Artifacts evaluated and functional
+- [X] Results Reproduced
+- [ ] Others
+
+*** [4/8] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [ ] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+- [X] estimation of human and compute time of each figure/expe
+- [X] repo with data (but self-hosted): https://groundhog.mpi-sws.org/downloads/DATA-EUROSYS23.tgz
+  
+
+
+
+*** Software Environment
+- [ ] conda
+- [X] apt
+- [ ] pip
+- [X] VM binaries
+- [X] VM build script
+- [ ] curl without check
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [ ] list of packages with strict versions
+- [-] docker/vm
+  - [X] apt
+  - [ ] pip
+  - [X] curl/git without check
+  - [ ] cuda image
+  - [ ] tagged image
+
+** Understanding and Optimizing Workloads for Unified Resource Management in Large Cloud Platforms
+
+didnt find pdf
+
+** Fail through the Cracks: Cross-System Interaction Failures in Modern Cloud Systems
+
+pdf: https://dprg.cs.uiuc.edu/data/files/2023/eurosys23-fall-final-CSI.pdf
+
+*** [3/4] Badges
+- [X] Artifacts available
+- [X] Artifacts evaluated and functional
+- [X] Results Reproduced
+- [ ] Others
+
+*** [4/10] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [ ] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+- [ ] estimation of human and compute time of each figure/expe
+- [ ] repo with data
+- [X] binder notebook
+- [X] docker images on dockerhub
+  
+
+
+
+*** Software Environment
+- [ ] conda
+- [ ] apt
+- [ ] pip
+- [ ] VM binaries
+- [ ] VM build script
+- [ ] curl without check
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [ ] list of packages with strict versions
+- [-] docker/vm
+  - [X] apt
+  - [ ] pip
+  - [X] curl/git without check
+  - [ ] cuda image
+  - [ ] tagged image
+
+** LogGrep: Fast and Cheap Cloud Log Storage by Exploiting both Static and Runtime Patterns
+
+pdf: https://dl.acm.org/doi/pdf/10.1145/3552326.3567484
+
+url: https://github.com/THUBear-wjy/LogGrep/tree/master
+
+*** [2/4] Badges
+- [X] Artifacts available
+- [X] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+*** [4/11] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [ ] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+- [ ] estimation of human and compute time of each figure/expe
+- [X] repo with data
+- [ ] binder notebook
+- [ ] docker images on dockerhub
+- [X] open/cleaned logs
+
+*** Software Environment
+- [ ] conda
+- [ ] apt
+- [ ] pip
+- [ ] VM binaries
+- [ ] VM build script
+- [ ] curl without check
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [X] list of packages with strict versions
+- [ ] docker/vm
+  - [ ] apt
+  - [ ] pip
+  - [ ] curl/git without check
+  - [ ] cuda image
+  - [ ] tagged image
+
+** Aggregate VM: Why Reduce or Evict VM's Resources When You Can Borrow Them From Other Nodes?
+
+pdf: https://dl.acm.org/doi/pdf/10.1145/3552326.3587452 
+
+url: https://github.com/systems-nuts/FragVisor/
+
+*** [1/4] Badges
+- [X] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+*** [3/11] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [X] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+- [ ] estimation of human and compute time of each figure/expe
+- [ ] repo with data
+- [ ] binder notebook
+- [ ] docker images on dockerhub
+- [ ] open/cleaned logs
+
+*** Software Environment
+- [ ] conda
+- [ ] apt
+- [ ] pip
+- [ ] VM binaries
+- [ ] VM build script
+- [ ] curl without check
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [ ] list of packages with strict versions
+- [ ] docker/vm
+  - [ ] apt
+  - [ ] pip
+  - [ ] curl/git without check
+  - [ ] cuda image
+  - [ ] tagged image
+
+** R2C: AOCR-Resilient Diversity with Reactive and Reflective Camouflage
+
+didnt find pdf
+
+url: https://github.com/ucsrl/r2c-benchmarking
+
+*** [2/4] Badges
+- [X] Artifacts available
+- [X] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+*** Software Environment
+- [ ] conda
+- [X] apt
+- [X] pip
+- [ ] VM binaries
+- [ ] VM build script
+- [ ] curl without check
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [ ] list of packages with strict versions
+- [ ] docker/vm
+  - [ ] apt
+  - [ ] pip
+  - [ ] curl/git without check
+  - [ ] cuda image
+  - [ ] tagged image
+
+** Safe and Practical GPU Computation in TrustZone
+
+pdf: https://dl.acm.org/doi/pdf/10.1145/3552326.3567483
+
+url: https://github.com/bakhi/GPUReplay
+
+*** [0/4] Badges
+- [ ] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+*** Software Environment
+- [ ] conda
+- [ ] apt
+- [ ] pip
+- [ ] VM binaries
+- [ ] VM build script
+- [ ] curl without check
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [ ] list of packages with strict versions
+- [ ] docker/vm
+  - [ ] apt
+  - [ ] pip
+  - [ ] curl/git without check
+  - [ ] cuda image
+  - [ ] tagged image
+
+** Dissecting BFT Consensus: In Trusted Components we Trust!
+
+pdf: https://dl.acm.org/doi/pdf/10.1145/3552326.3587455
+
+url: https://github.com/resilientdb/resilientdb
+
+#+BEGIN_EXAMPLE
+We use the Oracle Cloud Infrastructure (OCI) and deploy
+up to 97 replicas on VM.Standard.E3.Flex machines (16 cores
+and 16 GiB RAM) with 10 GiB NICs.
+#+END_EXAMPLE
+
+*** [3/4] Badges
+- [X] Artifacts available
+- [X] Artifacts evaluated and functional
+- [X] Results Reproduced
+- [ ] Others
+
+*** [3/11] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [X] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+- [ ] estimation of human and compute time of each figure/expe
+- [ ] repo with data
+- [ ] binder notebook
+- [ ] docker images on dockerhub
+- [ ] open/cleaned logs
+
+*** Software Environment
+- [ ] conda
+- [X] apt
+- [ ] pip
+- [ ] VM binaries
+- [ ] VM build script
+- [X] curl without check
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [ ] list of packages with strict versions
+- [ ] docker/vm
+  - [ ] apt
+  - [ ] pip
+  - [ ] curl/git without check
+  - [ ] cuda image
+  - [ ] tagged image
+
+** Diablo: A Benchmark Suite for Blockchains
+
+pdf: https://gramoli.github.io/pubs/Eurosys23-Diablo.pdf
+
+url: https://diablobench.github.io/fresh-install
+
+On AWS
+
+*** [2/4] Badges
+- [X] Artifacts available
+- [X] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+ 
+*** [2/11] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [ ] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+- [ ] estimation of human and compute time of each figure/expe
+- [ ] repo with data
+- [ ] binder notebook
+- [ ] docker images on dockerhub
+- [ ] open/cleaned logs
+
+*** Software Environment
+- [ ] conda
+- [X] apt
+- [X] pip
+- [X] VM binaries
+- [ ] VM build script
+- [X] curl/git without check
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [ ] list of packages with strict versions
+- [ ] docker/vm
+  - [ ] apt
+  - [ ] pip
+  - [ ] curl/git without check
+  - [ ] cuda image
+  - [ ] tagged image
+
+** FrozenHot Cache: Rethinking Cache Management for Modern Hardware
+
+pdf: https://dl.acm.org/doi/pdf/10.1145/3552326.3587446
+
+url: https://github.com/ziyueqiu/FrozenHot
+
+*** [2/4] Badges
+- [X] Artifacts available
+- [X] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+*** [3/11] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [X] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+- [ ] estimation of human and compute time of each figure/expe
+- [ ] repo with data
+- [ ] binder notebook
+- [ ] docker images on dockerhub
+- [ ] open/cleaned logs
+
+*** Software Environment
+- [ ] conda
+- [X] apt
+- [ ] pip
+- [ ] VM binaries
+- [ ] VM build script
+- [ ] curl/git without check
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [ ] list of packages with strict versions
+- [ ] docker/vm
+  - [ ] apt
+  - [ ] pip
+  - [ ] curl/git without check
+  - [ ] cuda image
+  - [ ] tagged image
+
+
+** Nephele: Extending Virtualization Environments for Cloning Unikernel-based VMs
+
+url: https://github.com/nephele-vm/experiments
+
+pdf: http://nets.cs.pub.ro/~costin/files/nephele.pdf
+
+*** [1/4] Badges
+- [X] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+*** [3/11] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [X] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+- [ ] estimation of human and compute time of each figure/expe
+- [ ] repo with data
+- [ ] binder notebook
+- [ ] docker images on dockerhub
+- [ ] open/cleaned logs
+
+*** Software Environment
+- [ ] conda
+- [ ] apt
+- [ ] pip
+- [ ] VM binaries
+- [ ] VM build script
+- [ ] curl/git without check
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [ ] list of packages with strict versions
+- [X] from binary image ?
+- [ ] docker/vm
+  - [ ] apt
+  - [ ] pip
+  - [ ] curl/git without check
+  - [ ] cuda image
+  - [ ] tagged image
+
+**  Unikernel Linux (UKL)
+
+pdf: https://dspace.mit.edu/bitstream/handle/1721.1/150839/3552326.3587458.pdf?sequence=1&isAllowed=y
+
+url: https://github.com/unikernelLinux/ukl
+
+*** [2/4] Badges
+- [X] Artifacts available
+- [X] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+
+*** [1/11] Criteria
+- [ ] Artefact section in paper
+- [X] Url of repo
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [ ] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+- [ ] estimation of human and compute time of each figure/expe
+- [ ] repo with data
+- [ ] binder notebook
+- [ ] docker images on dockerhub
+- [ ] open/cleaned logs
+
+*** Software Environment
+- [ ] conda
+- [ ] apt
+- [ ] pip
+- [ ] VM binaries
+- [ ] VM build script
+- [ ] curl/git without check
+- [X] list of packages no version
+- [ ] list of packages with loose versions
+- [ ] list of packages with strict versions
+- [ ] from binary image ?
+- [ ] docker/vm
+  - [ ] apt
+  - [ ] pip
+  - [ ] curl/git without check
+  - [ ] cuda image
+  - [ ] tagged image
+
+** FlexPass: A Case for Flexible Credit-based Transport for Datacenter Networks
+
+pdf: https://baiwei0427.github.io/papers/flexpass-eurosys2023.pdf
+
+
+*** [3/4] Badges
+- [X] Artifacts available
+- [X] Artifacts evaluated and functional
+- [X] Results Reproduced
+- [ ] Others
+
+*** [3/11] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [ ] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+- [ ] estimation of human and compute time of each figure/expe
+- [ ] repo with data
+- [ ] binder notebook
+- [X] docker images on dockerhub/somewhere
+- [ ] open/cleaned logs
+
+*** Software Environment
+- [ ] conda
+- [ ] apt
+- [ ] pip
+- [ ] VM binaries
+- [ ] VM build script
+- [ ] curl/git without check
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [ ] list of packages with strict versions
+- [ ] from binary image ?
+- [-] docker/vm
+  - [X] apt
+  - [X] pip
+  - [X] curl/git without check
+  - [ ] cuda image
+  - [X] tagged image
+
+** Saba: Rethinking Datacenter Network Allocation from Application's Perspective
+
+pdf: https://ease-lab.github.io/ease_website/pubs/SABA_EUROSYS23.pdf
+
+*** [0/4] Badges
+- [ ] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+** A2TP: Aggregator-aware In-network Aggregation for Multi-tenant Learning
+
+didnt find pdf
+
+*** [0/4] Badges
+- [ ] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+** Viper: A Fast Snapshot Isolation Checker
+
+pdf: https://naizhengtan.github.io/doc/papers/viper23zhang.pdf
+
+#+BEGIN_EXAMPLE
+All databases are configured to be SI.
+TiDB runs on three Google Cloud machines
+#+END_EXAMPLE
+
+*** [3/4] Badges
+- [X] Artifacts available
+- [X] Artifacts evaluated and functional
+- [X] Results Reproduced
+- [ ] Others
+
+*** [3/12] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [ ] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+- [ ] estimation of human and compute time of each figure/expe
+- [ ] repo with data
+- [ ] binder notebook
+- [ ] docker images on dockerhub/somewhere
+- [ ] open/cleaned logs
+- [X] google fucking docs
+
+*** Software Environment
+- [ ] conda
+- [X] apt
+- [ ] pip
+- [ ] VM binaries
+- [ ] VM build script
+- [ ] curl/git without check
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [ ] list of packages with strict versions
+- [ ] from binary image ?
+- [-] docker/vm
+  - [X] apt
+  - [X] pip
+  - [X] curl/git without check
+  - [ ] cuda image
+  - [X] tagged image
+
+** Integrating Non-Volatile Main Memory in a Deterministic Database
+
+didnt find pdf
+
+*** [1/4] Badges
+- [X] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+** Morty: Scaling Concurrency Control with Re-Execution
+
+pdf: https://www.cs.cornell.edu/~matthelb/papers/morty-eurosys23.pdf
+
+url: https://github.com/matthelb/morty/ dead or private
+
+*** [0/4] Badges
+- [ ] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+** RIO: Order-Preserving and CPU-Efficient Remote Storage Access
+
+pdf: https://dl.acm.org/doi/pdf/10.1145/3552326.3567495
+
+*** [0/4] Badges
+- [ ] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+** Chipmunk: Investigating Crash-Consistency in Persistent-Memory File Systems
+
+pdf: https://dl.acm.org/doi/pdf/10.1145/3552326.3567498
+
+url: https://github.com/utsaslab/chipmunk
+
+*** [0/4] Badges
+- [ ] Artifacts available
+- [ ] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+*** [1/12] Criteria
+- [ ] Artefact section in paper
+- [X] Url of repo
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [ ] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+- [ ] estimation of human and compute time of each figure/expe
+- [ ] repo with data
+- [ ] binder notebook
+- [ ] docker images on dockerhub/somewhere
+- [ ] open/cleaned logs
+- [ ] google fucking docs
+
+*** Software Environment
+- [ ] conda
+- [X] apt
+- [X] pip
+- [ ] VM binaries
+- [X] VM build script
+- [ ] curl/git without check
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [ ] list of packages with strict versions
+- [ ] from binary image ?
+- [ ] docker/vm
+  - [ ] apt
+  - [ ] pip
+  - [ ] curl/git without check
+  - [ ] cuda image
+  - [ ] tagged image
+
+** Mumak: Efficient and Black-Box Bug Detection for Persistent Memory
+
+pdf: https://dl.acm.org/doi/pdf/10.1145/3552326.3587447
+
+url: https://github.com/task3r/mumak
+
+zenodo: https://zenodo.org/records/7737117
+
+*** [2/4] Badges
+- [X] Artifacts available
+- [X] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+*** [5/12] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [X] frozen version of code (zenodo, swh)
+- [X] provide a minimal working example
+- [X] estimation of human and compute time of each figure/expe
+- [ ] repo with data
+- [ ] binder notebook
+- [ ] docker images on dockerhub/somewhere
+- [ ] open/cleaned logs
+- [ ] google fucking docs
+
+*** Software Environment
+- [ ] conda
+- [ ] apt
+- [ ] pip
+- [ ] VM binaries
+- [ ] VM build script
+- [ ] curl/git without check
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [ ] list of packages with strict versions
+- [ ] from binary image ?
+- [-] docker/vm
+  - [X] apt
+  - [ ] pip
+  - [X] curl/git without check
+  - [ ] cuda image
+  - [X] tagged image
+
+** NearPM: A Near-Data Processing System for Storage-Class Applications
+
+pdf: https://dl.acm.org/doi/pdf/10.1145/3552326.3587456
+
+*** [2/4] Badges
+- [X] Artifacts available
+- [X] Artifacts evaluated and functional
+- [ ] Results Reproduced
+- [ ] Others
+
+*** [2/12] Criteria
+- [X] Artefact section in paper
+- [X] Url of repo
+- [ ] commit used for the expes
+- [ ] branch used for the expes
+- [ ] frozen version of code (zenodo, swh)
+- [ ] provide a minimal working example
+- [ ] estimation of human and compute time of each figure/expe
+- [ ] repo with data
+- [ ] binder notebook
+- [ ] docker images on dockerhub/somewhere
+- [ ] open/cleaned logs
+- [ ] google fucking docs
+
+*** Software Environment
+- [X] propritiry sw
+- [ ] conda
+- [ ] apt
+- [ ] pip
+- [ ] VM binaries
+- [ ] VM build script
+- [ ] curl/git without check
+- [ ] list of packages no version
+- [ ] list of packages with loose versions
+- [ ] list of packages with strict versions
+- [ ] from binary image ?
+- [ ] docker/vm
+  - [ ] apt
+  - [ ] pip
+  - [ ] curl/git without check
+  - [ ] cuda image
+  - [ ] tagged image

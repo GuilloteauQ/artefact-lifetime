@@ -1,0 +1,68 @@
+---
+output:
+  pdf_document:
+    keep_tex: true
+    fig_caption: true
+    latex_engine: pdflatex
+    template: template.tex
+bibliography: references.bib
+header-includes:
+  - \usepackage{hyperref}
+  - \usepackage{array}
+  - \usepackage{caption}
+  - \usepackage{graphicx}
+  - \usepackage{siunitx}
+  - \usepackage[table]{xcolor}
+  - \usepackage{multirow}
+  - \usepackage{hhline}
+  - \usepackage{calc}
+  - \usepackage{tabularx}
+  - \usepackage{fontawesome}
+  - \usepackage[para,online,flushleft]{threeparttable}
+title: "A Pandoc Markdown Article Starter and Template"
+author:
+- name: Quentin Guilloteau
+  email: "Quentin.Guilloteau[at]univ-grenoble-alpes.fr"
+  institution: Univ. Grenoble Alpes, Inria, CNRS, LIG
+  city: Grenoble
+  country: France
+abstract: "This document provides an introduction to R Markdown, argues for its benefits, and presents a sample manuscript template intended for an academic audience. I include basic syntax to R Markdown and a minimal working example of how the analysis itself can be conducted within R with the `knitr` package."
+keywords: "pandoc, r markdown, knitr"
+params:
+    dataset: "../data/eurosys23.csv"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE,
+                      message=FALSE, warning=FALSE,
+                      echo=FALSE,
+                      fig.path='figs/',
+                      fig.align="center",
+                      cache.path = '_cache/')
+library(tidyverse)
+theme_set(theme_bw())
+
+df <- read_csv(params$dataset, col_names = T)
+```
+
+# Introduction
+
+hello
+
+# EuroSys 2023
+
+
+```{r, out.width="50%"}
+df %>%
+  group_by(doi) %>%
+  summarize(badges = badges) %>%
+  ggplot(aes(x = badges)) +
+  geom_bar()
+
+```
+
+```{r, out.width="50%"}
+df %>%
+  ggplot(aes(x = sw_env_method)) +
+  geom_bar()
+```

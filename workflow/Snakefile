@@ -1,0 +1,48 @@
+
+CONFERENCES = [ "eurosys23" ]
+
+rule all:
+    input:
+        "paper/main.pdf",
+
+
+def aggregate_input(wildcards):
+    return expand("conferences/{conf}/{i}.yaml", conf=wildcards.conference,i=glob_wildcards(os.path.join(f"conferences/{wildcards.conference}", "{i}.yaml")).i)
+
+rule generate_paper:
+    input:
+        "flake.nix",
+        "flake.lock",
+        "paper/template.tex",
+        "paper/references.bib",
+        main="paper/main.Rmd",
+        data="data/all.csv"
+    output:
+        "paper/main.pdf"
+    shell:
+        "cd paper; nix develop .#rmdshell --command Rscript -e \"rmarkdown::render('main.Rmd',params= list(dataset='../{input.data}'), output_file='main.pdf')\""
+
+rule merge_csv:
+    input:
+        "flake.nix",
+        "flake.lock",
+        script="workflow/scripts/merge_csv.R",
+        csvs=expand(["data/conferences/{conference}.csv"], conference=CONFERENCES)
+    output:
+        "data/all.csv"
+    shell:
+        "nix develop .#rshell --command Rscript {input.script} {input.csvs} {output}"
+
+rule generate_csv:
+    input:
+        "flake.nix",
+        "flake.lock",
+        "forms/eval_forms.py",
+        papers=aggregate_input
+
+    output:
+        "data/conferences/{conference}.csv"
+    shell:
+        "nix run .#forms -- check -o {output} -c {wildcards.conference} {input.papers}"
+
+

@@ -1,0 +1,102 @@
+% This is samplepaper.tex, a sample chapter demonstrating the
+% LLNCS macro package for Springer Computer Science proceedings;
+% Version 2.21 of 2022/01/12
+%
+% \documentclass[runningheads]{llncs}
+\documentclass[a4paper]{article}
+\usepackage{authblk}
+
+\usepackage[margin=20mm]{geometry}
+%
+\usepackage[T1]{fontenc}
+% T1 fonts will be used to generate the final print and online PDFs,
+% so please use T1 fonts in your manuscript whenever possible.
+% Other font encondings may result in incorrect characters.
+%
+\usepackage[backend=biber, style=numeric]{biblatex}
+% \usepackage[backend=biber, style=lncs]{biblatex}
+\addbibresource{$bibliography$}
+
+
+%\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following two lines
+% to display URLs in blue roman font according to Springer's eBook style:
+%\usepackage{color}
+%\renewcommand\UrlFont{\color{blue}\rmfamily}
+%
+\begin{document}
+%
+\title{$title$}
+%
+%\titlerunning{Abbreviated paper title}
+% If the paper title is too long for the running head, you can set
+% an abbreviated paper title here
+%
+% \author{
+% $for(author)$
+% 	% $author.name$\inst{$author.affiliation$}\orcidID{$author.orcid$}
+% 	$author.name$%\orcidID{$author.orcid$}
+%     % $sep$ \and
+% $endfor$
+% }
+$for(author)$
+	% $author.name$\inst{$author.affiliation$}\orcidID{$author.orcid$}
+\author{
+	$author.name$%\orcidID{$author.orcid$}
+}
+
+    % $sep$ \and
+$endfor$
+
+\affil{
+$for(affiliation)$
+$affiliation.institute$\footnote{\texttt{$affiliation.email$}}
+$endfor$
+}
+
+% \institute{
+% $for(affiliation)$
+% $affiliation.institute$\\
+% \email{$affiliation.email$}
+% $sep$ \and
+% $endfor$
+% }
+
+\date{}
+
+% First names are abbreviated in the running head.
+% If there are more than two authors, 'et al.' is used.
+%
+\maketitle              % typeset the header of the contribution
+%
+\begin{abstract}
+$abstract$
+\end{abstract}
+
+% \keywords{%
+% $for(keywords)$
+%     $keywords$ $sep$ \and
+% $endfor$
+% }
+
+$body$
+
+\printbibliography
+%
+%
+%
+\end{document}
