@@ -29,7 +29,7 @@ author:
 abstract: "This document provides an introduction to R Markdown, argues for its benefits, and presents a sample manuscript template intended for an academic audience. I include basic syntax to R Markdown and a minimal working example of how the analysis itself can be conducted within R with the `knitr` package."
 keywords: "pandoc, r markdown, knitr"
 params:
-    dataset: "../data/all_plop.csv"
+    dataset: "../data/all.csv"
 ---
 
 ```{r setup, include=FALSE}
@@ -40,7 +40,7 @@ knitr::opts_chunk$set(cache=FALSE,
                       fig.align="center",
                       cache.path = '_cache/')
 library(tidyverse)
-theme_set(theme_bw())
+theme_set(theme_bw() + theme(legend.position = "bottom"))
 
 df <- read_csv(params$dataset, col_names = T)
 ```
@@ -49,20 +49,80 @@ df <- read_csv(params$dataset, col_names = T)
 
 hello
 
-# EuroSys 2023
+# Study
+
+
+Number of papers per conferences:
+
+```{r }
+df %>%
+  distinct(doi, conference) %>%
+  group_by(conference) %>%
+  summarize(n = n()) %>%
+  knitr::kable(format="latex", align="rc", caption="Number of papers considered by conferences.", booktabs = TRUE)
+```
 
 
 ```{r, out.width="50%"}
 df %>%
-  group_by(doi) %>%
+  group_by(doi, conference) %>%
   summarize(badges = max(badges)) %>%
-  ggplot(aes(x = badges)) +
-  geom_bar()
-
+  ggplot(aes(x = badges, fill=conference)) +
+  geom_bar() +
+  ggtitle("Distribution of the number of badges per paper") +
+  xlab("Number of badges")
 ```
 
 ```{r, out.width="50%"}
 df %>%
-  ggplot(aes(x = sw_env_method)) +
-  geom_bar()
+  ggplot(aes(x = sw_env_method, fill = conference)) +
+  geom_bar() + 
+  theme(axis.text.x = element_text(angle = 45, hjust=1))
+```
+
+
+```{r, out.width="50%"}
+df %>%
+  filter(badges > 0) %>%
+  ggplot(aes(x = artefact_section, fill = conference)) +
+  geom_bar() +
+  ggtitle("Does a paper with at least one badge has the `Artifact` section?") +
+  xlab("")
+```
+
+
+
+```{r, out.width="50%"}
+df %>%
+  filter(repo_url) %>%
+  ggplot(aes(x = nb_commits_repo, fill = conference)) +
+  geom_histogram() +
+  xlab("") +
+  ggtitle("Number of commits in the repositories")
+```
+
+```{r, out.width="50%"}
+df %>%
+  filter(repo_url) %>%
+  ggplot(aes(x = how_shared, fill = conference)) +
+  geom_bar() +
+  xlab("") +
+  ggtitle("How was the repository shared?")
+```
+```{r, out.width="50%"}
+df %>%
+  filter(repo_url & how_shared == "git") %>%
+  ggplot(aes(x = pinned_version, fill = conference)) +
+  geom_bar() +
+  xlab("") +
+  ggtitle("When shared with only `git`, was the commit used fixed?")
+```
+
+
+```{r, out.width="50%"}
+df %>%
+  ggplot(aes(x = experimental_setup, fill = conference)) +
+  geom_bar() +
+  ggtitle("Experimental setup used") +
+  xlab("")
 ```
