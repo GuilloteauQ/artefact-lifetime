@@ -29,11 +29,11 @@ author:
 abstract: "This document provides an introduction to R Markdown, argues for its benefits, and presents a sample manuscript template intended for an academic audience. I include basic syntax to R Markdown and a minimal working example of how the analysis itself can be conducted within R with the `knitr` package."
 keywords: "pandoc, r markdown, knitr"
 params:
-    dataset: "../data/eurosys23.csv"
+    dataset: "../data/all_plop.csv"
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(cache=TRUE,
+knitr::opts_chunk$set(cache=FALSE,
                       message=FALSE, warning=FALSE,
                       echo=FALSE,
                       fig.path='figs/',
@@ -55,7 +55,7 @@ hello
 ```{r, out.width="50%"}
 df %>%
   group_by(doi) %>%
-  summarize(badges = badges) %>%
+  summarize(badges = max(badges)) %>%
   ggplot(aes(x = badges)) +
   geom_bar()
 

@@ -1,5 +1,6 @@
 
-CONFERENCES = [ "eurosys23" ]
+#CONFERENCES = glob_wildcards(os.path.join(f"conferences/", "{i}")).i
+CONFERENCES = [d for d in os.listdir("conferences") if os.path.isdir(os.path.join("conferences", d))]
 
 rule all:
     input:

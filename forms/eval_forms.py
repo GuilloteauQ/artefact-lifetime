@@ -35,6 +35,7 @@ experimental_setup: "homemade" # some random machines
 pinned_version: false # is the version of the code used pinned? commit/zenodo/swh?
 nb_commits_repo: 0 # how many commits in the repo?
 how_shared: "git" # how the repo/code was shared?
+# how_shared: "git+zenodo"
 # how_shared: "zenodo"
 # how_shared: "swh"
 # how_shared: "cloud" # google docs or similar
@@ -50,7 +51,7 @@ bin_cache: false # is the binary of the image stored somewhere?
 bin_cache_long_term: false # can the stored image be available "forever"? (e.g. zenodo)
 recipe_in_repo: false
 sw_env:
-  - list
+  # - list
   # - list_loose_version # like >=
   # - list_strict_version # like ==
   # - apt_commands # or other package managers
