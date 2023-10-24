@@ -43,6 +43,7 @@ library(tidyverse)
 theme_set(theme_bw() + theme(legend.position = "bottom"))
 
 df <- read_csv(params$dataset, col_names = T)
+df_unique <- df %>% group_by(doi) %>% top_n(1) %>% ungroup()
 ```
 
 # Introduction
@@ -64,9 +65,7 @@ df %>%
 
 
 ```{r, out.width="50%"}
-df %>%
-  group_by(doi, conference) %>%
-  summarize(badges = max(badges)) %>%
+df_unique %>%
   ggplot(aes(x = badges, fill=conference)) +
   geom_bar() +
   ggtitle("Distribution of the number of badges per paper") +
@@ -82,7 +81,7 @@ df %>%
 
 
 ```{r, out.width="50%"}
-df %>%
+df_unique %>%
   filter(badges > 0) %>%
   ggplot(aes(x = artefact_section, fill = conference)) +
   geom_bar() +
@@ -93,7 +92,7 @@ df %>%
 
 
 ```{r, out.width="50%"}
-df %>%
+df_unique %>%
   filter(repo_url) %>%
   ggplot(aes(x = nb_commits_repo, fill = conference)) +
   geom_histogram() +
@@ -102,15 +101,16 @@ df %>%
 ```
 
 ```{r, out.width="50%"}
-df %>%
+df_unique %>%
   filter(repo_url) %>%
   ggplot(aes(x = how_shared, fill = conference)) +
   geom_bar() +
   xlab("") +
   ggtitle("How was the repository shared?")
 ```
+
 ```{r, out.width="50%"}
-df %>%
+df_unique %>%
   filter(repo_url & how_shared == "git") %>%
   ggplot(aes(x = pinned_version, fill = conference)) +
   geom_bar() +
@@ -120,7 +120,7 @@ df %>%
 
 
 ```{r, out.width="50%"}
-df %>%
+df_unique %>%
   ggplot(aes(x = experimental_setup, fill = conference)) +
   geom_bar() +
   ggtitle("Experimental setup used") +
