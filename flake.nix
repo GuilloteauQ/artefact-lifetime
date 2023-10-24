@@ -56,6 +56,7 @@
         rmdshell = with pkgs;
           mkShell { packages = [
               pandoc texlive.combined.scheme-full
+              rubber
               (rstudioWrapper.override{packages = [ rPackages.tidyverse rPackages.rmarkdown ];})
               (rWrapper.override{packages = [ rPackages.tidyverse rPackages.rmarkdown ];})];
           };

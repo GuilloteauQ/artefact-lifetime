@@ -3,7 +3,7 @@
 % Version 2.21 of 2022/01/12
 %
 % \documentclass[runningheads]{llncs}
-\documentclass[a4paper]{article}
+\documentclass[a4paper,table]{article}
 \usepackage{authblk}
 
 \usepackage[margin=20mm]{geometry}
@@ -13,24 +13,48 @@
 % so please use T1 fonts in your manuscript whenever possible.
 % Other font encondings may result in incorrect characters.
 %
-\usepackage[backend=biber, style=numeric]{biblatex}
+\usepackage[backend=bibtex, style=numeric]{biblatex}
 % \usepackage[backend=biber, style=lncs]{biblatex}
 \addbibresource{$bibliography$}
 
+$for(header-includes)$
+$header-includes$
+$endfor$
 
+\usepackage[table]{xcolor}
 \usepackage{booktabs}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
-\usepackage{graphicx}
+% \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{hyperref}
 \usepackage{longtable}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 
-$for(header-includes)$
-$header-includes$
-$endfor$
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\usepackage{cleveref}
+
+\newtcbtheorem[]{trap}{Pitfall}{colback=black!5,colframe=black!35,fonttitle=\bfseries}{th}
+
+\newcommand{\repro}{reproducibility}
+\newcommand{\Repro}{Reproducibility}
+\newcommand{\transpo}{\emph{Transposition}}
+\newcommand{\flavour}{\emph{flavour}}
+\newcommand{\flavours}{\emph{flavours}}
+\newcommand{\ie}{\emph{i.e.,}}
+\newcommand{\eg}{\emph{e.g.,}}
+\newcommand{\nix}{\emph{Nix}}
+\newcommand{\nixos}{\emph{NixOS}}
+\newcommand{\nxc}{\emph{NixOS Compose}}
+\newcommand{\enos}{\emph{EnOSlib}}
+\newcommand{\grid}{\emph{Grid'5000}}
+\newcommand{\kam}{\emph{Kameleon}}
+\newcommand{\kad}{\emph{Kadeploy}}
+\newcommand{\mel}{\emph{Melissa}}
+\newcommand{\store}{\emph{Nix Store}}
+
 % Used for displaying a sample figure. If possible, figure files should
 % be included in EPS format.
 %
