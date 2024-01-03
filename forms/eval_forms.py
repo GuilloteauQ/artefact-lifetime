@@ -128,6 +128,8 @@ def main():
             for f in args.form:
                 logging.info(f"Reading file {f}")
                 data = read_yaml(f)
+                if data['doi'] is None or len(data['doi']) == 0:
+                    data['doi'] = f
                 data['conference'] = args.conference
                 if data['sw_env'] is None or len(data['sw_env']) == 0:
                     data['sw_env'] = ["none"]

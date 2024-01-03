@@ -53,6 +53,12 @@
           mkShell { packages = [
           (rWrapper.override{packages = [ rPackages.tidyverse ];})];
           };
+        pdf = with pkgs;
+          mkShell { packages = [
+              pandoc texlive.combined.scheme-full
+              rubber
+            ];
+          };
         rmdshell = with pkgs;
           mkShell { packages = [
               pandoc texlive.combined.scheme-full
