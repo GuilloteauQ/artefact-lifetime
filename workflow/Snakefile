@@ -2,9 +2,21 @@
 #CONFERENCES = glob_wildcards(os.path.join(f"conferences/", "{i}")).i
 CONFERENCES = [d for d in os.listdir("conferences") if os.path.isdir(os.path.join("conferences", d))]
 
+FIGS = [
+  "how_repo_shared",
+  "how_shared",
+  "was_commit_fixed",
+  "does_paper_with_badge_has_artefact_section",
+  "experimental_setup"
+]
+
+
 rule all:
     input:
         "paper/main.pdf",
+        "overleaf/figs/sw_envs.pdf",
+        "overleaf/tables/summary_conferences.tex",
+        expand("overleaf/figs/{fig}.pdf", fig=FIGS)
 
 
 def aggregate_input(wildcards):
@@ -46,4 +58,47 @@ rule generate_csv:
     shell:
         "nix run .#forms -- check -o {output} -c {wildcards.conference} {input.papers}"
 
+rule generate_df_unique:
+  input:
+    "flake.nix",
+    "flake.lock",
+    script="workflow/scripts/get_df_unique.R",
+    data="data/all.csv"
+  output:
+    "data/unique.csv"
+  shell:
+    "nix develop .#rshell --command Rscript {input.script} {input.data} {output}"
+
+rule generate_figs_from_unique:
+  input:
+    "flake.nix",
+    "flake.lock",
+    script="workflow/scripts/{script}.R",
+    data="data/unique.csv"
+  output:
+    "overleaf/figs/{script}.pdf"
+  shell:
+    "nix develop .#rshell --command Rscript {input.script} {input.data} {output}"
+
+rule generate_figs_sw_envs:
+  input:
+    "flake.nix",
+    "flake.lock",
+    script="workflow/scripts/sw_envs.R",
+    data="data/all.csv"
+  output:
+    "overleaf/figs/sw_envs.pdf"
+  shell:
+    "nix develop .#rshell --command Rscript {input.script} {input.data} {output}"
+
+rule generate_table_confs:
+  input:
+    "flake.nix",
+    "flake.lock",
+    script="workflow/scripts/table_conferences.R",
+    data="data/unique.csv"
+  output:
+    "overleaf/tables/summary_conferences.tex"
+  shell:
+    "nix develop .#rshell --command Rscript {input.script} {input.data} > {output}"
 
