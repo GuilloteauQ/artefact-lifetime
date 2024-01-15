@@ -7,9 +7,9 @@ outfile = args[2]
 
 plot <- read_csv(filename, col_names = T) %>%
   filter(repo_url) %>%
-  ggplot(aes(x = nb_commits_repo, fill = conference)) +
-  geom_histogram() +
-  xlab("") +
-  ggtitle("Number of commits in the repositories")
+  ggplot(aes(x = nb_commits_repo)) +
+  stat_ecdf() +
+  scale_x_log10("Number of commits in the repositories") +
+  ylab("Proportion")
 
-ggsave(plot = plot, outfile, width=6, height=6)
+ggsave(plot = plot, outfile, width=6, height=4)

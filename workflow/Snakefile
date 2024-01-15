@@ -7,7 +7,8 @@ FIGS = [
   "how_shared",
   "was_commit_fixed",
   "does_paper_with_badge_has_artefact_section",
-  "experimental_setup"
+  "experimental_setup",
+  "number_commits_repo"
 ]
 
 
