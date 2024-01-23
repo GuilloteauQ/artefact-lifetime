@@ -7,6 +7,7 @@ outfile = args[2]
 
 plot <- read_csv(filename, col_names = T) %>%
   filter(repo_url) %>%
+  mutate(sw_env_method = fct_infreq(sw_env_method)) %>%
   ggplot(aes(x = sw_env_method, fill = conference)) +
   geom_bar() + 
   theme(axis.text.x = element_text(angle = 45, hjust=1))

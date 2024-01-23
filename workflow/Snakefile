@@ -14,7 +14,7 @@ FIGS = [
 
 rule all:
     input:
-        "paper/main.pdf",
+        #"paper/main.pdf",
         "overleaf/figs/sw_envs.pdf",
         "overleaf/tables/summary_conferences.tex",
         expand("overleaf/figs/{fig}.pdf", fig=FIGS)
