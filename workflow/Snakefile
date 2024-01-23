@@ -8,16 +8,15 @@ FIGS = [
   "was_commit_fixed",
   "does_paper_with_badge_has_artefact_section",
   "experimental_setup",
-  "number_commits_repo"
+  "number_commits_repo",
+  "how_packaged",
+  "image_cache_bin"
 ]
 
 
 rule all:
     input:
-        #"paper/main.pdf",
-        "overleaf/figs/sw_envs.pdf",
-        "overleaf/tables/summary_conferences.tex",
-        expand("overleaf/figs/{fig}.pdf", fig=FIGS)
+        "rep24/main.pdf"
 
 
 def aggregate_input(wildcards):
@@ -27,14 +26,15 @@ rule generate_paper:
     input:
         "flake.nix",
         "flake.lock",
-        "paper/template.tex",
-        "paper/references.bib",
-        main="paper/main.Rmd",
-        data="data/all.csv"
+        "rep24/references.bib",
+        "rep24/figs/sw_envs.pdf",
+        "rep24/tables/summary_conferences.tex",
+        expand("rep24/figs/{fig}.pdf", fig=FIGS),
+        main="rep24/main.tex"
     output:
-        "paper/main.pdf"
+        "rep24/main.pdf"
     shell:
-        "cd paper; nix develop .#rmdshell --command Rscript -e \"rmarkdown::render('main.Rmd',params= list(dataset='../{input.data}'), output_file='main.pdf')\""
+        "cd rep24; nix develop .#pdf --command rubber -d main.tex"
 
 rule merge_csv:
     input:
@@ -77,7 +77,7 @@ rule generate_figs_from_unique:
     script="workflow/scripts/{script}.R",
     data="data/unique.csv"
   output:
-    "overleaf/figs/{script}.pdf"
+    "rep24/figs/{script}.pdf"
   shell:
     "nix develop .#rshell --command Rscript {input.script} {input.data} {output}"
 
@@ -88,7 +88,7 @@ rule generate_figs_sw_envs:
     script="workflow/scripts/sw_envs.R",
     data="data/all.csv"
   output:
-    "overleaf/figs/sw_envs.pdf"
+    "rep24/figs/sw_envs.pdf"
   shell:
     "nix develop .#rshell --command Rscript {input.script} {input.data} {output}"
 
@@ -99,7 +99,7 @@ rule generate_table_confs:
     script="workflow/scripts/table_conferences.R",
     data="data/unique.csv"
   output:
-    "overleaf/tables/summary_conferences.tex"
+    "rep24/tables/summary_conferences.tex"
   shell:
     "nix develop .#rshell --command Rscript {input.script} {input.data} > {output}"
 
