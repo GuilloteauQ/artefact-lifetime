@@ -1,17 +1,25 @@
 # artefact-lifetime
 
+## Compile
+
+1. Install Nix and activate flakes
+
+2. Run the workflow `nix develop --command snakemake -c 1`
+
+3. The pdf is at `rep24/main.pdf`
+
 
 ## Confs to do
 
 - [X] Eurosys 23
 
-- [ ] SC 23
+- [X] SC 23
 
 - [ ] OSDI 23: https://www.usenix.org/conference/osdi23/technical-sessions
 
-- [ ] Cluster 23
+- [ ] Ppopp
 
-- [ ] CCGrid 23: https://ieeexplore-ieee-org.sid2nomade-1.grenet.fr/xpl/conhome/10171437/proceeding?isnumber=10171438&sortType=vol-only-seq&pageNumber=3
+- [X] CCGrid 23: https://ieeexplore-ieee-org.sid2nomade-1.grenet.fr/xpl/conhome/10171437/proceeding?isnumber=10171438&sortType=vol-only-seq&pageNumber=3
 
 
 ## Contribute
