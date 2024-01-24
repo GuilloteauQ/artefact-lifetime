@@ -10,6 +10,7 @@ plot <- read_csv(filename, col_names = T) %>%
   ggplot(aes(x = techno, fill = conference)) +
   geom_bar() +
   xlab("") +
+  scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
   ggtitle("What was the tool used to generate the environment?") +
   theme(axis.text.x = element_text(angle = 45, hjust=1))
 

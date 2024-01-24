@@ -11,6 +11,7 @@ plot <- read_csv(filename, col_names = T) %>%
   mutate(experimental_setup = fct_infreq(experimental_setup)) %>%
   ggplot(aes(x = experimental_setup, fill = conference)) +
   geom_bar() +
+  scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
   ggtitle("Experimental setup used") +
   xlab("")
 

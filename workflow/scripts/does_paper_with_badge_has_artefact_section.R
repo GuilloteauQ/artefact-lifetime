@@ -9,6 +9,7 @@ plot <- read_csv(filename, col_names = T) %>%
   filter(badges > 0) %>%
   ggplot(aes(x = artefact_section, fill = conference)) +
   geom_bar() +
+  scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
   ggtitle("Does a paper with at least one badge has the `Artifact` section?") +
   xlab("")
 

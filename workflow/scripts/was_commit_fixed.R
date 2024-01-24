@@ -10,6 +10,7 @@ plot <- read_csv(filename, col_names = T) %>%
   ggplot(aes(x = pinned_version, fill = conference)) +
   geom_bar() +
   xlab("") +
+  scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
   ggtitle("When shared with only `git`, was the commit used fixed?")
 
 ggsave(plot = plot, outfile, width=6, height=6)

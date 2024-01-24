@@ -10,6 +10,7 @@ plot <- read_csv(filename, col_names = T) %>%
   ggplot(aes(x = techno, fill = conference)) +
   geom_bar() +
   xlab("") +
+  scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
   ggtitle("Technology used to share the software environment")
 
 ggsave(plot = plot, outfile, width=6, height=6)
