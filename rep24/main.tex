@@ -356,19 +356,19 @@ Even if there are no perfect solution yet, the need for a change of practice con
 
 In this Section, we surveyed \todo{N} papers from the top conferences in distributed systems and system in 2023.
 All of the considered conferences set up an \adae\ for the accepted papers.
-This \adae\ process usually consist of a first phase where the authors write an \ad\ as an appendix of the paper to show how to get the artefact, the dependencies, the number of experiments, estimated time, etc.
+This \adae\ process usually consist of a first phase where the authors write an \ad\ as an appendix of the paper to show how to get the artifact, the dependencies, the number of experiments, estimated time, etc.
 This \ad\ section is usually a page long (in a double column layout).
-The most popular practice is for authors to give a link to a more detailed description of the artefact.
-Table \ref{tab:table:paper_confs} summarizes the number of papers evaluated for each conferences, as well as the number of artefact sections.
+The most popular practice is for authors to give a link to a more detailed description of the artifact.
+Table \ref{tab:table:paper_confs} summarizes the number of papers evaluated for each conferences, as well as the number of artifact sections.
 
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.5\textwidth]{figs/does_paper_with_badge_has_artefact_section}
+  \includegraphics[width=0.5\textwidth]{figs/does_paper_with_badge_has_artifact_section}
   \caption{}\label{fig:}
 \end{figure}
 
-A surprising realisation is that not all the papers with the "Open" badge have the artefact section in the proceeding version.
+A surprising realisation is that not all the papers with the "Open" badge have the artifact section in the proceeding version.
 We suspect that either the author refuse or forget to include the section in the final version of the paper.
 We believe that the \ad\ is for the artifact reviewer, but also a future reader of the paper.
 Excluding this section of the final version should not grant the "Open" badge.
@@ -400,8 +400,8 @@ In the following of this Section, we study the \ad s on three characteristics: h
   \caption{}\label{fig:how_repo_shared}
 \end{figure}
 
-The \ad\ gives a link to where to download the artefact.
-Figure \ref{fig:how_repo_shared} shows how the code of the artefact was shared in the \ad.
+The \ad\ gives a link to where to download the artifact.
+Figure \ref{fig:how_repo_shared} shows how the code of the artifact was shared in the \ad.
 The majority of papers simply gives the URL of a \texttt{git} repository.
 Some paper shared their code with Zenodo\ \cite{zenodo} or Figshare\ \cite{figshare}, and some shared with both a \texttt{git} URL and Zenodo.
 A minority used Software-Heritage\ \cite{swheritage}.
@@ -415,8 +415,8 @@ If the results of the \aeval\ will be taken into account for the decision, then 
 An easy solution would be to use tools such as \texttt{anonymous.4open.science} for the review, and then substitute in the camera ready version of the paper the URL for a more persistant one.
 
 When authors shared only with a \texttt{git} URL, they almost never mention the commit used for their experiments (see Figure \ref{fig:was_commit_fixed}).
-Such a solution might be satisfactory for the \aeval\ as the delay between the submition of the paper and the evalation of its artefact is short enough to keep the code in the same, or a similar state.
-However, for future researchers aiming to build upon these artefacts, it is nearly impossible to know which version of the code was used.
+Such a solution might be satisfactory for the \aeval\ as the delay between the submition of the paper and the evalation of its artifact is short enough to keep the code in the same, or a similar state.
+However, for future researchers aiming to build upon these artifacts, it is nearly impossible to know which version of the code was used.
 Moreover source code hosted on forges might not be available for ever.
 Authors could decide to delete or rename their repository, making the URL given in the \ad\ useless.
 Worse, the entire source forge might need to close. \todo{ref about gforge inria?}
@@ -834,10 +834,10 @@ The bare minimum is to provide access to the data and the analysis scripts to pr
 The artifact review should not only make sure that the work presented in the paper is reproducible, but should also make sure that the work could be reused by others in the future.
 This means that the sources, data, should be available, etc.
 
-However, the Artefact reviewing process is time consumming and painful.
+However, the artifact reviewing process is time consumming and painful.
 
-We believe that by introducing a \ad\ form that can yield a grade, the Artefact reviewers could quickly access which work has no chance of being reproducible in the long term.
-The grade gives also the opportunity so conferences steering commities or Artefact commities to defined their threshold for giving the usual badges.
+We believe that by introducing a \ad\ form that can yield a grade, the artifact reviewers could quickly access which work has no chance of being reproducible in the long term.
+The grade gives also the opportunity so conferences steering commities or artifact commities to defined their threshold for giving the usual badges.
 
 
 We performed a study of N conferences of 2023 and looked at the \ad s of the accepted papers.
