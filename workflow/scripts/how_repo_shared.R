@@ -5,12 +5,23 @@ args = commandArgs(trailingOnly=TRUE)
 filename = args[1]
 outfile = args[2]
 
-plot <- read_csv(filename, col_names = T) %>%
+df <- read_csv(filename, col_names = T) %>%
   filter(repo_url) %>%
-  filter(how_shared != "NA") %>%
+  filter(how_shared != "NA")
+
+total_papers <- df %>%
+  pull(doi) %>%
+  unique() %>%
+  length()
+
+plot <- df %>%
   mutate(how_shared = fct_infreq(how_shared)) %>%
-  ggplot(aes(x = how_shared, fill = conference)) +
-  geom_bar() +
+  ggplot(aes(x = how_shared)) +
+  geom_bar(aes(fill = conference)) +
+  geom_text(data = . %>% group_by(how_shared) %>% summarize(n = n(), percentage = 100 * n() / total_papers),
+            aes(y = n + 3, label = paste(round(percentage, 2), "%", sep="")),
+            size = 4) +
+  ylab("Count") +
   xlab("") +
   scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
   ggtitle("How was the repository shared?") +
