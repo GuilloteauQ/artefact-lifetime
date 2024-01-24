@@ -53,6 +53,7 @@
 \usepackage{hyperref}
 \usepackage{array}
 \usepackage{caption}
+\usepackage{subcaption}
 \usepackage{graphicx}
 \usepackage{siunitx}
 %\usepackage[table]{xcolor}
@@ -344,7 +345,7 @@ Even if there are no perfect solution yet, the need for a change of practice con
 
 %
 % /////////////////////////////////////////////////////////////////////////////////////////////////////
-\section{Recommendations of Conferences}
+\section{Recommendations from Conferences}
 
 \todo{look at the recommendation of the conferences for the \adae\ and summarize}
 
@@ -355,10 +356,11 @@ Even if there are no perfect solution yet, the need for a change of practice con
 \input{tables/summary_conferences}
 
 In this Section, we surveyed \todo{N} papers from the top conferences in distributed systems and system in 2023.
-All of the considered conferences set up an \adae\ for the accepted papers.
-This \adae\ process usually consist of a first phase where the authors write an \ad\ as an appendix of the paper to show how to get the artifact, the dependencies, the number of experiments, estimated time, etc.
+All of the considered conferences had an \adae\ process for the \emph{accepted} papers.
+This \adae\ process usually consists of a first phase where the authors write an \ad\ as an appendix of the paper to show how to get and use the artifact, how to install the dependencies, what are the different experiments and their estimated time, etc.
 This \ad\ section is usually a page long (in a double column layout).
 The most popular practice is for authors to give a link to a more detailed description of the artifact.
+
 Table \ref{tab:table:paper_confs} summarizes the number of papers evaluated for each conferences, as well as the number of artifact sections.
 
 
@@ -369,30 +371,29 @@ Table \ref{tab:table:paper_confs} summarizes the number of papers evaluated for 
 \end{figure}
 
 A surprising realisation is that not all the papers with the "Open" badge have the artifact section in the proceeding version.
-We suspect that either the author refuse or forget to include the section in the final version of the paper.
-We believe that the \ad\ is for the artifact reviewer, but also a future reader of the paper.
+We suspect that either the author forgot, or refused, to include the section in the final version of the paper.
+We believe that \textbf{the \ad\ is for the artifact reviewer, but also a future reader of the paper.}
 Excluding this section of the final version should not grant the "Open" badge.
 
 \subsection{Methodology}
 
 We selected conferences of 2023 with an \ad\ process, and looked at their proceedings.
-From the proceedings, we surveyed all the papers and noted:
+From the proceedings, we surveyed all the papers and, for each paper, noted:
 
 \begin{itemize}
-  \item how many reproducibility badges, and which, did the paper received
-  \item if the paper has an \ad
-  \item if the paper shares the URL of the source code (it does not have to be in the \ad), and if the URL is still valid
-  \item how the experiments were performed (\eg\ local machines, shared testbeds, proprietary machines, supercomputer, simulation, etc.)
-  \item how was the source code shared (\texttt{git}, Zenodo, Software-Heritage, or combination of solutions)
-  \item if the source code has been shared with \texttt{git}, we record the number of commits, and check if a precise commit has been specified
-  \item how the software environment was shared
+  \item How many reproducibility badges, and which, did the paper received
+  \item If the paper has an \ad\ section
+  \item If the paper shares the URL of the source code (it does not have to be in the \ad), and if the URL is still valid
+  \item How the experiments were performed (\eg\ local machines, shared testbeds, proprietary machines, supercomputer, simulation, etc.)
+  \item How was the source code shared (\texttt{git}, Zenodo, Software-Heritage, or combination of solutions)
+  \item If the source code has been shared with \texttt{git}, we record the number of commits, and check if a precise commit has been specified by the authors
+  \item How the software environment was shared
 \end{itemize}
 
 
-In the following of this Section, we study the \ad s on three characteristics: how is the source code shared (Section \ref{sec:sop:src}), where are the experiments executed (Section \ref{sec:sop:expe}), how is the software environment described and shared (Section \ref{sec:sop:sw}), and finally the worflow of experiments used (Section \ref{sec:sop:workflow}).
+In the following of this Section, we study the \ad s on four characteristics: how is the source code shared (Section \ref{sec:sop:src}), where are the experiments executed (Section \ref{sec:sop:expe}), how is the software environment described and shared (Section \ref{sec:sop:sw}), and finally the worflow of experiments (Section \ref{sec:sop:workflow}).
 
 \subsection{Source code}\label{sec:sop:src}
-
 
 \begin{figure}
   \centering
@@ -400,35 +401,42 @@ In the following of this Section, we study the \ad s on three characteristics: h
   \caption{}\label{fig:how_repo_shared}
 \end{figure}
 
+\todo{update order based on new papers}
+
 The \ad\ gives a link to where to download the artifact.
 Figure \ref{fig:how_repo_shared} shows how the code of the artifact was shared in the \ad.
 The majority of papers simply gives the URL of a \texttt{git} repository.
 Some paper shared their code with Zenodo\ \cite{zenodo} or Figshare\ \cite{figshare}, and some shared with both a \texttt{git} URL and Zenodo.
 A minority used Software-Heritage\ \cite{swheritage}.
 
-Some authors used \texttt{anonymous.4open.science}\ \cite{anonymous_github} which allows users to share with the reviewers an anonymous mirror of a public Github repository.
-This is in particular useful for double blind reviews.
-However, for all the papers surveyed, all the links to this services were dead, and there was no way to find the original \texttt{git} reprository.
+Some authors used \texttt{anonymous.4open.science}\ \cite{anonymous_github} which allows users to share with the reviewers an anonymous copy of a public Github repository.
+This is particularly useful for double blind reviews.
+However, for all the papers surveyed, all the links to this service were dead, and there was no way to find the original \texttt{git} reprository.
 We believe that the links simply expired, which is problematic for the usage of future researchers.
-Moreover, as long as the \aeval\ process does not count in the accept/reject decision, having a double blind review only limits the ability of the reviewers and authors to communicate.
+Moreover, as long as the \aeval\ process does not count in the accept/reject decision, having a double blind review for the \adae\ only limits the ability of the reviewers and authors to communicate.
 If the results of the \aeval\ will be taken into account for the decision, then the community should investigate ways to perform the \aeval\ in a double blind fashion.
 An easy solution would be to use tools such as \texttt{anonymous.4open.science} for the review, and then substitute in the camera ready version of the paper the URL for a more persistant one.
 
 When authors shared only with a \texttt{git} URL, they almost never mention the commit used for their experiments (see Figure \ref{fig:was_commit_fixed}).
 Such a solution might be satisfactory for the \aeval\ as the delay between the submition of the paper and the evalation of its artifact is short enough to keep the code in the same, or a similar state.
 However, for future researchers aiming to build upon these artifacts, it is nearly impossible to know which version of the code was used.
-Moreover source code hosted on forges might not be available for ever.
-Authors could decide to delete or rename their repository, making the URL given in the \ad\ useless.
+Moreover source code hosted on forges might not be available forever.
+Authors could decide to delete or rename their repository, invalidating the URL given in the \ad.
 Worse, the entire source forge might need to close. \todo{ref about gforge inria?}
+\todo{a word on publiware?}
 
+\todo{link to Section 3}
 One solution proposed by the reproducibility guidelines of the conferences is to archive the code via Zenodo or Figshare, and then reference the DOI generated by these archive websites in the \ad.
 This has the advantage of freezing the source code in a permanent fashion, and allow future usage of the code.
-However, storing source code on Zenodo has a simple drawback: no code exploration in the browser.
-From the point of view of future researchers, having to download locally potentially large archives from Zenodo to be able to explore the source code is more work, and introduce friction, rather than simply using a web UI.
+However, storing source code on Zenodo has a simple drawback: there is no code exploration in the browser.
+From the point of view of future researchers, having to download locally potentially large archives from Zenodo to be able to explore a few files of the source code is cumbersome and introduces friction.
+A better solution woulbe be to explore the artifact via a simple web UI.
 Archiving can also break the link between the original \texttt{git} URL if not archived correctly.
-Zenodo has an integration with Github which allows to archive releases of a reprository, and thus keep the link between archive and repository.
+Zenodo has an integration with Github\ \cite{github_zenodo} which allows to archive releases of a reprository.
 This is why some authors share both the \texttt{git} URL and a Zenodo archive.
-If the link between the repository and the Zenodo archive breaks (\eg\ \texttt{git} repository disappears), then future researchers are left with a single commit of the source code, and all the history of the project, which contrinutes to the understanding and extensibility of the project, is lost.
+If the link between the repository and the Zenodo archive breaks (\eg\ \texttt{git} repository disappears), then future researchers are left with a single commit of the source code, and all the history of the project, which contributes to the understanding and extensibility of the project, is lost.
+Some artifact shared via Zenodo are actually an archive of a \texttt{git} repository and include the \texttt{.git} folder.
+\todo{more.}
 Zenodo and Figshare are more adapted to archive datasets and binaries, not source code.
 
 A more appropriate solution is to use Software-Heritage\ \cite{swheritage, di2017software}.
@@ -437,7 +445,7 @@ It also refers the orignal source, so that future researcher can see it if still
 Authors give an unique identifier for the revision. 
 \todo{share the swhid of this repo}
 
-
+\todo{what we want: history + check new version + web UI}
 
 \begin{figure}
   \centering
@@ -451,14 +459,15 @@ Authors give an unique identifier for the revision.
   \caption{Cumlative distribution function of the number of commits in the repositories shared in the \ad s}\label{fig:number_commits_repo}
 \end{figure}
 
-One thing that we observed during this survey is the low number of commits in the repositories linked in the \ad s.
+One thing that we observed during this survey is the very low number of commits in the repositories linked in the \ad s when shared with \texttt{git} (\ie\ \texttt{git}, \texttt{git+zenodo}, \texttt{git+figshare} on Figure \ref{fig:how_repo_shared}).
 Figure \ref{fig:number_commits_repo} shows the cumulative distribution function of the number of commits in the repositories shared in the \ad s when the source code was shared via \texttt{git}.
-We can see that more than a third have less than 10 commits.
-This repositories appears to be a "dump" of the source code with some extra commit for documentation.
+\todo{update this final data: We can see that more than a third have less than 10 commits.}
+These repositories appear to be a "dump" of the source code with some extra commits for documentation.
+\todo{dump from where?}
 Such practices do not allow reviewers and future researchers to explore the "true" history of the project.
 The same comments as for a standalone Zenodo archive apply here.
 It also makes it suspicious about the good practices of the authors in terms of experimentations (traceability).
-This problem might come from the fact that the \aeval\ process, and reproducibility, is a second though for authors.
+This problem might come from the fact that the \aeval\ process, and reproducibility, is only a second though for authors.
 
 \begin{lesson}{Sharing source code}{}
   A shared \texttt{git} URL might not be available in the future.
@@ -471,7 +480,7 @@ This problem might come from the fact that the \aeval\ process, and reproducibil
 \subsection{Experimental setup}\label{sec:sop:expe}
 
 One important point about reproducing experiments is the hardware used.
-Any experiment that exhibts a particular behavior or performance should have a description of the hardware. 
+Any experiment that exhibts a particular behavior or performance evaluation should have a description of the hardware. 
 
 \begin{figure}
   \centering
@@ -480,38 +489,49 @@ Any experiment that exhibts a particular behavior or performance should have a d
 \end{figure}
 
 Figure \ref{fig:experimental_setup} depicts on which platforms the experiments of the considered papers were executed.
-Most of the experimental platforms were local machines ("homemade"), but the description of the machine (CPU, GPU, disk, etc.) were given.
+Most of the experimental platforms were local machines ("homemade"), but the description of the machine (\ie\ CPU, GPU, disk, etc.) were given.
 This still makes it difficult for the reviewers to find the exact hardware, or the closest they can.
-In some \ad s, we observed that authors were giving access to their local machines by giving the IP address and the password to connect.
+In some \ad s, we observed that authors were gave access to their local machines by giving the IP address and the password to connect.
 
 
 A better solution would be to use open and shares platforms, also called \emph{testbeds}.
 Chameleon\ \cite{chameleon}, Grid'5000\ \cite{grid5000}, or CloudLab\ \cite{cloudlab} are example of such testbeds.
+\todo{more \cite{nussbaum2017testbeds}}
 
 \todo{SC24 will use Chameleon for \aeval}
 
 In practice testbeds are not used a lot.
 However, proprietary solutions are.
 Authors rely on platforms such as Amazon Web Services, Microsoft Azure , Google Cloud, etc.
-Even if this allows the reviewers to get access to probably the same machines (in the short term), it hides the experiments and thus their reproducibility behind a paywall, which goes against the principle of Open Science.
+Even if this allows the reviewers to get access to probably similar machines (in the short term), it hides the experiments, and thus their reproducibility, behind a paywall, which goes against the principle of Open Science.
+Using proprietary platforms also raises the question of who should pay to reproduce the results of the authors?
 Some authors using such platforms did write in their \ad\ the estimated monetary cost of rerunning the experiments.
 
-Similarly, some papers (in particular for the SuperComputig conference) were using supercomputer to run their experiments.
+Similarly, some papers (in particular for the SuperComputing conference (\texttt{sc23})) were using supercomputer to run their experiments.
 While supercomputers are at the bleeding edge of technology, having access to such system is restrictive and can take several weeks or month before getting accepted.
 \todo{berk}
 
 \begin{lesson}{Experimenal setup}{}
   The majority of \ad s use machines that are difficult to get access to (local, supercomputer, or proprietary). 
-  The testbeds are under representated in the state-of-practice, but appear to be the the way forward (\todo{berk}).
+  The testbeds are under representated in the state-of-practice, but appear to be the the way forward \cite{nussbaum2017testbeds} (\todo{berk}).
 \end{lesson}
 
 \subsection{Software environment}\label{sec:sop:sw}
 
-\begin{figure}
+\begin{figure*}
   \centering
-    \includegraphics[width=0.5\textwidth]{figs/how_packaged.pdf}
+  \begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{figs/how_packaged.pdf}
   \caption{}\label{fig:techno}
-\end{figure}
+  \end{subfigure}
+  \begin{subfigure}{0.49\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{figs/image_cache_bin.pdf}
+    \caption{}\label{fig:cache_bin}
+  \end{subfigure}
+  \caption{\todo{}}\label{fig:techo_cache}
+\end{figure*}
 
 \begin{figure*}
   \centering
@@ -521,7 +541,7 @@ While supercomputers are at the bleeding edge of technology, having access to su
 
 After downloading the correct version of the code on the correct platform, reviewers must set up the correct software environment to execute the experiments.
 Figure \ref{fig:sw_envs} shows the different techniques used to describe and share the software environment in the \ad s.
-Note that an \ad\ can use several of these techniques.
+Note that the authors can use \emph{several} of these techniques in their \ad.
 
 In the following of this Section, we go through the methods observed to share the artifact software environment, and discuss their reproducibility.
 
@@ -542,12 +562,6 @@ But, concerning the traceability of the build, one cannot verify the commands th
 Moreover, such images are not adapted to be versioned with tools like \texttt{git} as they are in a binary format.
 In the situation where the image is no longer available, re-building the exact image is complex and the precise introduction of variation is utopian.
 
-\begin{figure}
-  \centering
-    \includegraphics[width=0.5\textwidth]{figs/image_cache_bin.pdf}
-  \caption{}\label{fig:cache_bin}
-\end{figure}
-
 Figure \ref{fig:cache_bin} depicts the state of the images for the \aeval.
 We observed that the majority of the authors who use an image make it available in a binary cache such as DockerHub. 
 However, DockerHub does not offer permanent storage of the images, or the authors could push another image on top of the previous one, thus losing the traceability for the experiments.
@@ -562,10 +576,9 @@ In the case of Docker, the tag of the latest version is often called \texttt{lat
 Basing an environment on this tag breaks the traceability, and thus the reconstruction of the image itself.
 Indeed, if a newer version is available at the time of a future rebuild of the environment, then the image will be based on this newer version and not the original version.
 Another important question is to know if the base image and all the version are themselves reconstructive, and if it is not the case, what is the permanence of the platforms hosting those images?
-For instance, the lifetime of \texttt{nvidia/cuda} Docker image is 6 months, after 6 months, the administrators delete the images.
-In Figure \ref{fig:cache_bin}, we however see that more than half of the \ad\ using an image do not share the recipe to inspect or rebuild the image.
+For instance, the lifetime of \texttt{nvidia/cuda} Docker image is 6 months, after 6 months, the administrators delete the images\ \cite{nvidia_cuda_lifetime}.
+However, in Figure \ref{fig:cache_bin}, we see that more than \todo{half} of the \ad\ using an image do not share the recipe, or we could not find the recipe, to inspect or rebuild the image.
 This means that if the image is not in a binary cache, then it is impossible to rebuild it.
-
 
 
 \subsubsection{List of package versions}\label{sec:sop:sw:list}
@@ -584,7 +597,7 @@ What about the dependencies of the dependencies, etc?
 \todo{more?}
 
 \begin{lesson}{Listing dependencies}{}
-  Simply listing the used packages is not enough to regerate the correct software environment.
+  Simply listing the used packages is not enough to regenerate the correct software environment.
 \end{lesson}
 
 \subsubsection{Package managers installation commands}
@@ -599,25 +612,25 @@ sudo apt-get install packageA packageB
 \end{verbatim}
 
 The question that arises is: which is the version of the installed packages?
-Indeed, by calling `apt-get update` (or equivalent for the others package manager), is that now the environment depends on the state of the mirror of the package manager at the time the author did the experiments.
+Indeed, by calling \texttt{apt-get update} (or equivalent for the others package managers), now the environment depends on the state of the mirror of the package manager at the time the author did the experiments.
 In the case of the \aeval, the mirror might not change "too much" between the time of the experiments and the review.
 However, there is a very low probability that 5 or 10 years in the future, the mirror will be in the same state, and the installed versions will be the exact same as for the experiments of the authors.
 This approach also implicitely defines a dependency on the operating system that needs to be used.
 
-There are "workarounds" to be sure that the installed packages via classicl package managers will be the expected one. 
+There are "workarounds" to be sure that the installed packages via classical package managers will be the expected ones. 
 One of them is to use a \emph{snapshot} of the mirror\footnote{Example for \texttt{debian}: \url{http://snapshot.debian.org/}}.
-These snapshots are a dump of the mirror at a given time.
-Users can then install packages from these snapshots.
+These snapshots are a dump of the mirror at a given time and users can then install packages from these snapshots throught the usual interface of the package manager.
 However, even using snapshots can cause reproducibility issues.
-Indeed, what if the package installed from the snapshot creates a conflict with a package already installed in the system?
-This is especially an issue for Filesystem Hierachy Standard (FHS) systems (\eg\ Debian-based distributions) as all the binaries and libraries are stored into \texttt{/usr/bin} and \texttt{/usr/lib}.
+Indeed, what if the package installed from the snapshot creates a conflict with a package already installed on the system?
+This is especially an issue for Filesystem Hierachy Standard (FHS) based systems (\eg\ Debian-based distributions) where all the binaries and libraries are stored into \texttt{/usr/bin} and \texttt{/usr/lib}.
+For example, what happen to the already installed packages if the artifact requires to install an old version of the \texttt{glibc}? 
 
 \todo{a word on variation}
 
 
 \begin{lesson}{Classical package managers}{}
-  Installing dependencies via classical package managers (\eg\ \texttt{apt}, \texttt{yum}) creates a dependency on a uncontrollable state: the mirror of the package manager.
-  Freezing the state of the mirror introduces new problems of compatibility with the underlying system and disable any introdcution of variation.
+  Installing dependencies via classical package managers (\eg\ \texttt{apt}, \texttt{yum}) creates a dependency on a uncontrollable state: the state of the mirror of the package manager.
+  Freezing the state of the mirror introduces new problems of compatibility with the underlying system and disables any introduction of variation.
 \end{lesson}
 
 \subsubsection{\texttt{pip} and \texttt{conda}}
@@ -636,7 +649,7 @@ However, in practice, we observed the same issues as presented in Section \ref{s
 
 A common practice when needed to install a package that is not available through the classical package managers, is to install it from source.
 For this, authors indicate in the \ad\ how to download the dependency, and how to build it.
-However, when cloning a \texttt{git} repository, a common error is to not specify the commit to use.
+However, when cloning a \texttt{git} repository or downloading an archive via \texttt{wget}/\texttt{curl}, a common error is to not specify the commit to use.
 If no commit is specified, \texttt{git} will use the latest commit of the main branch, which could be completely different at the moment of the artifact review and in 10 years.
 
 Moreover, the downloaded \texttt{git} repository could disappear in the future, and thus cloning from Software-Heritage would be more robust than cloning from a forge (\eg\ Github, Gitlab).
@@ -654,10 +667,10 @@ It is more important that the building of the environment fails if the content d
 
 A popular way to manage a software environment on HPC systems is through \emph{Modules} \cite{modules}.
 Modules allow users to change their environment by "loading" and "unloading" packages, and allow to simply manage different versions of applications. 
-Under the hood, modules change the \texttt{PATH} variables.
+Under the hood, modules change the \texttt{\$PATH} environment variables.
 Modules are however mainly maintained by the administrators of the system, and are system-specific (\eg\ compile MPI with special optimizations for the underlying system).
 Thus sharing a module-based environment between two systems might be impossible.
-Moreover, as the \texttt{modulefiles} are managed by the administrators, they do not have an infinite lifetime, and my be unavailable in the future.
+Moreover, as the \texttt{modulefiles} are managed by the administrators, they do not have an infinite lifetime, and might be unavailable in the future.
 Modules are also helpful for administrators to limit the applications that can be run by users.
 Modules can be generated with Easybuild \todo{ref + more}
 
@@ -672,7 +685,7 @@ Hence, if two different machines have two different C compiler then the resultin
 One clear advantage of Spack is the ease to introduce a variation in an environment through the command line.
 Spack can also be run as a non privileged user and does not require the approval of the system administrators.
 Spack will download and build dependencies into a folder located in the user's \texttt{HOME}.
-However, a drawback on HPC system is that this directory consummes a lot of storage quota and inodes.
+However, a drawback on HPC system is that this directory consumes a lot of storage quota and inodes.
 
 \subsubsection{Vendoring}
 
