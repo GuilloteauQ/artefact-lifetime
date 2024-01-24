@@ -21,8 +21,7 @@ plot <- df %>%
             size = 4) +
   ylab("Count") +
   xlab("") +
-  scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
-  ggtitle("What was the tool used to generate the environment?") +
-  theme(axis.text.x = element_text(angle = 45, hjust=1))
+  scale_fill_grey("Conferences", start = 0.2, end = 0.8)+
+  ggtitle("What was the tool used to generate the environment?")
 
-ggsave(plot = plot, outfile, width=6, height=6)
+ggsave(plot = plot, outfile, width=6, height=5)

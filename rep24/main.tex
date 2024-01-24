@@ -1,4 +1,4 @@
-\documentclass[sigconf]{acmart}
+\documentclass[sigconf,natbib=false]{acmart}
 %%
 %% \BibTeX command to typeset BibTeX logo in the docs
 \AtBeginDocument{%
@@ -67,6 +67,15 @@
 \usepackage{longtable}
 \usepackage{amsmath,amsfonts}
 \usepackage{textcomp}
+
+%\usepackage[backend=biber,style=trad-abbrv,firstinits=true]{biblatex}
+\usepackage[
+  datamodel=software,
+  style=trad-abbrv,
+  backend=biber
+]{biblatex}
+\addbibresource{references.bib}
+\usepackage{software-biblatex}
 
 \begin{document}
 
@@ -888,7 +897,8 @@ ai reproducibility?
 
 %% PAPER ENDS HERE -----------------------------------------------------------------------------------------------
 
-\bibliographystyle{sty/ACM-Reference-Format}
-\bibliography{references}
+%\bibliographystyle{sty/ACM-Reference-Format}
+%\bibliography{references}
+\printbibliography
 
 \end{document}
