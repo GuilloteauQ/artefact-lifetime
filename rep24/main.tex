@@ -728,50 +728,38 @@ Proposition: the definition of a new badge assessing of the lifetime of \adae
 
 %
 % /////////////////////////////////////////////////////////////////////////////////////////////////////
-\section{MAD: A novel metric for \ad}
+\section{A new badge for artifacts}
 
-We believe that there is the need to grade more precisely the \ad s of conference papers.
-Based on the observations of Section\ \ref{sec:sop}, we propose the MAD (Metric for \ad) for grading the \ad s of authors.
-The reproducibility committee can then select a threshold for allowing the "good" \ad s to be evaluated during the \aeval\ phase.
-This would limit papers following bad reproducibility practices to waste the time and energy of reviewers.
-\todo{also very hard to follow everything, thus a threshold}
-\todo{give thresholds for ranks: A*, A, B}
+\begin{table*}
+  \caption{\label{tab:lifetime}Grading framework for evaluating the \emph{lifetime} of an artifact.}
+  \centering
+  \begin{tabular}[t]{l p{18em} p{9em} p{22em}}
+  \toprule
+    Grade & Source Code &  Experimental Setup & Software environment \\
+  \midrule
+    1/4 & Only \texttt{git} URL with a \emph{fixed} commit, or only Zenodo archive & Proprietary platforms & Vendoring or \emph{precise} download of dependencies \\
+    2/4 & \texttt{git} URL and Zenodo archive of a \emph{release} & Local machines & Docker/VM with recipe and long-term storage of the image \\
+    3/4 & \texttt{git} URL and Zenodo archive of the repository \emph{with} the history & Supercomputers & Spack \\
+    4/4 & Software-Heritage & Testbeds  & Nix(OS) / Guix \\
+  \bottomrule
+  \end{tabular}
+\end{table*}
 
+We believe that the current badging system is missing one important aspect of the quality of the artifacts: their \emph{lifetime}.
+By \emph{lifetime} we mean the time an artifact will be in the same state as the state used by the authors.
 
-\subsection{Source code}
+As we have seen in Section\ \ref{sec:sop}, not all the popular tools and methods to share source code, package software environment, or platforms to perform experiments on have the same \emph{lifetime} guarantees/quality.
 
-\todo{set up points}
+Artifacts with long \emph{lifetime} are more valuable and impactful for future researchers to extend, and deserve to be rewarded and have more visibility.
+Table\ \ref{tab:lifetime} proposes a grading framework to evaluate the \emph{lifetime} of an artifact.
+The artifact is evaluated on three criteria: sharing of the source code, experimental setup used, and software environment. 
+We propose of each criteria 4 levels going from poor but passable quality (1/4) to \todo{perfect} (4/4).
+Performing the average of the the grade for each criteria gives a global grade for the artifact.
+We recommend for the global grade to be \emph{strictly} greater than 3/4 to deliver the \emph{lifetime} badge.
 
-\begin{itemize}
-  \item[0pt:] Software-Heritage
-  \item[2pts:] Zenodo
-  \item[4pts:] \texttt{git} URL with commit/tag
-  \item[10pts:] unpinned \texttt{git} URL
-  \item[30pts:] cloud URL
-\end{itemize}
+\todo{compute to how many papers this badge would have been given to}
 
-
-\subsection{Experimental platform}
-
-\todo{set up points}
-
-\begin{itemize}
-  \item[0pt:] Testbeds
-  \item[0pt:] Simulation
-  \item[5pts:] Homemade
-  \item[10pts:] Proprietary platforms
-\end{itemize}
-
-\subsection{Software environment}
-
-\todo{set up points}
-
-\begin{itemize}
-  \item[0pt:] Nix/Guix
-  \item[3pts:] Vendoring
-  \item[7pts:] Virtual machine
-  \item[8pts:] Container
-\end{itemize}
+\todo{more discussion on the purpose of badges: rewarding effort, but it could also take a descision in the accept/reject process}
 
 
 \section{Conclusion}
