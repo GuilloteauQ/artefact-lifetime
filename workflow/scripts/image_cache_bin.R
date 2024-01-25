@@ -23,15 +23,16 @@ total_papers <- df %>%
 
 plot <- df %>%
   mutate(type = factor(type, levels = c("Image in binary cache?", "Long-term binary cache?", "Image recipe available?"))) %>%
-  mutate(value = factor(value, levels = c("TRUE", "FALSE"))) %>%
+  mutate(value = factor(value, levels = c("FALSE", "TRUE"))) %>%
   ggplot(aes(x = value)) +
   geom_bar(aes(fill = conference)) +
   geom_text(data = . %>% group_by(type, value) %>% summarize(n = n(), percentage = 100 * n() / total_papers),
-            aes(y = n + 1, label = paste(round(percentage, 2), "%", sep="")),
+            aes(y = n + 2, label = paste(round(percentage, 1), "%", sep="")),
             size = 4) +
-  ylab("Count") +
-  facet_wrap(~type, ncol=3) +
+  ylab("Number of papers") +
+  facet_wrap(~type, ncol=1) +
   xlab("") +
-  scale_fill_grey("Conferences", start = 0.2, end = 0.8)
+  scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
+  coord_flip()
 
 ggsave(plot = plot, outfile, width=6, height=5)

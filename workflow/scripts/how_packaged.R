@@ -17,11 +17,12 @@ plot <- df %>%
   ggplot(aes(x = techno)) +
   geom_bar(aes(fill = conference)) +
   geom_text(data = . %>% group_by(techno) %>% summarize(n = n(), percentage = 100 * n() / total_papers),
-            aes(y = n + 5, label = paste(round(percentage, 2), "%", sep="")),
+            aes(y = n + 15, label = paste(round(percentage, 1), "%", sep="")),
             size = 4) +
-  ylab("Count") +
+  ylab("Number of papers") +
   xlab("") +
   scale_fill_grey("Conferences", start = 0.2, end = 0.8)+
-  ggtitle("What was the tool used to generate the environment?")
+  ggtitle("What was the tool used to generate the environment?") +
+  coord_flip()
 
 ggsave(plot = plot, outfile, width=6, height=5)

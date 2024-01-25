@@ -17,9 +17,9 @@ plot <- df %>%
   ggplot(aes(x = pinned_version)) +
   geom_bar(aes(fill = conference)) +
   geom_text(data = . %>% group_by(pinned_version) %>% summarize(n = n(), percentage = 100 * n() / total_papers),
-            aes(y = n + 2, label = paste(round(percentage, 2), "%", sep="")),
+            aes(y = n + 2, label = paste(round(percentage, 1), "%", sep="")),
             size = 4) +
-  ylab("Count") +
+  ylab("Number of papers") +
   xlab("") +
   scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
   ggtitle("When shared with only `git`, was the commit used fixed?")

@@ -19,11 +19,12 @@ plot <- df %>%
   ggplot(aes(x = experimental_setup)) +
   geom_bar(aes(fill = conference)) +
   geom_text(data = . %>% group_by(experimental_setup) %>% summarize(n = n(), percentage = 100 * n() / total_papers),
-            aes(y = n + 5, label = paste(round(percentage, 2), "%", sep="")),
+            aes(y = n + 11, label = paste(round(percentage, 1), "%", sep="")),
             size = 4) +
-  ylab("Count") +
+  ylab("Number of papers") +
   scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
   ggtitle("Experimental setup used") +
-  xlab("")
+  xlab("") +
+  coord_flip()
 
-ggsave(plot = plot, outfile, width=6, height=6)
+ggsave(plot = plot, outfile, width=6, height=5)
