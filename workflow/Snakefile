@@ -28,6 +28,7 @@ rule generate_paper:
         "flake.lock",
         "rep24/references.bib",
         "rep24/figs/sw_envs.pdf",
+        "rep24/figs/lifetime_score.pdf",
         "rep24/tables/summary_conferences.tex",
         expand("rep24/figs/{fig}.pdf", fig=FIGS),
         main="rep24/main.tex"
@@ -89,6 +90,17 @@ rule generate_figs_sw_envs:
     data="data/all.csv"
   output:
     "rep24/figs/sw_envs.pdf"
+  shell:
+    "nix develop .#rshell --command Rscript {input.script} {input.data} {output}"
+
+rule generate_fig_lifetime_score:
+  input:
+    "flake.nix",
+    "flake.lock",
+    script="workflow/scripts/lifetime_score.R",
+    data="data/all.csv"
+  output:
+    "rep24/figs/lifetime_score.pdf"
   shell:
     "nix develop .#rshell --command Rscript {input.script} {input.data} {output}"
 
