@@ -480,7 +480,7 @@ While supercomputers are at the bleeding edge of technology, having access to su
 
 \begin{figure*}
   \centering
-  \includegraphics[width=0.95\textwidth]{figs/sw_envs}
+  \includegraphics[width=\textwidth]{figs/sw_envs}
   \caption{Techniques used to share the software environment in the \ad s. Note than an paper can use several of these techniques.}\label{fig:sw_envs}
 \end{figure*}
 
@@ -719,11 +719,11 @@ Workflow managers \cite{wratten2021reproducible} such as Snakemake \cite{koster2
   The community would \emph{greatly} benefit by adopting workflow managers\ \cite{wratten2021reproducible}.
 \end{lesson}
 
-\subsection{Conclusion}\label{sec:sop:conclu}
-
-From what we observed in this Section, we can conclude that the state-of-practice of \adae\ is not yet up to the state where it could be used for future researchers.
-
-Proposition: the definition of a new badge assessing of the lifetime of \adae
+%\subsection{Conclusion}\label{sec:sop:conclu}
+%
+%From what we observed in this Section, we can conclude that the state-of-practice of \adae\ is not yet up to the state where it could be used for future researchers.
+%
+%Proposition: the definition of a new badge assessing of the lifetime of \adae
 
 
 %
@@ -761,8 +761,12 @@ We recommend for the global grade to be \emph{strictly} greater than 3/4 to deli
 \begin{figure}
   \centering
     \includegraphics[width=0.5\textwidth]{figs/lifetime_score}
-  \caption{}\label{fig:}
+  \caption{Lifetime score for each of the three criteria, and the global lifetime score. We recommend a minimum lifetime score of 3 to award the lifetime badge. If we compute the lifetime score on the survey papers of Section \ref{sec:sop}, then about 1 percent would have get the badge.}\label{fig:lifetime_score}
 \end{figure}
+
+Figure \ref{fig:lifetime_score} shows the score for each of the three criteria (top 3 plots), and the global lifetime score (bottom plot) for the papers surveyed in Section\ \ref{sec:sop}.
+With the recommended threshold of 3 out of 4, then about 1 percent of the survey papers would have get the badge.
+We can see that the most penalizing criteria is the one about software environment, where the majority of the papers have zero out of four.
 
 \todo{more discussion on the purpose of badges: rewarding effort, but it could also take a descision in the accept/reject process}
 
@@ -789,7 +793,9 @@ As \texttt{Dockerfile} recipes mostly rely on either nvidia or Ubuntu based imag
 This does not mean trying to rerun the experiments associated with the Docker images as it would be to energy consumming.
 So, even if the software environment varies, it does not mean that the results of the experiments will vary.
 
+\section*{Acknowledgments}
 
+\todo{Thanks DAPHNE}
 
 %% PAPER ENDS HERE -----------------------------------------------------------------------------------------------
 
