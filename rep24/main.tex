@@ -150,12 +150,6 @@ TODO
 
 \section{Introduction}
 
-plop \cite{Abril07}
-
-
-
-\section{Text from phd thesis}
-
 The scientific community as a whole has been traversing a \repro\ crisis for the last decade.
 Computer science does not make an exception\ \cite{randallIrreproducibilityCrisisModern2018,baker500ScientistsLift2016}.
 
@@ -191,33 +185,6 @@ This means that the hardware and software environments as well as the experiment
 This section focuses on the software environment.
 For a global vision of the reproducibility problems, the readers might be interested in\ \cite{ivie2018reproducibility}.
 
-
-
-Section\ \ref{sec:expe:repro:motiv} gives the context and the motivation of reproducibility for distributed systems.
-Several frequently seen traps that might break the reproducibility of the software environment of an experiment are presented in Section\ \ref{sec:expe:repro:sw}.
-Finally, Section\ \ref{sec:expe:repro:fpm} motivates the use of Functional Package Managers as a solution to most of the reproducibility problems of the software environments. 
-
-\subsection{Context \& Motivation}\label{sec:expe:repro:motiv}
-
-Imagine that in your childhood your grandma cooked a delicious chocolate cake, and that you now want to know how to do it yourself.
-You even think that you can improve on it, and make it tastier!
-You can try to reproduce the cake based on your far memories and culinary intuition, but the result might be disappointing...
-Maybe your parents know the recipe!
-But you might just get some fuzzy instructions.
-Maybe your grandma just improvised the recipe!
-Who knows?
-
-You decide to go through the old stuff of your grandma's house.
-By chance, you find an old recipe book.
-You open it and from it falls a piece of paper with what looks like a cake recipe.
-The handwriting matches the one from your grandma!
-
-The recipe is clear, well detailed, and contains all the quantities for all the ingredients, the order of the different steps, the cooking time, etc.
-You decide to follow the recipe literally, but the final result is not what you remembered...
-Maybe you did not use the correct type of eggs, or that your oven is too different from your grandma's.
-How to know?
-
-
 An experiment without the environment in which it was executed makes it much more difficult to reproduce.
 Indeed, side effects from the environment can happen and change the results of the experiment.
 It is easy to forget to include in the software environment an element which impacts the performance of the experiment.
@@ -238,119 +205,6 @@ We think that the notion that should be highlighted is the concept of \textbf{va
 This means allowing a third party to use the environment defined for an experiment in order to investigate another research idea.
 An example of variation would be to change the MPI implementation used in an experiment (\eg\ MPICH instead of OpenMPI).
 Being able to introduce such a variation is only possible if the initial environment is correctly defined.
-
-
-\subsection{Frequent Traps of the \repro\ of software environments}\label{sec:expe:repro:sw}
-
-
-\paragraph{Sharing the Environment}
-
-An obvious way to fail the reproducibility of its experiments is not to share the used environments, or to share them in a perennial place.
-Platforms such as Zenodo\ \cite{zenodo} or Software-Heritage\ \cite{swheritage} allow users to store artifacts (scripts, data, environments, etc.) permanently.
-
-
-\paragraph{Knowledge of the environment}
-
-In the case where the software environment contains only Python packages, freezing the dependencies with \texttt{pip} (\texttt{pip freeze}) is not enough.
-\texttt{pip} only describes the Python environment, and ignores the system dependencies that numerous packages have. 
-For example, freezing an environment containing the \texttt{zmq} Python package will not freeze the ZeroMQ system package installed on the system.  
-Even if re-creating a Python environment from a \texttt{requirements.txt} is simple, installing a list of system packages with specific version is on the other hand much more complex.
-Moreover, listing manually all the system packages by hand is error-prone, and the best way to forget a package.
-
-Tools such as Spack\ \cite{gamblin_spack_2015} have a similar approach as \texttt{pip} but also for all the system packages and their dependencies.
-It is possible to export the environment as a text file and to rebuild it on another machine.
-However, the produced environment might not be completely identical.
-Indeed, Spack uses applications that are already present on the machine to build the packages from the sources.
-Especially, Spack assumes the presence of a C compiler on the system, and will use this C compiler to build the dependencies of the environment.
-Hence, if two different machines have two different C compiler then the resulting environment could differ from the desired environment.
-One clear advantage of Spack is the ease to introduce a variation in an environment through the command line.
-
-
-Solutions such as Spack, \texttt{pip}, \texttt{conda} only focus on the software stack above the operating system.
-However, results from experiments might depend on the version of the kernel, some drivers, etc.
-Thus, it is important to capture \emph{entirely} the software stack.
-
-\begin{trap}{Partially capturing the software environment of the experiment}{}
-Experiments do not only depend on Python packages, but they can also depend on system packages, or even the version of the Linux kernel.
-The software environment must be capture \emph{entirely}.
-\end{trap}
-
-Usually, the capture of the entire software stack goes through it encapsulation in a system image.
-This image can then be deployed on machines to execute the experiments.
-A way to generate a system image is to start from a base image, deploy this image, execute the commands required to set up the desired environment, and finally compress the image.
-Platforms such as \grid\ \cite{grid5000} and Chamelon\ \cite{chameleon} propose to their users such tools (\texttt{tgz-g5k}\ \cite{tgz-g5k} and \texttt{cc-snapshot}\ \cite{cc-snapshot} respectively).
-In the context of repeatability and replicability, if the image stays available, then this way to produce system images is adequate at best.
-But, concerning the traceability of the build, one cannot verify the commands that have been used to generate the image, and thus relies completely on the documentation from the experimenter.
-Moreover, such images are not adapted to be versioned with tools like \texttt{git} as they are in a binary format.
-In the situation where the image is no longer available, re-building the exact image is complex and the precise introduction of variation is utopian.
-
-
-\paragraph{Depending on an uncontrollable state}
-
-
-One way to deploy a complete environment could be to rebuild it at each experiment.
-EnOSlib\ \cite{cherrueau_enoslib_2022} is a Python library to manage distributed experiments.
-It integrates a mechanism to install system packages in a programmatic fashion.
-Users of EnOSlib can then, by executing their Python script, base their environment on a default image that they can modify as they need for their experiment.
-This strategy of starting from scratch at every deployment has the advantage of making it harder to forget a dependency in the environment, as its absence would be detected at every execution.
-However, it is still possible to make mistakes.
-The \repro\ of the experiments using such solutions strongly depends on the base environment on which they are based.
-These base environments are managed by administrators of the platforms and also have a finite lifetime, which raises the question of their permanence.  
-Suppose that the administrators update the version of the base environment, what happens to the \repro\ of an experiment?
-
-\begin{trap}{Forgetting to capture the software environment of the experiment/workflow manager}{}
-Capturing the software environment in which the experiment/workflow manager is executed is as important and the environment of the experiment.
-\end{trap}
-
-A better approach to generate image is via *recipes*.
-Those recipes, like \texttt{Dockerfile}s for Docker containers or Kameleon\ \cite{ruiz_reconstructable_2015} recipes for system images, are a sequence of commands to execute on a base image to generate the desired environment.
-The text format of recipes make then much more suitable to version, share, and reconstruct them.
-These base images have often several versions, which are identified by labels called \emph{tags}.
-In the case of Docker, the tag of the latest version is often called \texttt{latest}.
-Basing an environment on this tag breaks the traceability, and thus the reconstruction of the image itself.
-Indeed, if a newer version is available at the time of a future rebuild of the environment, then the image will be based on this newer version and not the original version.
-Another important question is to know if the base image and all the version are themselves reconstructive, and if it is not the case, what is the permanence of the platforms hosting those images?
-For instance, the lifetime of \texttt{nvidia/cuda} Docker image is 6 months, after 6 months, the administrators delete the images.
-
-\begin{trap}{Basing environments on non-reproducible images}{}
-Be cautious with the longevity of the images on which you base your software environment.
-By transitivity, if these images are not reproducible, so are yours.
-\end{trap}
-
-Another frequent problem is that the recipe performs an update of the mirror (\eg\ \texttt{apt get update}) before installing the required packages for the environment.
-This has the bad property of breaking the \repro\ of the image.
-Indeed, the image depends on the state of an external entity which is not controllable.
-In order to be sure to use the exact same packages during a rebuild, a solution could be to use a *snapshot* of the mirror\footnote{Example for \texttt{debian}: \url{http://snapshot.debian.org/}}.
-EnOSlib allows users to use this snapshot for the construction of the environment.
-Concerning the introduction of variation, to base an image on a \emph{snapshot} is quite constraining and can make impossible the installation of specific version of packages, or can create conflicts with already installed packages.
-
-
-When the recipe must download an object from the outside world, it is crucial to verify the content of the fetched object and compare it to the expected one.
-In the case where the object is not checked, the environment depends on the state of the source of the object at the time of construction.
-Hence, if the recipe calls `curl` to get a configuration file or a snapshot of a mirror for example, the recipe must also check the content of the files.
-The usual way to do it is to compare the cryptographic hash of the downloaded object and the one of the expected object. 
-
-
-A similar problem arises when the recipe downloads a package via `git` and build it from source.
-In this case, it is paramount to correctly set the commit used in the recipe of the image.
-Indeed, not knowing the commit used in the original image leads to having a dependence to the latest commit of the repository on the main branch.
-Setting the commit used allows to know exactly the sources used, and simplifies the *controlled* introduction of variation in the environment (by changing commit for example). 
-
-\begin{trap}{No checking the content of downloaded objects}{}
-Every object coming from the outside of the environment must be examined to be sure that it contains the expected content. 
-It is more important that the image fails to build if the content differs from the expected one, rather than the image silently builds with a different content.
-\end{trap}
-
-\subsection{Conclusion}
-
-The computer science community starts to get interested in the problems of \repro\ of experiments.
-However, the problems of \repro\ at the software level are not truly understood.
-Setting up reproducible experiments is *extremely* complex.
-The management of the software environment illustrate one facet of this complexity.
-The usual tools (`pip`, `spack`, `docker`, etc.) do not answer the \repro\ problems without a huge effort by the experimenters, and only allow a \emph{short-term \repro}.
-The *graal* of \repro\ is the precise introduction of variation in a third party defined environment.
-This need for variation allows scientists to use solid contributions to continue research.
-Even if there are no perfect solution yet, the need for a change of practice concerning \repro\ is needed.
 
 %
 % /////////////////////////////////////////////////////////////////////////////////////////////////////
