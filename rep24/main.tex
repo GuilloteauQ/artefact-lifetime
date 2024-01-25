@@ -443,7 +443,7 @@ Table \ref{tab:table:paper_confs} summarizes the number of papers evaluated for 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{figs/does_paper_with_badge_has_artifact_section}
-  \caption{}\label{fig:}
+  \caption{Number of papers which earned at least one badge which contain an \ad\ in the pdf. We observe that a significant amount of papers with at least a badge do not share their \ad\ in the proceedings version. \todo{remove plot and just put the percentage in the text}}\label{fig:}
 \end{figure}
 
 A surprising realisation is that not all the papers with the "Open" badge have the artifact section in the proceeding version.
@@ -474,7 +474,7 @@ In the following of this Section, we study the \ad s on four characteristics: ho
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{figs/how_repo_shared}
-  \caption{}\label{fig:how_repo_shared}
+  \caption{Methods used by the users to share their artifact source code. The state-of-practice is dominated by \texttt{git} URLs, Zenodo archives, and a combination of the two.}\label{fig:how_repo_shared}
 \end{figure}
 
 \todo{update order based on new papers}
@@ -526,7 +526,7 @@ Authors give an unique identifier for the revision.
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{figs/was_commit_fixed}
-  \caption{}\label{fig:was_commit_fixed}
+  \caption{Number of papers that did precise an exact commit to use when the authors shared their source code \emph{only} via a \texttt{git} URL. We observe that the crushing majority do not precise the commit, and thus break the traceability of the artifact. \todo{remove plot and put percentage in the text}}\label{fig:was_commit_fixed}
 \end{figure}
 
 \begin{figure}
@@ -561,7 +561,7 @@ Any experiment that exhibts a particular behavior or performance evaluation shou
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{./figs/experimental_setup.pdf}
-  \caption{}\label{fig:experimental_setup}
+  \caption{Experimental setup used in the survey papers. Most of the authors use local machines at their disposal. Some authors also use supercomputers to experiment on state-of-the-art systems. More concerning is the number of papers relying on proprietary platforms such as Amazon Web Services, Google Cloud, Microsoft Azure. Finally, a small proportion of the papers uses shared testbeds such as Chameleon, CloudLab, or Grid'5000.}\label{fig:experimental_setup}
 \end{figure}
 
 Figure \ref{fig:experimental_setup} depicts on which platforms the experiments of the considered papers were executed.
@@ -599,20 +599,21 @@ While supercomputers are at the bleeding edge of technology, having access to su
   \begin{subfigure}{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figs/how_packaged.pdf}
-  \caption{}\label{fig:techno}
+    \caption{Tools and technologies the authors used to generate/package their software environment. The majority of the artifacts did not use any tool. The rest used virtualization tools (\eg\ containers or virtual machines), the most used being Docker.}\label{fig:techno}
   \end{subfigure}
+  \hfill
   \begin{subfigure}{0.49\textwidth}
       \centering
       \includegraphics[width=\textwidth]{figs/image_cache_bin.pdf}
-    \caption{}\label{fig:cache_bin}
+    \caption{When authors used virtualization tools, most of them provided the image in a binary cache to avoid the reviewers to build the image from source. However, only a small fraction of these image where archived in a long-term binary cache (always Zenodo). The most concerning observation is that we could not find the recipe of the image in about half of the artifacts.}\label{fig:cache_bin}
   \end{subfigure}
-  \caption{\todo{}}\label{fig:techo_cache}
+  \caption{Tools and technologies used to generate and package the software environment for the \aeval\ (Figure \ref{fig:techno}), and state of the image and its recipe in the case of the use of virtual tools (Figure \ref{fig:cache_bin}).}\label{fig:techo_cache}
 \end{figure*}
 
 \begin{figure*}
   \centering
   \includegraphics[width=0.95\textwidth]{figs/sw_envs}
-  \caption{}\label{fig:sw_envs}
+  \caption{Techniques used to share the software environment in the \ad s. Note than an paper can use several of these techniques.}\label{fig:sw_envs}
 \end{figure*}
 
 After downloading the correct version of the code on the correct platform, reviewers must set up the correct software environment to execute the experiments.
