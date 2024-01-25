@@ -774,38 +774,15 @@ This would limit papers following bad reproducibility practices to waste the tim
 \end{itemize}
 
 
+\section{Conclusion}
 
-\section{todo notes}
-
-todo
-
-testbeds cite lucas N
-
-jupyter 
-
-The current badges system covers a "\emph{short-term reproducibility}".
-
-needs to protect the system against fake results 
-
-The bare minimum is to provide access to the data and the analysis scripts to preform the data analysis.
+\todo{summarize contribs}
 
 The artifact review should not only make sure that the work presented in the paper is reproducible, but should also make sure that the work could be reused by others in the future.
 This means that the sources, data, should be available, etc.
 
-However, the artifact reviewing process is time consumming and painful.
-
-We believe that by introducing a \ad\ form that can yield a grade, the artifact reviewers could quickly access which work has no chance of being reproducible in the long term.
-The grade gives also the opportunity so conferences steering commities or artifact commities to defined their threshold for giving the usual badges.
-
-
-We performed a study of N conferences of 2023 and looked at the \ad s of the accepted papers.
-
-The contributions of this paper are:
-\begin{itemize}
-  \item a study of the state-of-practice of \ad\ in top conferences of computer science / HPC
-  \item the definition of a metric to efficiently evaluate \ad s.
-\end{itemize}
-
+the report of the \aeval\ should be linked to the paper.
+will be done in SC24
 
 What is the future of \aeval?
 should the \aeval\ be part of the accept/reject decision process?
@@ -813,21 +790,11 @@ What about the energy/environmental cost of \aeval?
 especially in HPC where the experiments are long lasting and resources consumming.
 If the current \aeval\ is the first step towards a more "important" reviewing process, the community should not get used to this level of rigourness for \aeval.
 
-
-The use of testbeds for experiments.
-Using platforms such as google cloud, microsoft azure, amazon aws should not be used.
-Reproducibility goes hand to hand with open science and open source.
-using proprietary tools (\eg\ Matlab) or platforms (\eg\ cloud providers) is a brake to reproducibility.
-
-
-the report of the \aeval\ should be linked to the paper.
-will be done in SC24
-
-papers with code
-rescience
-joss
-
-ai reproducibility?
+One perspective is to make even more apparent the lack of reproducibility of the popular methods to generate and package software environment.
+By collecting \texttt{Dockerfile}s from the artifacts of the papers, we could try to rebuild the Docker images from source periodically (\eg\ every month), and log the versions of the softwares in the resulting image.
+As \texttt{Dockerfile} recipes mostly rely on either nvidia or Ubuntu based images, calls to \texttt{apt}, and \texttt{pip}, the resulting software environment is very fragile, and would thus be intersting to follow its evolution. 
+This does not mean trying to rerun the experiments associated with the Docker images as it would be to energy consumming.
+So, even if the software environment varies, it does not mean that the results of the experiments will vary.
 
 
 
