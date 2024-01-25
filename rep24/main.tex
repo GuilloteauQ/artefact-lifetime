@@ -370,17 +370,44 @@ Cascad \cite{perignon2019certify}
 
 \subsection{Journals}
 
-IPOL \cite{colom2015ipol}
-Rescience \cite{rougier2019rescience}
-JOSS \cite{smith2018journal}
-Papers with code \cite{paperswithcode}
+
+
+The last decade has seen the creation of independent online scientific journals to reward software and reproducibility.
+
+% JOSS \cite{smith2018journal}
+The most popular example is probably the \emph{Journal of Open Source Software} (JOSS)\ \cite{smith2018journal}.
+This journal publishes article about open source research software.
+The reviewing process includes a thorough inspection of the source code, the documentation of the software, as well as a runthrough of some examples.
+Reviews are open and hosted online as Github issues.
+
+%IPOL \cite{colom2015ipol}
+In the field of Image Processing, the online journal \emph{Image Processing On Line} (IPOL)\ \cite{colom2015ipol} requires the authors to implement the algorithms proposed in their paper and to make the impementation available through an online demonstration fo reader to explore and play with.
+This requirement forces the authors to share their code alongside their paper.
+IPOL noted that it also helped improve their algorithms, as actually implementing the algorithms might raise some undetected edge-cases.
+
+% Papers with code \cite{paperswithcode}
+\emph{Papers with code}\ \cite{paperswithcode} is a website that references Machine Learning academic papers that shared their code/datasets.
+Since 2015, they checked the code availability for the open access Machine Learning papers.
+They exihib that the code availability of the Machine Learning papers has gone from less than 10\% in 2015, to a relatively constant 30\% since 2019.
+\todo{berk?}
+
+% Rescience \cite{rougier2019rescience}
+The \emph{ReScience} online journal\ \cite{rougier2017sustainable, rougier2019rescience} aims to encourage the replication (successful or not) of already published research work.
+Similarly to JOSS, the submissions and reviews are open and managed through issues and pull requests on Github.
+\todo{more}
 
 \subsection{Surveys}
 
 Propogation of ML research  \cite{kang2023papers}
-Survey Sascha \cite{hunold2015survey}
 Survey 4R \cite{hernandez2023repeatability}
 Quality indicator \cite{castell2024towards}
+
+%Survey Sascha \cite{hunold2015survey}
+In 2015, Hunold\ \cite{hunold2015survey} conducted a survey among the participants of the EuroPar conference to assess the vision of the parallel computing community on the questions of reproducibility. 
+When asked about the main reasons for not making the source code/raw data/data processsing available, participants answered that: "\emph{it is irrelevant because evolution is too fast}" (90\%), "\emph{it is not rewarding}" (87\%), "\emph{I want to retain a competitive advantage}" (84\%).
+The second most popular answer is quite interesting as \aeval\ processes were not very popular at the time of the survey (the very first one was in 2011 at ? \todo{check, it's in my thesis}).
+The work done by publishers with the badging system aimed to reward authors for sharing their artifacts.
+It would be interesting to reconduct the survey today to see the impact on the \aeval\ on this question, as we believe that reproducibility and its challenges have now much more visibility than ever.
 
 \subsection{\adae\ and badges}
 
