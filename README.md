@@ -15,9 +15,9 @@
 
 - [X] SC 23
 
-- [ ] OSDI 23: https://www.usenix.org/conference/osdi23/technical-sessions
+- [X] OSDI 23: https://www.usenix.org/conference/osdi23/technical-sessions
 
-- [ ] Ppopp
+- [X] Ppopp
 
 - [X] CCGrid 23: https://ieeexplore-ieee-org.sid2nomade-1.grenet.fr/xpl/conhome/10171437/proceeding?isnumber=10171438&sortType=vol-only-seq&pageNumber=3
 
