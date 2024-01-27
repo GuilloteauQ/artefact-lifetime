@@ -1,5 +1,5 @@
 library(tidyverse)
-library(geomtextpath)
+# library(geomtextpath)
 theme_set(theme_bw() + theme(legend.position = "bottom", strip.background = element_blank()))
 
 
@@ -57,13 +57,15 @@ plot <- df %>%
      "Global Lifetime score" = "final_score_global"
   )) %>%
   ggplot(aes(x = value)) +
-  geom_ribbon(data = tibble(x = c(3, 4.3), y = c(total_papers), scores = c("Global Lifetime score")), aes(x = x, ymin = 0, ymax = y), alpha = 0.2, fill = "green") +
-  geom_ribbon(data = tibble(x = c(-.3, 3), y = c(total_papers), scores = c("Global Lifetime score")), aes(x = x, ymin = 0, ymax = y), alpha = 0.2, fill = "red") +
+  geom_ribbon(data = tibble(x = c(3, 4.3), y = c(total_papers + 15), scores = c("Global Lifetime score")), aes(x = x, ymin = 0, ymax = y), alpha = 0.2, fill = "green") +
+  geom_ribbon(data = tibble(x = c(-.3, 3), y = c(total_papers + 15), scores = c("Global Lifetime score")), aes(x = x, ymin = 0, ymax = y), alpha = 0.2, fill = "red") +
   geom_bar() +
-  geom_textvline(data = . %>% filter(scores == "Global Lifetime score"), aes(xintercept = 3), linetype = "dashed", label = "Threshold", hjust = 0.90) +
+  # geom_textvline(data = . %>% filter(scores == "Global Lifetime score"), aes(xintercept = 3), linetype = "dashed", label = "Threshold", hjust = 0.90) +
+  geom_vline(data = . %>% filter(scores == "Global Lifetime score"), aes(xintercept = 3), linetype = "dashed") +
   geom_text(data = . %>% group_by(value, scores) %>% summarize(n = n(), percentage = 100 * n() / total_papers),
             aes(y = n + 15, label = paste(round(percentage, 1), "%", sep="")),
             size = 3.2) +
+  geom_text(data = tibble(x = c((3 + (-0.3)) / 2, (4.3 + 3) / 2), y = total_papers - 12, label = c("No badge", "Badge"), scores = "Global Lifetime score"), aes(x = x, y = y, label = label)) +
   facet_wrap(~scores, ncol = 1) +
   xlab("Score") + ylab("Number of papers")
 ggsave(plot=plot, outfile, width=6, height=5)

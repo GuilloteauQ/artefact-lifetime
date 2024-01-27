@@ -49,7 +49,7 @@
 \newcommand{\ad}{Artifact Description}
 \newcommand{\aeval}{Artifact Evaluation}
 \newcommand{\adae}{\ad/\aeval}
-\newcommand{\todo}[1]{{\color{red}TODO: #1}}
+\newcommand{\todo}[1]{{\color{red}{TODO: #1}}}
 \usepackage{hyperref}
 \usepackage{array}
 \usepackage{caption}
@@ -238,23 +238,23 @@ The last decade has seen the creation of independent online scientific journals 
 
 % JOSS \cite{smith2018journal}
 The most popular example is probably the \emph{Journal of Open Source Software} (JOSS)\ \cite{smith2018journal}.
-This journal publishes article about open source research software.
+This journal publishes articles about open source research softwares.
 The reviewing process includes a thorough inspection of the source code, the documentation of the software, as well as a runthrough of some examples.
 Reviews are open and hosted online as Github issues.
 
 %IPOL \cite{colom2015ipol}
-In the field of Image Processing, the online journal \emph{Image Processing On Line} (IPOL)\ \cite{colom2015ipol} requires the authors to implement the algorithms proposed in their paper and to make the impementation available through an online demonstration fo reader to explore and play with.
+In the field of Image Processing, the online journal \emph{Image Processing On Line} (IPOL)\ \cite{colom2015ipol} requires the authors to implement the algorithms proposed in their paper and to make the impementation available through an online demonstration for readers to explore and play with.
 This requirement forces the authors to share their code alongside their paper.
-IPOL noted that it also helped improve their algorithms, as actually implementing the algorithms might raise some undetected edge-cases.
+IPOL noted that this requirement also helped authors to improve their algorithms, as actually implementing the algorithms might raise some undetected edge-cases.
 
 % Papers with code \cite{paperswithcode}
 \emph{Papers with code}\ \cite{paperswithcode} is a website that references Machine Learning academic papers that shared their code/datasets.
 Since 2015, they checked the code availability for the open access Machine Learning papers.
-They exihib that the code availability of the Machine Learning papers has gone from less than 10\% in 2015, to a relatively constant 30\% since 2019.
+They exhibted that the code availability of the Machine Learning papers has gone from less than 10\% in 2015, to a relatively constant 30\% since 2019.
 \todo{berk?}
 
 % Rescience \cite{rougier2019rescience}
-The \emph{ReScience} online journal\ \cite{rougier2017sustainable, rougier2019rescience} aims to encourage the replication (successful or not) of already published research work.
+The \emph{ReScience} online journal\ \cite{rougier2017sustainable, rougier2019rescience} aims to encourage the replication (successful or not) of already published research works.
 Similarly to JOSS, the submissions and reviews are open and managed through issues and pull requests on Github.
 \todo{more}
 
@@ -266,7 +266,7 @@ Quality indicator \cite{castell2024towards}
 
 %Survey Sascha \cite{hunold2015survey}
 In 2015, Hunold\ \cite{hunold2015survey} conducted a survey among the participants of the EuroPar conference to assess the vision of the parallel computing community on the questions of reproducibility. 
-When asked about the main reasons for not making the source code/raw data/data processsing available, participants answered that: "\emph{it is irrelevant because evolution is too fast}" (90\%), "\emph{it is not rewarding}" (87\%), "\emph{I want to retain a competitive advantage}" (84\%).
+Among all the questions, when asked about the main reasons for not making the source code/raw data/data processsing available, participants answered that: "\emph{it is irrelevant because evolution is too fast}" (90\%), "\emph{it is not rewarding}" (87\%), "\emph{I want to retain a competitive advantage}" (84\%).
 The second most popular answer is quite interesting as \aeval\ processes were not very popular at the time of the survey (the very first one was in 2011 at ? \todo{check, it's in my thesis}).
 The work done by publishers with the badging system aimed to reward authors for sharing their artifacts.
 It would be interesting to reconduct the survey today to see the impact on the \aeval\ on this question, as we believe that reproducibility and its challenges have now much more visibility than ever.
@@ -293,10 +293,10 @@ It would be interesting to reconduct the survey today to see the impact on the \
 
 \input{tables/summary_conferences}
 
-In this Section, we surveyed \todo{N} papers from the top conferences in distributed systems and system in 2023.
+In this Section, we surveyed \todo{N} papers from the top conferences in \emph{distributed systems and system} of 2023.
 All of the considered conferences had an \adae\ process for the \emph{accepted} papers.
 This \adae\ process usually consists of a first phase where the authors write an \ad\ as an appendix of the paper to show how to get and use the artifact, how to install the dependencies, what are the different experiments and their estimated time, etc.
-This \ad\ section is usually a page long (in a double column layout).
+This \ad\ section is usually one or two pages long (in a double column layout).
 The most popular practice is for authors to give a link to a more detailed description of the artifact.
 
 Table \ref{tab:table:paper_confs} summarizes the number of papers evaluated for each conferences, as well as the number of artifact sections.
@@ -308,9 +308,10 @@ Table \ref{tab:table:paper_confs} summarizes the number of papers evaluated for 
   \caption{Number of papers which earned at least one badge which contain an \ad\ in the pdf. We observe that a significant amount of papers with at least a badge do not share their \ad\ in the proceedings version. \todo{remove plot and just put the percentage in the text}}\label{fig:}
 \end{figure}
 
-A surprising realisation is that not all the papers with the "Open" badge have the artifact section in the proceeding version.
+A surprising realisation is that not all the papers with the "Artifact available" badge have the artifact section in the proceeding version.
 We suspect that either the author forgot, or refused, to include the section in the final version of the paper.
 We believe that \textbf{the \ad\ is for the artifact reviewer, but also a future reader of the paper.}
+\todo{put this claim somewhere else.}
 Excluding this section of the final version should not grant the "Open" badge.
 
 \subsection{Methodology}
@@ -319,7 +320,7 @@ We selected conferences of 2023 with an \ad\ process, and looked at their procee
 From the proceedings, we surveyed all the papers and, for each paper, noted:
 
 \begin{itemize}
-  \item How many reproducibility badges, and which, did the paper received
+  \item How many reproducibility badges, and which of them, did the paper receive
   \item If the paper has an \ad\ section
   \item If the paper shares the URL of the source code (it does not have to be in the \ad), and if the URL is still valid
   \item How the experiments were performed (\eg\ local machines, shared testbeds, proprietary machines, supercomputer, simulation, etc.)
@@ -331,7 +332,7 @@ From the proceedings, we surveyed all the papers and, for each paper, noted:
 We spent around 5 minutes, and no more than 10 minutes, per paper to collect the aforementioned information.
 
 
-In the following of this Section, we study the \ad s on four characteristics: how is the source code shared (Section \ref{sec:sop:src}), where are the experiments executed (Section \ref{sec:sop:expe}), how is the software environment described and shared (Section \ref{sec:sop:sw}), and finally the worflow of experiments (Section \ref{sec:sop:workflow}).
+In the following of this Section, we study the \ad s on four characteristics: how was the source code shared (Section \ref{sec:sop:src}), where are the experiments executed (Section \ref{sec:sop:expe}), how is the software environment described and shared (Section \ref{sec:sop:sw}), and finally the worflow of experiments (Section \ref{sec:sop:workflow}).
 
 \paragraph{Disclaimer}
 
@@ -354,6 +355,7 @@ Figure \ref{fig:how_repo_shared} shows how the code of the artifact was shared i
 The majority of papers simply gives the URL of a \texttt{git} repository.
 Some paper shared their code with Zenodo\ \cite{zenodo} or Figshare\ \cite{figshare}, and some shared with both a \texttt{git} URL and Zenodo.
 A minority used Software-Heritage\ \cite{swheritage}.
+\todo{plus the others minor tools.}
 
 Some authors used \texttt{anonymous.4open.science}\ \cite{anonymous_github} which allows users to share with the reviewers an anonymous copy of a public Github repository.
 This is particularly useful for double blind reviews.
@@ -370,6 +372,7 @@ Moreover source code hosted on forges might not be available forever.
 Authors could decide to delete or rename their repository, invalidating the URL given in the \ad.
 Worse, the entire source forge might need to close. \todo{ref about gforge inria?}
 \todo{a word on publiware?}
+\todo{at least use an institutional group/git user}
 
 \todo{link to Section 3}
 One solution proposed by the reproducibility guidelines of the conferences is to archive the code via Zenodo or Figshare, and then reference the DOI generated by these archive websites in the \ad.
@@ -378,7 +381,7 @@ However, storing source code on Zenodo has a simple drawback: there is no code e
 From the point of view of future researchers, having to download locally potentially large archives from Zenodo to be able to explore a few files of the source code is cumbersome and introduces friction.
 A better solution woulbe be to explore the artifact via a simple web UI.
 Archiving can also break the link between the original \texttt{git} URL if not archived correctly.
-Zenodo has an integration with Github\ \cite{github_zenodo} which allows to archive releases of a reprository.
+Zenodo has an integration with Github\ \cite{github_zenodo} which allows to archive \emph{releases} of a reprository.
 This is why some authors share both the \texttt{git} URL and a Zenodo archive.
 If the link between the repository and the Zenodo archive breaks (\eg\ \texttt{git} repository disappears), then future researchers are left with a single commit of the source code, and all the history of the project, which contributes to the understanding and extensibility of the project, is lost.
 Some artifact shared via Zenodo are actually an archive of a \texttt{git} repository and include the \texttt{.git} folder.
@@ -407,7 +410,7 @@ Authors give an unique identifier for the revision.
   \caption{Cumlative distribution function of the number of commits in the repositories shared in the \ad s}\label{fig:number_commits_repo}
 \end{figure}
 
-One thing that we observed during this survey is the very low number of commits in the repositories linked in the \ad s when shared with \texttt{git} (\ie\ \texttt{git}, \texttt{git+zenodo}, \texttt{git+figshare} on Figure \ref{fig:how_repo_shared}).
+One thing that we observed during this survey is the surprisingly very low number of commits in the repositories linked in the \ad s when shared with \texttt{git} (\ie\ \texttt{git}, \texttt{git+zenodo}, \texttt{git+figshare} on Figure \ref{fig:how_repo_shared}).
 Figure \ref{fig:number_commits_repo} shows the cumulative distribution function of the number of commits in the repositories shared in the \ad s when the source code was shared via \texttt{git}.
 \todo{update this final data: We can see that more than a third have less than 10 commits.}
 These repositories appear to be a "dump" of the source code with some extra commits for documentation.
@@ -455,7 +458,7 @@ Even if this allows the reviewers to get access to probably similar machines (in
 Using proprietary platforms also raises the question of who should pay to reproduce the results of the authors?
 Some authors using such platforms did write in their \ad\ the estimated monetary cost of rerunning the experiments.
 
-Similarly, some papers (in particular for the SuperComputing conference (\texttt{sc23})) were using supercomputer to run their experiments.
+Similarly, some papers (in particular for the SuperComputing conference (\texttt{sc23})) were using supercomputers to run their experiments.
 While supercomputers are at the bleeding edge of technology, having access to such system is restrictive and can take several weeks or month before getting accepted.
 \todo{berk}
 
@@ -553,7 +556,7 @@ What about the dependencies of the dependencies, etc?
 
 Another popular way to describe the software environment is to list installation commands to the package manager (\eg\ \texttt{apt}, \texttt{yum}).
 \todo{a word on what is a package manager}
-Most of the time these commands look like:
+These commands always looked like:
 
 \begin{verbatim}
 sudo apt-get update
@@ -644,6 +647,8 @@ However, this approach has its limits has it does not capture all the dependenci
 
 \subsubsection{Nix (Functional package managers)}
 
+\todo{this section is a copy paste of my thesis, it needs to be reduced}
+
 Tools such as Nix\ \cite{dolstra_nix_2004} or Guix\ \cite{courtes_functional_2013} fix most of the problems described in the previous sections.
 Nix and Guix share the similar concepts, in the following we will focus on Nix.
 
@@ -723,12 +728,9 @@ Workflow managers \cite{wratten2021reproducible} such as Snakemake \cite{koster2
   The community would \emph{greatly} benefit by adopting workflow managers\ \cite{wratten2021reproducible}.
 \end{lesson}
 
-%\subsection{Conclusion}\label{sec:sop:conclu}
-%
-%From what we observed in this Section, we can conclude that the state-of-practice of \adae\ is not yet up to the state where it could be used for future researchers.
-%
-%Proposition: the definition of a new badge assessing of the lifetime of \adae
+\subsection{Impressions after surveying the papers}\label{sec:sop:conclu}
 
+\todo{give some high level feedback}
 
 %
 % /////////////////////////////////////////////////////////////////////////////////////////////////////
