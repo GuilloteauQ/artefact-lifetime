@@ -26,7 +26,7 @@ rule generate_paper:
     input:
         "flake.nix",
         "flake.lock",
-        ".nix/pdf_shell.nix",
+        "workflow/envs/pdf_shell.nix",
         "rep24/references.bib",
         "rep24/figs/sw_envs.pdf",
         "rep24/figs/lifetime_score.pdf",
@@ -42,7 +42,7 @@ rule merge_csv:
     input:
         "flake.nix",
         "flake.lock",
-        ".nix/r_shell.nix",
+        "workflow/envs/r_shell.nix",
         script="workflow/scripts/merge_csv.R",
         csvs=expand(["data/conferences/{conference}.csv"], conference=CONFERENCES)
     output:
@@ -66,7 +66,7 @@ rule generate_df_unique:
   input:
     "flake.nix",
     "flake.lock",
-    ".nix/r_shell.nix",
+    "workflow/envs/r_shell.nix",
     script="workflow/scripts/get_df_unique.R",
     data="data/all.csv"
   output:
@@ -78,7 +78,7 @@ rule generate_figs_from_unique:
   input:
     "flake.nix",
     "flake.lock",
-    ".nix/r_shell.nix",
+    "workflow/envs/r_shell.nix",
     script="workflow/scripts/{script}.R",
     data="data/unique.csv"
   output:
@@ -90,7 +90,7 @@ rule generate_figs_sw_envs:
   input:
     "flake.nix",
     "flake.lock",
-    ".nix/r_shell.nix",
+    "workflow/envs/r_shell.nix",
     script="workflow/scripts/sw_envs.R",
     data="data/all.csv"
   output:
@@ -102,7 +102,7 @@ rule generate_fig_lifetime_score:
   input:
     "flake.nix",
     "flake.lock",
-    ".nix/r_shell.nix",
+    "workflow/envs/r_shell.nix",
     script="workflow/scripts/lifetime_score.R",
     data="data/all.csv"
   output:
@@ -114,7 +114,7 @@ rule generate_table_confs:
   input:
     "flake.nix",
     "flake.lock",
-    ".nix/r_shell.nix",
+    "workflow/envs/r_shell.nix",
     script="workflow/scripts/table_conferences.R",
     data="data/unique.csv"
   output:

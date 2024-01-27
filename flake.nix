@@ -37,9 +37,9 @@
           };
         };
         devShells = {
-          default = import .nix/snakemake_shell.nix { inherit pkgs; };
-          rshell = import .nix/r_shell.nix { inherit pkgs; };
-          pdf = import .nix/pdf_shell.nix { inherit pkgs; };
+          default = import workflow/envs/snakemake_shell.nix { inherit pkgs; };
+          rshell  = import workflow/envs/r_shell.nix { inherit pkgs; };
+          pdf     = import workflow/envs/pdf_shell.nix { inherit pkgs; };
         };
       });
 }
