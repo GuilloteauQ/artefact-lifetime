@@ -48,4 +48,36 @@ plot <- df %>%
   coord_flip()
   #theme(axis.text.x = element_text(angle = 45, hjust=1)) +
 
+plot_per_badge <- df %>%
+  select(
+    sw_env_method, conference, badge_avaible, badge_evaluated_functional, badge_reproduced
+  ) %>%
+  rename(badge_available = badge_avaible) %>%
+  pivot_longer(!c("sw_env_method", "conference"), names_to="badge", values_to="value") %>%
+  mutate(sw_env_method = fct_infreq(sw_env_method)) %>%
+  ggplot(aes(x = sw_env_method)) +
+  geom_bar(data = . %>% filter(value), aes(fill = conference)) +
+  ylab("Number of papers") +
+  xlab("") +
+  facet_wrap(~badge, ncol=3, scales = "free_x") +
+  scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
+  coord_flip()
+
+badges_labeller <- function(x) {
+  paste("Number of badges: ", x, sep="")
+}
+
+plot_per_nb_badges <- df %>%
+  select(
+    sw_env_method, conference, badges
+  ) %>%
+  mutate(sw_env_method = fct_infreq(sw_env_method)) %>%
+  ggplot(aes(x = sw_env_method)) +
+  geom_bar(aes(fill = conference)) +
+  ylab("Number of papers") +
+  xlab("") +
+  facet_wrap(~badges, ncol=2, scales = "free_x", labeller = labeller(badges = badges_labeller)) +
+  scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
+  coord_flip()
+
 ggsave(plot = plot, outfile, width=7, height=5)
