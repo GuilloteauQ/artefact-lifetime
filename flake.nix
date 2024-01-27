@@ -8,9 +8,6 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
-        myR = pkgs.rWrapper.override {
-          packages = with pkgs.rPackages; [ tidyverse geomtextpath ];
-        };
       in {
         packages = rec {
           default = ecg;
@@ -38,52 +35,11 @@
             ];
             doCheck = false;
           };
-        } // (builtins.listToAttrs (builtins.map (x: {
-          name = x;
-          value = pkgs.writeShellApplication {
-            name = x;
-            runtimeInputs = [ myR ];
-            text = ''
-              Rscript ${./workflow/scripts}/${x}.R "$@"
-            '';
-          };
-        }) [ "summary_conference" ]));
+        };
         devShells = {
-          default = with pkgs;
-            mkShell {
-              packages = [ python3 self.packages.${system}.ecg snakemake ];
-            };
-          rshell = with pkgs;
-            mkShell {
-              packages = [
-                (rWrapper.override {
-                  packages = [ rPackages.tidyverse rPackages.geomtextpath ];
-                })
-              ];
-            };
-          pdf = with pkgs;
-            mkShell {
-              packages = [ pandoc texlive.combined.scheme-full rubber vale ];
-            };
-          rmdshell = with pkgs;
-            mkShell {
-              packages = [
-                pandoc
-                texlive.combined.scheme-full
-                rubber
-                (rstudioWrapper.override {
-                  packages = [ rPackages.tidyverse rPackages.rmarkdown ];
-                })
-                (rWrapper.override {
-                  packages = [ rPackages.tidyverse rPackages.rmarkdown ];
-                })
-              ];
-            };
-          dev = with pkgs;
-            mkShell {
-              packages = [ python3 ]
-                ++ (with python3Packages; [ pyyaml requests ]);
-            };
+          default = import .nix/snakemake_shell.nix { inherit pkgs; };
+          rshell = import .nix/r_shell.nix { inherit pkgs; };
+          pdf = import .nix/pdf_shell.nix { inherit pkgs; };
         };
       });
 }
