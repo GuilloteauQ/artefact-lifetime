@@ -6,6 +6,7 @@ let
   rpacks = with rPackages; [
     tidyverse
     geomtextpath
+    kableExtra
   ];
 in
 mkShell {
