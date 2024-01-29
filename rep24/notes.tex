@@ -1,0 +1,90 @@
+
+\subsection{Journals}
+
+
+\todo{Journal of open research software \cite{hong2013software}}
+
+The last decade has seen the creation of independent online scientific journals to reward software and reproducibility.
+
+% JOSS \cite{smith2018journal}
+The most popular example is probably the \emph{Journal of Open Source Software} (JOSS)\ \cite{smith2018journal}.
+This journal publishes articles about open source research softwares.
+The reviewing process includes a thorough inspection of the source code, the documentation of the software, as well as a runthrough of some examples.
+Reviews are open and hosted online as Github issues.
+
+%IPOL \cite{colom2015ipol}
+In the field of Image Processing, the online journal \emph{Image Processing On Line} (IPOL)\ \cite{colom2015ipol} requires the authors to implement the algorithms proposed in their paper and to make the impementation available through an online demonstration for readers to explore and play with.
+This requirement forces the authors to share their code alongside their paper.
+IPOL noted that this requirement also helped authors to improve their algorithms, as actually implementing the algorithms might raise some undetected edge-cases.
+
+% Papers with code \cite{paperswithcode}
+\emph{Papers with code}\ \cite{paperswithcode} is a website that references Machine Learning academic papers that shared their code/datasets.
+Since 2015, they checked the code availability for the open access Machine Learning papers.
+They exhibted that the code availability of the Machine Learning papers has gone from less than 10\% in 2015, to a relatively constant 30\% since 2019.
+\todo{berk?}
+
+% Rescience \cite{rougier2019rescience}
+The \emph{ReScience} online journal\ \cite{rougier2017sustainable, rougier2019rescience} aims to encourage the replication (successful or not) of already published research works.
+Similarly to JOSS, the submissions and reviews are open and managed through issues and pull requests on Github.
+\todo{more}
+
+\subsection{\adae\ and badges}
+
+An artifact is a self-contained work result with a context-specific purpose\ \cite{mendez2019artefacts}.
+
+Badges have be shown to be an effective strategy to increase the open access of the data among papers \cite{kidwell2016badges, rowhani2017incentives}
+
+
+% \cite{hermann2020community}
+In \cite{hermann2020community}, the authors surveyed the members of artifact evaluation committees of computer science conferences about their expectations for artifacts and the reviewing process of the artifacts. 
+They found that despite the call for artifacts expressing expected observable qualities from the submitted artifacts, there was no consensus on what the expected qualities should be.
+This lack of consensus leaves the reviewers without guidelines to evaluate correctly and uniformly the artifacts, which has been shown to be frustrating for the reviewrs\ \cite{beller2020will}.
+Moreover, the study showed that there is a lack of reviewer experience.
+
+Reviewing and reuseing artifacts require two different point-of-views.
+Reviewing focuses more on \emph{replicability} of the artifacts, while readers are more interested in the the reusability aspect.
+
+One answer in the survey presented in \cite{hermann2020community} explains that the experiments presented in a paper should be reproducible, and that the good documentation and ease of setup are only bonuses.
+
+
+Participants of the survey also expressed that the most important thing is the availability of the artifact, rather than its reproducibility.
+
+
+Data + scripts included in paper
+
+Should it be seperated in the reviwing process?
+
+
+One issue with the reusing artifact is the comparison with different methods.
+When researchers want to compare their new method with a method from the state-of-the-art, they either need to reimplement the method from scratch if no artifact is available, or, if the artefact is available, researchers need to adapt the code from the artifact in order to enable a comparison between the methods.
+In both cases, this is not the original work that is being compared to, but a modified version of it, which might lead to different results.
+An artifact with all the badges, could not be reusable and comparable "as it is" by researchers.
+A solution that should be promoted by committees, is the implementation of the authors solutions on collaborative benchmarking frameworks.
+Some examples of such collaborative frameworks include BenchOpt \cite{moreau2022benchopt} for optimization problems, or KheOps \cite{rosendo2023kheops} for Edge-to-Cloud experiments.
+
+\subsection{Tools}
+
+Prova \cite{guerrera2019reproducible}
+BenchOpt \cite{moreau2022benchopt}
+UMLAUT \cite{umlaut}
+Benchmarking Crimes \cite{van2018benchmarking}
+Kheops \cite{rosendo2023kheops}
+
+Cascad \cite{perignon2019certify}
+
+\subsection{Surveys}
+
+Propogation of ML research  \cite{kang2023papers}
+Survey 4R \cite{hernandez2023repeatability}
+Quality indicator \cite{castell2024towards}
+
+%Survey Sascha \cite{hunold2015survey}
+In 2015, Hunold\ \cite{hunold2015survey} conducted a survey among the participants of the EuroPar conference to assess the vision of the parallel computing community on the questions of reproducibility. 
+Among all the questions, when asked about the main reasons for not making the source code/raw data/data processsing available, participants answered that: "\emph{it is irrelevant because evolution is too fast}" (90\%), "\emph{it is not rewarding}" (87\%), "\emph{I want to retain a competitive advantage}" (84\%).
+The second most popular answer is quite interesting as \aeval\ processes were not very popular at the time of the survey (the very first one was in 2011 at ESC/FSE).
+The work done by publishers with the badging system aimed to reward authors for sharing their artifacts.
+It would be interesting to reconduct the survey today to see the impact on the \aeval\ on this question, as we believe that reproducibility and its challenges have now much more visibility than ever.
+
+
+\cite{winter2022retrospective}
+\cite{hermann2022has}

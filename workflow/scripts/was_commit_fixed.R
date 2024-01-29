@@ -24,4 +24,21 @@ plot <- df %>%
   scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
   ggtitle("When shared with only `git`, was the commit used fixed?")
 
-ggsave(plot = plot, outfile, width=6, height=6)
+#plot <- df %>%
+#  mutate(
+#    has_badge = if_else(badges != 0, "Paper has at least one badge", "Paper has no badge")
+#  ) %>%
+#  mutate(
+#    has_badge = factor(has_badge, levels = c("Paper has no badge", "Paper has at least one badge")),
+#    pinned_version = factor(pinned_version, levels = c("TRUE", "FALSE"))
+#  ) %>%
+#  ggplot(aes(x = pinned_version)) +
+#  geom_bar(aes(fill = conference)) +
+#  ylab("Number of papers") +
+#  facet_wrap(~has_badge, ncol=2) +
+#  scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
+#  xlab("Was the commit fixed when only using git?") +
+#  guides(fill = guide_legend(nrow = 2, byrow=TRUE)) +
+#  theme(strip.background = element_blank())
+
+ggsave(plot = plot, outfile, width=4, height=4)

@@ -7,7 +7,8 @@ outfile = args[2]
 
 df <- read_csv(filename, col_names = T) %>%
   separate_longer_delim(experimental_setup, "+") %>%
-  filter(experimental_setup != "NA")
+  filter(experimental_setup != "NA") %>%
+  mutate(experimental_setup = if_else(experimental_setup == "homemade", "local", experimental_setup))
 
 total_papers <- df %>%
   pull(doi) %>%
