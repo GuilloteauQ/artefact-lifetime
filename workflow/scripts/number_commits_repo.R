@@ -23,7 +23,12 @@ plot <- df %>%
   ggplot(aes(x = nb_commits_repo)) +
   stat_ecdf() +
   geom_textvline(data = nb_commits_quantiles, aes(xintercept = q, label = paste(q," (", percentage*100, "%)",sep="")), linetype = "dashed", hjust=0.95) +
-  scale_x_log10("Number of commits in the repositories (log scale)") +
+  scale_x_log10(
+   "Number of commits in the repositories (log scale)",
+   breaks = scales::trans_breaks("log10", function(x) 10^x),
+   labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) +
+  annotation_logticks(sides = "b") +
   ylab("Proportion")
 
 ggsave(plot = plot, outfile, width=6, height=4)

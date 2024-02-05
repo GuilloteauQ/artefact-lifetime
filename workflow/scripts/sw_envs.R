@@ -80,4 +80,4 @@ plot_per_nb_badges <- df %>%
   scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
   coord_flip()
 
-ggsave(plot = plot, outfile, width=7, height=5)
+ggsave(plot = plot, outfile, width=7, height=4)
