@@ -25,4 +25,4 @@ plot <- df %>%
   ggtitle("What was the tool used to generate the environment?") +
   coord_flip()
 
-ggsave(plot = plot, outfile, width=6, height=5)
+ggsave(plot = plot, outfile, width=6, height=4)
