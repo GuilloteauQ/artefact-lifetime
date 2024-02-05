@@ -177,7 +177,7 @@ The scientific community as a whole has been traversing a \repro\ crisis for the
 Computer science does not make an exception\ \cite{randallIrreproducibilityCrisisModern2018,baker500ScientistsLift2016}.
 
 The \repro\ of the research work is essential to build robust knowledge, and it increases the reliability of results while limiting the number of methodology and analysis bias.
-In 2015, Collberg et al.\ \cite{collberg_repeatability_2015} studied the \repro\ of 402 experimental papers published in *system* conferences and journals.
+In 2015, Collberg et al.\ \cite{collberg_repeatability_2015} studied the \repro\ of 402 experimental papers published in \emph{system} conferences and journals.
 Each studied paper linked the source code used to perform their experiments. 
 On those 402 papers, 46\% were not reproducible.
 The main causes were:
@@ -732,7 +732,7 @@ As experiments in distributed computing can be quite expensive to run (especiall
 For instance, a reviewer or future researcher might want to rerun only the analysis of the data from the artifact (dataset that has been stored on Zenodo for example), or maybe to add a new combination of parameters. 
 
 Workflow managers \cite{wratten2021reproducible} such as Snakemake \cite{koster2012snakemake}, NextFlow \cite{di2017nextflow}, or Common Workflow Language\ \cite{amstutz2016common} based solutions (\eg\ Guix Workflow\ \cite{strozzi2019scalable}, or Toil\ \cite{vivian2017toil}) has become a standard in bioinformatics to run complex pipelines.
-However, their use have not yet reached the system and distributed systems communities, despite all the interesting qualities: robustness, scalability, interaction wit the batch scheduler of a cluster\ \cite{snakemake-executor-plugin-slurm}.
+However, their use have not yet reached the system and distributed systems communities, despite all the interesting qualities: robustness, scalability, interaction with the batch scheduler of a cluster\ \cite{snakemake-executor-plugin-slurm}.
 
 
 \begin{lesson}{Workflow managers}{}
@@ -799,6 +799,11 @@ Thus, in Section \ref{sec:lifetime}, we propose a new badge to reward artifacts 
 We associate with this new badge, a framework for grading and delivering or not the badge to authors.
 We hope that this new badge will be considered by the community, and adopted by conferences, with or without a scoring system.
 
+This study could be performed every year to assess the evolution through time of the community in terms of \emph{lifetime} of artifacts.
+We might want to expand the range of this study, and include dimension such as workflow managers.
+Collecting the data manually is slow and error prone.
+Requiering artifacts to have a Software Bill of Material (SBOM) \cite{sbom, xia2023empirical} would greatly improve the reliability of the data, and would improve the artifacts in terms of FAIRness (\eg\ for Nix \cite{genealogos}).
+
 \paragraph{Threats to validity}
 
 This study focuses only on 5 conferences on system and distributed system, and all from the \emph{same} year.
@@ -828,7 +833,7 @@ The fact that the data was collected by a single researcher might have introduce
 
 \section*{Acknowledgments}
 
-This project received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 957407 as DAPHNE
+This project received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 957407 as DAPHNE.
 
 %% PAPER ENDS HERE -----------------------------------------------------------------------------------------------
 
