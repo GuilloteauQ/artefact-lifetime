@@ -303,3 +303,11 @@ TSWLatexianTemp*
 # Uncomment the next line to have this generated file ignored.
 #*Notes.bib
 
+# Snakemake (workflow engine) creates files under .snakemake
+.snakemake/
+
+# The content of the data/ folder is generated from data in conferences/, so
+# we need not track it.
+data/
+# Likewise, the table below is a generated artifact
+rep24/tables/summary_conferences.tex
