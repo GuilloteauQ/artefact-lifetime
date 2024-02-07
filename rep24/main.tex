@@ -109,9 +109,9 @@
 \orcid{https://orcid.org/0009-0007-3738-5919}
 \author{Olivier Richard}
 \orcid{https://orcid.org/0009-0005-8679-2874}
-\email{firstname.lastname@inria:.fr}
+\email{firstname.lastname@inria.fr}
 \affiliation{%
-  \institution{Univ. Grenoble Alpes, Inria, CNRS, LIG}
+  \institution{Univ.~Grenoble~Alpes,~Inria,~CNRS,~LIG}
   \city{Grenoble}
   \country{France}
 }
@@ -259,12 +259,16 @@ An \emph{artifact} is a self-contained work result with a context-specific purpo
 In 2015, Hunold\ \cite{hunold2015survey} conducted a survey among the participants of the EuroPar conference to assess the vision of the parallel computing community on the questions of reproducibility. 
 Among all the questions, when asked about the main reasons for not making the source code/raw data/data processing available, participants answered that: "\emph{it is irrelevant because evolution is too fast}" (90\%), "\emph{it is not rewarding}" (87\%), "\emph{I want to retain a competitive advantage}" (84\%).
 The second most popular answer is quite interesting as \aeval\ processes were not very popular at the time of the survey (the very first one was in 2011 at ESC/FSE).
+Sharing artifacts and having them evaluated has been accepted as an established practice with benefits for the community\ \cite{hermann2022has}.
 The work done by publishers with the badging system aimed to reward authors for sharing their artifacts.
 It would be interesting to conduct again the survey today to see the impact on the \aeval\ on this question, as we believe that reproducibility and its challenges have now much more visibility than ever.
 Badges have be shown to be an effective strategy to increase the open access of the data among papers \cite{kidwell2016badges, rowhani2017incentives}.
+However badges have yet to show significant impact on the visibility of the papers\ \cite{winter2022retrospective}. 
 
 In \cite{hermann2020community}, the authors surveyed the members of artifact evaluation committees of computer science conferences about their expectations for artifacts and the reviewing process of the artifacts. 
 They found that despite the call for artifacts expressing expected observable qualities from the submitted artifacts, there was no consensus on what the expected qualities should be.
+Attempts have been started to define a "quality indicator" of research artifacts\ \cite{castell2024towards}.
+\todo{more}.
 This lack of consensus leaves the reviewers without guidelines to evaluate correctly and uniformly the artifacts, which has been shown to be frustrating for the reviewers\ \cite{beller2020will}.
 Moreover, the study showed that there is a lack of reviewer experience.
 
@@ -299,16 +303,11 @@ IPOL noted that this requirement also helped authors to improve their algorithms
 As the reviewing process for journal is much longer than for conferences, reviewers have more time to dig into the artifacts and discuss with the authors on ways to improve the artifacts.
 
 
-
-Prova \cite{guerrera2019reproducible}
-UMLAUT \cite{umlaut}
-Benchmarking Crimes \cite{van2018benchmarking}
-Cascad \cite{perignon2019certify}
-Propogation of ML research  \cite{kang2023papers}
-Survey 4R \cite{hernandez2023repeatability}
-Quality indicator \cite{castell2024towards}
-\cite{winter2022retrospective}
-\cite{hermann2022has}
+%Prova \cite{guerrera2019reproducible}
+%UMLAUT \cite{umlaut}
+%Benchmarking Crimes \cite{van2018benchmarking}
+%Propogation of ML research  \cite{kang2023papers}
+%Survey 4R \cite{hernandez2023repeatability}
 
 
 
@@ -388,6 +387,7 @@ We believe that the links simply expired, which is problematic for the usage of 
 Moreover, as long as the \aeval\ process does not count in the accept/reject decision, having a double-blind review for the \adae\ only limits the ability of the reviewers and authors to communicate.
 If the results of the \aeval\ will be taken into account for the decision, then the community might need to investigate ways to perform the \aeval\ in a double-blind fashion.
 An easy solution would be to use tools such as \texttt{anonymous.4open.science} \cite{anonymous_github} for the review, and then substitute in the camera ready version of the paper the URL for a more persistent one.
+Some communities use third parties to review artifact anonymously, especially when containing sensible data (\eg\ \cite{perignon2019certify}).
 
 A majority of authors shared their artifacts via an indirect link.
 Usually this link points to the authors personal webpage, where there is the true link to access the artifact.
