@@ -82,7 +82,7 @@
 % \title{State-of-practice for sharing artifacts in top system conferences: Are~we~reproducible~yet?}
 %\title{State-of-the-practice of artifacts longevity in system conferences}
 \title{Longevity of artifacts in top system conferences: a~State-of-the-practice~review}
-%\title{Study of the State-of-the-practice for sharing artifacts in top system conferences from the point-of-view of artifacts longevitys}
+%\title{Study of the State-of-the-practice for sharing artifacts in top system conferences from the point-of-view of artifacts longevity}
 %\title{A longevity-focused review of the State-of-the-practice for sharing artifacts in top system conferences}
 
 \author{Quentin Guilloteau}
@@ -251,7 +251,7 @@ Finally, Section \ref{sec:conclu} concludes this paper with final remarks and pe
 \section{Background and related work}\label{sec:background}
 
 We use the following definitions:
-An experiment is \emph{reproducible} if the source code, the raw data, the analysis scripts are available, their usage described sufficiently for someone to re-perform the experiments and analyis, and the access to the used experimental platform is open.
+An experiment is \emph{reproducible} if the source code, the raw data, the analysis scripts are available, their usage described sufficiently for someone to re-perform the experiments and analysis, and the access to the used experimental platform is open.
 This definition is modified from \cite{rougier2019rescience} by adding the dimension of the experimental platform.
 An \emph{artifact} is a self-contained work result with a context-specific purpose\ \cite{mendez2019artefacts}.
 
@@ -261,7 +261,7 @@ The second most popular answer is quite interesting as \aeval\ processes were no
 Sharing artifacts and having them evaluated has been accepted as an established practice with benefits for the community\ \cite{hermann2022has}.
 The work done by publishers with the badging system aimed to reward authors for sharing their artifacts.
 It would be interesting to conduct again the survey today to see the impact on the \aeval\ on this question, as we believe that reproducibility and its challenges have now much more visibility.
-Badges have be shown to be an effective strategy to incentisize authors to make the data of their works available \cite{kidwell2016badges, rowhani2017incentives}.
+Badges have be shown to be an effective strategy to incentivize authors to make the data of their works available \cite{kidwell2016badges, rowhani2017incentives}.
 However badges have yet to show significant impact on the visibility of the papers\ \cite{winter2022retrospective, frachtenberg2022research, heumuller2020publish}. 
 
 In \cite{hermann2020community}, the authors surveyed the members of artifact evaluation committees of computer science conferences about their expectations for artifacts and the reviewing process of the artifacts. 
@@ -305,7 +305,7 @@ As the reviewing process for journal is much longer than for conferences, review
 %Prova \cite{guerrera2019reproducible}
 %UMLAUT \cite{umlaut}
 %Benchmarking Crimes \cite{van2018benchmarking}
-%Propogation of ML research  \cite{kang2023papers}
+%Propagation of ML research  \cite{kang2023papers}
 %Survey 4R \cite{hernandez2023repeatability}
 
 Studies on the artifact process focus mainly on high level characteristics, as well as the artifact availability and citations\ \cite{kidwell2016badges, rowhani2017incentives, winter2022retrospective, frachtenberg2022research, heumuller2020publish}. 
@@ -525,7 +525,7 @@ But some use virtualization tools such as container or virtual machines.
 Usually, the capture of the entire software stack goes through it encapsulation in an \emph{image}.
 This image can then be deployed on machines to execute the experiments.
 A way to generate a system image is to start from a base image, deploy this image, execute the commands required to set up the desired environment, and finally compress the image.
-Platforms such as \grid\ \cite{grid5000} and Chamelon\ \cite{chameleon} offer such tools to their users (respectively \texttt{tgz-g5k}\ \cite{tgz-g5k} and \texttt{cc-snapshot}\ \cite{cc-snapshot}).
+Platforms such as \grid\ \cite{grid5000} and Chameleon\ \cite{chameleon} offer such tools to their users (respectively \texttt{tgz-g5k}\ \cite{tgz-g5k} and \texttt{cc-snapshot}\ \cite{cc-snapshot}).
 In the context of repeatability and replicability, if the image stays available, then this way to produce system images is adequate at best.
 But, concerning the traceability of the build, one cannot verify the commands that have been used to generate the image, and thus relies completely on the documentation from the experimenter.
 Moreover, such images are not adapted to be versioned with tools like \texttt{git} as they are in a binary format.
@@ -618,7 +618,7 @@ However, in practice, we observed the same issues as presented in Section \ref{s
 
 A common practice when authors need to install a dependency that is not available through the classical package managers, is to install it from source.
 For this, authors indicate in the \ad\ how to download the dependency, and how to build it.
-However, when cloning a \texttt{git} repository or downloading an archive via \texttt{wget}/\texttt{curl}, a common error is to not specify the commit to use (\texttt{Unprecise download} in Figure \ref{fig:sw_envs}).
+However, when cloning a \texttt{git} repository or downloading an archive via \texttt{wget}/\texttt{curl}, a common error is to not specify the commit to use (\texttt{Imprecise download} in Figure \ref{fig:sw_envs}).
 If no commit is specified, \texttt{git} will use the latest commit of the main branch, which could be completely different at the moment of the artifact review and in 10 years.
 
 \begin{verbatim}
@@ -816,8 +816,8 @@ We hope that this new badge will be considered by the community, and adopted by 
 This study could be performed every year to assess the evolution through time of the community in terms of \emph{longevity} of artifacts.
 We might want to expand the range of this study, and include dimensions such as workflow managers.
 Collecting the data manually is slow and error prone.
-Requiering artifacts to have a Software Bill of Material (SBOM) \cite{sbom, xia2023empirical} would greatly improve the tracability of the artifacts (\eg\ for Nix \cite{genealogos}).
-More generaly, having a standardized file describing the metadata of the artifact. \todo{}
+Requiring artifacts to have a Software Bill of Material (SBOM) \cite{sbom, xia2023empirical} would greatly improve the traceability of the artifacts (\eg\ for Nix \cite{genealogos}).
+More generally, having a standardized file describing the metadata of the artifact. \todo{}
 
 \paragraph{Threats to validity}
 
@@ -837,13 +837,13 @@ The fact that the data was collected by a single researcher might have introduce
 % What is the future of \aeval?
 % should the \aeval\ be part of the accept/reject decision process?
 % What about the energy/environmental cost of \aeval?
-% especially in HPC where the experiments are long lasting and resources consumming.
-% If the current \aeval\ is the first step towards a more "important" reviewing process, the community should not get used to this level of rigourness for \aeval.
+% especially in HPC where the experiments are long lasting and resources consuming.
+% If the current \aeval\ is the first step towards a more "important" reviewing process, the community should not get used to this level of rigorousness for \aeval.
 % 
 % One perspective is to make even more apparent the lack of reproducibility of the popular methods to generate and package software environment.
 % By collecting \texttt{Dockerfile}s from the artifacts of the papers, we could try to rebuild the Docker images from source periodically (\eg\ every month), and log the versions of the softwares in the resulting image.
-% As \texttt{Dockerfile} recipes mostly rely on either nvidia or Ubuntu based images, calls to \texttt{apt}, and \texttt{pip}, the resulting software environment is very fragile, and would thus be intersting to follow its evolution. 
-% This does not mean trying to rerun the experiments associated with the Docker images as it would be to energy consumming.
+% As \texttt{Dockerfile} recipes mostly rely on either nvidia or Ubuntu based images, calls to \texttt{apt}, and \texttt{pip}, the resulting software environment is very fragile, and would thus be interesting to follow its evolution. 
+% This does not mean trying to rerun the experiments associated with the Docker images as it would be to energy consuming.
 % So, even if the software environment varies, it does not mean that the results of the experiments will vary.
 
 \section*{Acknowledgments}

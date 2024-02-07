@@ -23,7 +23,7 @@ df <- read_csv(filename, col_names = T) %>%
       "List (>=)" = "list_loose_version",
       "Precise download" = "git_curl_commands_safe",
       "Nothing" = "none",
-      "Unprecise download" = "git_curl_commands_unsafe",
+      "Imprecise download" = "git_curl_commands_unsafe",
       "pip" = "pip",
       "List (==)" = "list_strict_version",
       "apt commands" = "apt_commands"
