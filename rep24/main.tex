@@ -195,11 +195,11 @@ The main causes were:
 \emph{(ii)} the code did not compile or did not run,
 \emph{(iii)} the experiments required specific hardware
 
-To highlight the reproducible research works, several publishers (like ACM or Springer) set up an artifact evaluation of a submission.
-This peer review process of the experimental artifact can yield one or several badgers to the authors based on the level of \repro\ of their artifacts.
+To reward authors of reproducible works, several publishers (like ACM or Springer) set up an artifact evaluation of a submission.
+This peer review process of the experimental artifact can yield one or several badges to the authors based on the level of \repro\ of their artifacts.
 
 The term \repro\ is often used in a broad sense and gathers several concepts.
-The definitions that we will use in the rest of this paper are the ones defined by ACM for the validation of the submitted artifacts\ \cite{acm-badges}.
+The definitions that we will use in the rest of this paper are the ones the ACM uses for the validation of the submitted artifacts\ \cite{acm-badges}.
 It is composed of three levels of \repro:
 
 \begin{enumerate}
@@ -211,36 +211,36 @@ It is composed of three levels of \repro:
 % The evaluation of artifacts is a crucial point which allows guaranteeing the reproducibility of the experiments and the results.
 % However, this reproducibility is not sufficient.
 % Even if being able to reproduce an experiment is proof a scientific validation, the experiment and its environment are often too fragile to be extended by a third party, or even by the authors themselves. 
-  
-An experiment without the environment in which it was executed makes it much more difficult to reproduce.
+
+An experiment without the software environment in which it was executed makes it much more difficult to reproduce.
 Indeed, side effects from the environment can happen and change the results of the experiment.
-It is easy to forget to include in the software environment an element which impacts the performance of the experiment.
-The performances, but also the results of a simple C application can depend on the compilation options\ \cite{stodden2018assessing} or also from the quantity of UNIX environment variables\ \cite{mytkowicz2009producing}.
+It is easy to forget to include an element in the software environment that has an impact on the performance of the experiment.
+For instance, the performances, but also the outcome of a simple C application can depend on the compilation options\ \cite{stodden2018assessing} or also from the quantity of UNIX environment variables\ \cite{mytkowicz2009producing}.
 
-Most of the current solutions in terms of "\repro" fall under the storage of artifacts (system images, containers, virtual machines) and replay of experiments\ \cite{rosendo2020e2clab, brammer2011paper, brinckman2019computing}.
-Even if this is an important part of the \repro\ spectrum, nothing guarantees that the software environment can be re-built in the future, and thus nothing guarantees that the experiments can be re-run if the artifacts disappear. 
+Most of the current solutions in terms of "\repro" involve storing artifacts (system images, containers, virtual machines) and replay of experiments\ \cite{rosendo2020e2clab, brammer2011paper, brinckman2019computing}.
+Even if this is an important step towards \repro, nothing guarantees that the software environment can be re-built in the future, and thus nothing guarantees that the experiments can be re-run if the artifacts disappear. 
 
 
-The step of artifact evaluation for the conferences is done soon after their initial construction.
+The evaluation of artifacts for the conferences is done soon after their initial construction.
 It is thus very probable that the construction of the artifacts will be executed in a similar state of the packages mirrors (\texttt{apt}, \texttt{rpm}, etc.).
 However, what will happen when someone will try to rebuild the environment in 1 year? 5 years? 10 years?
 The objective of science is to base itself on robust works to continue to go forward (\emph{Stand on the shoulders of giants}).
-This vision of "\textbf{short term reproducibility}" is a major obstacle to scientific progress and is in complete opposition to the science philosophy.
+Such "\textbf{short term reproducibility}" is a major obstacle to scientific progress and is in complete opposition to the science philosophy.
 We believe that the \ad\ is for the artifact reviewer, \textbf{but, more importantly, for a future reader of the paper.}
 
 
 We think that the notion that should be highlighted is the concept of \textbf{variation}\ \cite{mercier2018considering, feitelson_repeatability_2015}.
 This means allowing a third party to use the environment defined for an experiment in order to investigate another research idea.
 An example of variation would be to change the MPI implementation used in an experiment (\eg\ MPICH instead of OpenMPI).
-Being able to introduce such a variation is only possible if the initial environment is correctly defined.
+Being able to introduce such a variation requires the initial environment to be correctly defined.
 
-We claim that the current state-of-the-practice of the artifact descriptions and evaluation does not answer major questions of reproducibility.
-In particular in terms of reproducibility of the software environment of the experiments.
+We claim that the current state-of-the-practice of the artifact description and evaluation does not answer major questions of reproducibility.
+In particular in terms of reproducibility of the experiments' software environment.
 
 This paper is structured as follows.
 Section \ref{sec:background} presents the context and related work of artifact evaluation.
 %Section \ref{sec:reco} summarizes the recommendations made by the artifact reviewing committees.
-In Section \ref{sec:sop}, we survey the papers from 5 top conferences in systems of 2023, and discuss the state-of-the-practice of the artifact sharing.
+In Section \ref{sec:sop}, we survey the papers from 5 top conferences in systems of 2023, and discuss the state-of-the-practice of artifact sharing.
 Based on our observations, we propose in Section \ref{sec:lifetime} a new badge to take into account the \emph{lifetime} dimension of an artifact.
 Finally, Section \ref{sec:conclu} concludes this paper with final remarks and perspectives.
 
@@ -257,24 +257,24 @@ In 2015, Hunold\ \cite{hunold2015survey} conducted a survey among the participan
 Among all the questions, when asked about the main reasons for not making the source code/raw data/data processing available, participants answered that: "\emph{it is irrelevant because evolution is too fast}" (90\%), "\emph{it is not rewarding}" (87\%), "\emph{I want to retain a competitive advantage}" (84\%).
 The second most popular answer is quite interesting as \aeval\ processes were not very popular at the time of the survey (the very first one was in 2011 at ESC/FSE).
 The work done by publishers with the badging system aimed to reward authors for sharing their artifacts.
-It would be interesting to conduct again the survey today to see the impact on the \aeval\ on this question, as we believe that reproducibility and its challenges have now much more visibility than ever.
-Badges have be shown to be an effective strategy to increase the open access of the data among papers \cite{kidwell2016badges, rowhani2017incentives}.
+It would be interesting to conduct again the survey today to see the impact on the \aeval\ on this question, as we believe that reproducibility and its challenges have now much more visibility.
+Badges have be shown to be an effective strategy incentisize authors to make the data of their works available \cite{kidwell2016badges, rowhani2017incentives}.
 
 In \cite{hermann2020community}, the authors surveyed the members of artifact evaluation committees of computer science conferences about their expectations for artifacts and the reviewing process of the artifacts. 
 They found that despite the call for artifacts expressing expected observable qualities from the submitted artifacts, there was no consensus on what the expected qualities should be.
-This lack of consensus leaves the reviewers without guidelines to evaluate correctly and uniformly the artifacts, which has been shown to be frustrating for the reviewers\ \cite{beller2020will}.
+This lack of consensus leaves the reviewers without guidelines to correctly and uniformly evaluate the artifacts, which has been shown to be frustrating for the reviewers\ \cite{beller2020will}.
 Moreover, the study showed that there is a lack of reviewer experience.
 
-Reviewing and reusing artifacts require two different point-of-views.
+Reviewing and reusing artifacts require two different points-of-views.
 Reviewing focuses more on overall "quality" of the artifacts (\ie\ completeness, documentation), while readers are more interested in the reusability aspect.
 
 One answer in the survey presented in \cite{hermann2020community} explains that the experiments presented in a paper should be reproducible, and that the good documentation and ease of setup are only bonuses.
 
-One issue with the reusing artifact is the comparison with different methods.
+Reusing artifacts poses problems when used to compare with other methods.
 When researchers want to compare their new method with a method from the state-of-the-art, they either need to reimplement the method from scratch if no artifact is available, or, if the artifact is available, researchers need to adapt the code from the artifact in order to enable a comparison between the methods.
 In both cases, this is not the original work that is being compared to, but a modified version of it, which might lead to different results.
-An artifact with all the badges, could not be reusable and comparable "as it is" by researchers.
-A solution that should be promoted by committees, is the implementation of the authors solutions on collaborative benchmarking frameworks.
+An artifact with all the badges might not be reusable and comparable "as it is" by other researchers.
+A solution that should be promoted by committees, is the implementation of the authors' solutions on collaborative benchmarking frameworks.
 Some examples of such collaborative frameworks include BenchOpt \cite{moreau2022benchopt} for optimization problems, or KheOps \cite{rosendo2023kheops} for Edge-to-Cloud experiments.
 
 
@@ -285,7 +285,7 @@ Participants of the survey also expressed that the most important thing is the a
 
 The last decade has seen the creation of independent online scientific journals to reward software and reproducibility.
 The most popular example is probably the \emph{Journal of Open Source Software} (JOSS)\ \cite{smith2018journal}.
-This journal publishes articles about open source research softwares.
+This journal publishes articles about open source research software.
 The reviewing process includes a thorough inspection of the source code, the documentation of the software, as well as a run-through of some examples.
 Reviews are open and hosted online as GitHub issues.
 %IPOL \cite{colom2015ipol}
@@ -293,7 +293,7 @@ In the field of Image Processing, the online journal \emph{Image Processing On L
 This requirement forces the authors to share their code alongside their paper.
 IPOL noted that this requirement also helped authors to improve their algorithms, as actually implementing the algorithms might raise some undetected edge-cases.
 
-As the reviewing process for journal is much longer than for conferences, reviewers have more time to dig into the artifacts and discuss with the authors on ways to improve the artifacts.
+As the reviewing process for journal is much longer than for conferences, reviewers have more time to investigate the artifacts and discuss with the authors on ways to improve the artifacts.
 
 
 
@@ -323,11 +323,11 @@ Quality indicator \cite{castell2024towards}
 
 In this Section, we surveyed 296 papers from 5 of the top conferences in \emph{distributed systems and system} of 2023.
 All the considered conferences had an \adae\ process for the \emph{accepted} papers.
-This \adae\ process usually consists of a first phase where the authors write an \ad\ as an appendix of the paper to show how to get and use the artifact, how to install the dependencies, what are the different experiments and their estimated time, etc.
+This \adae\ process usually consists of a first phase where the authors write an \ad\ as an appendix of the paper to show how to get and use the artifact, how to install the dependencies, what are the different experiments and their estimated duration, etc.
 This \ad\ section is usually one or two pages long (in a double column layout).
 The most popular practice is for authors to give a link to a more detailed description of the artifact.
 
-Table \ref{tab:table:paper_confs} summarizes the number of papers evaluated for each conference, as well as the number of artifact sections.
+Table \ref{tab:table:paper_confs} summarizes our evaluations, including the number of papers for each conference and how many of them have an artifact section.
 
 % \begin{figure}
 %   \centering
@@ -335,9 +335,9 @@ Table \ref{tab:table:paper_confs} summarizes the number of papers evaluated for 
 %   \caption{Number of papers which earned at least one badge which contain an \ad\ in the pdf. We observe that a significant amount of papers with at least a badge do not share their \ad\ in the proceedings version. \todo{remove plot and just put the percentage in the text}}\label{fig:}
 % \end{figure}
 
-The first surprising realization is that about 20\% of the papers with the "Artifact available" badge have the artifact section in the proceedings version.
-We suspect that either the author forgot, or refused, to include the section in the final version of the paper.
-We believe that \textbf{the \ad\ is for the artifact reviewer, but also a future reader of the paper.}
+The first surprising realization is that only about 20\% of the papers with the "Artifact available" badge do have an \ad~ section in the proceedings version.
+We suspect that the authors either forgot or refused to include this section in the final version of the paper.
+We find it unfortunate as we believe that \textbf{the \ad\ is as valuable for the artifact reviewer, as for readers of the paper.}
 %\todo{put this claim somewhere else.}
 %Excluding this section of the final version should not grant the "Open" badge.
 
@@ -347,12 +347,12 @@ We selected conferences of 2023 with an \ad\ process, and looked at their procee
 From the proceedings, we surveyed all the papers and, for each paper, noted:
 
 \begin{itemize}
-  \item How many reproducibility badges, and which of them, did the paper receive
-  \item If the paper had an \ad\ section
-  \item If the paper shared the URL of the artifact (it does not have to be in the \ad), and if the URL is still valid
+  \item How many reproducibility badges, and which of them, the paper received
+  \item Wheter the paper had an \ad\ section
+  \item Whether the paper shared the URL of the artifact (it does not have to be in the \ad), and whether the URL is still valid
   \item How the experiments were performed (\eg\ local machines, shared testbeds, proprietary machines, supercomputer, simulation, etc.)
-  \item How was the source code shared (\texttt{git}, Zenodo, Software-Heritage, or combination of solutions)
-  \item If the source code has been shared with \texttt{git}, we record the number of commits, and check if a precise commit was specified by the authors
+  \item How the source code was shared (\texttt{git}, Zenodo, Software-Heritage, or combination of solutions)
+  \item If the source code has been shared with \texttt{git}, we record the number of commits, and check whether a precise commit was specified by the authors
   \item How the software environment was shared
 \end{itemize}
 
@@ -362,7 +362,7 @@ But we are certain that if there are errors, they will not affect significantly 
 We spent around 5 minutes, and no more than 10 minutes, per paper to collect the aforementioned information.
 
 
-In the following of this Section, we study the \ad s on four characteristics: how was the source code shared (Section \ref{sec:sop:src}), where are the experiments executed (Section \ref{sec:sop:expe}), how is the software environment described and shared (Section \ref{sec:sop:sw}), and finally the workflow of experiments (Section \ref{sec:sop:workflow}).
+In the following of this Section, we study four aspects of the \ad s: how the source code was shared (Section \ref{sec:sop:src}), where the experiments were executed (Section \ref{sec:sop:expe}), how the software environment was described and shared (Section \ref{sec:sop:sw}), and finally the workflow of experiments (Section \ref{sec:sop:workflow}).
 
 \subsection{Source code}\label{sec:sop:src}
 
@@ -378,13 +378,13 @@ The majority of papers simply gives the URL of a \texttt{git} repository.
 Some paper shared their code with Zenodo\ \cite{zenodo} or Figshare\ \cite{figshare}, and some shared with both a \texttt{git} URL and Zenodo.
 A minority used Software-Heritage\ \cite{swheritage} (abbreviated \texttt{swh} on Figure \ref{fig:how_repo_shared}), Globus\ \cite{globus}, or even personal cloud drives (\texttt{cloud}).
 
-Some authors used \texttt{anonymous.4open.science}\ \cite{anonymous_github} (abbreviated \texttt{a4os} in Figure \ref{fig:how_repo_shared}) which allows users to share with the reviewers an anonymous copy of a public GitHub repository.
+Some authors used \texttt{anonymous.4open.science}\ \cite{anonymous_github} (abbreviated \texttt{a4os} in Figure \ref{fig:how_repo_shared}) which allows users to share an anonymous copy of a public GitHub repository with the reviewers.
 This is particularly useful for double-blind reviews.
 However, for all the papers surveyed, all the links to this service were dead, and there was no way to find the original \texttt{git} repository.
 We believe that the links simply expired, which is problematic for the usage of future researchers.
 Moreover, as long as the \aeval\ process does not count in the accept/reject decision, having a double-blind review for the \adae\ only limits the ability of the reviewers and authors to communicate.
 If the results of the \aeval\ will be taken into account for the decision, then the community might need to investigate ways to perform the \aeval\ in a double-blind fashion.
-An easy solution would be to use tools such as \texttt{anonymous.4open.science} \cite{anonymous_github} for the review, and then substitute in the camera ready version of the paper the URL for a more persistent one.
+An easy solution would be to use tools such as \texttt{anonymous.4open.science} \cite{anonymous_github} for the review, and then substitute the URL with a more persistent one in the camera ready version of the paper.
 
 A majority of authors shared their artifacts via an indirect link.
 Usually this link points to the authors personal webpage, where there is the true link to access the artifact.
@@ -393,25 +393,25 @@ Similar comments apply for sharing the artifacts with a link to a personal cloud
 
 Sharing only with a \texttt{git} URL can lead to traceability issues.
 For instance, only 6\% of the papers sharing the artifacts via a \texttt{git} URL mentioned the commit used for the experiments.
-Such a solution might be satisfactory for the \aeval\ as the delay between the submission of the paper and the evaluation of its artifact is short enough to keep the code in the same, or a similar state.
+Such a solution might be satisfactory for the \aeval\ as the delay between the submission of the paper and the evaluation of its artifact is short enough for the source code to be unaltered or in a similar state.
 However, for future researchers aiming to build upon these artifacts, it is nearly impossible to know which version of the code was used.
 Another drawback of only using a \texttt{git} URL is that the source code hosted on forges might not be available forever.
-Authors could decide to delete or rename their repository, invalidating the URL given in the paper.
+For isntance, authors could decide to delete or rename their repository, invalidating the URL given in the paper.
 A better solution would be to use an institutional account on the forges to store the \texttt{git} repository.
 However, in the worst case, the entire source forge might need to close, yielding all the repositories unavailable (\eg\ Google Cloud \cite{google_code}, GForge Inria).
 
 One solution proposed by the reproducibility guidelines of the conferences is to archive the code via Zenodo or Figshare, and then reference the DOI generated by these archive websites in the \ad.
-This has the advantage of freezing the source code in a permanent fashion, and allow for future usage of the code.
+This has the advantage of giving a snapshot of the source code as it was at the time of submission, and allows future usage of the code.
 However, storing source code on Zenodo has a simple drawback: there is no possibility for partial code exploration.
-From the point of view of future researchers, having to download locally potentially large archives from Zenodo to be able to explore a few files of the source code is cumbersome and introduces friction.
+From the point of view of future researchers, having to download potentially large archives from Zenodo to be able to explore a few source files is cumbersome and introduces friction.
 % A better solution would be to explore the artifact via a simple web UI.
 Archiving can also break the link between the original \texttt{git} URL if not archived correctly.
 Zenodo has an integration with GitHub\ \cite{github_zenodo} which allows archiving \emph{releases} of a repository.
 This is why some authors share both the \texttt{git} URL and a Zenodo archive.
 If the link between the repository and the Zenodo archive breaks (\eg\ \texttt{git} repository becomes unavailable), then future researchers are left with a single commit of the source code, and all the history of the project, which contributes to the understanding and extensibility of the project, is lost.
 Some artifacts shared via Zenodo are actually archives of a \texttt{git} repository and include the \texttt{.git} folder, and thus the history of the project.
-Zenodo and Figshare are more adapted to archive datasets and binaries, not source code.
-This heavy usage of Zenodo and Figshare comes from the requirements from the artifact reviewing committee to have identified and citable software, and this goes through giving a DOI to the artifact.
+Zenodo and Figshare are rather adapted to archive datasets and binaries, not source code.
+Zenodo and Figshare are heavily used because of the requirements from the artifact reviewing committee to have well identified and citable software, which goes through giving a DOI to the artifact.
 However, these solutions are more appropriate for raw data and binaries, but not source code \cite{alliez2019attributing, software_heritage_2017}.
 
 A more appropriate solution is to use Software-Heritage\ \cite{swheritage, di2017software}.
@@ -439,12 +439,12 @@ We can see that 25\% of the repositories have no more than 6 commits, and that h
 These repositories appear to be a "dump" of the source code with some extra commits for documentation.
 Such practices do not allow reviewers and future researchers to explore the "true" history of the project, which goes against the Open Science principles.
 The same comments as for a standalone Zenodo archive apply here.
-It also makes it suspicious about the good practices of the authors in terms of traceability of the experimentation.
+It also casts doubt on the authors' good practices in terms of traceability of the experimentation.
 We believe that this problem might come from the fact that the \aeval\ process, and reproducibility, is only a second though for some authors.
 
 \begin{lesson}{Sharing source code}{}
-  A shared \texttt{git} URL might not be available in the future.
-  Archiving via Zenodo is better but introduce friction for future exploration.
+  A shared \texttt{git} URL might become unavailable in the future.
+  Archiving via Zenodo is better but introduces friction for future exploration.
   Using Software-Heritage appears to be the best available solution to permanently share source code.
 \end{lesson}
 
@@ -470,8 +470,8 @@ Chameleon\ \cite{chameleon}, Grid'5000\ \cite{grid5000}, or CloudLab\ \cite{clou
 In practice testbeds are not used a lot (in about 5\% of the papers).
 However, proprietary solutions are much more used (15\%).
 Authors rely on platforms such as Amazon Web Services, Microsoft Azure, Google Cloud, etc.
-Even if this allows the reviewers to get an easier access to probably similar machines (in the short term), it hides the experiments, and thus their reproducibility, behind a paywall, which goes against the principle of Open Science.
-Using proprietary platforms also raises the question of who should pay to reproduce the results of the authors?
+Even if this allows the reviewers to get an easier access to probably similar machines (in the short term), it locks the experiments, and thus their reproducibility, behind a paywall, which goes against the principle of Open Science.
+Using proprietary platforms also raises the question of who should pay to reproduce the results of the authors.
 Some authors using such platforms did write in their \ad\ the estimated monetary cost of rerunning the experiments.
 
 Similarly, some papers (in particular for the SuperComputing conference (\texttt{sc23})) were using supercomputers to run their experiments.
@@ -521,7 +521,7 @@ But some use virtualization tools such as container or virtual machines.
 Usually, the capture of the entire software stack goes through it encapsulation in an \emph{image}.
 This image can then be deployed on machines to execute the experiments.
 A way to generate a system image is to start from a base image, deploy this image, execute the commands required to set up the desired environment, and finally compress the image.
-Platforms such as \grid\ \cite{grid5000} and Chamelon\ \cite{chameleon} propose to their users such tools (\texttt{tgz-g5k}\ \cite{tgz-g5k} and \texttt{cc-snapshot}\ \cite{cc-snapshot} respectively).
+Platforms such as \grid\ \cite{grid5000} and Chamelon\ \cite{chameleon} offer such tools to their users (respectively \texttt{tgz-g5k}\ \cite{tgz-g5k} and \texttt{cc-snapshot}\ \cite{cc-snapshot}).
 In the context of repeatability and replicability, if the image stays available, then this way to produce system images is adequate at best.
 But, concerning the traceability of the build, one cannot verify the commands that have been used to generate the image, and thus relies completely on the documentation from the experimenter.
 Moreover, such images are not adapted to be versioned with tools like \texttt{git} as they are in a binary format.
@@ -534,22 +534,22 @@ Another solution is to archive the image in a long-term binary cache such as Zen
 However, it is not often done by the authors (only 12\% of the time).
 
 A better approach to (re-)generate and share images is via \emph{recipes}.
-Those recipes, like \texttt{Dockerfile}s for Docker containers or Kameleon\ \cite{ruiz_reconstructable_2015} recipes for system images, are a sequence of commands to execute on a base image to generate the desired environment.
+Those recipes, like \texttt{Dockerfile}s for Docker containers or Kameleon recipes~\cite{ruiz_reconstructable_2015} for system images, are a sequence of commands to execute on a base image to generate the desired environment.
 The text format of recipes makes then much more suitable to version, share, and reconstruct them.
-These base images have often several versions, which are identified by labels called \emph{tags}.
+The base images have often several versions, which are identified by labels called \emph{tags}.
 In the case of Docker, the tag of the latest version is often called \texttt{latest}.
 Basing an environment on this tag breaks the traceability, and thus the reconstruction of the image itself.
 Indeed, if a newer version is available at the time of a future rebuild of the environment, then the image will be based on this newer version and not the original version.
-Another important question is to know if the base image and all the version are themselves reconstructive, and if it is not the case, what is the permanence of the platforms hosting those images?
-For instance, the lifetime of \texttt{nvidia/cuda} Docker image is only 6 months, after 6 months, the Nvidia administrators of DockerHub delete the images\ \cite{nvidia_cuda_lifetime}.
-However, in Figure \ref{fig:cache_bin}, we see that more than about half of the \ad\ using an image do not share the recipe, or we could not find the recipe, to inspect or rebuild the image.
+Another important question is to know whether the base image and all the versions can themselves be re-built, and if it is not the case, what is the permanence of the platforms hosting those images?
+For instance, the lifetime of the \texttt{nvidia/cuda} Docker image is only 6 months, after 6 months, the Nvidia administrators of DockerHub delete the images\ \cite{nvidia_cuda_lifetime}.
+However, in Figure \ref{fig:cache_bin} we see that more than about half of the \ad s using an image do not share the recipe, or we could not find the recipe to inspect or rebuild the image.
 This means that if the image is not in a binary cache, then it is impossible to rebuild it exactly.
-Column \texttt{Loose image} on Figure \ref{fig:sw_envs} shows the papers that based their software environments on an image with a short \emph{lifetime}.
+The column \texttt{Loose image} on Figure \ref{fig:sw_envs} shows the papers that based their software environments on an image with a short \emph{lifetime}.
 
 
 \subsubsection{List of package versions}\label{sec:sop:sw:list}
 
-One of the popular approach to share the software environment is to simply list the dependencies of the artifact.
+One of the popular approaches to share the software environment is to simply list the dependencies of the artifact.
 We observed several levels to such this listing approach.
 The first level is to only give the name of the dependencies (\texttt{List} in Figure \ref{fig:sw_envs}).
 In this case, the reviewers or future researchers have no information about the versions used or if there is any required feature from the dependencies.
@@ -577,8 +577,8 @@ sudo apt-get install packageA packageB
 \end{verbatim}
 
 The question that arises is: which are the versions of the installed packages?
-Indeed, by calling \texttt{apt-get update} (or equivalent for the others package managers), now the software environment depends on the state of the mirror of the package manager at the time the author did the experiments.
-In the case of the \aeval, the mirror might not change "too much" between the time of the experiments and the review.
+Indeed, calls to \texttt{apt-get update} (or equivalent for the others package managers), make the software environment depend on the state of the mirror of the package manager at the time the author did the experiments.
+For the \aeval, the mirror might not change noticeably between the time of the experiments and the review.
 However, there is a very low probability that in 5 or 10 years, the mirror will be in the same state, and the installed versions will be the exact same as for the experiments of the authors.
 This approach also implicitly defines a dependency on the distribution of the operating system that needs to be used.
 
@@ -587,9 +587,9 @@ One of them is to use a \emph{snapshot} of the mirror\footnote{Example for \text
 These snapshots are a dump of the mirror at a given time and users can then install packages from these snapshots thought the usual interface of the package manager.
 However, even using snapshots can cause issues.
 Indeed, what if the package installed from the snapshot creates a conflict with a package already installed on the system?
-This is especially the case for Filesystem Hierarchy Standard (FHS) based systems, like Debian-based distributions, where all the binaries and libraries are stored under \texttt{/usr/bin} and \texttt{/usr/lib}.
+This is especially the case for systems based on the Filesystem Hierarchy Standard (FHS), like Debian-based distributions, where all the binaries and libraries are stored under \texttt{/usr/bin} and \texttt{/usr/lib}.
 For example, what happen to the already installed packages if the artifact requires to install an old version of the \texttt{glibc}? 
-One solution would be to use a virtualization tool such as container or virtual machines, but as seen in Section \ref{sec:sop:sw:images}, they have reproducibility issues.
+One solution would be to use a virtualization tool such as container or virtual machines, but as seen in Section \ref{sec:sop:sw:images}, they have their own reproducibility issues.
 
 Using snapshots makes it more difficult to introduce variation in the software environment.
 Indeed, installing more recent packages might be tedious or even introduce conflicts with the installed packages.
@@ -597,7 +597,7 @@ Indeed, installing more recent packages might be tedious or even introduce confl
 
 \begin{lesson}{Classical package managers}{}
   Installing dependencies via classical package managers (\eg\ \texttt{apt}, \texttt{yum}) creates a dependency on an uncontrollable state: the state of the mirror of the package manager.
-  Freezing the state of the mirror introduces new problems of compatibility with the underlying system and disables any introduction of variation.
+  Freezing the state of the mirror introduces new compatibility problems with the underlying system and hinders the introduction of variation.
 \end{lesson}
 
 \subsubsection{\texttt{pip} and \texttt{conda}}
@@ -607,7 +607,7 @@ In the case where the software environment contains only Python packages, freezi
 For example, freezing an environment containing the \texttt{zmq} Python package will not freeze the ZeroMQ system package installed on the system.  
 Even if re-creating a Python environment from a \texttt{requirements.txt} is simple, installing a list of system packages with specific version is on the other hand much more complex.
 
-In the best case, the repository include \texttt{requirements.txt} that list all the Python dependencies with the \emph{exact} versions.
+In the best case, the repository includes a \texttt{requirements.txt} that lists all the Python dependencies with the \emph{exact} versions.
 However, in practice, we observed the same issues as presented in Section \ref{sec:sop:sw:list} where authors provide a list of dependencies without version, or with a loose version.
 
 \subsubsection{Downloading from the outside world}
@@ -623,15 +623,15 @@ curl https://website.com/downloads/release-latest.tar.gz
 \end{verbatim}
 
 Moreover, the downloaded \texttt{git} repository could disappear in the future, and thus cloning from Software-Heritage would be more robust than cloning from a forge (\eg\ GitHub, GitLab).
-The same remark apply to downloaded tarballs from websites.
+The same remark applies to downloaded tarballs from websites.
 
 Another important point is to check that the downloaded object is indeed the expected one.
 This can be done by checking the cryptographic hash of the downloaded object and compare it to the expected one.
 Among all the surveyed papers, we observed this practice only once (\texttt{Verified download} in Figure \ref{fig:sw_envs}).
 
 \begin{lesson}{Content of downloaded objects}{}
-Every object coming from the outside of the environment must be examined to be sure that it contains the expected content. 
-It is more important that the building of the environment fails if the content differs from the expected one, rather than the environment silently building with a different content.
+Every object coming from outside of the environment must be examined to ensure that it contains the expected content.
+It is more preferable that the building of the environment fails if the content differs from the expected one, rather than the environment silently building with a different content.
 \end{lesson}
 
 \subsubsection{Modules}
@@ -649,12 +649,12 @@ Moreover, as the \texttt{modulefiles} are managed by the administrators, they do
 
 \subsubsection{Spack}
 
-Spack\ \cite{gamblin_spack_2015} has a similar approach as \texttt{pip} but also for all the system packages and their dependencies.
+Spack\ \cite{gamblin_spack_2015} has a similar approach as \texttt{pip} but for all the system packages and their dependencies.
 It is possible to export the environment as a text file and to rebuild it on another machine.
 However, the produced environment might not be completely identical.
 Indeed, Spack uses applications that are already present on the machine to build the packages from the sources.
 Especially, Spack assumes the presence of a C compiler on the system, and will use this C compiler to build the dependencies of the environment.
-Hence, if two different machines have two different C compiler then the resulting environment could differ from the desired environment.
+Hence, if two different machines have two different C compilers then the resulting environment could differ from the desired environment.
 One clear advantage of Spack is the ease to introduce a variation in an environment through the command line.
 Spack can also be run as a non-privileged user and does not require the approval of the system administrators.
 Spack will download and build dependencies into a folder located in the user's \texttt{\$HOME}.
@@ -663,7 +663,7 @@ However, a drawback on HPC system is that this directory consumes a lot of stora
 \subsubsection{Vendoring}
 
 One way to make sure to use the correct dependencies is to "vendor" them.
-This means having a copy of the dependencies source code which is build from source.
+This means having a copy of the dependencies' source code which is then built from source.
 Authors sometimes use \texttt{git submodules} to vendor.
 However, \texttt{submodules} are not a copy of the dependencies but simply a link to a specific commit of another \texttt{git} repository.
 Hence, if one of the dependency's repository disappears, the artifact will not build.
@@ -673,43 +673,43 @@ Moreover, the vendoring approach has its limits as it cannot reasonably capture 
 
 Tools such as Nix\ \cite{dolstra_nix_2004} or Guix\ \cite{courtes_functional_2013} fix most of the problems described in the previous sections.
 However, they are barely used (about 1\% of the artifacts).
-Nix and Guix share the similar concepts, in the following we will focus on Nix.
+Nix and Guix share the similar concepts; in the following we will focus on Nix.
 
 Nix is a pure functional package manager for the reproducibility of the packages.
 A Nix package is defined as a function where the dependencies of the packages are the inputs of the function, the body of the function contains the instructions to build the package.
 The building of the packages is done in a \emph{sandbox} which guarantees the build in a strict and controlled environment.
-First, the sources are fetched, and the content verified by Nix.
+First, the sources are fetched, and their content verified by Nix.
 If the hash of the sources differs from the expected hash, Nix stops the building of the package and yields an error.
-Nix fetches also the dependencies and recursively.
+Nix also fetches the dependencies recursively.
 The build commands are then executed in the sandbox with the environment defined by the user.
 At this stage, no network access or access to the local file system is possible.
 
 
-Nix can generate environments that can be assimilated as multi-languages \texttt{virtualenv}s.
+Nix can generate environments that can be assimilated to a multi-languages counterpart to Python's \texttt{virtualenv}s.
 But it can also create containers images (Docker, Singularity, LXC, etc.), virtual machines, or full system images with the operating system NixOS.
 The process of building an image with classical tools (\texttt{Dockerfile}, Kameleon recipe, etc.) is often iterative and arduous.
 Defining an image with Nix is done in a \emph{declarative} fashion.
 This has the advantage of making the building of the image faster when modifying an already built recipe\ \cite{nxc}.
-It also avoids the annoying optimization of the order of operations, frequent when building from a \texttt{Dockerfile}\ \cite{docker_cache}. 
+It also avoids the tedious optimization of the order of operations, which is frequent when building from a \texttt{Dockerfile}\ \cite{docker_cache}. 
 As Nix packages are functions, introducing a variation means changing an argument when the function is called.
 
 Systems like Debian store all the packages in the \texttt{/usr/bin} and \texttt{/usr/lib} directories.
 This ordering can lead to conflicts between different versions of the same library, and it thus limits the introduction of variation in the environment without breaking the system.
-Contrary to FHS-bases systems, Nix install each package in its own directory.
+Contrary to FHS-bases systems, Nix installs each package in its own directory.
 Each directory name is prefixed by the hash of its sources: \texttt{/nix/store/azvn85...-nix-2.18.1/}.
-Hence, if a user wants to install a different version of an already installed package, the sources will be different, thus the hash will be different, and Nix will then create a new directory to store the new package.
+Hence, if a user wants to install a different version of an already installed package, its source code would be different, thus the hash will be different, and Nix will then create a new directory to store the new package.
 Those individual directories are stored in the \emph{Nix Store} located at \texttt{/nix/store}, in a \emph{read-only} file-system.
 The advantage of this fine-grained isolation method, is the \emph{precise} definition of the \texttt{\$PATH} environment variable to manage software environments.
 
 The definition of packages through functions also eases their sharing and distribution.
-There is a large base of package definitions done by the community and hosted in a \texttt{git} repository, called \texttt{nixpkgs}\ \cite{nixpkgs}, and which is archived on Software-Heritage.
+There is a large base of package definitions written by the community and hosted in a \texttt{git} repository called \texttt{nixpkgs}\ \cite{nixpkgs}, and which is archived on Software-Heritage.
 Users can easily base their new packages, or environment on those definitions.
 It is also possible for independent teams and research groups to have their own base of packages.
 Guix-HPC\ \cite{guix-hpc}, NUR-Kapack\ \cite{kapack}, or Ciment-channel\ \cite{ciment_channel} are examples of independent packages bases for HPC and distributed systems.
 
 \paragraph{Limits of Functional Package Managers}
 
-Even though tools like Nix and Guix greatly improve the state of \repro\ for software environments, it is still possible to go wrong and make a package impure or to depend on an exterior state.
+Even though tools like Nix and Guix greatly improve the state of \repro\ for software environments, it is still possible to go wrong and make a package impure or make it depend on some exterior state.
 Nix is currently addressing this issue with the experimental feature \emph{Flake}\ \cite{flakes}.
 
 To ensure the \repro\ and traceability of an environment, Nix requires that all the packages and their dependencies have their source code open and that the packages are packaged with Nix.
@@ -717,14 +717,14 @@ This could seem limiting in the case of proprietary software where the source co
 It is still possible to use such proprietary packages with the \texttt{impure} mode of Nix, but it breaks the traceability and thus the \repro\ of the software environment. 
 
 The construction of the packages in a sandbox goes through an isolation mechanism of the file-system using \texttt{chroot}.
-Historically, this feature is only available to users with \texttt{root} privileges.
-But in the case of computing clusters, this kind of permissions greatly limits the adoption of Nix or Guix.
-However, the \emph{unprivileged user namespace} feature of the Linux Kernel allows users to bypass this need of specific rights in most of the cases.
+This feature used to be restricted to users with \texttt{root} privileges.
+In the case of computing clusters, this kind of permissions greatly limits the adoption of Nix or Guix.
+Thankfully, the \emph{unprivileged user namespace} feature of the Linux Kernel allows users to bypass this need of specific rights in most of the cases.
 
-As Nix needs to recompile from source the packages are not available in its binary cache, it is possible that a future rebuild is impossible if the host of the source code disappear\ \cite{blinry}.
+As Nix needs to recompile the packages that are not available in its binary cache from their source code, it is possible that a future rebuild is impossible if the host of the source code disappear\ \cite{blinry}.
 However, as Software-Heritage now performs frequent archives of the open source repositories, it should be possible to find the sources of interest if needed.
 
-These tools also require a change of point-of-view in the way of managing a software environment, which might make the learning curve intimidating.
+Finally, these tools also require a change of point-of-view in the way of managing a software environment, which might make the learning curve intimidating.
 
 \begin{lesson}{Functional package managers}{}
   Functional package managers (FPM), like Nix\ \cite{dolstra_nix_2004} or Guix\ \cite{courtes_functional_2013}, provide reproducibility guarantees on the produced software environment.
@@ -735,14 +735,14 @@ These tools also require a change of point-of-view in the way of managing a soft
 \subsection{Workflow managers}\label{sec:sop:workflow}
 
 Even if we did not record this information during the survey, a striking realization is that almost no artifact made use of a workflow manager to run the experiments .
-There are two main ways that the authors describe the workflow: very long \texttt{bash} scripts or a \texttt{README} file that require to copy-paste the commands.
-Some commands are sometime directly included in the LaTeX, which makes it even harder to read and to copy-paste.
+There are two main ways that the authors describe the workflow: fragile \texttt{bash} scripts or a \texttt{README} file that require to copy-paste the commands.
+Some commands are sometime directly included in the paper, which makes it even harder to read and to copy-paste.
 
 As experiments in distributed computing can be quite expensive to run (especially if one needs access to a supercomputer or proprietary cloud), having the possibility to run a subset of the workflow is crucial.
 For instance, a reviewer or future researcher might want to rerun only the analysis of the data from the artifact (dataset that has been stored on Zenodo for example), or maybe to add a new combination of parameters. 
 
-Workflow managers \cite{wratten2021reproducible} such as Snakemake \cite{koster2012snakemake}, NextFlow \cite{di2017nextflow}, or Common Workflow Language\ \cite{amstutz2016common} based solutions (\eg\ Guix Workflow\ \cite{strozzi2019scalable}, or Toil\ \cite{vivian2017toil}) has become a standard in bioinformatics to run complex pipelines.
-However, their use have not yet reached the system and distributed systems communities, despite all the interesting qualities: robustness, scalability, interaction with the batch scheduler of a cluster\ \cite{snakemake-executor-plugin-slurm}.
+Workflow managers \cite{wratten2021reproducible} such as Snakemake \cite{koster2012snakemake}, NextFlow \cite{di2017nextflow}, or Common Workflow Language\ \cite{amstutz2016common} based solutions (\eg\ Guix Workflow\ \cite{strozzi2019scalable}, or Toil\ \cite{vivian2017toil}) have become a standard in bioinformatics to run complex pipelines.
+However, their use has not yet reached the system and distributed systems communities, despite all the interesting qualities: robustness, scalability, interaction with the batch scheduler of a cluster\ \cite{snakemake-executor-plugin-slurm}.
 
 
 \begin{lesson}{Workflow managers}{}
@@ -810,7 +810,7 @@ We associate with this new badge, a framework for grading and delivering or not 
 We hope that this new badge will be considered by the community, and adopted by conferences, with or without a scoring system.
 
 This study could be performed every year to assess the evolution through time of the community in terms of \emph{lifetime} of artifacts.
-We might want to expand the range of this study, and include dimension such as workflow managers.
+We might want to expand the range of this study, and include dimensions such as workflow managers.
 Collecting the data manually is slow and error prone.
 Requiering artifacts to have a Software Bill of Material (SBOM) \cite{sbom, xia2023empirical} would greatly improve the reliability of the data, and would improve the artifacts in terms of FAIRness (\eg\ for Nix \cite{genealogos}).
 
