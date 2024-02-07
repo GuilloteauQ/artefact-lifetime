@@ -16,39 +16,31 @@ df <- read_csv(filename, col_names = T) %>%
     has_badge = factor(has_badge, levels = c("Paper has no badge", "Paper has at least one badge"))
   )
 
-# total_papers <- df %>%
-#   pull(doi) %>%
-#   unique() %>%
-#   length()
-
 total_papers <- df %>%
-  group_by(artefact_section, has_badge) %>%
-  summarize(nb_papers = n())
+  pull(doi) %>%
+  unique() %>%
+  length()
+
 
 plot <- df %>%
-  left_join(total_papers) %>%
-  select(how_shared, artefact_section, nb_papers, conference, has_badge) %>%
+  select(how_shared, artefact_section, conference, has_badge) %>%
   mutate(how_shared = fct_infreq(how_shared)) %>%
-  mutate(artefact_section = if_else(artefact_section, "Paper has artifact section", "Paper does not have artifact section")) %>%
   ggplot(aes(x = how_shared)) +
   geom_bar(aes(fill = conference)) +
   geom_text(data = . %>%
-              group_by(how_shared, artefact_section, has_badge) %>%
+              group_by(how_shared) %>%
               summarize(
                 n = n(),
-                percentage = 100 * n() / nb_papers
+                percentage = 100 * n() / total_papers
               ) %>% unique(),
-            aes(y = n + 10, label = paste(round(percentage, 1), "%", sep="")),
+            aes(y = n + 5, label = paste(round(percentage, 1), "%", sep="")),
             size = 3.5) +
   ylab("Number of papers") +
   xlab("") +
-  ylim(0, 80) +
-  #facet_wrap(~artefact_section, ncol = 2) +
-  facet_grid(has_badge~artefact_section) +
+  ylim(0, 75) + # berk hard coded value so that the text is not cropped
   scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
   guides(fill = guide_legend(nrow = 2, byrow=TRUE)) +
   ggtitle("How was the artifact shared?") +
   coord_flip()
-  #theme(axis.text.x = element_text(angle = 45, hjust=1))
 
-ggsave(plot = plot, outfile, width=5.5, height=6)
+ggsave(plot = plot, outfile, width=5, height=4)
