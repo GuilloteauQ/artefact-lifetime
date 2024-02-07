@@ -80,10 +80,10 @@
 \begin{document}
 
 % \title{State-of-practice for sharing artifacts in top system conferences: Are~we~reproducible~yet?}
-%\title{State-of-the-practice of artifacts lifetime in system conferences}
-\title{Lifetime of artifacts in top system conferences: a~State-of-the-practice~review}
-%\title{Study of the State-of-the-practice for sharing artifacts in top system conferences from the point-of-view of artifacts lifetimes}
-%\title{A lifetime-focused review of the State-of-the-practice for sharing artifacts in top system conferences}
+%\title{State-of-the-practice of artifacts longevity in system conferences}
+\title{Longevity of artifacts in top system conferences: a~State-of-the-practice~review}
+%\title{Study of the State-of-the-practice for sharing artifacts in top system conferences from the point-of-view of artifacts longevitys}
+%\title{A longevity-focused review of the State-of-the-practice for sharing artifacts in top system conferences}
 
 \author{Quentin Guilloteau}
 \orcid{0009-0003-7645-5044}
@@ -128,7 +128,7 @@
   However, the notion of "reproducibility" considered by the badges is limited, and it does not cover important aspects of the reproducibility crisis.
   In this paper, we surveyed 296 papers from 5 top conferences in system and distributed systems of 2023.
   For each paper of these conferences, we gathered information about its artifacts (how it was shared, which experimental setup, and how the software environment was generated and shared), as well as the badges awarded.
-  We concluded that the state-of-the-practice does not address the problems of reproducibility in terms of \emph{lifetime} of the artifacts.
+  We concluded that the state-of-the-practice does not address the problems of reproducibility in terms of \emph{longevity} of the artifacts.
   We thus propose a new badge to reward artifacts that will resist the test of time, and associate with this new badge, a framework for grading and delivering or not the badge to authors.
 \end{abstract}
 
@@ -169,7 +169,7 @@
 %%
 %% Keywords. The author(s) should pick words that accurately describe
 %% the work being presented. Separate the keywords with commas.
-\keywords{Reproducibility, Artifact Evaluation, Badges, Lifetime}
+\keywords{Reproducibility, Artifact Evaluation, Badges, Longevity}
 
 \received{12 February 2024}
 \received[revised]{12 March 2009}
@@ -244,7 +244,7 @@ This paper is structured as follows.
 Section \ref{sec:background} presents the context and related work of artifact evaluation.
 %Section \ref{sec:reco} summarizes the recommendations made by the artifact reviewing committees.
 In Section \ref{sec:sop}, we survey the papers from 5 top conferences in systems of 2023, and discuss the state-of-the-practice of the artifact sharing.
-Based on our observations, we propose in Section \ref{sec:lifetime} a new badge to take into account the \emph{lifetime} dimension of an artifact.
+Based on our observations, we propose in Section \ref{sec:longevity} a new badge to take into account the \emph{longevity} dimension of an artifact.
 Finally, Section \ref{sec:conclu} concludes this paper with final remarks and perspectives.
 
 %
@@ -422,7 +422,7 @@ Similarly to Zenodo, it offers a permanent storage of source code, with the same
 Which means that future researchers can explore the source code through an intuitive web interface without having to download any archive.
 Software-Heritage also refers the original source, so that future researcher can access it if still available.
 Authors give a unique identifier for the revision. 
-For example, here is the Software-Heritage archive of the repository of this paper: \cite{artefact-lifetime}.
+For example, here is the Software-Heritage archive of the repository of this paper: \cite{artefact-longevity}.
 
 %\begin{figure}
 %  \centering
@@ -544,10 +544,10 @@ In the case of Docker, the tag of the latest version is often called \texttt{lat
 Basing an environment on this tag breaks the traceability, and thus the reconstruction of the image itself.
 Indeed, if a newer version is available at the time of a future rebuild of the environment, then the image will be based on this newer version and not the original version.
 Another important question is to know if the base image and all the version are themselves reconstructive, and if it is not the case, what is the permanence of the platforms hosting those images?
-For instance, the lifetime of \texttt{nvidia/cuda} Docker image is only 6 months, after 6 months, the Nvidia administrators of DockerHub delete the images\ \cite{nvidia_cuda_lifetime}.
+For instance, the longevity of \texttt{nvidia/cuda} Docker image is only 6 months, after 6 months, the Nvidia administrators of DockerHub delete the images\ \cite{nvidia_cuda_longevity}.
 However, in Figure \ref{fig:cache_bin}, we see that more than about half of the \ad\ using an image do not share the recipe, or we could not find the recipe, to inspect or rebuild the image.
 This means that if the image is not in a binary cache, then it is impossible to rebuild it exactly.
-Column \texttt{Loose image} on Figure \ref{fig:sw_envs} shows the papers that based their software environments on an image with a short \emph{lifetime}.
+Column \texttt{Loose image} on Figure \ref{fig:sw_envs} shows the papers that based their software environments on an image with a short \emph{longevity}.
 
 
 \subsubsection{List of package versions}\label{sec:sop:sw:list}
@@ -647,7 +647,7 @@ Manually loading the correct modules can also be quite error-prone for users.
 Modules are however mainly maintained by the administrators of the system, and are system-specific (\eg\ compile MPI with special optimizations for the underlying system).
 Thus sharing a module-based environment between two systems might be impossible.
 Modules are also helpful for administrators to limit the applications that can be run by users.
-Moreover, as the \texttt{modulefiles} are managed by the administrators, they do not have an infinite lifetime, and might be unavailable in the future.
+Moreover, as the \texttt{modulefiles} are managed by the administrators, they do not have an infinite longevity, and might be unavailable in the future.
 %\todo{Easybuild?}
 
 \subsubsection{Spack}
@@ -759,10 +759,10 @@ However, their use have not yet reached the system and distributed systems commu
 
 %
 % /////////////////////////////////////////////////////////////////////////////////////////////////////
-\section{A new badge for artifacts}\label{sec:lifetime}
+\section{A new badge for artifacts}\label{sec:longevity}
 
 \begin{table*}
-  \caption{\label{tab:lifetime}Grading framework for evaluating the \emph{lifetime} of an artifact.}
+  \caption{\label{tab:longevity}Grading framework for evaluating the \emph{longevity} of an artifact.}
   \centering
   \begin{tabular}[t]{l p{18em} p{9em} p{22em}}
   \toprule
@@ -776,24 +776,24 @@ However, their use have not yet reached the system and distributed systems commu
   \end{tabular}
 \end{table*}
 
-We believe that the current badging system is missing one important aspect of the quality of the artifacts: their \emph{lifetime}.
-By \emph{lifetime} we mean the time an artifact will be in the same state as the state used by the authors.
-As we have seen in Section\ \ref{sec:sop}, not all the popular tools and methods to share source code, package software environment, or platforms to perform experiments on have the same \emph{lifetime} guarantees/quality.
+We believe that the current badging system is missing one important aspect of the quality of the artifacts: their \emph{longevity}.
+By \emph{longevity} we mean the time an artifact will be in the same state as the state used by the authors.
+As we have seen in Section\ \ref{sec:sop}, not all the popular tools and methods to share source code, package software environment, or platforms to perform experiments on have the same \emph{longevity} guarantees/quality.
 
-Artifacts with long \emph{lifetime} are much more valuable and impactful for future researchers to extend, and deserve to be rewarded and have more visibility.
-Table\ \ref{tab:lifetime} proposes a grading framework to evaluate the \emph{lifetime} of an artifact.
+Artifacts with long \emph{longevity} are much more valuable and impactful for future researchers to extend, and deserve to be rewarded and have more visibility.
+Table\ \ref{tab:longevity} proposes a grading framework to evaluate the \emph{longevity} of an artifact.
 The artifact is evaluated on three criteria: sharing of the source code, experimental setup used, and software environment. 
 We propose of each criteria 4 levels going from poor but passable quality (1/4) to better (5/4).
 Performing the average of the grade for each criteria gives a global grade for the artifact.
-We recommend for the global grade to be \emph{strictly} greater than 3/4 to deliver the \emph{lifetime} badge.
+We recommend for the global grade to be \emph{strictly} greater than 3/4 to deliver the \emph{longevity} badge.
 
 \begin{figure}
   \centering
     \includegraphics[width=0.5\textwidth]{figs/lifetime_score}
-  \caption{Lifetime score for each of the three criteria, and the global lifetime score. We recommend a minimum lifetime score of 3 to award the lifetime badge. If we compute the lifetime score on the survey papers of Section \ref{sec:sop}, then about 1 percent would have get the badge.}\label{fig:lifetime_score}
+  \caption{Longevity score for each of the three criteria, and the global longevity score. We recommend a minimum longevity score of 3 to award the longevity badge. If we compute the longevity score on the survey papers of Section \ref{sec:sop}, then about 1 percent would have get the badge.}\label{fig:longevity_score}
 \end{figure}
 
-Figure \ref{fig:lifetime_score} shows the score for each of the three criteria (top three plots), and the global lifetime score (bottom plot) for the papers surveyed in Section\ \ref{sec:sop}.
+Figure \ref{fig:longevity_score} shows the score for each of the three criteria (top three plots), and the global longevity score (bottom plot) for the papers surveyed in Section\ \ref{sec:sop}.
 With the recommended threshold score of 3 out of 4, about 1 percent of the survey papers would have got the badge.
 We can see that the most penalizing criteria is the one about software environment, where the majority of the papers have zero out of four.
 
@@ -807,12 +807,12 @@ The badges given to the authors to reward their "reproducibility" efforts is a g
 However, the notion of "reproducibility" considered by the badges is limited, and it does not cover important aspects of the reproducibility crisis.
 In Section \ref{sec:sop} of this paper, we surveyed 296 papers from 5 top conferences in system and distributed systems of 2023.
 For each paper of these conferences, we gathered information about its artifacts and badges awarded.
-We concluded that the state-of-the-practice does not address the problems of reproducibility in terms of \emph{lifetime} of the artifacts.
-Thus, in Section \ref{sec:lifetime}, we propose a new badge to reward artifacts that will resist the test of time.
+We concluded that the state-of-the-practice does not address the problems of reproducibility in terms of \emph{longevity} of the artifacts.
+Thus, in Section \ref{sec:longevity}, we propose a new badge to reward artifacts that will resist the test of time.
 We associate with this new badge, a framework for grading and delivering or not the badge to authors.
 We hope that this new badge will be considered by the community, and adopted by conferences, with or without a scoring system.
 
-This study could be performed every year to assess the evolution through time of the community in terms of \emph{lifetime} of artifacts.
+This study could be performed every year to assess the evolution through time of the community in terms of \emph{longevity} of artifacts.
 We might want to expand the range of this study, and include dimension such as workflow managers.
 Collecting the data manually is slow and error prone.
 Requiering artifacts to have a Software Bill of Material (SBOM) \cite{sbom, xia2023empirical} would greatly improve the reliability of the data, and would improve the artifacts in terms of FAIRness (\eg\ for Nix \cite{genealogos}).
