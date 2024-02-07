@@ -544,7 +544,7 @@ In the case of Docker, the tag of the latest version is often called \texttt{lat
 Basing an environment on this tag breaks the traceability, and thus the reconstruction of the image itself.
 Indeed, if a newer version is available at the time of a future rebuild of the environment, then the image will be based on this newer version and not the original version.
 Another important question is to know if the base image and all the version are themselves reconstructive, and if it is not the case, what is the permanence of the platforms hosting those images?
-For instance, the longevity of \texttt{nvidia/cuda} Docker image is only 6 months, after 6 months, the Nvidia administrators of DockerHub delete the images\ \cite{nvidia_cuda_longevity}.
+For instance, the longevity of \texttt{nvidia/cuda} Docker image is only 6 months, after 6 months, the Nvidia administrators of DockerHub delete the images\ \cite{nvidia_cuda_lifetime}.
 However, in Figure \ref{fig:cache_bin}, we see that more than about half of the \ad\ using an image do not share the recipe, or we could not find the recipe, to inspect or rebuild the image.
 This means that if the image is not in a binary cache, then it is impossible to rebuild it exactly.
 Column \texttt{Loose image} on Figure \ref{fig:sw_envs} shows the papers that based their software environments on an image with a short \emph{longevity}.
