@@ -11,4 +11,5 @@ get_df <- function(filename) {
 
 files %>%
     map_df(get_df) %>%
+    mutate(conference = str_to_upper(str_sub(conference, end=-3))) %>% # removing the 23 from the conference name, and capitalize
     write_csv(outfile)

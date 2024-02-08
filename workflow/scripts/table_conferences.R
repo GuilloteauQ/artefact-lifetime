@@ -50,7 +50,7 @@ per_conf %>%
   knitr::kable(
       format="latex",
       align="lcccccccc",
-      caption="Papers considered by conferences.",
+      caption="Papers by considered conferences.",
       booktabs = TRUE,
       linesep = linesep,
       label="table:paper_confs",

@@ -25,7 +25,7 @@ total_papers <- df %>%
   length()
 
 plot <- df %>%
-  mutate(type = factor(type, levels = c("Image in binary cache?", "Long-term binary cache?", "Image recipe available?", "Long-term binary cache or recipe"))) %>%
+  mutate(type = factor(type, levels = c("Image in binary cache?", "Long-term binary cache?", "Image recipe available?", "Long-term binary cache or recipe?"))) %>%
   mutate(value = factor(value, levels = c("No", "Yes"))) %>%
   ggplot(aes(x = value)) +
   geom_bar(aes(fill = conference)) +
