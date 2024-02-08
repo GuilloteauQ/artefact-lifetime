@@ -14,7 +14,7 @@ df <- read_csv(filename, col_names = T) %>%
     "Image in binary cache?" = bin_cache,
     "Long-term binary cache?" = bin_cache_long_term,
     "Image recipe available?" = recipe_in_repo,
-    "Long-term binary cache or recipe" = long_term_safe
+    "Long-term binary cache or recipe?" = long_term_safe
   ) %>%
   pivot_longer(cols=3:6, names_to="type", values_to="value") %>%
   mutate(value = if_else(value, "Yes", "No"))

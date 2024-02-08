@@ -125,11 +125,11 @@
   The computer science community has also been struck by the reproducibility crisis.
   Its answer has been to set up artifact evaluations with a paper acceptance, and award badges to reward authors for their "reproducibility" efforts.
   The voluntary author can submit their artifacts to reviewers who will decide their "reproducibility" qualities.
-  However, the notion of "reproducibility" considered by the badges is limited, and it does not cover important aspects of the reproducibility crisis.
+  However, the notion of "reproducibility" considered by the badges is limited, and it misses important aspects of the reproducibility problem.
   In this paper, we surveyed 296 papers from 5 top conferences in system and distributed systems of 2023.
   For each paper of these conferences, we gathered information about its artifacts (how it was shared, which experimental setup, and how the software environment was generated and shared), as well as the badges awarded.
-  We concluded that the state-of-the-practice does not address the problems of reproducibility in terms of \emph{longevity} of the artifacts.
-  We thus propose a new badge to reward artifacts that will resist the test of time, and associate with this new badge, a framework for grading and delivering or not the badge to authors.
+  We conclude that the state-of-the-practice does not address the problems of reproducibility in terms of \emph{longevity} of the artifacts.
+  To start a discussion with the community, we propose a new badge to reward artifacts that will resist the test of time, based on three criteria.
 \end{abstract}
 
 %%
@@ -204,20 +204,20 @@ This peer review process of the experimental artifact can yield one or several b
 The term \repro\ is often used in a broad sense and gathers several concepts.
 The definitions that we will use in the rest of this paper are the ones the ACM uses for the validation of the submitted artifacts\ \cite{acm-badges}.
 These defintions themselves rely on the International vocabulary of metrology\ \cite{defs_vim}.
-It is composed of three levels of \repro:
+It is composed of three levels of \repro summarized here:
 
 \begin{enumerate}
   \item \emph{Repeatable}: the measurements can be obtained again by the people at the origin of the work.
   %\item \emph{Repeatable}: the measurements (defined by \cite{defs_vim} as "the processes of experimentally obtaining or more quantity values that can be attributed to a quantity") can be obtained again by the people at the origin of the work.
 \item \emph{Reproducible}: the measurements can be obtained again by people who do not belong to the original work and with the original artifact of the authors.
-\item \emph{Replicable}: the measurementss can be obtained again by people who do not belong to the original work without the original artifact.
+\item \emph{Replicable}: the measurements can be obtained again by people who do not belong to the original work with artifacts they develop independently.
 \end{enumerate}
 
 % The evaluation of artifacts is a crucial point which allows guaranteeing the reproducibility of the experiments and the results.
 % However, this reproducibility is not sufficient.
 % Even if being able to reproduce an experiment is proof a scientific validation, the experiment and its environment are often too fragile to be extended by a third party, or even by the authors themselves. 
 
-An experiment without the software environment in which it was executed makes it much more difficult to reproduce.
+Reproducibility is harder to achieve when the artifacts of an experiment do not include the software environment in which it was conducted.
 Indeed, side effects from the environment can happen and change the results of the experiment.
 It is easy to forget to include an element in the software environment that has an impact on the performance of the experiment.
 For instance, the performances, but also the outcome of a simple C application can depend on the compilation options\ \cite{stodden2018assessing} or also from the quantity of UNIX environment variables\ \cite{mytkowicz2009producing}.
@@ -234,8 +234,8 @@ Such "\textbf{short term reproducibility}" is a major obstacle to scientific pro
 We believe that the \ad\ is for the artifact reviewer, \textbf{but, more importantly, for a future reader of the paper.}
 
 
-We think that the notion that should be highlighted is the concept of \textbf{variation}\ \cite{mercier2018considering, feitelson_repeatability_2015}.
-This means allowing a third party to use the environment defined for an experiment in order to investigate another research idea.
+We think that reproducibility as actually a stepping stone towards the more important \textbf{variation}\ \cite{mercier2018considering, feitelson_repeatability_2015}.
+For a work to allow variation, it must allow third parties to use the environment defined for an experiment for new investigations.
 An example of variation would be to change the MPI implementation used in an experiment (\eg\ MPICH instead of OpenMPI).
 Being able to introduce such a variation requires the initial environment to be correctly defined.
 
@@ -253,7 +253,7 @@ Finally, Section \ref{sec:conclu} concludes this paper with final remarks and pe
 \section{Background and related work}\label{sec:background}
 
 We use the following definitions:
-An experiment is \emph{reproducible} if the source code, the raw data, the analysis scripts are available, their usage described sufficiently for someone to re-perform the experiments and analyis, and the access to the used experimental platform is open.
+An experiment is \emph{reproducible} if the source code, the raw data, the analysis scripts are available, their usage described sufficiently for someone to re-perform the experiments and analysis, and the access to the used experimental platform is open.
 This definition is modified from \cite{rougier2019rescience} by adding the dimension of the experimental platform.
 An \emph{artifact} is a self-contained work result with a context-specific purpose\ \cite{mendez2019artefacts}.
 
@@ -263,7 +263,7 @@ The second most popular answer is quite interesting as \aeval\ processes were no
 Sharing artifacts and having them evaluated has been accepted as an established practice with benefits for the community\ \cite{hermann2022has}.
 The work done by publishers with the badging system aimed to reward authors for sharing their artifacts.
 It would be interesting to conduct again the survey today to see the impact on the \aeval\ on this question, as we believe that reproducibility and its challenges have now much more visibility.
-Badges have be shown to be an effective strategy to incentisize authors to make the data of their works available \cite{kidwell2016badges, rowhani2017incentives}.
+Badges have be shown to be an effective strategy to incentivize authors to make the data of their works available \cite{kidwell2016badges, rowhani2017incentives}.
 However badges have yet to show significant impact on the visibility of the papers\ \cite{winter2022retrospective, frachtenberg2022research, heumuller2020publish}. 
 
 In \cite{hermann2020community}, the authors surveyed the members of artifact evaluation committees of computer science conferences about their expectations for artifacts and the reviewing process of the artifacts. 
@@ -307,7 +307,7 @@ As the reviewing process for journal is much longer than for conferences, review
 %Prova \cite{guerrera2019reproducible}
 %UMLAUT \cite{umlaut}
 %Benchmarking Crimes \cite{van2018benchmarking}
-%Propogation of ML research  \cite{kang2023papers}
+%Propagation of ML research  \cite{kang2023papers}
 %Survey 4R \cite{hernandez2023repeatability}
 
 Studies on the artifact process focus mainly on high level characteristics, as well as the artifact availability and citations\ \cite{kidwell2016badges, rowhani2017incentives, winter2022retrospective, frachtenberg2022research, heumuller2020publish}. 
@@ -374,7 +374,7 @@ In the following of this Section, we study four aspects of the \ad s: how the so
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{figs/how_repo_shared}
-  \caption{Methods used by the authors to share their artifacts (154 papers in total). The state-of-the-practice is dominated by \texttt{git} URLs, Zenodo archives, and a combination of the two (\texttt{git+zenodo}).}\label{fig:how_repo_shared}
+  \caption{Methods used by the authors to share their artifacts (154 in total). The state-of-the-practice is dominated by \texttt{git} URLs, Zenodo archives, and a combination of the two (\texttt{git+zenodo}).}\label{fig:how_repo_shared}
 \end{figure}
 
 Figure \ref{fig:how_repo_shared} shows how the artifact was shared in the papers.
@@ -476,7 +476,7 @@ Chameleon\ \cite{chameleon}, Grid'5000\ \cite{grid5000}, or CloudLab\ \cite{clou
 In practice testbeds are not used a lot (in about 5\% of the papers).
 However, proprietary solutions are much more used (15\%).
 Authors rely on platforms such as Amazon Web Services, Microsoft Azure, Google Cloud, etc.
-Even if this allows the reviewers to get an easier access to probably similar machines (in the short term), it locks the experiments, and thus their reproducibility, behind a paywall, which goes against the principle of Open Science.
+Even if this allows the reviewers to get an easier access to probably similar machines (in the short term), it locks the experiments, and thus their reproducibility, behind a paywall, which goes against the Open Science principles\ \cite{openscience_unesco}.
 Using proprietary platforms also raises the question of who should pay to reproduce the results of the authors.
 Some authors using such platforms did write in their \ad\ the estimated monetary cost of rerunning the experiments.
 
@@ -492,6 +492,12 @@ While supercomputers are at the bleeding edge of technology, having access to su
 
 \begin{figure*}
   \centering
+  \includegraphics[width=\textwidth]{figs/sw_envs}
+  \caption{Techniques used to share the software environment in the \ad s. Note than an paper can use several of these techniques.}\label{fig:sw_envs}
+\end{figure*}
+
+\begin{figure*}
+  \centering
   \begin{subfigure}{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figs/how_packaged.pdf}
@@ -501,15 +507,9 @@ While supercomputers are at the bleeding edge of technology, having access to su
   \begin{subfigure}{0.49\textwidth}
       \centering
       \includegraphics[width=\textwidth]{figs/image_cache_bin.pdf}
-    \caption{When authors used virtualization tools, most of them provided the image in a binary cache to avoid the reviewers to build the image from source. However, only a small fraction of these image where archived in a long-term binary cache (always Zenodo). The most concerning observation is that we could not find the recipe of the image in about half of the artifacts.}\label{fig:cache_bin}
+    \caption{When authors used virtualization tools, most of them provided the image in a binary cache to spare the reviewers from building the image from source. However, only a small fraction of these image where archived in a long-term binary cache (always Zenodo). The most concerning observation is that we could not find the recipe of the image in about half of the artifacts.}\label{fig:cache_bin}
   \end{subfigure}
   \caption{Tools and technologies used to generate and package the software environment for the \aeval\ (Figure \ref{fig:techno}), and state of the image and its recipe in the case of the use of virtual tools (Figure \ref{fig:cache_bin}).}\label{fig:techo_cache}
-\end{figure*}
-
-\begin{figure*}
-  \centering
-  \includegraphics[width=\textwidth]{figs/sw_envs}
-  \caption{Techniques used to share the software environment in the \ad s. Note than an paper can use several of these techniques.}\label{fig:sw_envs}
 \end{figure*}
 
 After downloading the correct version of the code on the correct platform, reviewers must set up the correct software environment to execute the experiments.
@@ -527,7 +527,7 @@ But some use virtualization tools such as container or virtual machines.
 Usually, the capture of the entire software stack goes through it encapsulation in an \emph{image}.
 This image can then be deployed on machines to execute the experiments.
 A way to generate a system image is to start from a base image, deploy this image, execute the commands required to set up the desired environment, and finally compress the image.
-Platforms such as \grid\ \cite{grid5000} and Chamelon\ \cite{chameleon} offer such tools to their users (respectively \texttt{tgz-g5k}\ \cite{tgz-g5k} and \texttt{cc-snapshot}\ \cite{cc-snapshot}).
+Platforms such as \grid\ \cite{grid5000} and Chameleon\ \cite{chameleon} offer such tools to their users (respectively \texttt{tgz-g5k}\ \cite{tgz-g5k} and \texttt{cc-snapshot}\ \cite{cc-snapshot}).
 In the context of repeatability and replicability, if the image stays available, then this way to produce system images is adequate at best.
 But, concerning the traceability of the build, one cannot verify the commands that have been used to generate the image, and thus relies completely on the documentation from the experimenter.
 Moreover, such images are not adapted to be versioned with tools like \texttt{git} as they are in a binary format.
@@ -548,7 +548,7 @@ Basing an environment on this tag breaks the traceability, and thus the reconstr
 Indeed, if a newer version is available at the time of a future rebuild of the environment, then the image will be based on this newer version and not the original version.
 Another important question is to know whether the base image and all the versions can themselves be re-built, and if it is not the case, what is the permanence of the platforms hosting those images?
 For instance, the longevity of the \texttt{nvidia/cuda} Docker image is only 6 months, after 6 months, the Nvidia administrators of DockerHub delete the images\ \cite{nvidia_cuda_lifetime}.
-However, in Figure \ref{fig:cache_bin} we see that more than about half of the \ad s using an image do not share the recipe, or we could not find the recipe to inspect or rebuild the image.
+However, in Figure \ref{fig:cache_bin} we see that for a bit more than half of the \ad s using an image, we could not find the source recipe, which prevents the readers from inspecting or rebuilding the image.
 This means that if the image is not in a binary cache, then it is impossible to rebuild it exactly.
 The column \texttt{Loose image} on Figure \ref{fig:sw_envs} shows the papers that based their software environments on an image with a short \emph{longevity}.
 
@@ -618,15 +618,17 @@ However, in practice, we observed the same issues as presented in Section \ref{s
 
 \subsubsection{Downloading from the outside world}
 
-A common practice when authors need to install a dependency that is not available through the classical package managers, is to install it from source.
-For this, authors indicate in the \ad\ how to download the dependency, and how to build it.
-However, when cloning a \texttt{git} repository or downloading an archive via \texttt{wget}/\texttt{curl}, a common error is to not specify the commit to use (\texttt{Unprecise download} in Figure \ref{fig:sw_envs}).
-If no commit is specified, \texttt{git} will use the latest commit of the main branch, which could be completely different at the moment of the artifact review and in 10 years.
-
+A common practice when authors need to install a dependency that is not available through the classical package managers is to install it from source.
+For this, authors indicate in the \ad\ the process to download the dependency and how to build it.
+However, when cloning a \texttt{git} repository, a common error is to not specify the commit to use.
+If no commit is specified, \texttt{git} will use the latest commit of the main branch, which could be completely different between the moment of the artifact review and 10 years later.
+The same goes for archives downloaded via \texttt{wget}/\texttt{curl}, typically in the form
 \begin{verbatim}
-git clone https://github.com/user/repo.git
 curl https://website.com/downloads/release-latest.tar.gz
 \end{verbatim}
+which outcome varies with time.
+Both of these approaches were labeled \texttt{Imprecise download} in Figure \ref{fig:sw_envs}.
+
 
 Moreover, the downloaded \texttt{git} repository could disappear in the future, and thus cloning from Software-Heritage would be more robust than cloning from a forge (\eg\ GitHub, GitLab).
 The same remark applies to downloaded tarballs from websites.
@@ -781,14 +783,17 @@ However, their use has not yet reached the system and distributed systems commun
 
 We believe that the current badging system is missing one important aspect of the quality of the artifacts: their \emph{longevity}.
 By \emph{longevity} we mean the time an artifact will be in the same state as the state used by the authors.
-As we have seen in Section\ \ref{sec:sop}, not all the popular tools and methods to share source code, package software environment, or platforms to perform experiments on have the same \emph{longevity} guarantees/quality.
+As we have seen in Section\ \ref{sec:sop}, the popular tools and methods to share source code, package software environment, or platforms to perform experiments on differ in their \emph{longevity} guarantees/quality.
 
-Artifacts with long \emph{longevity} are much more valuable and impactful for future researchers to extend, and deserve to be rewarded and have more visibility.
+Artifacts with long \emph{longevity} are much more valuable and impactful as they allow for future researchers to validate the results and build on former research.
+They deserve to be rewarded and have more visibility.
 Table\ \ref{tab:longevity} proposes a grading framework to evaluate the \emph{longevity} of an artifact.
-The artifact is evaluated on three criteria: sharing of the source code, experimental setup used, and software environment. 
-We propose of each criteria 4 levels going from poor but passable quality (1/4) to better (5/4).
+The artifact is evaluated on three \emph{longevity} criteria: how the source code is shared, the availability of the experimental setup, and the \emph{longevity} of the software environment itself.
+We propose to grade each aspect on 5 levels going from insufficient (0/4) to best (4/4).
 Performing the average of the grade for each criteria gives a global grade for the artifact.
 We recommend for the global grade to be \emph{strictly} greater than 3/4 to deliver the \emph{longevity} badge.
+The specifics of the grade for each criteria should be further discussed in the community, to reach a consensus on desired good practices.
+They are also bound to change as the software tools and practices evolve.
 
 \begin{figure}
   \centering
@@ -796,9 +801,9 @@ We recommend for the global grade to be \emph{strictly} greater than 3/4 to deli
   \caption{Longevity score for each of the three criteria, and the global longevity score. We recommend a minimum longevity score of 3 to award the longevity badge. If we compute the longevity score on the survey papers of Section \ref{sec:sop}, then about 1 percent would have get the badge.}\label{fig:longevity_score}
 \end{figure}
 
-Figure \ref{fig:longevity_score} shows the score for each of the three criteria (top three plots), and the global longevity score (bottom plot) for the papers surveyed in Section\ \ref{sec:sop}.
+Figure \ref{fig:longevity_score} shows the distribution of scores for each of the three criteria (top three plots), and the global longevity score (bottom plot) for the papers surveyed in Section\ \ref{sec:sop}.
 With the recommended threshold score of 3 out of 4, about 1 percent of the survey papers would have got the badge.
-We can see that the most penalizing criteria is the one about software environment, where the majority of the papers have zero out of four.
+We can see that the most penalizing criteria is the one about software environment, where the majority of the papers have zero out of four, as they do not describe their software environment accurately enough to be stable through time.
 
 \todo{more discussion on the purpose of badges: rewarding effort, but it could also take a decision in the accept/reject process}
 
@@ -818,8 +823,8 @@ We hope that this new badge will be considered by the community, and adopted by 
 This study could be performed every year to assess the evolution through time of the community in terms of \emph{longevity} of artifacts.
 We might want to expand the range of this study, and include dimensions such as workflow managers.
 Collecting the data manually is slow and error prone.
-Requiering artifacts to have a Software Bill of Material (SBOM) \cite{sbom, xia2023empirical} would greatly improve the tracability of the artifacts (\eg\ for Nix \cite{genealogos}).
-More generaly, having a standardized file describing the metadata of the artifact. \todo{}
+Requiring artifacts to have a Software Bill of Material (SBOM) \cite{sbom, xia2023empirical} would greatly improve the traceability of the artifacts (\eg\ for Nix \cite{genealogos}).
+More generally, having a standardized file describing the metadata of the artifact. \todo{}
 
 \paragraph{Threats to validity}
 
@@ -839,13 +844,13 @@ The fact that the data was collected by a single researcher might have introduce
 % What is the future of \aeval?
 % should the \aeval\ be part of the accept/reject decision process?
 % What about the energy/environmental cost of \aeval?
-% especially in HPC where the experiments are long lasting and resources consumming.
-% If the current \aeval\ is the first step towards a more "important" reviewing process, the community should not get used to this level of rigourness for \aeval.
+% especially in HPC where the experiments are long lasting and resources consuming.
+% If the current \aeval\ is the first step towards a more "important" reviewing process, the community should not get used to this level of rigorousness for \aeval.
 % 
 % One perspective is to make even more apparent the lack of reproducibility of the popular methods to generate and package software environment.
 % By collecting \texttt{Dockerfile}s from the artifacts of the papers, we could try to rebuild the Docker images from source periodically (\eg\ every month), and log the versions of the softwares in the resulting image.
-% As \texttt{Dockerfile} recipes mostly rely on either nvidia or Ubuntu based images, calls to \texttt{apt}, and \texttt{pip}, the resulting software environment is very fragile, and would thus be intersting to follow its evolution. 
-% This does not mean trying to rerun the experiments associated with the Docker images as it would be to energy consumming.
+% As \texttt{Dockerfile} recipes mostly rely on either nvidia or Ubuntu based images, calls to \texttt{apt}, and \texttt{pip}, the resulting software environment is very fragile, and would thus be interesting to follow its evolution. 
+% This does not mean trying to rerun the experiments associated with the Docker images as it would be to energy consuming.
 % So, even if the software environment varies, it does not mean that the results of the experiments will vary.
 
 \section*{Acknowledgments}
