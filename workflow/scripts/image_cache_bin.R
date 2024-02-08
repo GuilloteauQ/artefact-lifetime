@@ -16,7 +16,8 @@ df <- read_csv(filename, col_names = T) %>%
     "Image recipe available?" = recipe_in_repo,
     "Long-term binary cache or recipe" = long_term_safe
   ) %>%
-  pivot_longer(cols=3:6, names_to="type", values_to="value")
+  pivot_longer(cols=3:6, names_to="type", values_to="value") %>%
+  mutate(value = if_else(value, "Yes", "No"))
 
 total_papers <- df %>%
   pull(doi) %>%
@@ -25,7 +26,7 @@ total_papers <- df %>%
 
 plot <- df %>%
   mutate(type = factor(type, levels = c("Image in binary cache?", "Long-term binary cache?", "Image recipe available?", "Long-term binary cache or recipe"))) %>%
-  mutate(value = factor(value, levels = c("FALSE", "TRUE"))) %>%
+  mutate(value = factor(value, levels = c("No", "Yes"))) %>%
   ggplot(aes(x = value)) +
   geom_bar(aes(fill = conference)) +
   geom_text(data = . %>% group_by(type, value) %>% summarize(n = n(), percentage = 100 * n() / total_papers),
