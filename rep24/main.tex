@@ -490,6 +490,12 @@ While supercomputers are at the bleeding edge of technology, having access to su
 
 \begin{figure*}
   \centering
+  \includegraphics[width=\textwidth]{figs/sw_envs}
+  \caption{Techniques used to share the software environment in the \ad s. Note than an paper can use several of these techniques.}\label{fig:sw_envs}
+\end{figure*}
+
+\begin{figure*}
+  \centering
   \begin{subfigure}{0.49\textwidth}
     \centering
     \includegraphics[width=\textwidth]{figs/how_packaged.pdf}
@@ -502,12 +508,6 @@ While supercomputers are at the bleeding edge of technology, having access to su
     \caption{When authors used virtualization tools, most of them provided the image in a binary cache to avoid the reviewers to build the image from source. However, only a small fraction of these image where archived in a long-term binary cache (always Zenodo). The most concerning observation is that we could not find the recipe of the image in about half of the artifacts.}\label{fig:cache_bin}
   \end{subfigure}
   \caption{Tools and technologies used to generate and package the software environment for the \aeval\ (Figure \ref{fig:techno}), and state of the image and its recipe in the case of the use of virtual tools (Figure \ref{fig:cache_bin}).}\label{fig:techo_cache}
-\end{figure*}
-
-\begin{figure*}
-  \centering
-  \includegraphics[width=\textwidth]{figs/sw_envs}
-  \caption{Techniques used to share the software environment in the \ad s. Note than an paper can use several of these techniques.}\label{fig:sw_envs}
 \end{figure*}
 
 After downloading the correct version of the code on the correct platform, reviewers must set up the correct software environment to execute the experiments.
