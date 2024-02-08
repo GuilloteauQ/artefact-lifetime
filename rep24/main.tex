@@ -781,14 +781,17 @@ However, their use has not yet reached the system and distributed systems commun
 
 We believe that the current badging system is missing one important aspect of the quality of the artifacts: their \emph{longevity}.
 By \emph{longevity} we mean the time an artifact will be in the same state as the state used by the authors.
-As we have seen in Section\ \ref{sec:sop}, not all the popular tools and methods to share source code, package software environment, or platforms to perform experiments on have the same \emph{longevity} guarantees/quality.
+As we have seen in Section\ \ref{sec:sop}, the popular tools and methods to share source code, package software environment, or platforms to perform experiments on differ in their \emph{longevity} guarantees/quality.
 
-Artifacts with long \emph{longevity} are much more valuable and impactful for future researchers to extend, and deserve to be rewarded and have more visibility.
+Artifacts with long \emph{longevity} are much more valuable and impactful as they allow for future researchers to validate the results and build on former research.
+They deserve to be rewarded and have more visibility.
 Table\ \ref{tab:longevity} proposes a grading framework to evaluate the \emph{longevity} of an artifact.
-The artifact is evaluated on three criteria: sharing of the source code, experimental setup used, and software environment. 
-We propose of each criteria 4 levels going from poor but passable quality (1/4) to better (5/4).
+The artifact is evaluated on three \emph{longevity} criteria: how the source code is shared, the availability of the experimental setup, and the longevity of the software environment itself.
+We propose to grade each aspect on 5 levels going from missing (0/4) to best (4/4).
 Performing the average of the grade for each criteria gives a global grade for the artifact.
 We recommend for the global grade to be \emph{strictly} greater than 3/4 to deliver the \emph{longevity} badge.
+The specifics of the grade for each criteria should be further discussed in the community, to reach a consensus on desired good practices.
+They are also bound to change as the software tools and practices evolve.
 
 \begin{figure}
   \centering
@@ -796,7 +799,7 @@ We recommend for the global grade to be \emph{strictly} greater than 3/4 to deli
   \caption{Longevity score for each of the three criteria, and the global longevity score. We recommend a minimum longevity score of 3 to award the longevity badge. If we compute the longevity score on the survey papers of Section \ref{sec:sop}, then about 1 percent would have get the badge.}\label{fig:longevity_score}
 \end{figure}
 
-Figure \ref{fig:longevity_score} shows the score for each of the three criteria (top three plots), and the global longevity score (bottom plot) for the papers surveyed in Section\ \ref{sec:sop}.
+Figure \ref{fig:longevity_score} shows the distribution of scores for each of the three criteria (top three plots), and the global longevity score (bottom plot) for the papers surveyed in Section\ \ref{sec:sop}.
 With the recommended threshold score of 3 out of 4, about 1 percent of the survey papers would have got the badge.
 We can see that the most penalizing criteria is the one about software environment, where the majority of the papers have zero out of four.
 
