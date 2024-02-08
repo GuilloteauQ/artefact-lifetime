@@ -616,15 +616,17 @@ However, in practice, we observed the same issues as presented in Section \ref{s
 
 \subsubsection{Downloading from the outside world}
 
-A common practice when authors need to install a dependency that is not available through the classical package managers, is to install it from source.
-For this, authors indicate in the \ad\ how to download the dependency, and how to build it.
-However, when cloning a \texttt{git} repository or downloading an archive via \texttt{wget}/\texttt{curl}, a common error is to not specify the commit to use (\texttt{Imprecise download} in Figure \ref{fig:sw_envs}).
-If no commit is specified, \texttt{git} will use the latest commit of the main branch, which could be completely different at the moment of the artifact review and in 10 years.
-
+A common practice when authors need to install a dependency that is not available through the classical package managers is to install it from source.
+For this, authors indicate in the \ad\ the process to download the dependency and how to build it.
+However, when cloning a \texttt{git} repository, a common error is to not specify the commit to use.
+If no commit is specified, \texttt{git} will use the latest commit of the main branch, which could be completely different between the moment of the artifact review and 10 years later.
+The same goes for archives downloaded via \texttt{wget}/\texttt{curl}, typically in the form
 \begin{verbatim}
-git clone https://github.com/user/repo.git
 curl https://website.com/downloads/release-latest.tar.gz
 \end{verbatim}
+which outcome varies with time.
+Both of these approaches were labeled \texttt{Imprecise download} in Figure \ref{fig:sw_envs}.
+
 
 Moreover, the downloaded \texttt{git} repository could disappear in the future, and thus cloning from Software-Heritage would be more robust than cloning from a forge (\eg\ GitHub, GitLab).
 The same remark applies to downloaded tarballs from websites.
