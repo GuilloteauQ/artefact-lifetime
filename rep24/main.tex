@@ -122,7 +122,7 @@
 %% The abstract is a short summary of the work to be presented in the
 %% article.
 \begin{abstract}
-  The computer science community has also been struck by the reproducibility crisis.
+  The computer science community has also been struck by the reproducibility crisis\ \cite{baker500ScientistsLift2016, baker2016reproducibility}.
   Its answer has been to set up artifact evaluations with a paper acceptance, and award badges to reward authors for their "reproducibility" efforts.
   The voluntary author can submit their artifacts to reviewers who will decide their "reproducibility" qualities.
   However, the notion of "reproducibility" considered by the badges is limited, and it misses important aspects of the reproducibility problem.
@@ -184,11 +184,12 @@
 
 %% PAPER STARTS HERE -----------------------------------------------------------------------------------------------
 
+\newpage
+
 \section{Introduction}
 
 The scientific community as a whole has been traversing a \repro\ crisis for the last decade.
 Computer science does not make an exception\ \cite{randallIrreproducibilityCrisisModern2018,baker500ScientistsLift2016}.
-
 The \repro\ of the research work is essential to build robust knowledge, and it increases the reliability of results while limiting the number of methodology and analysis bias.
 In 2015, Collberg et al.\ \cite{collberg_repeatability_2015} studied the \repro\ of 402 experimental papers published in \emph{system} conferences and journals of 2011 and 2012.
 Each studied paper linked the source code used to perform their experiments. 
@@ -259,10 +260,10 @@ An \emph{artifact} is a self-contained work result with a context-specific purpo
 
 In 2015, Hunold\ \cite{hunold2015survey} conducted a survey among the participants of the EuroPar conference to assess the vision of the parallel computing community on the questions of reproducibility. 
 Among all the questions, when asked about the main reasons for not making the source code/raw data/data processing available, participants answered that: "\emph{it is irrelevant because evolution is too fast}" (90\%), "\emph{it is not rewarding}" (87\%), "\emph{I want to retain a competitive advantage}" (84\%).
-The second most popular answer is quite interesting as \aeval\ processes were not very popular at the time of the survey (the very first one was in 2011 at ESC/FSE).
+The second most popular answer is quite interesting as \aeval\ processes were not very popular at the time of the survey (the very first one was in 2011 at the ESC/FSE conference).
 Sharing artifacts and having them evaluated has been accepted as an established practice with benefits for the community\ \cite{hermann2022has}.
 The work done by publishers with the badging system aimed to reward authors for sharing their artifacts.
-It would be interesting to conduct again the survey today to see the impact on the \aeval\ on this question, as we believe that reproducibility and its challenges have now much more visibility.
+It would be interesting to conduct again the survey today to see the impact on the \aeval\ on this question, as we believe that reproducibility and its challenges have now much more visibility in terms of citations.
 Badges have be shown to be an effective strategy to incentivize authors to make the data of their works available \cite{kidwell2016badges, rowhani2017incentives}.
 However badges have yet to show significant impact on the visibility of the papers\ \cite{winter2022retrospective, frachtenberg2022research, heumuller2020publish}. 
 
@@ -283,7 +284,7 @@ When researchers want to compare their new method with a method from the state-o
 In both cases, this is not the original work that is being compared to, but a modified version of it, which might lead to different results.
 An artifact with all the badges might not be reusable and comparable "as it is" by other researchers.
 A solution that should be promoted by committees, is the implementation of the authors' solutions on collaborative benchmarking frameworks.
-Some examples of such collaborative frameworks include BenchOpt \cite{moreau2022benchopt} for optimization problems, or KheOps \cite{rosendo2023kheops} for Edge-to-Cloud experiments.
+Some examples of such collaborative frameworks include BenchOpt \cite{moreau2022benchopt} for optimization problems, KheOps \cite{rosendo2023kheops} for Edge-to-Cloud experiments, or \cite{sharma2017towards} for networking experiments.
 
 
 
@@ -328,11 +329,11 @@ In this paper, we propose a technical in-depth review of the methods and tools u
 
 In this Section, we surveyed 296 papers from 5 of the top conferences in \emph{distributed systems and system} of 2023.
 All the considered conferences had an \adae\ process for the \emph{accepted} papers.
-This \adae\ process usually consists of a first phase where the authors write an \ad\ as an appendix of the paper to show how to get and use the artifact, how to install the dependencies, what are the different experiments and their estimated duration, etc.
+This \adae\ process usually consists of the authors writing an \ad\ as an appendix of the paper to show how to get and use the artifact, how to install the dependencies, what are the different experiments and their estimated duration, etc. \cite{ae_tip, creating_successful_artifacts, ae_guidelines}.
 This \ad\ section is usually one or two pages long (in a double column layout).
 The most popular practice is for authors to give a link to a more detailed description of the artifact.
 
-Table \ref{tab:table:paper_confs} summarizes our evaluations, including the number of papers for each conference and how many of them have an artifact section.
+Table \ref{tab:table:paper_confs} summarizes our evaluations, including the number of papers for each conference and how many of them have an \ad.
 
 % \begin{figure}
 %   \centering
@@ -356,12 +357,12 @@ From the proceedings, we surveyed all the papers and, for each paper, noted:
   \item Whether the paper had an \ad\ section
   \item Whether the paper shared the URL of the artifact (it does not have to be in the \ad), and whether the URL is still valid
   \item How the experiments were performed (\eg\ local machines, shared testbeds, proprietary machines, supercomputer, simulation, etc.)
-  \item How the source code was shared (\texttt{git}, Zenodo, Software-Heritage, or combination of solutions)
-  \item If the source code has been shared with \texttt{git}, we record the number of commits, and check whether a precise commit was specified by the authors
+  \item How the source code was shared: \texttt{git} repository (\eg\ GitHub, GitLab), Zenodo, Software-Heritage, or combination of solutions
+  \item If the source code has been shared via \texttt{git} repository, we record the number of commits, and check whether a precise commit was specified by the authors
   \item How the software environment was shared
 \end{itemize}
 
-The data presented in this paper has been collected manually by a single researcher.
+The data presented in this paper has been collected \emph{manually by a single researcher}.
 Even though we did our best to evaluate correctly all the surveyed papers, we do not believe that there are no mistakes.
 But we are certain that if there are errors, they will not affect significantly the conclusions of this paper.
 We spent around 5 minutes, and no more than 10 minutes, per paper to collect the aforementioned information.
@@ -644,14 +645,14 @@ It is more preferable that the building of the environment fails if the content 
 
 \subsubsection{Modules}
 
-A popular way to manage a software environment on HPC systems is through \emph{Modules} \cite{modules}.
+A popular way to manage a software environment on HPC systems is through \emph{Modules} \cite{furlani1991modules, modules}.
 Modules allow users to change their environment by "loading" and "unloading" packages, and allow to simply manage different versions of applications. 
 Under the hood, modules change the \texttt{\$PATH} environment variables.
-One drawback is that loading and unloading modules has side effects on the system, and might thus not set back the system in its initial state.
+One drawback is that loading and unloading modules has side effects on the state of the system, and might thus not set back the system in its initial state.
 Manually loading the correct modules can also be quite error-prone for users.
 Modules are however mainly maintained by the administrators of the system, and are system-specific (\eg\ compile MPI with special optimizations for the underlying system).
 Thus sharing a module-based environment between two systems might be impossible.
-Modules are also helpful for administrators to limit the applications that can be run by users.
+Modules are also helpful for administrators to limit and control the applications that can be run by users.
 Moreover, as the \texttt{modulefiles} are managed by the administrators, they do not have an infinite longevity, and might be unavailable in the future.
 %\todo{Easybuild?}
 
@@ -666,12 +667,12 @@ Hence, if two different machines have two different C compilers then the resulti
 One clear advantage of Spack is the ease to introduce a variation in an environment through the command line.
 Spack can also be run as a non-privileged user and does not require the approval of the system administrators.
 Spack will download and build dependencies into a folder located in the user's \texttt{\$HOME}.
-However, a drawback on HPC system is that this directory consumes a lot of storage quota and inodes.
+However, a drawback of using Spack on an HPC system is that this directory consumes a lot of storage quota and inodes.
 
 \subsubsection{Vendoring}
 
 One way to make sure to use the correct dependencies is to "vendor" them.
-This means having a copy of the dependencies' source code which is then built from source.
+This means having a copy of the dependencies' source code in the artifact itself, and then build the dependencies from source.
 Authors sometimes use \texttt{git submodules} to vendor.
 However, \texttt{submodules} are not a copy of the dependencies but simply a link to a specific commit of another \texttt{git} repository.
 Hence, if one of the dependency's repository disappears, the artifact will not build.
@@ -681,7 +682,7 @@ Moreover, the vendoring approach has its limits as it cannot reasonably capture 
 
 Tools such as Nix\ \cite{dolstra_nix_2004} or Guix\ \cite{courtes_functional_2013} fix most of the problems described in the previous sections.
 However, they are barely used (about 1\% of the artifacts).
-Nix and Guix share the similar concepts; in the following we will focus on Nix.
+As Nix and Guix share similar concepts, in the following, we will focus on Nix, under the premise that all insights also apply to Guix..
 
 Nix is a pure functional package manager for the reproducibility of the packages.
 A Nix package is defined as a function where the dependencies of the packages are the inputs of the function, the body of the function contains the instructions to build the package.
