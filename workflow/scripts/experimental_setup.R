@@ -26,7 +26,7 @@ plot <- df %>%
   ylab("Number of papers") +
   scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
   guides(fill = guide_legend(nrow = 2, byrow=TRUE)) +
-  ggtitle("Experimental setup used") +
+  #ggtitle("Experimental setup used") +
   xlab("") +
   coord_flip()
 

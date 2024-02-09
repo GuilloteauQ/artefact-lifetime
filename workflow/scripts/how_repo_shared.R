@@ -40,7 +40,7 @@ plot <- df %>%
   ylim(0, 75) + # berk hard coded value so that the text is not cropped
   scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
   guides(fill = guide_legend(nrow = 2, byrow=TRUE)) +
-  ggtitle("How was the artifact shared?") +
+  #ggtitle("How was the artifact shared?") +
   coord_flip()
 
-ggsave(plot = plot, outfile, width=5, height=4)
+ggsave(plot = plot, outfile, width=5, height=3.5)

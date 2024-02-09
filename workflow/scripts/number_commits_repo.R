@@ -31,4 +31,4 @@ plot <- df %>%
   annotation_logticks(sides = "b") +
   ylab("Proportion")
 
-ggsave(plot = plot, outfile, width=6, height=4)
+ggsave(plot = plot, outfile, width=6, height=3.7)
