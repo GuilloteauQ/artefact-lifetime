@@ -29,8 +29,8 @@ df <- read_csv(filename, col_names = T) %>%
     ),
     score_software_env = case_match(sw_env_method,
         c("vendoring", "git_curl_commands_safe", "git_curl_commands_safest") ~ 1,
-        "docker_vm_recipe_long_term" ~ 2,
-        "spack" ~ 3,
+        "spack" ~ 2,
+        "docker_vm_recipe_long_term" ~ 3,
         "nix" ~ 4,
         .default = 0
     )
