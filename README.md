@@ -45,7 +45,7 @@ mkdir -p data
 wget https://zenodo.org/record/10640566/files/all.csv -O data/all.csv
 ```
 
-TODO: add md5sum
+The expected MD5 is `md5:cc8e33ac854e4854980f0371380c7229`
 
 You can now run the workflow:
 
