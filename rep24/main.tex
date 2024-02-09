@@ -69,7 +69,7 @@
 \usepackage{textcomp}
 \usepackage[inline]{enumitem}
 
-\newcommand{\fmc}[1]{{\color{magenta} #1}} % Florina Ciorba 
+\newcommand{\fmc}[1]{{\color{magenta} #1}} % Florina Ciorba
 
 
 %\usepackage[backend=biber,style=trad-abbrv,firstinits=true]{biblatex}
@@ -86,7 +86,7 @@
 % \title{State-of-practice for sharing artifacts in top system conferences: Are~we~reproducible~yet?}
 %\title{State-of-the-practice of artifacts longevity in system conferences}
 \title{Longevity of Artifacts in Top Parallel and Distributed Systems Conferences: a~State-of-the-practice~Review}
-%\title{Study of the State-of-the-practice for sharing artifacts in top system conferences from the point-of-view of artifacts longevitys}
+%\title{Study of the State-of-the-practice for sharing artifacts in top system conferences from the point-of-view of artifacts longevity}
 %\title{A longevity-focused review of the State-of-the-practice for sharing artifacts in top system conferences}
 
 \author{Quentin Guilloteau}
@@ -133,8 +133,8 @@
   We argue that the notion of 'reproducibility' considered by such badges is limited, and misses important aspects of the reproducibility crisis.
   In this article, we survey 296 articles from 5 top conferences in parallel and distributed systems held in 2023 (CCGrid, EuroSys, OSDI, PPoPP, and SC).
   For each article, we gather information about its artifacts (how it was shared, under which experimental setup, and how the software environment was generated and shared), as well as the reproducibility badges awarded.
-  We found that the state-of-the-practice does not address reproducibility in terms of artifact \emph{longevity} and we expose 7 takeways that support this finding.
-  To address this issue, we propose a new badge based on source code, experimental setup, and software environment criterias, which will allow to reward artifacts that will withstand the test of time.% and support reproducibility in the long term.  
+  We found that the state-of-the-practice does not address reproducibility in terms of artifact \emph{longevity} and we expose 7 takeaways that support this finding.
+  To address this issue, we propose a new badge based on source code, experimental setup, and software environment criteria, which will allow to reward artifacts that will withstand the test of time.% and support reproducibility in the long term.  
   This work aims to shed light on the issue of long-term reproducibility in parallel and distributed systems and to start a discussion in the community towards addressing the issue. 
 
   % The computer science community has also been struck by the reproducibility crisis\ \cite{baker500ScientistsLift2016, baker2016reproducibility}.
@@ -230,7 +230,7 @@ This peer review process of the experimental artifact can yield one or several b
 The term \repro\ is often used in a broad sense and gathers several concepts.
 ACM proposed definitions for \repro\ terminology, that are used for the validation of the submitted artifacts\ \cite{acm-badges}.
 %The definitions that we will use in the rest of this article are the ones the ACM uses for the validation of the submitted artifacts\ \cite{acm-badges}.
-These defintions themselves rely on the International vocabulary of Metrology\ \cite{defs_vim}, and are composed of three levels summarized here:
+These definitions themselves rely on the International vocabulary of Metrology\ \cite{defs_vim}, and are composed of three levels summarized here:
 \begin{enumerate*}[label=(\roman*)]
   \item \emph{Repeatable}: the measurements can be obtained again by the people at the origin of the work.
   %\item \emph{Repeatable}: the measurements (defined by \cite{defs_vim} as "the processes of experimentally obtaining or more quantity values that can be attributed to a quantity") can be obtained again by the people at the origin of the work.
@@ -256,7 +256,7 @@ Thus, it is very probable that the construction of the artifacts will be execute
 This raises the question of: What will happen when someone tries to rebuild the artifacts' environment 1, 5, or 10 years into the future?
 The objective of science is to be based on robust work to advance the frontiers of knowledge (\emph{Stand on the shoulders of giants} \cite{giant}).
 Such '\textbf{short term reproducibility}' is a major obstacle to scientific progress and in complete opposition to Open Science \cite{openscience_unesco}.
-Noone would expect a mathematical proof to change through time or even completely disappear.
+No one would expect a mathematical proof to change through time or even completely disappear.
 %\fmc{Which is? We need to cite this or define this better.}.
 We believe that \ad\ mainly targets the artifact reviewer, \textbf{but, more importantly, it should target future readers of the article and future researchers.}
 
@@ -306,7 +306,7 @@ However, the badges have not yet shown a significant impact on the visibility of
 
 In \cite{hermann2020community}, the authors surveyed the members of artifact evaluation committees of computer science conferences about their expectations for artifacts and the reviewing process of the artifacts. 
 They found that despite the call for artifacts that expressed expected observable qualities from the submitted artifacts, there was no consensus on what the expected qualities should be.
-The authors of \cite{castell2024towards} proposed a global "quality indicator" for research artifacts with a detailed framework, but it is not focused on reproducibility and does not integrate with the current bagde system.
+The authors of \cite{castell2024towards} proposed a global "quality indicator" for research artifacts with a detailed framework, but it is not focused on reproducibility and does not integrate with the current badge system.
 %Attempts have been made to define a global "quality indicator" of research artifacts\ \cite{castell2024towards}, but they have an orthogonal approach to the badge approach.
 This lack of consensus leaves reviewers without guidelines to correctly and uniformly evaluate artifacts, which has been shown to be frustrating for reviewers\ \cite{beller2020will}.
 In addition, the study showed that there is a lack of reviewer experience.
@@ -752,7 +752,7 @@ Hence, if a user wants to install a different version of an already installed pa
 These individual directories are stored in the \emph{Nix Store} located at \texttt{/nix/store}, in a \emph{read-only} file-system.
 The advantage of this fine-grained isolation method is the \emph{precise} definition of the \texttt{\$PATH} environment variable to manage software environments.
 
-The definition of packages through functions also faciliates their sharing and distribution.
+The definition of packages through functions also facilitates their sharing and distribution.
 There is a large base of package definitions written by the community and hosted in a \texttt{git} repository called \texttt{nixpkgs}\ \cite{nixpkgs}, and which is archived on Software-Heritage.
 Users can easily base their new packages, or environment on those definitions.
 It is also possible for independent teams and research groups to have their own base of packages.
@@ -869,7 +869,7 @@ By \emph{longevity} we mean the time an artifact will be in the same state as th
 As we have seen in Section\ \ref{sec:sop}, the popular tools and methods to share source code, package software environment, or platforms to perform experiments on differ in their \emph{longevity} guarantees/quality.
 
 Artifacts with long \emph{longevity} are much more valuable and impactful for future researchers to extend, and deserve to be rewarded and have more visibility.
-Table\ \ref{tab:longevity} proposes a \textbf{first iteration} of a grading framework to evaluate the \emph{longevity} of an artifact based on three criterias: sharing of the source code, experimental setup used, and software environment.
+Table\ \ref{tab:longevity} proposes a \textbf{first iteration} of a grading framework to evaluate the \emph{longevity} of an artifact based on three criteria: sharing of the source code, experimental setup used, and software environment.
 We propose to grade each aspect on 4 levels going from insufficient (0/4) to best (4/4).
 Performing the average of the grade for each criteria gives a global grade for the artifact.
 We recommend for the global grade to be \emph{strictly} greater than 3/4 to deliver this new \emph{longevity} badge.
