@@ -9,7 +9,7 @@ outfile = args[2]
 df_unique <- read_csv(filename, col_names = T)
 
 conf_core_rank <- tibble(
-  conference = c("ccgrid23", "eurosys23", "osdi23", "ppopp23", "sc23"),
+  conference = c("CCGRID", "EUROSYS", "OSDI", "PPOPP", "SC"),
   rank       = c("A", "A", "A*", "A", "A")
 )
 

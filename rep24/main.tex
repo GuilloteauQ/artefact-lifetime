@@ -29,7 +29,7 @@
 \tcbuselibrary{theorems}
 \usepackage{cleveref}
 \newtcbtheorem[]{trap}{Pitfall}{colback=black!5,colframe=black!35,fonttitle=\bfseries}{th}
-\newtcbtheorem[]{lesson}{Takeaway}{colback=black!5,colframe=black!35,fonttitle=\bfseries}{th}
+\newtcbtheorem[]{lesson}{Observation}{colback=black!5,colframe=black!35,fonttitle=\bfseries}{th}
 \newcommand{\repro}{reproducibility}
 \newcommand{\Repro}{Reproducibility}
 \newcommand{\transpo}{\emph{Transposition}}
@@ -60,13 +60,14 @@
 \usepackage{multirow}
 \usepackage{hhline}
 \usepackage{calc}
-%\usepackage{tabularx}
+\usepackage{tabularx}
 \usepackage{fontawesome}
 \usepackage[para,online,flushleft]{threeparttable}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{amsmath,amsfonts}
 \usepackage{textcomp}
+\usepackage[inline]{enumitem}
 
 \newcommand{\fmc}[1]{{\color{magenta} #1}} % Florina Ciorba 
 
@@ -230,13 +231,12 @@ The term \repro\ is often used in a broad sense and gathers several concepts.
 ACM proposed definitions for \repro\ terminology, that are used for the validation of the submitted artifacts\ \cite{acm-badges}.
 %The definitions that we will use in the rest of this article are the ones the ACM uses for the validation of the submitted artifacts\ \cite{acm-badges}.
 These defintions themselves rely on the International vocabulary of Metrology\ \cite{defs_vim}, and are composed of three levels summarized here:
-
-\begin{enumerate}
+\begin{enumerate*}[label=(\roman*)]
   \item \emph{Repeatable}: the measurements can be obtained again by the people at the origin of the work.
   %\item \emph{Repeatable}: the measurements (defined by \cite{defs_vim} as "the processes of experimentally obtaining or more quantity values that can be attributed to a quantity") can be obtained again by the people at the origin of the work.
 \item \emph{Reproducible}: the measurements can be obtained again by people who do not belong to the original work and with the original artifact of the authors.
 \item \emph{Replicable}: the measurements can be obtained again by people who do not belong to the original work with artifacts they develop independently.
-\end{enumerate}
+\end{enumerate*}
 
 % The evaluation of artifacts is a crucial point which allows guaranteeing the reproducibility of the experiments and the results.
 % However, this reproducibility is not sufficient.
@@ -254,8 +254,10 @@ The evaluation of artifacts for conferences is done soon after their initial con
 Thus, it is very probable that the construction of the artifacts will be executed with package mirrors (\texttt{apt}, \texttt{rpm}, etc.) of a similar state or version.
 
 This raises the question of: What will happen when someone tries to rebuild the artifacts' environment 1, 5, or 10 years into the future?
-The objective of science is to be based on robust work to advance the frontiers of knowledge (\emph{Stand on the shoulders of giants}\fmc{Need to find original citation for this}).
-Such '\textbf{short term reproducibility}' is a major obstacle to scientific progress and in complete opposition to the science philosophy \fmc{Which is? We need to cite this or define this better.}.
+The objective of science is to be based on robust work to advance the frontiers of knowledge (\emph{Stand on the shoulders of giants} \cite{giant}).
+Such '\textbf{short term reproducibility}' is a major obstacle to scientific progress and in complete opposition to Open Science \cite{openscience_unesco}.
+Noone would expect a mathematical proof to change through time or even completely disappear.
+%\fmc{Which is? We need to cite this or define this better.}.
 We believe that \ad\ mainly targets the artifact reviewer, \textbf{but, more importantly, it should target future readers of the article and future researchers.}
 
 %The evaluation of artifacts for the conferences is done soon after their initial construction.
@@ -271,9 +273,9 @@ This means allowing a third party to use the environment defined for an experime
 An example of variation would be to change the MPI implementation used in an experiment (\eg\ MPICH instead of OpenMPI).
 Being able to introduce such a variation requires the initial environment to be correctly defined.
 
-However, even if variation is the end goal, we claim that the current state-of-the-practice of artifact description and evaluation does not yet answer the main questions of reproducibility \fmc{which are? or where have they been defined?. we need to refer to those here; NO, we want to fulfil the reproducibility properties... }, in particular in terms of the reproducibility of the experimental software environment.
+However, even if variation is the end goal, we claim that the current state-of-the-practice of artifact description and evaluation does not yet fulfil the main reproducibility properties, in particular in terms of the reproducibility of the experimental software environment.
 
-This work analyzes the \emph{longevity} of existing \ad s from the surveyed articles and exposes 7 takeaways messages summarizing our findings.
+This work analyzes the \emph{longevity} of existing \ad s from the surveyed articles and exposes 7 observations messages summarizing our findings.
 The \textit{key novelty} of this work is to propose a badge that complements existing reproducibility badges and supports the longevity of artifacts to withstand the test of time. 
 
 This article is structured as follows.
@@ -304,8 +306,8 @@ However, the badges have not yet shown a significant impact on the visibility of
 
 In \cite{hermann2020community}, the authors surveyed the members of artifact evaluation committees of computer science conferences about their expectations for artifacts and the reviewing process of the artifacts. 
 They found that despite the call for artifacts that expressed expected observable qualities from the submitted artifacts, there was no consensus on what the expected qualities should be.
-Attempts have been made to define a "quality indicator" of research artifacts\ \cite{castell2024towards}.
-\todo{more}.
+The authors of \cite{castell2024towards} proposed a global "quality indicator" for research artifacts with a detailed framework, but it is not focused on reproducibility and does not integrate with the current bagde system.
+%Attempts have been made to define a global "quality indicator" of research artifacts\ \cite{castell2024towards}, but they have an orthogonal approach to the badge approach.
 This lack of consensus leaves reviewers without guidelines to correctly and uniformly evaluate artifacts, which has been shown to be frustrating for reviewers\ \cite{beller2020will}.
 In addition, the study showed that there is a lack of reviewer experience.
 
@@ -328,15 +330,13 @@ The survey participants also expressed that the most important thing is the avai
 
 
 The last decade has seen the creation of independent online scientific journals to reward software and reproducibility.
-The most popular example is probably the \emph{Journal of Open Source Software} (JOSS)\ \cite{smith2018journal}.
-This journal publishes articles about open source research software.
-The review process includes a thorough inspection of a submission's source code, the documentation of the software, and a run-through of some examples.
-Reviews are open and hosted on GitHub as issues.
+The most popular example is probably the \emph{Journal of Open Source Software} (JOSS)\ \cite{smith2018journal} that publishes articles about open source \emph{research software}.
+The review process, openly accessible as GitHub issues, includes a thorough inspection of a submission's source code, the documentation of the software, and a run-through of some examples.
+%Reviews are open and hosted on GitHub as issues.
 %IPOL \cite{colom2015ipol}
 In the field of Image Processing, the online journal \emph{Image Processing On Line} (IPOL)\ \cite{colom2015ipol} requires the authors to implement the algorithms proposed in their article and to make the implementation available through an online demonstration for readers to explore and play with.
 This requirement forces the authors to share their code alongside their article.
 IPOL noted that this requirement also helped authors to improve their algorithms, as actually implementing the algorithms might raise some undetected edge-cases.
-
 As the review process for journals is often much longer than for conferences, reviewers have more time to investigate the artifacts and iterate with the authors ways to improve the artifacts.
 
 
@@ -367,8 +367,7 @@ These conferences used an \adae\ process for the \emph{accepted} articles.
 This \adae\ process usually consists of the authors writing an \ad\ as an appendix of the article to show how to get and use the artifact, how to install the dependencies, what are the different experiments and their estimated duration, etc. \cite{ae_tip, creating_successful_artifacts, ae_guidelines}.
 The \ad\ section is typically one or two pages long (in a double column layout).
 This \ad is complemented in practice by a link provided by the authors to a more detailed description of the artifact.
-
-Table \ref{tab:table:papers_confs} summarizes our evaluations, including the number of articles for each conference and how many of them have an \ad.
+Table \ref{tab:table:paper_confs} summarizes our evaluations, including the number of articles for each conference and how many of them have an \ad.
 
 % \begin{figure}
 %   \centering
@@ -520,7 +519,7 @@ Even if this allows the reviewers to get an easier access to probably similar ma
 Using proprietary platforms also raises the question of who should pay to reproduce the results of the authors.
 Some authors using such platforms wrote in their \ad\ the estimated monetary cost of rerunning the experiments.
 
-Similarly, some articles (in particular for the SuperComputing conference (\texttt{sc23})) used supercomputers to conduct experiments.
+Similarly, some articles (in particular for the SuperComputing conference (\texttt{SC})) used supercomputers to conduct experiments.
 While supercomputers are at the bleeding edge of technology, having access to such a system is restrictive and can take several weeks or months before obtaining access.
 
 \begin{lesson}{Experimenal setup}{}
@@ -595,7 +594,7 @@ Another important question is to know whether the base image and all the version
 For instance, the longevity of the \texttt{nvidia/cuda} Docker image is only 6 months; after 6 months, the Nvidia administrators of DockerHub delete the images\ \cite{nvidia_cuda_lifetime}.
 However, in Figure \ref{fig:cache_bin} we see that more than half of the \ad s using an image do not share the recipe, or we could not find the recipe to inspect or rebuild the image.
 This means that if the image is not in a binary cache, then it is impossible to rebuild it exactly.
-The column \texttt{Loose image} in Figure \ref{fig:sw_envs} shows the articles that based their software environments on an image with short \emph{longevity}.
+The column \texttt{Loose image} in Figure \ref{fig:sw_envs} shows the articles that based their software environments on an short \emph{longevity} image.
 
 
 \subsubsection{List of package versions}\label{sec:sop:sw:list}
@@ -634,7 +633,7 @@ However, there is a very low probability that in 5 or 10 years, the mirror will 
 This approach also implicitly defines a dependency on the distribution of the operating system that needs to be used.
 
 There are "workarounds" to make sure that the packages installed via classical package managers are the expected ones. 
-One of them is to use a \emph{snapshot} of the mirror\footnote{Example for \texttt{debian}: \url{http://snapshot.debian.org/}}.
+One of them is to use a \emph{snapshot} of the mirror \cite{debian-snapshot}.
 These snapshots are a dump of the mirror at a given time and users can then install packages from these snapshots using the usual interface of the package manager.
 However, even using snapshots can cause issues.
 In particular, what if the package installed from the snapshot creates a conflict with a package already installed on the system?
@@ -653,11 +652,10 @@ Indeed, installing more recent packages might be tedious or introduce conflicts 
 
 \subsubsection{\texttt{pip} and \texttt{conda}}
 
-In the case where the software environment contains only Python packages, freezing the dependencies with \texttt{pip} (\texttt{pip freeze}) is not enough.
+When the software environment contains only Python packages, freezing the dependencies with \texttt{pip} (\texttt{pip freeze}) is not enough.
 \texttt{pip} only describes the Python environment, and ignores the system dependencies that numerous packages have. 
 For example, freezing an environment containing the \texttt{zmq} Python package will not freeze the ZeroMQ system package installed on the system.  
 Even if re-creating a Python environment from a \texttt{requirements.txt} is simple, installing a list of system packages with specific version is, on the other hand, much more complex.
-
 In the best case, the repository includes a \texttt{requirements.txt} that lists all Python dependencies with the \emph{exact} versions.
 However, in practice, we observed the same issues as presented in Section \ref{sec:sop:sw:list} when authors provide a list of dependencies without version or with a loose version.
 
@@ -690,14 +688,14 @@ It is more preferable that the building of the environment fails if the content 
 \subsubsection{Modules}
 
 A popular way to manage a software environment in HPC systems is through \emph{Modules} \cite{furlani1991modules, modules}.
-Modules allow users to change their environment by "loading" and "unloading" packages and allow one to simply manage different versions of applications. 
+Modules allow users to change their environment by "loading" and "unloading" packages and allow one to manage different versions of applications. 
 Under the hood, modules change the \texttt{\$PATH} environment variables.
 One drawback is that loading and unloading modules has side effects on the state of the system, and therefore might not reset the system to its initial state.
 Manually loading the correct modules can also be quite error-prone for users.
 However, modules are mainly maintained by the system administrators and are system-specific (\eg\ compile MPI with special optimizations for the underlying system).
 Thus sharing a module-based environment between two systems might be impossible.
 Modules are also helpful for administrators to limit and control the applications that can be run by users.
-Moreover, as the \texttt{modulefiles} are managed by the administrators, they do not have infinite longevity and might be unavailable in the future.
+Moreover, as the modules are managed by the administrators, they do not have infinite longevity and might be unavailable in the future.
 %\todo{Easybuild?}
 
 \subsubsection{Spack}
@@ -811,19 +809,59 @@ However, their use has not yet reached the system and distributed systems commun
 % /////////////////////////////////////////////////////////////////////////////////////////////////////
 \section{Towards a new badge for artifacts}\label{sec:longevity}
 
+%\begin{table*}
+%  \caption{\label{tab:longevity}Proposition of grading framework for evaluating the \emph{longevity} of an artifact.}
+%  \centering
+%  \begin{tabular}[t]{l p{18em} p{9em} p{22em}}
+%  \toprule
+%    Grade & Source Code &  Experimental Setup & Software environment \\
+%  \midrule
+%    1/4 & Only \texttt{git} URL with a \emph{fixed} commit, or only Zenodo archive & Proprietary platforms & Vendoring or \emph{precise} download of dependencies \\
+%    2/4 & \texttt{git} URL and Zenodo archive of a \emph{release} & Local machines & Docker/VM with recipe and long-term storage of the image \\
+%    3/4 & \texttt{git} URL and Zenodo archive of the repository \emph{with} the history & Supercomputers & Spack \\
+%    4/4 & Software-Heritage & Testbeds/Simulation  & Nix(OS) / Guix \\
+%  \bottomrule
+%  \end{tabular}
+%\end{table*}
+
+% \begin{table*}
+%   \caption{\label{tab:longevity}Proposition of grading framework for evaluating the \emph{longevity} of an artifact.}
+%   \centering
+%   %\begin{tabular}[t]{l ll ll ll }
+%     \begin{tabularx}{\textwidth}{l XX XX XX}
+%   \toprule
+%       \multirow{2}{2em}{Grade} & \multicolumn{2}{c}{Source Code} &  \multicolumn{2}{c}{Experimental Setup} & \multicolumn{2}{c}{Software environment} \\
+%     \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+%      &
+%     Characteristics & Tools/Methods &
+%     Characteristics & Tools/Methods &
+%     Characteristics & Tools/Methods \\
+%   \midrule
+%     1/4 & fixed version, partial exploration & \texttt{git} URL with a \emph{fixed} commit & high monetary cost & Proprietary platforms & long-term, some dependencies & Vendoring, \emph{precise} download of dependencies \\
+%     2/4 & long-term storage, fixed version & Archive of a \emph{release} & difficult access & Local machines & long-term, recipe, all dependencies, imprecise rebuild & Long-term storage of the image and recipe \\
+%       3/4 & long-term storage, fixed version, history & Archive containing the history & longer-term, difficult access, low monetary cost & Supercomputers & shorter-term, recipe, most dependencies, more precise rebuild & Spack \\
+%     4/4 & long-term storage, fixed version, history, partial exploration & Software-Heritage & longer-term, easy access, low monetary cost & Test-beds & long-term, recipe, exact rebuild, all dependencies & Nix(OS) / Guix \\
+%   \bottomrule
+%   \end{tabularx}
+% \end{table*}
+
+
 \begin{table*}
-  \caption{\label{tab:longevity}Grading framework for evaluating the \emph{longevity} of an artifact.}
+  \caption{\label{tab:longevity}Proposition of grading framework for evaluating the \emph{longevity} of an artifact.}
   \centering
-  \begin{tabular}[t]{l p{18em} p{9em} p{22em}}
+    \begin{tabularx}{\textwidth}{l X X X}
   \toprule
-    Grade & Source Code &  Experimental Setup & Software environment \\
+      Grade & Source Code &  Experimental Setup & Software environment \\
   \midrule
-    1/4 & Only \texttt{git} URL with a \emph{fixed} commit, or only Zenodo archive & Proprietary platforms & Vendoring or \emph{precise} download of dependencies \\
-    2/4 & \texttt{git} URL and Zenodo archive of a \emph{release} & Local machines & Docker/VM with recipe and long-term storage of the image \\
-    3/4 & \texttt{git} URL and Zenodo archive of the repository \emph{with} the history & Supercomputers & Spack \\
-    4/4 & Software-Heritage & Testbeds/Simulation  & Nix(OS) / Guix \\
+      1/4 & fixed version, partial exploration (\eg\ \texttt{git} with \emph{fixed} commit) &  high monetary cost (\eg\ Proprietary platforms) & long-term, some dependencies (\eg\ Vendoring, \emph{precise} download) \\
+       \midrule
+      2/4 & long-term storage, fixed version (\eg\ Archive of a \emph{release}) & difficult access (\eg\ Local Machines) & shorter-term, recipe, most dependencies, more precise rebuild (\eg\ Spack) \\
+       \midrule
+      3/4 & long-term storage, fixed version, history (\eg\ Archive containing the history) & longer-term, difficult access, low monetary cost (\eg\ SuperComputer) & long-term, available recipe, all dependencies, imprecise rebuild (\eg\ Long-term storage of the image and recipe) \\
+       \midrule
+      4/4 & long-term storage, fixed version, history, partial exploration (\eg\ Software-Heritage) & longer-term, easy access, low monetary cost (\eg\ Test-beds) & long-term, recipe, exact rebuild, all dependencies (\eg\ Nix/Guix) \\
   \bottomrule
-  \end{tabular}
+  \end{tabularx}
 \end{table*}
 
 We believe that the current badging system is missing one important aspect of the quality of the artifacts: their \emph{longevity}.
@@ -831,12 +869,11 @@ By \emph{longevity} we mean the time an artifact will be in the same state as th
 As we have seen in Section\ \ref{sec:sop}, the popular tools and methods to share source code, package software environment, or platforms to perform experiments on differ in their \emph{longevity} guarantees/quality.
 
 Artifacts with long \emph{longevity} are much more valuable and impactful for future researchers to extend, and deserve to be rewarded and have more visibility.
-Table\ \ref{tab:longevity} proposes a grading framework to evaluate the \emph{longevity} of an artifact.
-The artifact is evaluated on three \emph{longevity} criteria: sharing of the source code, experimental setup used, and software environment.
+Table\ \ref{tab:longevity} proposes a \textbf{first iteration} of a grading framework to evaluate the \emph{longevity} of an artifact base on three criterias: sharing of the source code, experimental setup used, and software environment.
 We propose to grade each aspect on 4 levels going from insufficient (0/4) to best (4/4).
 Performing the average of the grade for each criteria gives a global grade for the artifact.
-We recommend for the global grade to be \emph{strictly} greater than 3/4 to deliver the \emph{longevity} badge.
-The specifics of the grade for each criteria should be further discussed in the community, to reach a consensus on desired good practices.
+We recommend for the global grade to be \emph{strictly} greater than 3/4 to deliver this new \emph{longevity} badge.
+  The specifics of the grade for each criteria \textbf{should be further discussed in the community}, to reach a consensus on desired good practices.
 They are also bound to change as the software tools and practices evolve.
 
 \begin{figure}
@@ -849,32 +886,35 @@ They are also bound to change as the software tools and practices evolve.
 
 Figure \ref{fig:longevity_score} shows the distribution of scores for each of the three criteria (top three plots), and the global longevity score (bottom plot) for the articles surveyed in Section\ \ref{sec:sop}.
 With the recommended threshold score of 3 out of 4, about 1 percent of the survey articles would have got the badge.
-We can see that the most penalizing criteria is the one about software environment, where the majority of the articles have zero out of four, as they do not describe their software environment accurately enough to be stable through time.
+We can see that the most penalizing criteria is the software environment, where most articles have zero out of four, as they do not describe their software environment accurately enough to be stable through time.
 
-\todo{more discussion on the purpose of badges: rewarding effort, but it could also take a decision in the accept/reject process}
+%\todo{more discussion on the purpose of badges: rewarding effort, but it could also take a decision in the accept/reject process}
 
 
 
 \section{Conclusion and perspectives}\label{sec:conclu}
 
-The badges given to the authors to reward their "reproducibility" efforts is a good way to encourage them to share their work and improve its quality.
+\paragraph{Conclusion}
+
+The badges given to the authors to reward their reproducibility efforts is a good way to encourage them to share their work and improve its quality.
 However, the notion of "reproducibility" considered by the badges is limited, and it does not cover important aspects of the reproducibility crisis.
-In Section \ref{sec:sop} of this article, we surveyed 296 articles from 5 top conferences in system and distributed systems of 2023.
-For each article of these conferences, we gathered information about its artifacts and badges awarded.
+In Section \ref{sec:sop} of this article, we surveyed 296 articles from 5 top conferences in system and distributed systems (CCGrid, EuroSys, OSDI, PPoPP, SC) of 2023.
+For each article of these conferences, we gathered information about its artifact and badges awarded.
 We concluded that the state-of-the-practice does not address the problems of reproducibility in terms of \emph{longevity} of the artifacts.
-Thus, in Section \ref{sec:longevity}, we propose a new badge to reward artifacts that will resist the test of time.
+Thus, in Section \ref{sec:longevity}, we proposed a new badge to reward artifacts that will resist the test of time.
 We associate with this new badge, a framework for grading and delivering or not the badge to authors.
-We hope that this new badge will be considered by the community, and adopted by conferences, with or without a scoring system.
+We hope that this new badge will be discussed and considered by the community, and adopted by conferences.%, with or without a scoring system.
+
+\paragraph{Perspectives}
 
 This study could be performed every year to assess the evolution through time of the community in terms of \emph{longevity} of artifacts.
 We might want to expand the range of this study, and include dimensions such as workflow managers.
 Collecting the data manually is slow and error prone.
-Requiring artifacts to have a Software Bill of Material (SBOM) \cite{sbom, xia2023empirical} would greatly improve the traceability of the artifacts (\eg\ for Nix \cite{genealogos}).
-More generally, having a standardized file describing the metadata of the artifact. \todo{}
+Requiring artifacts to have a standard to describe the metadata of artifacts (similar to Software Bill of Material (SBOM) \cite{sbom, xia2023empirical}) would greatly improve artifact traceability.% (\eg\ for Nix \cite{genealogos}).
 
 \paragraph{Threats to validity}
 
-This study focuses only on 5 conferences on system and distributed system, and all from the \emph{same} year.
+This study focuses only on 5 conferences on parallel and distributed system, and all from the \emph{same} year.
 We believe that experiments in these fields are more complex than in less hardware dependent fields.
 The fact that the data was collected by a single researcher might have introduced some bias.
 
