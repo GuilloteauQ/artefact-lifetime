@@ -60,7 +60,7 @@ plot_per_badge <- df %>%
   ylab("Number of papers") +
   xlab("") +
   facet_wrap(~badge, ncol=3, scales = "free_x") +
-  scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
+  scale_fill_grey("2023 Conferences", start = 0.2, end = 0.8) +
   coord_flip()
 
 badges_labeller <- function(x) {
@@ -77,7 +77,7 @@ plot_per_nb_badges <- df %>%
   ylab("Number of papers") +
   xlab("") +
   facet_wrap(~badges, ncol=2, scales = "free_x", labeller = labeller(badges = badges_labeller)) +
-  scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
+  scale_fill_grey("2023 Conferences", start = 0.2, end = 0.8) +
   coord_flip()
 
 ggsave(plot = plot, outfile, width=7, height=3.5)

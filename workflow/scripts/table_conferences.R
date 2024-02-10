@@ -25,12 +25,13 @@ per_conf <- df_unique %>%
     "Found PDF" = sum(pdf_available),
     "Artifact Section" = sum(artefact_section),
 
-    "Specified" = sum(repo_url),
-    "Dead" = sum(dead_url),
-
     "Available"  = sum(badge_avaible),
     "Functional" = sum(badge_evaluated_functional),
-    "Reproduced" = sum(badge_reproduced)
+    "Reproduced" = sum(badge_reproduced),
+
+    "Specified" = sum(repo_url),
+    "Available " = sum(repo_url) - sum(dead_url)
+
   )
 
 total_conf <- per_conf %>%
@@ -56,4 +57,4 @@ per_conf %>%
       label="table:paper_confs",
       table.envir = "table*"
   ) %>%
-  add_header_above(c(" " = 1, "Papers" = 3, "Artifact URL" = 2, "Badges" = 3))
+  add_header_above(c(" " = 1, "Papers" = 3, "Badges" = 3, "Artifact URL" = 2))

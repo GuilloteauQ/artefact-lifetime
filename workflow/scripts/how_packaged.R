@@ -21,7 +21,7 @@ plot <- df %>%
             size = 4) +
   ylab("Number of papers") +
   xlab("") +
-  scale_fill_grey("Conferences", start = 0.2, end = 0.8)+
+  scale_fill_grey("2023 Conferences", start = 0.2, end = 0.8)+
   ggtitle("What was the tool used to generate the environment?") +
   coord_flip()
 

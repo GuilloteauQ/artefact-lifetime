@@ -38,7 +38,7 @@ plot <- df %>%
   ylab("Number of papers") +
   xlab("") +
   ylim(0, 75) + # berk hard coded value so that the text is not cropped
-  scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
+  scale_fill_grey("2023 Conferences", start = 0.2, end = 0.8) +
   guides(fill = guide_legend(nrow = 2, byrow=TRUE)) +
   #ggtitle("How was the artifact shared?") +
   coord_flip()

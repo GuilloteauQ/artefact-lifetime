@@ -24,7 +24,7 @@ plot <- df %>%
             aes(y = n + 11, label = paste(round(percentage, 1), "%", sep="")),
             size = 4) +
   ylab("Number of papers") +
-  scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
+  scale_fill_grey("2023 Conferences", start = 0.2, end = 0.8) +
   guides(fill = guide_legend(nrow = 2, byrow=TRUE)) +
   #ggtitle("Experimental setup used") +
   xlab("") +
