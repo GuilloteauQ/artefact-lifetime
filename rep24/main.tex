@@ -265,7 +265,7 @@ This raises the question of: What will happen when someone tries to rebuild the 
 The objective of science is to be based on robust work to advance the frontiers of knowledge (\emph{Stand on the shoulders of giants} \cite{giant}).
 Such `\textbf{short-term reproducibility}' is a major obstacle to scientific progress and is in complete opposition to Open Science \cite{openscience_unesco}.
 No one would expect a mathematical proof to change over time or even completely disappear.
-We believe that \ad currently mainly targets artifact reviewers, \textbf{but, more importantly, it should target future readers and researchers.}
+We believe that artifact description currently mainly targets artifact reviewers, \textbf{but, more importantly, it should target future readers and researchers.}
 
 %The evaluation of artifacts for the conferences is done soon after their initial construction.
 %It is thus very probable that the construction of the artifacts will be executed in a similar state of the packages mirrors (\texttt{apt}, \texttt{rpm}, etc.).
@@ -279,18 +279,19 @@ This means allowing a third party to use the environment defined for an experime
 An example of variation would be to change the MPI implementation used in an experiment (\eg\ MPICH instead of OpenMPI).
 Being able to introduce such a variation requires the initial environment to be correctly defined.
 
-However, even if variation is the end goal, we claim that the current state of practice in artifact description and evaluation does not yet fulfill the main reproducibility properties, in particular in terms of the reproducibility of the experimental software environment.
+However, even if variation is the end goal, we claim that the current state of practice in Artifact Description (\ad) and Evaluation (\aeval) does not yet fulfill the main reproducibility properties, in particular in terms of the reproducibility of the experimental software environment.
 
-This article analyzes the \emph{longevity} of existing Artifact Descripions (\ad) of the surveyed articles and exposes seven observations summarizing our findings.
+This article analyzes the \emph{longevity} of existing \ad s of the surveyed articles and exposes seven observations summarizing our findings.
 The \textit{key novelty} of this article is to propose a badge that complements existing reproducibility badges and supports the longevity of artifacts to withstand the test of time. 
 
 This article is structured as follows.
 Section \ref{sec:background} presents the context and work related to artifact evaluation.
+The objectives and methodology of this study are presented in Section \ref{sec:methodo}.
 %Section \ref{sec:reco} summarizes the recommendations made by the artifact reviewing committees.
 In Section \ref{sec:sop}, we review almost 300 articles from five leading parallel and distributed systems conferences (CCGrid, EuroSys, OSDI, PPoPP, and SC) of 2023, and discuss the state of the practice of artifact sharing.
 %Based on our observations, we propose in Section \ref{sec:longevity} a new badge to take into account the \emph{longevity} dimension of an artifact.
-Based on the findings described in Section \ref{sec:sop}, in Section \ref{sec:longevity} we propose a new badge that accounts for artifact \emph{longevity} and discuss the limitations of this study.
-Finally, Section \ref{sec:conclu} concludes the work and presents final remarks and perspectives.
+Based on the findings described in Section \ref{sec:sop}, in Section \ref{sec:longevity} we propose a new badge that accounts for artifact \emph{longevity} and discuss the limitations of this study in Section \ref{sec:discussion}.
+Finally, Section \ref{sec:conclu} summarizes the work and presents final remarks and perspectives.
 
 %
 % /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -306,7 +307,8 @@ When asked about the main reasons for not making the source code/raw data/data p
 The second most popular answer is quite interesting, since the \aeval\ processes were not very popular at the time of the survey (the very first was in 2011 at the ESC/FSE conference).
 Since then, the sharing of artifacts and their evaluation has become an established and accepted practice with benefits for the community\ \cite{hermann2022has}.
 The work by publishers with the badging system aimed to reward authors for sharing their artifacts.
-It would be interesting to conduct the survey again today to quantify the impact of \aeval\ on this question, as we believe that reproducibility and its challenges have since gained greater visibility, in terms of citations.
+It would be interesting to conduct the survey again today to quantify the impact of \aeval\ on this question, as we believe that reproducibility and its challenges have since gained greater visibility.
+%, in terms of citations.
 Badges have been shown to be an effective strategy to incentivize authors to make their research data available \cite{kidwell2016badges, rowhani2017incentives}, but have not yet shown a significant impact on the visibility of the articles\ \cite{winter2022retrospective, frachtenberg2022research, heumuller2020publish}. 
 
 In \cite{hermann2020community}, the authors surveyed the members of the artifact evaluation committees of computer science conferences about their expectations of artifacts and the artifact review process. 
@@ -404,11 +406,11 @@ For each article, we note the answer to these questions:
 \end{enumerate}
 
 In the following, we study five aspects of the \ad s: 
-artifact badges and availability (Section \ref{sec:sop:ad-badges}) (points 1, 2, 3 above),
-source code availability (Section \ref{sec:sop:src}) (points 4, 5 above), 
-experimental platform used (Section \ref{sec:sop:expe}) (point 6 above), 
-description and sharing of the software environment (Section \ref{sec:sop:sw}) (point 7 above), and 
-workflow of the experiments (Section \ref{sec:sop:workflow}) (point 8 above). 
+artifact badges and availability in Section \ref{sec:sop:ad-badges} (points 1, 2, 3 above),
+source code availability in Section \ref{sec:sop:src} (points 4, 5 above), 
+experimental platform used in Section \ref{sec:sop:expe} (point 6 above), 
+description and sharing of the software environment in Section \ref{sec:sop:sw} (point 7 above), and 
+workflow of the experiments in Section \ref{sec:sop:workflow} (point 8 above). 
 Note that the initial survey was not designed to record the workflow used in the experiments and that this question arose during the analysis of the artifacts. 
 
 \section{Results}\label{sec:sop}
@@ -421,7 +423,7 @@ We presume that the authors either forgot or declined to include this section in
 This is an unfortunate finding, as we believe that the \textbf{\ad\ is valuable both for the artifact reviewer and for future readers of the article.} 
 
 \begin{lesson}{Artifact badges and availability}{}
-  Not all the papers rewarded with the "Artifact available" badge have an \ad~ in the proceeding version.
+  Not all the papers rewarded with the "Artifact available" badge have an artifact description in the proceeding version.
 \end{lesson}
 
 %\todo{put this claim somewhere else.}
@@ -440,8 +442,8 @@ This is an unfortunate finding, as we believe that the \textbf{\ad\ is valuable 
   \label{fig:how_repo_shared}
 \end{figure}
 
-Figure \ref{fig:how_repo_shared} shows how the artifact was shared in the articles.
-Note that several articles shared a link to their artifacts without having a section \ad\ or a badge.
+Figure \ref{fig:how_repo_shared} shows how the artifacts were shared in the articles.
+Note that several articles shared a link to their artifacts without having an \ad\ section or a badge.
 Most articles simply include the URL of their \texttt{git} repository.
 Certain articles shared their code with Zenodo\ \cite{zenodo} or Figshare\ \cite{figshare}, while others shared both with a \texttt{git} URL and Zenodo.
 A minority of articles used Software-Heritage\ \cite{swheritage} (abbreviated \texttt{swh} in Figure \ref{fig:how_repo_shared}), Globus\ \cite{globus}, or personal \texttt{cloud} drives.
@@ -469,7 +471,7 @@ For instance, authors could decide to delete or rename their repository, invalid
 A better solution would be to use an institutional account on the forges to store the \texttt{git} repository.
 However, in the worst case, the entire source forge may need to close, making all repositories unavailable (\eg\ Google Code \cite{google_code}, GForge Inria).
 
-One solution proposed by the conferences' reproducibility guidelines is to archive the code via Zenodo or Figshare, and then refer to the DOI generated by these archive websites in the \ad.
+One solution proposed by the conferences' reproducibility guidelines is to archive the code via Zenodo or Figshare, and then refer to the DOI generated by these archive websites in the \ad\ section.
 This has the advantage of giving a snapshot of the source code as it was at the time of submission and allows future use of the code.
 However, storing the source code on Zenodo has a simple drawback: There is no possibility of partial code exploration.
 From the point of view of future researchers, having to download potentially large Zenodo archives to explore a few source files may be cumbersome and may hinder engagement with the source code in the artifact. 
@@ -539,6 +541,7 @@ A sufficiently detailed description of the hardware used for any experiment that
 \end{figure}
 
 Figure \ref{fig:experimental_setup} shows the types of platforms on which the experiments were performed for \emph{all} the surveyed articles, with or without \ad\ or a badge.
+Note that some artefacts used several platforms.
 Most of the experimental platforms were local machines (\texttt{local}), but the description of the machine (\ie\ CPU, GPU, disk, etc.) is given.
 This still makes it difficult for reviewers and future researchers to find the exact hardware or something closest to the hardware used.
 In some \ad s, we observed that the authors provided access to their local machines by giving the IP address and the password to connect.
@@ -565,7 +568,7 @@ While supercomputers are at the bleeding edge of technology, having access to su
 \begin{figure*}
   \centering
   \includegraphics[width=\textwidth]{figs/sw_envs}
-  \caption{Techniques used to share the software environment in the \ad s. An article can use several techniques.
+  \caption{Techniques used to share the software environment in the \ad s. An artifact can use several techniques.
   }
   \label{fig:sw_envs}
 \end{figure*}
@@ -589,7 +592,7 @@ While supercomputers are at the bleeding edge of technology, having access to su
     % The most concerning observation is that we were unable to find the recipe of the image in about half of the artifacts.
     % }
     \caption{
-      Questions related to the storing the be prebuilt images and their recipes for artifacts using virtualization tools.
+      Questions related to the storing the prebuilt images and their recipes for artifacts using virtualization tools.
     }
     \label{fig:cache_bin}
   \end{subfigure}
@@ -731,13 +734,15 @@ It is more preferable that the building of the environment fails if the content 
 
 A popular way to manage a software environment in high performance computing (HPC) systems is through \emph{Modules} \cite{furlani1991modules, modules}.
 Modules allow users to change their environment by "loading" and "unloading" packages and allow one to manage different versions of applications. 
-Under the hood, the modules change the \texttt{$PATH$} environment variable.
+Under the hood, the modules change the \texttt{\$PATH} environment variables.
 One drawback is that loading and unloading modules have side effects on the state of the system and, therefore, might not reset the system to its initial state.
 Manually loading the correct modules can also be quite error-prone for users.
-However, modules are maintained mainly by system administrators and are system-specific (\eg compile MPI with special optimizations for the underlying system).
+Moreover, modules are system-specific (\eg compiled MPI with special optimizations for the underlying system).
+%However, modules are maintained mainly by system administrators and are system-specific (\eg compile MPI with special optimizations for the underlying system).
 Thus, sharing a module-based environment between two systems might be impossible.
-Modules are also helpful for administrators to limit and control the applications that can be run by users.
-Moreover, since modules are managed by administrators, they do not have infinite longevity and might become unavailable in the future.
+%Modules are also helpful for administrators to limit and control the applications that can be run by users.
+As modules are maintained by system administrators, and allow them to limit and control the applications that can be run by users.
+Moreover, modules do not have infinite longevity and might become unavailable in the future.
 %\todo{Easybuild?}
 
 \subsubsection{Spack}
@@ -761,16 +766,16 @@ This means having a copy of the dependencies' source code in the artifact itself
 Authors sometimes use \texttt{git submodules} to perform vendoring.
 However, \texttt{submodules} are not copies of dependencies, but simply a link to a specific commit of another \texttt{git} repository.
 Hence, if one of the dependency's repositories disappears, the artifact will not build.
-Furthermore, vendoring has limits as it cannot reasonably capture all dependencies by hand (\eg\ C compiler), so it is only limited to "close" dependencies.
+Furthermore, vendoring has limits as it cannot reasonably capture \emph{all} dependencies by hand (\eg\ C compiler), so it is only limited to "adjacent" dependencies.
 
 \subsubsection{Functional package managers}
 
 Tools such as Nix\ \cite{dolstra_nix_2004} or Guix\ \cite{courtes_functional_2013} fix most of the problems described in the previous subsections.
-However, they only used in about 1\% of the artifacts examined.
+However, they are only used in about 1\% of the artifacts examined.
 As Nix and Guix share similar concepts, in the following, we will focus on Nix, under the premise that all insights also apply to Guix.
 
 Nix is a pure functional package manager for package reproducibility.
-A Nix package is defined as a function where the dependencies of the packages represent the input of the function, and the body of the function contains the instructions to build the package.
+A Nix package is defined as a function where the dependencies of the packages represent the inputs of the function, and the body of the function contains the instructions to build the package.
 Package building is done in a \emph{sandbox} which guarantees to build in a strict and controlled environment.
 First, the sources are fetched and then their content is verified by Nix.
 If the hash of the sources differs from the expected hash, Nix stops the build of the package and yields an error.
@@ -778,8 +783,8 @@ Nix also fetches and builds dependencies recursively.
 The build commands are then executed in the sandbox with the environment defined by the user.
 At this stage, no network access or only access to the local file system is possible.
 
-Nix can generate environments that can be assimilated i a multilanguage counterpart to Python's \texttt{virtualenv}s.
-But it can also create containers images (Docker, Singularity, LXC, etc.), virtual machines, or full system images with the operating system NixOS.
+Nix can generate environments that can be assimilated as a multilanguage counterpart to Python's \texttt{virtualenv}s.
+But it can also create containers images (Docker, Singularity, LXC, etc.), virtual machines, or full system images with the operating system NixOS \cite{nixos_2008}.
 The process of building an image with classical tools (\texttt{Dockerfile}, Kameleon recipe, etc.) is often iterative and arduous.
 Defining an image with Nix is done in a \emph{declarative} fashion.
 This has the advantage of making the image build faster when modifying an already built recipe\ \cite{nxc}.
@@ -789,9 +794,13 @@ As Nix packages are functions, introducing a variation means changing an argumen
 Systems like Debian store all packages in the \texttt{/usr/bin} and \texttt{/usr/lib} directories.
 This ordering can lead to conflicts between different versions of the same library, and thus limits the introduction of variation in the environment without breaking the system.
 Unlike FHS-based systems, Nix installs each package in its own directory.
-Each directory name is prefixed with the hash of its sources: \texttt{/nix/store/azvn85...-nix-2.18.1/}.
-Hence, if a user wants to install a different version of an already installed package, its source code would be different, thus the hash will be different, and Nix will then create a new directory to store the new package.
 These individual directories are stored in the \emph{Nix Store} located at \texttt{/nix/store}, in a \emph{read-only} file-system.
+Each directory name is prefixed with the hash of its sources:
+\begin{verbatim}
+/nix/store/jqvvkhzkm9irdqdqmb8m1jxahnh2j2yl-nix-2.18.1
+\end{verbatim}
+%\texttt{/nix/store/azvn85...-nix-2.18.1/}.
+Hence, if a user wants to install a different version of an already installed package, its source code would be different, thus the hash will be different, and Nix will then create a new directory to store the new package.
 The advantage of this fine-grained isolation method is the \emph{precise} definition of the \texttt{\$PATH} environment variable to manage software environments.
 
 The definition of packages through functions also facilitates their sharing and distribution.
@@ -809,13 +818,13 @@ To ensure \repro\ and traceability of an environment, Nix requires that all pack
 This could seem limiting in the case of proprietary software where the source code is unavailable (Intel compilers, for example).
 It is still possible to use such proprietary packages with the \texttt{impure} mode of Nix, but it breaks the traceability and thus the \repro\ of the software environment. 
 
-The construction of packages in a sandbox goes through an isolation mechanism of the file system using \texttt{chroot}.
+The construction of packages in a sandbox goes through an isolation mechanism of the file system using \texttt{chroot} system call.
 This feature used to be restricted to users with \texttt{root} privileges.
 In HPC systems, this type of restrictive permission significantly hinders the adoption of Nix or Guix.
 Thankfully, the \emph{unprivileged user namespace} feature of the Linux Kernel allows users to bypass in most cases this need of specific rights.
 
 As Nix needs to recompile packages that are not available in its binary cache from their source code, it is possible that future rebuilds are impossible if the host of the source code disappears \cite{blinry}.
-However, since Software-Heritage now performs frequent archives of open-source repositories, it should be possible to find, when needed, the sources of interest.
+However, since Software-Heritage now performs frequent archives of open-source repositories, it should be possible to find, when needed, the sources of interest \cite{courtesconnecting}.
 
 Finally, these tools also require a change of viewpoint in the way software environments are managed, which might make the learning curve steeper. %\fmc{need to think of a synonym for intimidating?}.
 
@@ -933,20 +942,20 @@ Artifacts that offer \emph{longevity} are much more valuable and impactful to fu
 Table\ \ref{tab:longevity} proposes a \textbf{first instance} of a grading framework to assess the \emph{longevity} of an artifact based on three criteria: sharing of the source code, the experimental setup used, and the software environment.
 We propose to grade each aspect on 5 levels ranging from insufficient (Level 0) to best (Level 4).
 Averaging the grade for each criterion yields an overall grade for the artifact.
-We recommend that the overall grade be \emph{strictly} greater than 3 to justify receiving the new \emph{longevity} badge.
-The specifics of the grade for each criterion \textbf{should be further discussed in the community} beyond the specifics introduced in this work, to reach a consensus on the desired good practices.
-They are also bound to change as software tools and practices evolve.
-
+%We recommend that the overall grade be \emph{strictly} greater than 3 to justify receiving the new \emph{longevity} badge.
 \begin{recommendation*}{Artifact Longevity Badge}{}
   Artifacts that obtain a longevity score of 3 or higher should be awarded the \textbf{Artifact Longevity Badge}. 
 \end{recommendation*}
+The specifics of the grade for each criterion \textbf{should be further discussed in the community} beyond the specifics introduced in this work, to reach a consensus on the desired good practices.
+They are also bound to change as software tools and practices evolve.
+
 
 \begin{figure}
   \centering
     \includegraphics[width=0.5\textwidth]{figs/lifetime_score}
   \caption{Longevity score for each of the three criteria (Table~\ref{tab:longevity}) - three top graphs, and the overall longevity score - bottom graph.
   We recommend a minimum longevity score of 3 to award the Artifact Longevity Badge.
-  Given the overall longevity scores of the 154 surveyed articles with available artifacts (Section \ref{sec:sop}), only 1.2 percent receive the Artifact Longevity Badge.}\label{fig:longevity_score}
+  Given the overall longevity scores of the 154 surveyed articles with available artifacts (Section \ref{sec:sop:ad-badges}), only 1.2 percent receive the Artifact Longevity Badge.}\label{fig:longevity_score}
 \end{figure}
 
 Figure \ref{fig:longevity_score} shows the distribution of the longevity scores for each of the three criteria and the overall longevity score for the articles surveyed in Section \ref{sec:sop}.
@@ -964,7 +973,7 @@ In keeping with the theme of article content-agnostic review, we refrain from id
 
 Section \ref{sec:sop} exposes the lack of long-term reproducibility of the artifacts.
 Popular tools and methods do not provide sufficient guarantees concerning the artifacts' \emph{longevity}.
-By reviewing the state-of-the-practice, we aim to raise awareness about this forgotten yet important dimension of reproducibility.
+By reviewing the state of the practice, we aim to raise awareness about this forgotten yet important dimension of reproducibility.
 Our proposal of a new badge, in Section \ref{sec:longevity}, to reward authors for creating artifacts with \emph{longevity} aims to \textbf{start a community discussion on this topic}.
 
 
