@@ -32,7 +32,7 @@
 \newtcbtheorem[]{lesson}{Observation}{colback=black!5,colframe=black!35,fonttitle=\bfseries}{th}
 \definecolor{unibasmint}{RGB}{165, 215, 210}
 \definecolor{unibasmintlight}{RGB}{192, 227, 223}
-\newtcbtheorem[]{recommendation}{Recommendation}{colback=unibasmintlight,colframe=unibasmint,fonttitle=\bfseries}{th}
+\newtcbtheorem[]{recommendation}{Recommendation}{colback=black!2,colframe=unibasmint,fonttitle=\bfseries}{th}
 \newcommand{\repro}{reproducibility}
 \newcommand{\Repro}{Reproducibility}
 \newcommand{\transpo}{\emph{Transposition}}
@@ -49,8 +49,10 @@
 \newcommand{\kad}{\emph{Kadeploy}}
 \newcommand{\mel}{\emph{Melissa}}
 \newcommand{\store}{\emph{Nix Store}}
-\newcommand{\ad}{Artifact Description}
-\newcommand{\aeval}{Artifact Evaluation}
+%\newcommand{\ad}{Artifact Description}
+\newcommand{\ad}{AD}
+%\newcommand{\aeval}{Artifact Evaluation}
+\newcommand{\aeval}{AE}
 \newcommand{\adae}{\ad/\aeval}
 \newcommand{\todo}[1]{{\color{red}{TODO: #1}}}
 \usepackage{hyperref}
@@ -137,7 +139,7 @@
   In this article, we survey almost 300 articles from five leading conferences on parallel and distributed systems held in 2023 (CCGrid, EuroSys, OSDI, PPoPP, and SC).
   For each article, we gather information about its artifacts (how it was shared, under which experimental setup, and how the software environment was generated and shared), as well as the reproducibility badges awarded.
   %technical, in-depth, and article-content-agnostic review of the methods and tools used to create and share artifacts.
-  By reviewing the methods and tools used to create and share artifacts in a technical, in-depth, and article content-agnostic manner, we found that the state of practice does not address reproducibility in terms of artifact \emph{longevity} and expose seven observations that support this finding.
+  By reviewing the methods and tools used to create and share artifacts in a technical, in-depth, and article content-agnostic manner, we found that the state of practice does not address reproducibility in terms of artifact \emph{longevity} and we expose eight observations that support this finding.
   To address the longevity of artifacts, we propose a new badge based on source code, experimental setup, and software environment. 
   These criteria will allow rewarding artifacts expected to withstand the test of time. % and support reproducibility in the long term.  
   This work aims to shed light on the issue of long-term reproducibility in parallel and distributed systems and to start a discussion in the community towards addressing the issue. 
@@ -263,7 +265,7 @@ This raises the question of: What will happen when someone tries to rebuild the 
 The objective of science is to be based on robust work to advance the frontiers of knowledge (\emph{Stand on the shoulders of giants} \cite{giant}).
 Such `\textbf{short-term reproducibility}' is a major obstacle to scientific progress and is in complete opposition to Open Science \cite{openscience_unesco}.
 No one would expect a mathematical proof to change over time or even completely disappear.
-We believe that \ad currently mainly targets artifact reviewers, \textbf{but, more importantly, it should target future readers of the article and future researchers.}
+We believe that \ad currently mainly targets artifact reviewers, \textbf{but, more importantly, it should target future readers and researchers.}
 
 %The evaluation of artifacts for the conferences is done soon after their initial construction.
 %It is thus very probable that the construction of the artifacts will be executed in a similar state of the packages mirrors (\texttt{apt}, \texttt{rpm}, etc.).
@@ -279,7 +281,7 @@ Being able to introduce such a variation requires the initial environment to be 
 
 However, even if variation is the end goal, we claim that the current state of practice in artifact description and evaluation does not yet fulfill the main reproducibility properties, in particular in terms of the reproducibility of the experimental software environment.
 
-This article analyzes the \emph{longevity} of existing \ad s of the surveyed articles and exposes seven observations summarizing our findings.
+This article analyzes the \emph{longevity} of existing Artifact Descripions (\ad) of the surveyed articles and exposes seven observations summarizing our findings.
 The \textit{key novelty} of this article is to propose a badge that complements existing reproducibility badges and supports the longevity of artifacts to withstand the test of time. 
 
 This article is structured as follows.
@@ -305,8 +307,7 @@ The second most popular answer is quite interesting, since the \aeval\ processes
 Since then, the sharing of artifacts and their evaluation has become an established and accepted practice with benefits for the community\ \cite{hermann2022has}.
 The work by publishers with the badging system aimed to reward authors for sharing their artifacts.
 It would be interesting to conduct the survey again today to quantify the impact of \aeval\ on this question, as we believe that reproducibility and its challenges have since gained greater visibility, in terms of citations.
-Badges have been shown to be an effective strategy to incentivize authors to make their research data available \cite{kidwell2016badges, rowhani2017incentives}.
-However, the badges have not yet shown a significant impact on the visibility of the articles\ \cite{winter2022retrospective, frachtenberg2022research, heumuller2020publish}. 
+Badges have been shown to be an effective strategy to incentivize authors to make their research data available \cite{kidwell2016badges, rowhani2017incentives}, but have not yet shown a significant impact on the visibility of the articles\ \cite{winter2022retrospective, frachtenberg2022research, heumuller2020publish}. 
 
 In \cite{hermann2020community}, the authors surveyed the members of the artifact evaluation committees of computer science conferences about their expectations of artifacts and the artifact review process. 
 They found that despite the call for artifacts that expressed expected observable qualities of the submitted artifacts, there was no consensus on what the expected qualities should be.
@@ -317,7 +318,6 @@ Furthermore, the study showed that there is a lack of reviewer experience for re
 
 Reviewing and reusing artifacts require two different points of view.
 Reviewing focuses more on the overall "quality" of the artifacts (\ie\ completeness, documentation), while the readers are more interested in their reusability.
-
 An answer in the survey conducted by Hermann et al. \cite{hermann2020community} explains that the experiments presented in an article should be reproducible and that good documentation and ease of setup are only bonuses.
 
 Reusing artifacts poses problems when used in comparison with other methods.
@@ -325,7 +325,8 @@ When researchers want to compare their new method with a method from the state-o
 In both cases, it is not the original work that is being compared but a modified version of it, which might lead to different results.
 An artifact with all reproducibility badges might not be reusable and comparable "as is" by other researchers.
 A solution that should be promoted by committees is the implementation of the authors' solutions on collaborative benchmarking frameworks.
-Some examples of such collaborative frameworks include BenchOpt \cite{moreau2022benchopt} for optimization problems, KheOps \cite{rosendo2023kheops} for Edge-to-Cloud experiments, or \cite{sharma2017towards} for networking experiments.
+%Some examples of such collaborative frameworks include BenchOpt \cite{moreau2022benchopt} for optimization problems, KheOps \cite{rosendo2023kheops} for Edge-to-Cloud experiments, or \cite{sharma2017towards} for networking experiments.
+Some examples of such collaborative frameworks exist for optimization problems \cite{moreau2022benchopt}, Edge-to-Cloud experiments \cite{rosendo2023kheops}, or networking experiments \cite{sharma2017towards}.
 
 The survey participants \cite{hermann2020community} also stated that the most important thing is the availability of artifacts, rather than its reproducibility.
 
@@ -364,13 +365,12 @@ In this work, we propose a technical, in-depth, and article content-agnostic rev
 
 \input{tables/summary_conferences}
 
-In this section, we survey 296 articles from 5 of the leading \emph{parallel and distributed systems} conferences of 2023, namely, CCGrid, EuroSys, OSDI, PPoPP, and Supercomputing (SC).
+In this section, we survey 296 articles from 5 of the leading \emph{parallel and distributed systems} conferences of 2023, namely, CCGrid, EuroSys, OSDI, PPoPP, and SC.
 %\fmc{If we have the space, we should expand these acronyms.}
-These conferences used an \adae\ process for the \emph{accepted} articles.
+These conferences used an Artifact Description/Artifact Evaluation (\adae) process for the \emph{accepted} articles.
 This \adae\ process usually consists of the authors writing an \ad\ as an appendix of the article to show how to get and use the artifact, how to install the dependencies, what the different experiments are, and their estimated duration \cite{ae_tip, creating_successful_artifacts, ae_guidelines}.
 The \ad\ section is typically one or two pages long (in a double column layout).
 This \ad\ is complemented in practice by a web link provided by the authors to a more detailed description of the artifact.
-Table \ref{tab:table:paper_confs} summarizes our evaluations, including the number of articles for each conference and how many of them have \ad.
 
 % \begin{figure}
 %   \centering
@@ -381,8 +381,8 @@ Table \ref{tab:table:paper_confs} summarizes our evaluations, including the numb
 
 %\subsection{Methodology}
 
-We selected five of the leading parallel and distributed systems conferences held in 2023 that had a \ad process and examined their published proceedings.
-We formulated the questions below to guide the survey of all articles in the proceedings. \fmc{Please reorder... }:
+We selected five of the leading parallel and distributed systems conferences held in 2023 that had a \ad\ process and examined their published proceedings.
+We formulated the questions below to guide the survey of all articles in the proceedings.
 For each article, we note the answer to these questions: 
 
 %We surveyed all articles in the proceedings and for each article we noted 
@@ -391,31 +391,37 @@ For each article, we note the answer to these questions:
   \item How many reproducibility badges were awarded and which badges were awarded to the article?
   \item Does the article have an \ad\ section?
   \item Whether the article shared the URL of the artifact (it does not have to be in the \ad), and whether the URL is still valid?
-  \item How were the experiments performed (\eg\ local machines, shared test-beds, proprietary machines, supercomputers, simulation)?
-  \item How was the source code shared: \texttt{git} repository (\eg\ GitHub, GitLab), Zenodo, Software-Heritage, or a combination of solutions?
+
+  \item How was the source code shared: \texttt{git} repository (\eg\ GitHub, GitLab), Zenodo, or a combination of solutions?
   \item If the source code has been shared via a \texttt{git} repository, we record the number of commits and check whether a precise commit was specified by the authors.
+
+  \item How were the experiments performed (\eg\ local machines, shared test-beds, proprietary machines, supercomputers, simulation)?
+
   \item How was the software environment described and shared?
+
   \item What was the workflow of the experiments? (initially not part of the survey questions)
+
 \end{enumerate}
 
-In the following, we study four aspects of the \ad s: 
-how was the source code shared (Section \ref{sec:sop:src}) (points 1, 2, 3, 5, 6 above), 
-where were the experiments executed (Section \ref{sec:sop:expe}) (point 4 above), 
-how was the software environment described and shared (Section \ref{sec:sop:sw}) (point 7 above), and 
-what was the workflow of the experiments (Section \ref{sec:sop:workflow}) (point 8 above). 
+In the following, we study five aspects of the \ad s: 
+artifact badges and availability (Section \ref{sec:sop:ad-badges}) (points 1, 2, 3 above),
+source code availability (Section \ref{sec:sop:src}) (points 4, 5 above), 
+experimental platform used (Section \ref{sec:sop:expe}) (point 6 above), 
+description and sharing of the software environment (Section \ref{sec:sop:sw}) (point 7 above), and 
+workflow of the experiments (Section \ref{sec:sop:workflow}) (point 8 above). 
 Note that the initial survey was not designed to record the workflow used in the experiments and that this question arose during the analysis of the artifacts. 
 
 \section{Results}\label{sec:sop}
 
-\subsection{Artifact badges and availability}\label{sec:ad-badges}
+\subsection{Artifact badges and availability}\label{sec:sop:ad-badges}
 
+Table \ref{tab:table:paper_confs} summarizes our evaluations, including the number of articles for each conference and how many of them have \ad.
 The first surprising observation is that only about 20\% of the articles with the "Artifact available" badge also have an \ad~ section in the corresponding conference proceedings version.
 We presume that the authors either forgot or declined to include this section in the final version of the article.
 This is an unfortunate finding, as we believe that the \textbf{\ad\ is valuable both for the artifact reviewer and for future readers of the article.} 
-\fmc{Also see the new comment I left in caption of Table 1, to better highlight this finding. }
 
 \begin{lesson}{Artifact badges and availability}{}
-...
+  Not all the papers rewarded with the "Artifact available" badge have an \ad~ in the proceeding version.
 \end{lesson}
 
 %\todo{put this claim somewhere else.}
@@ -438,7 +444,7 @@ Figure \ref{fig:how_repo_shared} shows how the artifact was shared in the articl
 Note that several articles shared a link to their artifacts without having a section \ad\ or a badge.
 Most articles simply include the URL of their \texttt{git} repository.
 Certain articles shared their code with Zenodo\ \cite{zenodo} or Figshare\ \cite{figshare}, while others shared both with a \texttt{git} URL and Zenodo.
-A minority of articles used Software-Heritage\ \cite{swheritage} (abbreviated \texttt{swh} in Figure \ref{fig:how_repo_shared}), Globus\ \cite{globus}, or even personal cloud drives (\texttt{cloud}).
+A minority of articles used Software-Heritage\ \cite{swheritage} (abbreviated \texttt{swh} in Figure \ref{fig:how_repo_shared}), Globus\ \cite{globus}, or personal \texttt{cloud} drives.
 
 Several authors used \texttt{anonymous.4open.science}\ \cite{anonymous_github} (abbreviated \texttt{a4os} in Figure \ref{fig:how_repo_shared}) that allows users to share an anonymous copy of a public repository on GitHub with reviewers.
 This is particularly useful for double-blind reviews.
@@ -447,7 +453,7 @@ We believe that the links simply expired, which gives rise to issues of reproduc
 Furthermore, as long as the \aeval\ process does not count in the accept/reject decision, having a double-blind review for the \aeval\ only limits communication between reviewers and authors.
 If the results of the \aeval\ will be taken into account for the decision, then the community may need to investigate ways to perform the \aeval\ in a double-blind manner.
 An easy solution would be to use tools such as \texttt{anonymous.4open.science} \cite{anonymous_github} for the review and then replace the URL with a (more) persistent URL in the camera-ready version of the article.
-Some communities use third parties to anonymously review artifacts, especially when they contain sensitive data (\eg\ \cite{perignon2019certify}).
+Some communities use third parties to anonymously review artifacts, especially when they contain sensitive data \cite{perignon2019certify}.
 
 A minority of authors shared their artifacts through an indirect link.
 In most cases, this link points to the author's personal Web page, where there is the true link to access the artifact.
@@ -490,15 +496,16 @@ For example, \cite{artefact-lifetime} is the Software-Heritage archive of this a
 %  \caption{Number of articles that did precise an exact commit to use when the authors shared their source code \emph{only} via a \texttt{git} URL. We observe that the crushing majority do not precise the commit, and thus break the traceability of the artifact. \todo{remove plot and put percentage in the text}}\label{fig:was_commit_fixed}
 %\end{figure}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.45\textwidth]{./figs/number_commits_repo.pdf}
-  \caption{Cumulative distribution function of the number of commits in the repositories shared in the articles}\label{fig:number_commits_repo}
-\end{figure}
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=0.45\textwidth]{./figs/number_commits_repo.pdf}
+%  \caption{Cumulative distribution function of the number of commits in the repositories shared in the articles}\label{fig:number_commits_repo}
+%\end{figure}
 
 During this survey, we observed a surprising low number of commits to the repositories linked in the articles when shared with \texttt{git} (\ie\ \texttt{git}, \texttt{git+zenodo}, \texttt{git+figshare} on Figure \ref{fig:how_repo_shared}).
-Figure \ref{fig:number_commits_repo} shows the cumulative distribution function of the number of commits to the repositories shared in the articles when the source code was shared through \texttt{git}.
-We can see that 25\% of the repositories have no more than 6 commits and that 50\% of the repositories have less than 20 commits.
+%Figure \ref{fig:number_commits_repo} shows the cumulative distribution function of the number of commits to the repositories shared in the articles when the source code was shared through \texttt{git}.
+%We can see that 25\% of the repositories have no more than 6 commits and that 50\% of the repositories have less than 20 commits.
+We discovered that 25\% of the repositories have no more than 6 commits and that 50\% of the repositories have less than 20 commits.
 These repositories appear to be a "dump" of the source code with some extra commits for documentation.
 Such practices do not allow reviewers and future researchers to explore the "true" history of the project, which is contrary to the traceability principle of Open Science\ \cite{openscience_unesco}.
 The observations made for a standalone Zenodo archive also apply here.
@@ -515,13 +522,14 @@ We believe that for certain authors, the \aeval\ process and reproducibility may
 
 \subsection{Experimental platforms}\label{sec:sop:expe}
 
-An important point about reproducing experiments is the hardware used.
-Any experiment that exhibits a particular behavior or performance evaluation should have a sufficiently detailed description of the hardware. 
+%A crucial point about reproducing experiments is the hardware used.
+%Any experiment that exhibits a particular behavior or performance evaluation should have a sufficiently detailed description of the hardware.
+A sufficiently detailed description of the hardware used for any experiment that exhibits a particular behavior or performance evaluation is crucial for reproducibility.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.5\textwidth]{./figs/experimental_setup.pdf}
-  \caption{Experimental setup used in the surveyed articles.
+  \caption{Experimental platform used in the surveyed articles.
   Most authors use the local machines at their disposal.
   Certain authors also use supercomputers to experiment on state-of-the-art systems.
   More concerning is the number of articles relying on proprietary platforms, such as Amazon Web Services, Google Cloud, Microsoft Azure.
@@ -547,7 +555,7 @@ Some authors using such platforms wrote in their \ad\ the estimated monetary cos
 Similarly, several articles (in particular those from the Supercomputing conference (\texttt{SC})) used supercomputers to conduct experiments.
 While supercomputers are at the bleeding edge of technology, having access to such a system is restrictive and can take several weeks or months before obtaining access.
 
-\begin{lesson}{Experimental setup}{}
+\begin{lesson}{Experimental platform}{}
   Most articles use machines that are difficult to access (local, supercomputer, or proprietary). 
   Testbeds are underrepresented in the state of the practice, but appear to be better suited for reproducibility \cite{nussbaum2017testbeds}.
 \end{lesson}
@@ -557,7 +565,7 @@ While supercomputers are at the bleeding edge of technology, having access to su
 \begin{figure*}
   \centering
   \includegraphics[width=\textwidth]{figs/sw_envs}
-  \caption{Techniques used to share the software environment in the \ad s. Note that an article may use several such techniques.
+  \caption{Techniques used to share the software environment in the \ad s. An article can use several techniques.
   }
   \label{fig:sw_envs}
 \end{figure*}
@@ -576,9 +584,12 @@ While supercomputers are at the bleeding edge of technology, having access to su
   \begin{subfigure}{0.49\textwidth}
       \centering
       \includegraphics[width=\textwidth]{figs/image_cache_bin.pdf}
-    \caption{When virtualization tools were used, most authors provided the image in a binary cache to spare the reviewers from building the image from source.
-    However, only a small fraction of these images were archived in a long-term binary cache (always Zenodo).
-    The most concerning observation is that we were unable to find the recipe of the image in about half of the artifacts.
+    % \caption{When virtualization tools were used, most authors provided the image in a binary cache to spare the reviewers from building the image from source.
+    % However, only a small fraction of these images were archived in a long-term binary cache (always Zenodo).
+    % The most concerning observation is that we were unable to find the recipe of the image in about half of the artifacts.
+    % }
+    \caption{
+      Questions related to the storing the be prebuilt images and their recipes for artifacts using virtualization tools.
     }
     \label{fig:cache_bin}
   \end{subfigure}
@@ -587,7 +598,7 @@ While supercomputers are at the bleeding edge of technology, having access to su
 
 After downloading the correct version of the code on the correct platform, reviewers must configure the correct software environment to execute the experiments.
 Figure \ref{fig:sw_envs} shows the different techniques used to describe and share the software environment in \ad s.
-Note that the authors may use \emph{several} of these techniques in their \ad.
+Note that an \ad\ may use \emph{several} of these techniques.
 
 In the following, we go through the methods observed to share the artifact software environment and discuss their reproducibility.
 
@@ -642,10 +653,11 @@ Listing all dependencies by hand raises several important questions.
 Are actually \emph{all} the dependencies listed?
 What about the dependencies of the dependencies?
 How can we bring a system in the same state as the original system?
-\fmc{An answer to these questions is provided at the end of Section \ref{sec:sop:sw}.}
+An answer to these questions is provided at the end of Section \ref{sec:sop:sw}.
 
 \begin{lesson}{Listing dependencies}{}
-  Simply listing the software dependencies and their version is not enough to regenerate the correct software environment. \fmc{But what is the solution then? Solutions such as those cite here section number, may be more appropriate.}
+  Simply listing the software dependencies and their version is not enough to regenerate the correct software environment.
+  %\fmc{But what is the solution then? Solutions such as those cite here section number, may be more appropriate.}
 \end{lesson}
 
 \subsubsection{Package managers' installation commands}
@@ -692,13 +704,13 @@ However, in practice, we observed the same issues as presented in Section \ref{s
 
 \subsubsection{Downloading from the outside world}
 
-A common practice when authors need to install a dependency that is not available through classical package managers is to install it from source.
+A common practice when authors need to install a dependency unavailable through classical package managers is to install it from source.
 For this, the authors indicate in the \ad\ how to download the dependency and how to build it.
 However, when cloning a \texttt{git} repository, a common error is not specifying the commit to use.
 If no commit is specified, \texttt{git} will by default use the latest commit of the main branch, which could be completely different between the moment of artifact review and 10 years into the future.
 The same goes for archives downloaded via \texttt{wget}/\texttt{curl}, typically in the form
 \begin{verbatim}
-curl https://website.com/downloads/release-latest.tar.gz
+curl https://website.com/download/release-latest.tar.gz
 \end{verbatim}
 the outcome of which varies with time.
 Both of these approaches were labeled \texttt{Imprecise download} in Figure \ref{fig:sw_envs}.
@@ -730,10 +742,11 @@ Moreover, since modules are managed by administrators, they do not have infinite
 
 \subsubsection{Spack}
 
-Spack\ \cite{gamblin_spack_2015} is a package manager similar to \texttt{pip} but for all system packages and their dependencies.
+Spack\ \cite{gamblin_spack_2015} is a package manager similar to \texttt{pip} but for system packages and their dependencies.
 It is possible to export the environment as a text file and rebuild it on another machine.
 However, the environment produced might not be completely identical.
-Indeed, Spack uses applications that are already present on the machine to build packages from the sources.
+%Indeed, Spack uses applications that are already present on the machine to build packages from the sources.
+Indeed, Spack uses already present applications on the machine to build packages from the sources.
 In particular, Spack assumes the presence of a C compiler on the system and will use this C compiler to build the dependencies of the environment.
 Hence, if two different machines have two different C compilers, then the resulting environment is likely to differ from the desired environment.
 One clear advantage of Spack is the ease in which one can introduce variation into an environment through the command line.
@@ -825,8 +838,8 @@ In certain articles, commands are directly included in the text, making it even 
 As experiments in distributed computing systems can be quite expensive to run (especially if one needs access to a supercomputer or a proprietary system in the cloud), having the possibility to run a subset of the workflow is crucial for reproducibility.
 For example, a reviewer or future researcher may want to rerun only the data analysis step of the workflow in the artifact (dataset that has been stored on Zenodo, for example) or perhaps add a new combination of parameters to the entire workflow. 
 
-Workflow managers \cite{wratten2021reproducible} such as Snakemake \cite{koster2012snakemake}, NextFlow \cite{di2017nextflow} have become the standard for executing complex bioinformatic pipelines.
-However, despite the plethora of available workflow systems \cite{rafael_ferreira_da_silva_2023_7750670, deelman2015pegasus, amstutz2016common, strozzi2019scalable, vivian2017toil} the stark observation is that no paper of the surveyed artifacts used any of them.
+Workflow managers \cite{wratten2021reproducible} have become the standard for executing complex bioinformatic pipelines.
+However, despite the plethora of available workflow systems \cite{rafael_ferreira_da_silva_2023_7750670, koster2012snakemake, di2017nextflow, deelman2015pegasus, amstutz2016common, strozzi2019scalable, vivian2017toil} the stark observation is that none of the surveyed artifacts used any of them.
 
 %Workflow managers \cite{wratten2021reproducible} such as Snakemake \cite{koster2012snakemake}, NextFlow \cite{di2017nextflow}, or Common Workflow Language\ \cite{amstutz2016common} based solutions (\eg\ Guix Workflow\ \cite{strozzi2019scalable}, or Toil\ \cite{vivian2017toil}) have become the standard for executing complex bioinformatic pipelines.
 %However, workflow managers are not yet prevalent in the community of parallel and distributed systems, despite all their interesting qualities: robustness, scalability, interaction with the batch scheduler\ \cite{snakemake-executor-plugin-slurm}.
@@ -884,30 +897,32 @@ However, despite the plethora of available workflow systems \cite{rafael_ferreir
 % \end{table*}
 
 \begin{table*}
-  \caption{\label{tab:longevity}Proposed grading framework for evaluating artifact \emph{longevity}. \fmc{Move this table on the previous page.}}
+  \caption{\label{tab:longevity}Proposed grading framework for evaluating artifact \emph{longevity}.}
   \centering
+  %\scalebox{0.92}{
+
+    \resizebox{\textwidth}{11em}{
     \begin{tabularx}{\textwidth}{l X X X}
   \toprule
-%\multicolumn{1}{c}{\textbf{Conferences} } & \multicolumn{3}{c}{\textbf{Papers}} & \multicolumn{2}{c}{\textbf{Artifact URL}} & \multicolumn{3}{c}{\textbf{Artifact Badges}} \\
-%\cmidrule(l{3pt}r{3pt}){2-4} \cmidrule(l{3pt}r{3pt}){5-6} \cmidrule(l{3pt}r{3pt}){7-9}
-%{in 2023} & Accepted & Found PDF & Artifact Description & Specified & Dead \fmc{Available} & Available & Functional & Reproduced\\
     
       \textbf{Grade} & \multicolumn{3}{c}{\textbf{Artifact Longevity Criteria}} \\
       \cmidrule(lr){2-4}
-      [0..4] & Source Code & Experimental Setup & Software environment \\
+      [0..4] & Source Code & Experimental Platform & Software environment \\
       
-  \midrule
-      0 & \texttt{git} repository without \emph{fixed} commit  &  not described & not described or dependencies list \\
+  %\midrule
+  \toprule
+      0 & imprecise version (\eg\ \texttt{git} repository without \emph{fixed} commit) &  not described & not partially \emph{described} (\eg\ dependencies list, \texttt{apt} commands, imprecise download) \\
        \midrule
       1 & fixed version, partial exploration (\eg\ \texttt{git} with \emph{fixed} commit) &  high monetary cost (\eg\ Proprietary platforms) & long-term availability, some dependencies (\eg\ Vendoring, \emph{precise} download) \\
        \midrule
-      2 & long-term storage, fixed version (\eg\ Archive of a \emph{release}) & difficult access (\eg\ Local machines), \fmc{anything else?} & shorter-term availability, recipe, most dependencies captured, more precise rebuild (\eg\ Spack) \\
+      2 & long-term storage, fixed version (\eg\ Archive of a \emph{release}) & difficult access (\eg\ Local machines) & shorter-term availability, recipe, most dependencies captured, more precise rebuild (\eg\ Spack) \\
        \midrule
       3 & long-term storage, fixed version, history (\eg\ Archive of a repository with history) & longer-term access, difficult access, low monetary cost (\eg\ Supercomputer) & long-term availability, available recipe, all dependencies captured, imprecise rebuild (\eg\ Long-term storage of the image and recipe) \\
        \midrule
-      4 & long-term storage, fixed version, history, partial exploration (\eg\ Software-Heritage) & longer-term access, easy access, low to no monetary cost (\eg\ Testbeds) & long-term availability, recipe, exact rebuild, all dependencies captured (\eg\ Nix/Guix) \\
+      4 & long-term storage, fixed version, history, partial exploration (\eg\ Software-Heritage) & longer-term access, easy access, low to no monetary cost (\eg\ Testbeds, simulator) & long-term availability, recipe, exact rebuild, all dependencies captured (\eg\ Nix/Guix) \\
   \bottomrule
   \end{tabularx}
+}
 \end{table*}
 
 We believe that the current badging system misses an important aspect of the quality of artifacts: their \emph{longevity}.
@@ -916,11 +931,15 @@ As we have seen in Section \ref{sec:sop}, the popular tools and methods for shar
 
 Artifacts that offer \emph{longevity} are much more valuable and impactful to future researchers who may wish to build on them, deserve to be rewarded, and have greater visibility.
 Table\ \ref{tab:longevity} proposes a \textbf{first instance} of a grading framework to assess the \emph{longevity} of an artifact based on three criteria: sharing of the source code, the experimental setup used, and the software environment.
-We propose to grade each aspect on 4 levels ranging from insufficient (Level 0) to best (Level 4).
+We propose to grade each aspect on 5 levels ranging from insufficient (Level 0) to best (Level 4).
 Averaging the grade for each criterion yields an overall grade for the artifact.
-We recommend that the overall grade be \emph{strictly} greater than 3/4 to justify receiving the new \emph{longevity} badge.
+We recommend that the overall grade be \emph{strictly} greater than 3 to justify receiving the new \emph{longevity} badge.
 The specifics of the grade for each criterion \textbf{should be further discussed in the community} beyond the specifics introduced in this work, to reach a consensus on the desired good practices.
 They are also bound to change as software tools and practices evolve.
+
+\begin{recommendation*}{Artifact Longevity Badge}{}
+  Artifacts that obtain a longevity score of 3 or higher should be awarded the \textbf{Artifact Longevity Badge}. 
+\end{recommendation*}
 
 \begin{figure}
   \centering
@@ -931,15 +950,12 @@ They are also bound to change as software tools and practices evolve.
 \end{figure}
 
 Figure \ref{fig:longevity_score} shows the distribution of the longevity scores for each of the three criteria and the overall longevity score for the articles surveyed in Section \ref{sec:sop}.
-We recommend a minimum longevity score of 3 to award the Artifact Longevity Badge.
 Given the overall longevity scores of the 154 articles surveyed with available artifacts, only 1.2\% (or 2 articles) receive the Artifact Longevity Badge.
-We can see that the most penalizing criterion is the software environment, since most articles received a score of 0 because they do not describe their software environment accurately enough. % to be stable over time.
+%We can see that t
+The most penalizing criterion is the software environment, since most articles received a score of 0 because they do not describe their software environment accurately enough. % to be stable over time.
 In keeping with the theme of article content-agnostic review, we refrain from identifying in this work the articles that received the newly proposed Artifact Longevity Badge. 
 %With the recommended threshold score of 3 out of 4, about 1 percent of the surveyed articles would have received the badge.
 
-\begin{recommendation*}{Artifact Longevity Badge}{}
-  Artifacts that obtain a longevity score of 3 or higher should be awarded the \textbf{Artifact Longevity Badge}. 
-\end{recommendation*}
 
 
 %\todo{more discussion on the purpose of badges: rewarding effort, but it could also take a decision in the accept/reject process}
@@ -1008,6 +1024,8 @@ A community discussion is needed to identify the adequate weight to attribute to
 
 This research was funded, in whole or in part, by the European Union’s Horizon 2020 research and innovation programme under grant agreement No. 957407 as DAPHNE.
 The authors have applied a CC-BY public copyright license to the present document and will be applied to all subsequent versions up to the Author Accepted Manuscript arising from this submission, in accordance with the grant’s open access conditions.
+
+\newpage
 
 %% PAPER ENDS HERE -----------------------------------------------------------------------------------------------
 

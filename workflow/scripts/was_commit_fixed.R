@@ -19,7 +19,7 @@ plot <- df %>%
   geom_text(data = . %>% group_by(pinned_version) %>% summarize(n = n(), percentage = 100 * n() / total_papers),
             aes(y = n + 2, label = paste(round(percentage, 1), "%", sep="")),
             size = 4) +
-  ylab("Number of papers") +
+  ylab("Number of artifacts") +
   xlab("") +
   scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
   ggtitle("When shared with only `git`, was the commit used fixed?")

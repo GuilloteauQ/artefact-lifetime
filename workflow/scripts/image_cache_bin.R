@@ -32,7 +32,7 @@ plot <- df %>%
   geom_text(data = . %>% group_by(type, value) %>% summarize(n = n(), percentage = 100 * n() / total_papers),
             aes(y = n + 5, label = paste(round(percentage, 1), "%", sep="")),
             size = 4) +
-  ylab("Number of papers") +
+  ylab("Number of artifacts") +
   facet_wrap(~type, ncol=2) +
   xlab("") +
   scale_fill_grey("2023 Conferences", start = 0.2, end = 0.8) +

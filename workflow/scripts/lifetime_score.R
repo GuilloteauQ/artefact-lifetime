@@ -64,8 +64,8 @@ plot <- df %>%
   geom_vline(data = . %>% filter(scores == "Overall Longevity score"), aes(xintercept = 3), linetype = "dashed") +
   geom_text(data = . %>% group_by(value, scores) %>% summarize(n = n(), percentage = 100 * n() / total_papers),
             aes(y = n + 15, label = paste(round(percentage, 1), "%", sep="")),
-            size = 3.2) +
+            size = 2.7) +
   geom_text(data = tibble(x = c((3 + (-0.3)) / 2, (4.3 + 3) / 2), y = total_papers - 12, label = c("No badge", "Badge"), scores = "Overall Longevity score"), aes(x = x, y = y, label = label)) +
   facet_wrap(~scores, ncol = 1) +
-  xlab("Score") + ylab("Number of papers")
-ggsave(plot=plot, outfile, width=6, height=5)
+  xlab("Score") + ylab("Number of artifacts")
+ggsave(plot=plot, outfile, width=5.5, height=4.5)

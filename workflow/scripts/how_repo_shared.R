@@ -1,5 +1,9 @@
 library(tidyverse)
-theme_set(theme_bw() + theme(legend.position = "bottom", strip.background = element_blank()))
+theme_set(theme_bw() + theme(legend.position = c(0.75, 0.82),
+                             legend.title = element_text(size = 8),
+                             legend.text = element_text(size = 7),
+                             legend.background=element_blank(),
+                             legend.key.size = unit(0.4, 'cm')))
 
 args = commandArgs(trailingOnly=TRUE)
 filename = args[1]
@@ -35,7 +39,7 @@ plot <- df %>%
               ) %>% unique(),
             aes(y = n + 5, label = paste(round(percentage, 1), "%", sep="")),
             size = 3.5) +
-  ylab("Number of papers") +
+  ylab("Number of artifacts") +
   xlab("") +
   ylim(0, 75) + # berk hard coded value so that the text is not cropped
   scale_fill_grey("2023 Conferences", start = 0.2, end = 0.8) +
@@ -43,4 +47,4 @@ plot <- df %>%
   #ggtitle("How was the artifact shared?") +
   coord_flip()
 
-ggsave(plot = plot, outfile, width=5, height=3.5)
+ggsave(plot = plot, outfile, width=5, height=2.5)

@@ -1,5 +1,11 @@
 library(tidyverse)
-theme_set(theme_bw() + theme(legend.position = "bottom"))
+#theme_set(theme_bw() + theme(legend.position = "bottom", legend.title = element_text(size = 7), legend.text = element_text(size =7), legend.key.size = unit(0.4, 'cm')
+#                             ))
+theme_set(theme_bw() + theme(legend.position = c(0.89, 0.75),
+                             legend.title = element_text(size = 9),
+                             legend.text = element_text(size = 8),
+                             legend.background=element_blank(),
+                             legend.key.size = unit(0.5, 'cm')))
 
 
 args = commandArgs(trailingOnly=TRUE)
@@ -40,11 +46,11 @@ plot <- df %>%
   ggplot(aes(x = sw_env_method)) +
   geom_bar(aes(fill = conference)) +
   geom_text(data = . %>% group_by(sw_env_method) %>% summarize(n = n(), percentage = 100 * n() / total_papers),
-            aes(y = n + 3, label = paste(round(percentage, 1), "%", sep="")),
+            aes(y = n + 4, label = paste(round(percentage, 1), "%", sep="")),
             size = 4) +
-  ylab("Number of papers") +
+  ylab("Number of artifacts") +
   xlab("") +
-  scale_fill_grey("Conferences", start = 0.2, end = 0.8) +
+  scale_fill_grey("2023 Conferences", start = 0.2, end = 0.8) +
   coord_flip()
   #theme(axis.text.x = element_text(angle = 45, hjust=1)) +
 
@@ -57,7 +63,7 @@ plot_per_badge <- df %>%
   mutate(sw_env_method = fct_infreq(sw_env_method)) %>%
   ggplot(aes(x = sw_env_method)) +
   geom_bar(data = . %>% filter(value), aes(fill = conference)) +
-  ylab("Number of papers") +
+  ylab("Number of artifacts") +
   xlab("") +
   facet_wrap(~badge, ncol=3, scales = "free_x") +
   scale_fill_grey("2023 Conferences", start = 0.2, end = 0.8) +
@@ -74,10 +80,11 @@ plot_per_nb_badges <- df %>%
   mutate(sw_env_method = fct_infreq(sw_env_method)) %>%
   ggplot(aes(x = sw_env_method)) +
   geom_bar(aes(fill = conference)) +
-  ylab("Number of papers") +
+  ylab("Number of artifacts") +
   xlab("") +
+  guides(fill = guide_legend(nrow = 2, byrow=TRUE)) +
   facet_wrap(~badges, ncol=2, scales = "free_x", labeller = labeller(badges = badges_labeller)) +
   scale_fill_grey("2023 Conferences", start = 0.2, end = 0.8) +
   coord_flip()
 
-ggsave(plot = plot, outfile, width=7, height=3.5)
+ggsave(plot = plot, outfile, width=6.5, height=3.0)

@@ -1,5 +1,9 @@
 library(tidyverse)
-theme_set(theme_bw() + theme(legend.position = "bottom"))
+theme_set(theme_bw() + theme(legend.position = c(0.72, 0.82),
+                             legend.title = element_text(size = 8),
+                             legend.text = element_text(size = 7),
+                             legend.background=element_blank(),
+                             legend.key.size = unit(0.4, 'cm')))
 
 args = commandArgs(trailingOnly=TRUE)
 filename = args[1]
@@ -21,8 +25,9 @@ plot <- df %>%
   ggplot(aes(x = experimental_setup)) +
   geom_bar(aes(fill = conference)) +
   geom_text(data = . %>% group_by(experimental_setup) %>% summarize(n = n(), percentage = 100 * n() / total_papers),
-            aes(y = n + 11, label = paste(round(percentage, 1), "%", sep="")),
+            aes(y = n + 15, label = paste(round(percentage, 1), "%", sep="")),
             size = 4) +
+  ylim(0, 215) +
   ylab("Number of papers") +
   scale_fill_grey("2023 Conferences", start = 0.2, end = 0.8) +
   guides(fill = guide_legend(nrow = 2, byrow=TRUE)) +
@@ -30,4 +35,4 @@ plot <- df %>%
   xlab("") +
   coord_flip()
 
-ggsave(plot = plot, outfile, width=6, height=4.5)
+ggsave(plot = plot, outfile, width=5, height=2.5)
