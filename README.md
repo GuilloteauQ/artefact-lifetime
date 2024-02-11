@@ -1,4 +1,22 @@
-# Longevity of Artifacts in Top Parallel and Distributed Systems Conferences: a State-of-the-practice Review 
+# Longevity of Artifacts in Leading Parallel and Distributed Systems Conferences: a Review of the State of the practice in 2023 
+
+## Structure
+
+- `conferences/` contains the forms for the surveyed papers per conference
+
+- `forms` contains a Python script to process the forms.
+
+- `workflow/` contains the definitions of the workflow
+
+    - `workflow/envs` contains the Nix shells definitions
+
+    - `workflow/scripts` contains the R scripts for the data analysis
+
+    - `workflow/Snakefile` defintion of the workflow steps
+
+- `rep24/` contains the latex for the paper
+
+- `flake.nix`, `flake.lock` defines the Nix environments
 
 ## Reproduce
 
