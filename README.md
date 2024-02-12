@@ -54,7 +54,8 @@ nix develop .#default --command snakemake -c 1 rep24/main.pdf
 
 #### Run only the analysis
 
-If you want, the dataset is hosted on Zenodo: [https://doi.org/10.5281/zenodo.10640566](https://doi.org/10.5281/zenodo.10640566)
+
+If you want, the dataset is hosted on Zenodo: [https://doi.org/10.5281/zenodo.10650804](https://doi.org/10.5281/zenodo.10650804)
 
 You can download it:
 
