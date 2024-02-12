@@ -1,0 +1,28 @@
+\begin{table*}[!ht]
+  \caption{\label{tab:longevity}Proposed grading framework for evaluating artifact \emph{longevity}.}
+  \centering
+  %\scalebox{0.92}{
+
+    \resizebox{\textwidth}{11em}{
+    \begin{tabularx}{\textwidth}{l X X X}
+  \toprule
+    
+      \textbf{Grade} & \multicolumn{3}{c}{\textbf{Artifact Longevity Criteria}} \\
+      \cmidrule(lr){2-4}
+      [0..4] & Source Code & Experimental Platform & Software environment \\
+      
+  %\midrule
+  \toprule
+      0 & imprecise version (\eg\ \texttt{git} repository without \emph{fixed} commit) &  not described & not partially \emph{described} (\eg\ dependencies list, \texttt{apt} commands, imprecise download) \\
+       \midrule
+      1 & fixed version, partial exploration (\eg\ \texttt{git} with \emph{fixed} commit) &  high monetary cost (\eg\ Proprietary platforms) & long-term availability, some dependencies (\eg\ Vendoring, \emph{precise} download) \\
+       \midrule
+      2 & long-term storage, fixed version (\eg\ Archive of a \emph{release}) & difficult access (\eg\ Local machines) & shorter-term availability, recipe, most dependencies captured, more precise rebuild (\eg\ Spack) \\
+       \midrule
+      3 & long-term storage, fixed version, history (\eg\ Archive of a repository with history) & longer-term access, difficult access, low monetary cost (\eg\ Supercomputer) & long-term availability, available recipe, all dependencies captured, imprecise rebuild (\eg\ Long-term storage of the image and recipe) \\
+       \midrule
+      4 & long-term storage, fixed version, history, partial exploration (\eg\ Software-Heritage) & longer-term access, easy access, low to no monetary cost (\eg\ Testbeds, simulator) & long-term availability, recipe, exact rebuild, all dependencies captured (\eg\ Nix/Guix) \\
+  \bottomrule
+  \end{tabularx}
+}
+\end{table*}

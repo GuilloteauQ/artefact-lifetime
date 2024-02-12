@@ -73,6 +73,9 @@
 \usepackage{amsmath,amsfonts}
 \usepackage{textcomp}
 \usepackage[inline]{enumitem}
+%https://tex.stackexchange.com/questions/88657/clearpage-without-pagebreak 
+\usepackage{afterpage}
+\usepackage{placeins}
 
 \newcommand{\fmc}[1]{{\color{magenta} #1}} % Florina Ciorba
 
@@ -814,6 +817,9 @@ Guix-HPC\ \cite{guix-hpc}, NUR-Kapack\ \cite{kapack}, or Ciment-channel\ \cite{c
 Although tools such as Nix and Guix greatly improve the state of \repro for software environments, it is still possible to make an impure package or make it dependent on some exterior state.
 Nix addresses this issue with the \emph{Flake}\ experimental feature \cite{flakes}.
 
+\afterpage{\FloatBarrier}
+\input{tables/artifact-longevity-levels}
+
 To ensure \repro\ and traceability of an environment, Nix requires that all packages and their dependencies have their source code open and that the packages be packaged with Nix.
 This could seem limiting in the case of proprietary software where the source code is unavailable (Intel compilers, for example).
 It is still possible to use such proprietary packages with the \texttt{impure} mode of Nix, but it breaks the traceability and thus the \repro\ of the software environment. 
@@ -827,6 +833,7 @@ As Nix needs to recompile packages that are not available in its binary cache fr
 However, since Software-Heritage now performs frequent archives of open-source repositories, it should be possible to find, when needed, the sources of interest \cite{courtesconnecting}.
 
 Finally, these tools also require a change of viewpoint in the way software environments are managed, which might make the learning curve steeper. %\fmc{need to think of a synonym for intimidating?}.
+
 
 \begin{lesson}{Functional package managers}{}
   Functional package managers (FPM), \eg\ Nix\ \cite{dolstra_nix_2004} or Guix\ \cite{courtes_functional_2013}, provide reproducibility guarantees for the software environment produced.
@@ -905,34 +912,7 @@ However, despite the plethora of available workflow systems \cite{rafael_ferreir
 %   \end{tabularx}
 % \end{table*}
 
-\begin{table*}
-  \caption{\label{tab:longevity}Proposed grading framework for evaluating artifact \emph{longevity}.}
-  \centering
-  %\scalebox{0.92}{
 
-    \resizebox{\textwidth}{11em}{
-    \begin{tabularx}{\textwidth}{l X X X}
-  \toprule
-    
-      \textbf{Grade} & \multicolumn{3}{c}{\textbf{Artifact Longevity Criteria}} \\
-      \cmidrule(lr){2-4}
-      [0..4] & Source Code & Experimental Platform & Software environment \\
-      
-  %\midrule
-  \toprule
-      0 & imprecise version (\eg\ \texttt{git} repository without \emph{fixed} commit) &  not described & not partially \emph{described} (\eg\ dependencies list, \texttt{apt} commands, imprecise download) \\
-       \midrule
-      1 & fixed version, partial exploration (\eg\ \texttt{git} with \emph{fixed} commit) &  high monetary cost (\eg\ Proprietary platforms) & long-term availability, some dependencies (\eg\ Vendoring, \emph{precise} download) \\
-       \midrule
-      2 & long-term storage, fixed version (\eg\ Archive of a \emph{release}) & difficult access (\eg\ Local machines) & shorter-term availability, recipe, most dependencies captured, more precise rebuild (\eg\ Spack) \\
-       \midrule
-      3 & long-term storage, fixed version, history (\eg\ Archive of a repository with history) & longer-term access, difficult access, low monetary cost (\eg\ Supercomputer) & long-term availability, available recipe, all dependencies captured, imprecise rebuild (\eg\ Long-term storage of the image and recipe) \\
-       \midrule
-      4 & long-term storage, fixed version, history, partial exploration (\eg\ Software-Heritage) & longer-term access, easy access, low to no monetary cost (\eg\ Testbeds, simulator) & long-term availability, recipe, exact rebuild, all dependencies captured (\eg\ Nix/Guix) \\
-  \bottomrule
-  \end{tabularx}
-}
-\end{table*}
 
 We believe that the current badging system misses an important aspect of the quality of artifacts: their \emph{longevity}.
 By \emph{longevity} we mean the time an artifact will remain in the same state as the state used by the authors.
@@ -941,19 +921,19 @@ As we have seen in Section \ref{sec:sop}, the popular tools and methods for shar
 Artifacts that offer \emph{longevity} are much more valuable and impactful to future researchers who may wish to build on them, deserve to be rewarded, and have greater visibility.
 Table\ \ref{tab:longevity} proposes a \textbf{first instance} of a grading framework to assess the \emph{longevity} of an artifact based on three criteria: sharing of the source code, the experimental setup used, and the software environment.
 We propose to grade each aspect on 5 levels ranging from insufficient (Level 0) to best (Level 4).
-Averaging the grade for each criterion yields an overall grade for the artifact.
+Averaging the score for each criterion yields an overall score for the artifact.
 %We recommend that the overall grade be \emph{strictly} greater than 3 to justify receiving the new \emph{longevity} badge.
 \begin{recommendation*}{Artifact Longevity Badge}{}
   Artifacts that obtain a longevity score of 3 or higher should be awarded the \textbf{Artifact Longevity Badge}. 
 \end{recommendation*}
-The specifics of the grade for each criterion \textbf{should be further discussed in the community} beyond the specifics introduced in this work, to reach a consensus on the desired good practices.
+The specifics of the score for each criterion \textbf{should further be discussed in the community} beyond the specifics introduced in this work, to reach a consensus on the desired good practices.
 They are also bound to change as software tools and practices evolve.
 
 
 \begin{figure}
   \centering
     \includegraphics[width=0.5\textwidth]{figs/lifetime_score}
-  \caption{Longevity score for each of the three criteria (Table~\ref{tab:longevity}) - three top graphs, and the overall longevity score - bottom graph.
+  \caption{Artifact longevity score for each of the three criteria (Table~\ref{tab:longevity}) - three top graphs, and the overall longevity score for the artifact - bottom graph.
   We recommend a minimum longevity score of 3 to award the Artifact Longevity Badge.
   Given the overall longevity scores of the 154 surveyed articles with available artifacts (Section \ref{sec:sop:ad-badges}), only 1.2 percent receive the Artifact Longevity Badge.}\label{fig:longevity_score}
 \end{figure}
