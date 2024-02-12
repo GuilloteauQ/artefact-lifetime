@@ -1,6 +1,6 @@
 doi: "10.1145/3552326.3587449"
-pdf: ""
-date_eval: "2023-10-23"
+pdf: "https://dl.acm.org/doi/pdf/10.1145/3552326.3587449"
+date_eval: "2024-02-12"
 # ----- BADGES ----
 badges: 0 # how many badges?
 badge_avaible: false
@@ -37,7 +37,6 @@ bin_cache: false # is the binary of the image stored somewhere?
 bin_cache_long_term: false # can the stored image be available "forever"? (e.g. zenodo)
 recipe_in_repo: false
 sw_env:
-  - list
   # - list_loose_version # like >=
   # - list_strict_version # like ==
   # - apt_commands # or other package managers

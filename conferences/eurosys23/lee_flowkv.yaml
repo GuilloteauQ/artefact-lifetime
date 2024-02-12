@@ -1,6 +1,6 @@
 doi: "10.1145/3552326.3567493"
-pdf: ""
-date_eval: "2023-10-24"
+pdf: "https://dl.acm.org/doi/pdf/10.1145/3552326.3567493"
+date_eval: "2024-02-12"
 # ----- BADGES ----
 badges: 0 # how many badges?
 badge_avaible: false
@@ -13,9 +13,8 @@ repo_url: false # is the url of the repo given in the paper?
 dead_url: false # is the url still working?
 minimal_working_example: false # is there a minimal example?
 estimated_human_compute_time: false # is the time estimation given?
-experimental_setup: "homemade" # some random machines
 # experimental_setup: "testbed" # chameleon/grid5000
-# experimental_setup: "proprietary" # AWS/Azure/...
+experimental_setup: "proprietary" # AWS/Azure/...
 
 
 # ----- REPO -----

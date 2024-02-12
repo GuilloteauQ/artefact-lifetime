@@ -38,8 +38,8 @@ bin_cache_long_term: false # can the stored image be available "forever"? (e.g. 
 recipe_in_repo: false
 sw_env:
   # - list
-  # - list_loose_version # like >=
-  - list_strict_version # like ==
+  - list_loose_version # like >=
+    #- list_strict_version # like ==
   # - apt_commands # or other package managers
   # - git_curl_commands_unsafe  # not checking commit/tag
   # - git_curl_commands_safe # checking commit/tag

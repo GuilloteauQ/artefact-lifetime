@@ -1,6 +1,6 @@
 doi: "10.1145/3552326.3567504"
 pdf: "https://inria.hal.science/hal-04109096/document"
-date_eval: "2023-10-23"
+date_eval: "2024-02-12"
 # ----- BADGES ----
 badges: 0 # how many badges?
 badge_avaible: false
@@ -10,7 +10,7 @@ badge_reproduced: false
 # ----- PAPER ------
 artefact_section: false # is there a "artefact" section in the paper?
 repo_url: true # is the url of the repo given in the paper?
-dead_url: false # is the url still working?
+dead_url: true # is the url still working?
 minimal_working_example: false # is there a minimal example?
 estimated_human_compute_time: false # is the time estimation given?
 experimental_setup: "homemade" # some random machines
