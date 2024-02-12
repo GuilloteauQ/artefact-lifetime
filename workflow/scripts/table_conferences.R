@@ -51,7 +51,7 @@ per_conf %>%
   knitr::kable(
       format="latex",
       align="lcccccccc",
-      caption="Papers by considered conferences. The CORE rank is in between parenthesis.",
+      caption="Papers by considered conferences. The CORE rank \\cite{core} is in between parenthesis.",
       booktabs = TRUE,
       linesep = linesep,
       label="table:paper_confs",
