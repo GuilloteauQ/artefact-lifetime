@@ -1,0 +1,51 @@
+SUBMISSION: 6
+TITLE: Longevity of Artifacts in Leading Parallel and Distributed Systems Conferences: a Review of the State of the Practice in 2023
+
+
+----------------------- REVIEW 1 ---------------------
+SUBMISSION: 6
+TITLE: Longevity of Artifacts in Leading Parallel and Distributed Systems Conferences: a Review of the State of the Practice in 2023
+AUTHORS: Quentin Guilloteau, Florina M. Ciorba, Millian Poquet, Dorian Goepp and Olivier Richard
+
+----------- Overall evaluation -----------
+SCORE: 2 (accept)
+----- TEXT:
+I find this paper interesting, but I disagree with a large part of its justification. To me, the primary reason for artifact evaluation is to increase trust in the results of a paper. Once the artifact has been evaluated, in the short term, that trust has been established and the artifact is no longer needed for this purpose, so artifact longevity isn't important in this context.  On the other hand, there are other use cases where artifact longevity does make sense, such as reuse (of which this paper's variation is an example). But again to me, this is not the primary goal of artifact evaluation.  It would be useful if the paper was more clear on the different use cases of artifacts, which they do discuss a bit in Sec. 2, but this doesn't really carry through the paper.
+
+I think the author email addresses on the first page need to be actual email addresses, not formulae.
+
+Some of the discussion in 4.2 (and elsewhere in Sec. 4) seems to lead toward better development practices, not just AE. It might be useful to break apart development/research practices from AE/documentation practices. A set of recommendations for each would be a good outcome here.
+
+I'm happy to see the author suggest a community discussion as a next step toward a consensus.
+
+Overall, I think this paper should be accepted and will lead to a good discussion at the conference. It's well written and easy to read, and the work that has been done is valuable.
+
+
+
+----------------------- REVIEW 2 ---------------------
+SUBMISSION: 6
+TITLE: Longevity of Artifacts in Leading Parallel and Distributed Systems Conferences: a Review of the State of the Practice in 2023
+AUTHORS: Quentin Guilloteau, Florina M. Ciorba, Millian Poquet, Dorian Goepp and Olivier Richard
+
+----------- Overall evaluation -----------
+SCORE: 2 (accept)
+----- TEXT:
+This paper addresses the critical issue of long-term reproducibility of artifacts, emphasizing the challenge of rebuilding artifact environments in the future. It provides a thorough review of existing tools and practices, focusing on generating, packaging, and sharing source codes, as well as experimental platforms and configuring the software environment for experiments. The authors also propose the introduction of a new badge. Since the paper is about ensuring long-term reproducibility, it could have been strengthened by conducting or using data from a longitudinal artifact reproducibility study. In addition, reproducibility can present other complexities across other dimensions that can be discipline specific.
+
+
+
+----------------------- REVIEW 3 ---------------------
+SUBMISSION: 6
+TITLE: Longevity of Artifacts in Leading Parallel and Distributed Systems Conferences: a Review of the State of the Practice in 2023
+AUTHORS: Quentin Guilloteau, Florina M. Ciorba, Millian Poquet, Dorian Goepp and Olivier Richard
+
+----------- Overall evaluation -----------
+SCORE: 3 (strong accept)
+----- TEXT:
+This is a very important paper about a problem that has been bothering me for a while. Thanks to the authors for collecting all this data and preparing this paper.
+
+I especially appreciate the detailed discussion in the "Software environment" section, which mirrors my own experiences trying to reproduce published results in a few different areas of CS. 
+
+The paper is well written and organized nicely.
+
+I am not completely convinced by the proposed "longevity score," but I appreciate that the authors want to open a discussion about this issue.
