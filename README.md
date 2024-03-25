@@ -64,7 +64,7 @@ mkdir -p data
 wget https://zenodo.org/record/10640566/files/all.csv -O data/all.csv
 ```
 
-The expected MD5 is `md5:cc8e33ac854e4854980f0371380c7229`
+The expected MD5 is `md5:1f437090aa53775dedfc3508206133ed`
 
 You can now run the workflow:
 
