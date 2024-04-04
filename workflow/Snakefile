@@ -18,6 +18,18 @@ rule all:
     input:
         "rep24/main.pdf"
 
+rule paper:
+    input:
+        "rep24/main.pdf"
+    
+rule figs:
+    input:
+        expand("rep24/figs/{fig}.pdf", fig=FIGS),
+
+rule data:
+    input:
+        "data/all.csv"
+
 
 def aggregate_input(wildcards):
     return expand("conferences/{conf}/{i}.yaml", conf=wildcards.conference,i=glob_wildcards(os.path.join(f"conferences/{wildcards.conference}", "{i}.yaml")).i)

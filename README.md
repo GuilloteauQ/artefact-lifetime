@@ -48,7 +48,23 @@ But the forms for each paper are.
 Running the workflow will go through the all the forms and convert them into a csv file exploitable by the analysis scripts.
 
 ```
-nix develop .#default --command snakemake -c 1 rep24/main.pdf
+# Run the entire workflow
+nix develop .#default --command snakemake -c 1
+```
+
+(you can choose the number of cores to use for running the workflow with the `-c` flag: `-c 1` means jobs are executed sequentially on a single core)
+
+You can run a subset of the workflow based on what you desire:
+
+```
+# Generate the data (data/all.csv)
+nix develop .#default --command snakemake -c 1 data
+
+# Generate the data and the figures (rep24/figs/*.pdf)
+nix develop .#default --command snakemake -c 1 figs
+
+# Generate the data, the figures, and the paper (rep24/main.pdf)
+nix develop .#default --command snakemake -c 1 paper
 ```
 
 
@@ -69,7 +85,7 @@ The expected MD5 is `md5:1f437090aa53775dedfc3508206133ed`
 You can now run the workflow:
 
 ```
-nix develop .#default --command snakemake -c 1 rep24/main.pdf
+nix develop .#default --command snakemake -c 1
 ```
 
 ### Results
