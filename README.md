@@ -77,7 +77,7 @@ You can download it:
 
 ```
 mkdir -p data
-wget https://zenodo.org/record/10640566/files/all.csv -O data/all.csv
+wget https://zenodo.org/records/10650804/files/all.csv -O data/all.csv
 ```
 
 The expected MD5 is `md5:1f437090aa53775dedfc3508206133ed`
