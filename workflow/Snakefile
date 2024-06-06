@@ -16,7 +16,12 @@ FIGS = [
 
 rule all:
     input:
-        "rep24/main.pdf"
+        "rep24/main.pdf",
+        "rep24/slides.pdf"
+
+rule slides:
+    input:
+        "rep24/slides.pdf"
 
 rule paper:
     input:
@@ -25,6 +30,12 @@ rule paper:
 rule figs:
     input:
         expand("rep24/figs/{fig}.pdf", fig=FIGS),
+        "rep24/figs/sw_envs.pdf",
+        "rep24/figs/lifetime_score.pdf",
+        expand("rep24/figs/{fig}.svg", fig=FIGS),
+
+        "rep24/figs/sw_envs.svg",
+        "rep24/figs/lifetime_score.svg",
 
 rule data:
     input:
@@ -134,3 +145,28 @@ rule generate_table_confs:
   shell:
     "nix develop .#rshell --command Rscript {input.script} {input.data} > {output}"
 
+
+rule convert_pdf_to_svg:
+  input:
+    "flake.nix",
+    "flake.lock",
+    "workflow/envs/slides_shell.nix",
+    pdf="{fig}.pdf"
+  output:
+    "{fig}.svg"
+  shell:
+    "nix develop .#slides --command pdf2svg {input.pdf} {output}"
+
+rule compile_slides:
+  input:
+    "flake.nix",
+    "flake.lock",
+    "workflow/envs/slides_shell.nix",
+    expand("rep24/figs/{fig}.svg", fig=FIGS),
+    "rep24/figs/sw_envs.svg",
+    "rep24/figs/lifetime_score.svg",
+    src="rep24/slides.typ"
+  output:
+    "rep24/slides.pdf"
+  shell:
+    "nix develop .#slides --command typst compile {input.src}"

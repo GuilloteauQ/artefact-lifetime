@@ -1,13 +1,17 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/23.05";
+    typst-flake.url = "github:typst/typst";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
+  outputs = { self, nixpkgs, flake-utils, typst-flake }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = import nixpkgs { inherit system; };
+        overlayTypst = final: prev: { typst = 
+            typst-flake.packages.${system}.default;
+      };
+        pkgs = import nixpkgs { inherit system; overlays = [ overlayTypst ]; };
       in {
         packages = rec {
           default = ecg;
@@ -40,6 +44,7 @@
           default = import workflow/envs/snakemake_shell.nix { inherit pkgs; };
           rshell  = import workflow/envs/r_shell.nix { inherit pkgs; };
           pdf     = import workflow/envs/pdf_shell.nix { inherit pkgs; };
+          slides  = import workflow/envs/slides_shell.nix { inherit pkgs; };
         };
       });
 }
