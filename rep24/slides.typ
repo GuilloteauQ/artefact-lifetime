@@ -1,6 +1,7 @@
 #import "theme.typ": *
 
 #show: unibas-theme.with()
+#let unibas-mint = rgb("#a5d7d2")
 
 // #set text(font: (
 //   "Segoe UI Emoji"
@@ -10,11 +11,13 @@
 #let pres_title = "Longevity of Artifacts in Leading Parallel and Distributed Systems Conferences: A Review of The State of the Practice in 2023"
 #let short_title = "Longevity of Artifacts: Review of the State of the Practice in 2023 (hal-04562691)"
 #let presenter = "Quentin Guilloteau"
+#let date = "June 19th 2024"
+#let event = "ACM Conference on Reproducibility and Replicability 2024"
 
 #let authors = (
   (name: [Quentin Guilloteau], affiliation: [University of Basel, Switzerland], is_presenter: true), 
   (name: [Florina M. Ciorba],  affiliation: [University of Basel, Switzerland], is_presenter: false), 
-  (name: [Millian Poquet],     affiliation: [Univ. Toulouse 3], is_presenter: false), 
+  (name: [Millian Poquet],     affiliation: [Univ. Toulouse, CNRS, IRIT], is_presenter: false), 
   (name: [Dorian Goepp],       affiliation: [Univ. Grenoble Alpes, Inria, CNRS, LIG], is_presenter: false), 
   (name: [Olivier Richard],    affiliation: [Univ. Grenoble Alpes, Inria, CNRS, LIG], is_presenter: false)
 )
@@ -26,7 +29,7 @@
 }
 
 
-#title-slide(title: pres_title, authors: authors)
+#title-slide(title: pres_title, authors: authors, date: date, event: event)
 #set text(22pt)
 
 #dslide(title: "Reproducibility Crisis")[
@@ -35,13 +38,16 @@
 ]
 
 #dslide(title: "Answer of the Community: Artifacts and Badges")[
-- summary of the goal of AD/AE
-- and some history
+- TODO: summary of the goal of AD/AE
+- TODO: and some history
 - In computer science: ACM gave some definitions @acm-badges
   - #emoji.medal.third  _Repeatability_ (Same team, same experimental setup)
   - #emoji.medal.second _Reproducibility_ (Different team, same experimental setup)
   - #emoji.medal.first  _Replicability_ (Different team, different experimental setup)
-- picture of the badges
+
+#align(center)[
+#image("figs/badges.png", height: 32%)
+]
 ]
 
 
@@ -76,45 +82,96 @@ RQ2: Is the reproducibility of the current practices satisfactory?
   - Software environment
 ]
 
+#dslide(title: "Survey Questions")[
+#grid(
+  columns: (50%, 50%),
+  gutter: 10pt,
+  block(
+    width: 100%,
+    stroke: unibas-mint,
+    inset: 8pt,
+    radius: 10pt,
+    stack(
+        spacing: 5%,
+	text[*Artifact badges*:],
+	list([How many badges?], [Which badges?], [How many AD sections?])
+    )
+  ),
+  block(
+    width: 100%,
+    stroke: unibas-mint,
+    inset: 8pt,
+    radius: 10pt,
+    stack(
+        spacing: 5%,
+	text[*Artifact Availability*:],
+	list([URL available? Valid?], [Git, Zenodo, ...?], [Fixed commit?])
+    )
+  ),
+  block(
+    width: 100%,
+    stroke: unibas-mint,
+    inset: 8pt,
+    radius: 10pt,
+    stack(
+        spacing: 5%,
+	text[*Experimental Platform*:],
+	list([Which machines/platforms were used?])
+    )
+  ),
+  block(
+    width: 100%,
+    stroke: unibas-mint,
+    inset: 8pt,
+    radius: 10pt,
+    stack(
+        spacing: 5%,
+	text[*Software Environment*:],
+	list([How was the software environment described and shared?])
+	)
+    )
+)
 
-#dslide(title: "RQs: Artifact badges and availability")[
-    #align(center)[
-	How many reproducibility badges were awarded and which badges were awarded to the article?
-    ]
-
-    #align(center)[
-	Does the article have an AD section?
-    ]
 ]
 
-#dslide(title: "RQs: Source code availability")[
+// #dslide(title: "RQs: Artifact badges and availability")[
+//     #align(center)[
+// 	How many reproducibility badges were awarded and which badges were awarded to the article?
+//     ]
+// 
+//     #align(center)[
+// 	Does the article have an AD section?
+//     ]
+// ]
+// 
+// #dslide(title: "RQs: Source code availability")[
+// 
+// #align(center)[
+// Whether the article shared the URL of the artifact (it does not have to be in the AD), and whether the URL is still valid?
+// ]
+// 
+// #align(center)[
+// How was the source code shared: git repository (e.g., GitHub, GitLab), Zenodo, or a combination of solutions?
+// ]
+// 
+// #align(center)[
+// If the source code has been shared via a git repository, we record the number of commits and check whether a precise commit was specified by the authors.
+// ]
+// ]
+// 
+// #dslide(title: "RQs: Experimental platforms")[
+//     #align(center)[
+// 	How were the experiments performed (e.g., local machines, shared test-beds, proprietary machines, supercomputers, simulation)?
+//     ]
+// ]
+// 
+// #dslide(title: "RQs: Software environment")[
+//     #align(center)[
+// 	How was the software environment described and shared?
+//     ]
+// ]
 
-#align(center)[
-Whether the article shared the URL of the artifact (it does not have to be in the AD), and whether the URL is still valid?
-]
-
-#align(center)[
-How was the source code shared: git repository (e.g., GitHub, GitLab), Zenodo, or a combination of solutions?
-]
-
-#align(center)[
-If the source code has been shared via a git repository, we record the number of commits and check whether a precise commit was specified by the authors.
-]
-]
-
-#dslide(title: "RQs: Experimental platforms")[
-    #align(center)[
-	How were the experiments performed (e.g., local machines, shared test-beds, proprietary machines, supercomputers, simulation)?
-    ]
-]
-
-#dslide(title: "RQs: Software environment")[
-    #align(center)[
-	How was the software environment described and shared?
-    ]
-]
-
-#new-section-slide("Findings and Observations")
+#new-section-slide("Observations and Findings")
 
 #dslide(title: "Sharing the code/data")[
   #align(center)[
@@ -149,21 +206,122 @@ If the source code has been shared via a git repository, we record the number of
   ]
 ]
 
-#new-section-slide("Our Proposal")
+#dslide(title: "The case of Containers")[
+  #side-by-side(columns: (45%, 55%))[
+    #align(center)[
+	#image("figs/how_packaged.svg", width: 100%)
+    ]
+  ][
+    #align(center)[
+	#image("figs/image_cache_bin.svg", width: 100%)
+    ]
+  ]
+    #align(center)[
+	Containers are used in 12% of artifacts, but only 55% of them might be reusable...
+    ]
+]
+
+#dslide(title: "Observation")[
+- some kind of conclusion
+]
+
+#new-section-slide("Recommendations and Proposal for Artifact Longevity")
+
+#dslide(title: "Recommendations for Artifact Longevity")[
+
+#side-by-side(columns: (50%, 50%))[
+
+=== Source code availability
+
+  - For source code: Software Heritage
+  - For data: Zenodo
+
+=== Experimental setup
+
+  - Shared Testbeds
+    - (Grid'5000, Chameleon, CloudLab, etc.)
+
+=== Software environments
+
+  - Functional Package Managers (Nix, Guix)
+][
+#align(center)[
+	#stack(
+	    dir: ltr,
+	    spacing: 2mm,
+	    image("figs/swh_logo.svg", height: 13%),
+	    image("figs/zenodo_logo.svg", height: 13%)
+	)
+
+	#stack(
+	    dir: ltr,
+	    spacing: 2mm,
+	    image("figs/g5k_logo.png", height: 15%),
+	    image("figs/chameleon_logo.jpg", height: 12%)
+        )
+	    #image("figs/cloudlab_logo.png", height: 8%)
+
+	#stack(
+	    dir: ltr,
+	    spacing: 2mm,
+	    image("figs/logo_nix.svg", height:  20%),
+	    image("figs/Guix_logo.svg", height: 20%)
+        )
+	]
+]
+]
+
+//#new-section-slide("Our Proposal")
 
 
 #dslide(title: "Artifact Longevity Badge")[
   #align(center)[
-    #emoji.sparkles A new badge! #emoji.sparkles
-    #image("figs/acm_badge.svg", height: 50%)
+    #emoji.sparkles #text(weight: "semibold")[A new badge!] #emoji.sparkles
+    #image("figs/acm_badge.svg", height: 80%)
   ]
 ]
 
-#dslide(title: "Awarding the Artifact Longevity Badge")[
-  #align(center)[
-    #image("figs/lifetime_score.svg", height: 100%)
+#dslide(title: "How to award the Artifact Longevity Badge?")[
+  #side-by-side(columns: (45%, 55%))[
+    - 0 to 4-point scale
+    - 3 dimensions
+      - Source code
+      - Experimental setup
+      - Software environment
+    - Overal score = average per dimension
+    - #text(weight: "semibold")[Award badge if overall score #sym.gt.eq 3]
+  ][
+    #align(center)[
+	#image("figs/lifetime_score.svg", height: 95%)
+    ]
   ]
 ]
+#align(center)[
+#sym.arrow.r 1.2% (2) of the reviewed artifacts would have received the _Artifact Longevity_ badge
+]
+
+#new-section-slide("Conclusion and Perspectives")
+
+#dslide(title: "Conclusion and Perspectives")[
+#side-by-side(columns: (80%, 20%))[
+== Conclusion
+- State of the practive not satisfactory
+- 
+== Perspectives
+- Longitudinal study (in the past and future!)
+- Exposing the variations in software environment from `Dockerfile`s
+
+][
+  #align(center)[
+    #image("figs/acm_badge.svg", width: 100%)
+  ]
+]
+
+
+]
+
+
+
 
 // 
 // 
