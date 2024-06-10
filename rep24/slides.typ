@@ -33,6 +33,7 @@
 #set text(22pt)
 
 #dslide(title: "Reproducibility Crisis")[
+- TODO
 - some baker et al
 - in HPC: Hunold
 ]
@@ -53,18 +54,13 @@
 
 #dslide(title: "Research Questions")[
 #align(center)[
-RQ1: What are the current practices in Artifact Descriptions?
-
-RQ2: Is the reproducibility of the current practices satisfactory?
+- RQ1: What are the current practices in Artifact Descriptions?
+- RQ2: Is the reproducibility of the current practices satisfactory?
 ]
 
 
-#sym.arrow.r Let's review of the State of the Practice!
+#sym.arrow.r *Let's review of the State of the Practice!*
 
-]
-
-#dslide(title: "Questions")[
-- What was the workflow of the experiments? (initially not part of the survey questions)
 ]
 
 #new-section-slide("Design of the Study")
@@ -173,24 +169,36 @@ RQ2: Is the reproducibility of the current practices satisfactory?
 
 #new-section-slide("Observations and Findings")
 
+#dslide(title: "Artifact badges")[
+- TODO
+- report number of paper
+- how many with badges
+- how many with AD
+- how many with URL
+- how many with invalid URL
+- ...
+]
+
 #dslide(title: "Sharing the code/data")[
   #align(center)[
-    #image("figs/how_repo_shared.svg", width: 70%)
+    #image("figs/how_repo_shared.svg", height: 75%)
   ]
   - mostly just a Git(Hub|Lab) URL and/or a Zenodo archive 
+  - when just using `git`, 93% do not report the commit
 ]
 
 #dslide(title: "Number of commits in the shared repository")[
   #align(center)[
-    #image("figs/number_commits_repo.svg", width: 70%)
+    #image("figs/number_commits_repo.svg", height: 80%)
   ]
+  - A lot of repositories are a "dump" of the artifact #sym.arrow.r no history / transparency
 ]
 
-#dslide(title: "Was the commit fixed?")[
-  #align(center)[
-    #image("figs/was_commit_fixed.svg", height: 100%)
-  ]
-]
+// #dslide(title: "Was the commit fixed?")[
+//   #align(center)[
+//     #image("figs/was_commit_fixed.svg", height: 100%)
+//   ]
+// ]
 
 #dslide(title: "Where are the experiments done?")[
   #align(center)[
@@ -282,34 +290,38 @@ RQ2: Is the reproducibility of the current practices satisfactory?
 ]
 
 #dslide(title: "How to award the Artifact Longevity Badge?")[
-  #side-by-side(columns: (45%, 55%))[
+#stack(
+  side-by-side(columns: (45%, 55%))[
     - 0 to 4-point scale
     - 3 dimensions
       - Source code
       - Experimental setup
       - Software environment
-    - Overal score = average per dimension
+    - Overal score = avg. per dimension
     - #text(weight: "semibold")[Award badge if overall score #sym.gt.eq 3]
   ][
     #align(center)[
 	#image("figs/lifetime_score.svg", height: 95%)
     ]
-  ]
-]
-#align(center)[
+  ],
+align(center)[
 #sym.arrow.r 1.2% (2) of the reviewed artifacts would have received the _Artifact Longevity_ badge
+]
+)
 ]
 
 #new-section-slide("Conclusion and Perspectives")
 
 #dslide(title: "Conclusion and Perspectives")[
-#side-by-side(columns: (80%, 20%))[
+#side-by-side(columns: (70%, 30%))[
 == Conclusion
 - State of the practive not satisfactory
-- 
+- Artifacts lack longevity
+- _Proposition_ of a new badge 
 == Perspectives
-- Longitudinal study (in the past and future!)
 - Exposing the variations in software environment from `Dockerfile`s
+- Longitudinal study (in the past and future!)
+  - *We need your feedback to refine the form!*
 
 ][
   #align(center)[
