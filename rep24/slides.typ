@@ -51,6 +51,21 @@
 ]
 ]
 
+#dslide(title: "Target of the Artifact Evaluation")[
+== For who is the artifact evaluation beneficial?
+- Authors of the papers?
+- The journal/conference?
+- Future researchers?
+
+== Our claim
+#align(center)[
+	*All of them, but mainly for #underline[future researchers]*
+]
+
+- Science: self-correcting process, _on the shoulders of giants_
+- The dream: #emoji.sparkles precise introduction of Variation #emoji.sparkles
+]
+
 
 #dslide(title: "Research Questions")[
 #align(center)[
@@ -130,43 +145,6 @@
 
 ]
 
-// #dslide(title: "RQs: Artifact badges and availability")[
-//     #align(center)[
-// 	How many reproducibility badges were awarded and which badges were awarded to the article?
-//     ]
-// 
-//     #align(center)[
-// 	Does the article have an AD section?
-//     ]
-// ]
-// 
-// #dslide(title: "RQs: Source code availability")[
-// 
-// #align(center)[
-// Whether the article shared the URL of the artifact (it does not have to be in the AD), and whether the URL is still valid?
-// ]
-// 
-// #align(center)[
-// How was the source code shared: git repository (e.g., GitHub, GitLab), Zenodo, or a combination of solutions?
-// ]
-// 
-// #align(center)[
-// If the source code has been shared via a git repository, we record the number of commits and check whether a precise commit was specified by the authors.
-// ]
-// ]
-// 
-// #dslide(title: "RQs: Experimental platforms")[
-//     #align(center)[
-// 	How were the experiments performed (e.g., local machines, shared test-beds, proprietary machines, supercomputers, simulation)?
-//     ]
-// ]
-// 
-// #dslide(title: "RQs: Software environment")[
-//     #align(center)[
-// 	How was the software environment described and shared?
-//     ]
-// ]
-
 #new-section-slide("Observations and Findings")
 
 #dslide(title: "Artifact badges")[
@@ -193,12 +171,6 @@
   ]
   - A lot of repositories are a "dump" of the artifact #sym.arrow.r no history / transparency
 ]
-
-// #dslide(title: "Was the commit fixed?")[
-//   #align(center)[
-//     #image("figs/was_commit_fixed.svg", height: 100%)
-//   ]
-// ]
 
 #dslide(title: "Where are the experiments done?")[
   #align(center)[
@@ -279,6 +251,11 @@
 ]
 ]
 
+#dslide(title: "TODO")[
+- explain a bit for each of the previous recommendations
+- one slide each
+]
+
 //#new-section-slide("Our Proposal")
 
 
@@ -315,13 +292,14 @@ align(center)[
 #dslide(title: "Conclusion and Perspectives")[
 #side-by-side(columns: (70%, 30%))[
 == Conclusion
-- State of the practive not satisfactory
-- Artifacts lack longevity
+- AD/AE good for Open Science/Reproducibility
+  - but can be improved!
+- State of the practice not satisfactory #sym.arrow.r lack _longevity_
 - _Proposition_ of a new badge 
 == Perspectives
-- Exposing the variations in software environment from `Dockerfile`s
+- Exposing variations in software environment from `Dockerfile`s
 - Longitudinal study (in the past and future!)
-  - *We need your feedback to refine the form!*
+  - *We need your help/feedback to refine the form!*
 
 ][
   #align(center)[
