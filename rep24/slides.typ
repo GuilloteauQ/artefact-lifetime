@@ -32,26 +32,32 @@
 #title-slide(title: pres_title, authors: authors, date: date, event: event)
 #set text(22pt)
 
-#dslide(title: "Reproducibility Crisis")[
+#dslide(title: "Reproducibility Crisis (in Parallel/Distributed Computing)")[
 - TODO
 - some baker et al
 - in HPC: Hunold
 ]
 
-#dslide(title: "Answer of the Community: Artifacts and Badges")[
-- TODO: summary of the goal of AD/AE
-- TODO: and some history
-- In computer science: ACM gave some definitions @acm-badges
-  - #emoji.medal.third  _Repeatability_ (Same team, same experimental setup)
-  - #emoji.medal.second _Reproducibility_ (Different team, same experimental setup)
-  - #emoji.medal.first  _Replicability_ (Different team, different experimental setup)
+#dslide(title: "Answer of the Community: Artifacts Description/Evaluation and Badges")[
+#side-by-side(columns: (60%, 40%))[
+- Validate/Promote/Reward
+- First: 2011 at the ESC/FSE conference
+- In computer science: ACM gave definitions @acm-badges
+  - #emoji.medal.third  _Repeatability_ (Same team, same setup)
+  - #emoji.medal.second _Reproducibility_ (Different team, same setup)
+  - #emoji.medal.first  _Replicability_ (Different team, different setup)
 
 #align(center)[
 #image("figs/badges.png", height: 32%)
 ]
+][
+#align(center)[
+#image("figs/ad_sc24.png", width: 100%)
+]
+]
 ]
 
-#dslide(title: "Target of the Artifact Evaluation")[
+#dslide(title: "Objectives of the Artifact Evaluation")[
 == For who is the artifact evaluation beneficial?
 - Authors of the papers?
 - The journal/conference?
@@ -59,22 +65,27 @@
 
 == Our claim
 #align(center)[
-	*All of them, but mainly for #underline[future researchers]*
+	*All of the above, but mainly for #underline[future researchers]*
 ]
 
-- Science: self-correcting process, _on the shoulders of giants_
+- Science: self-correcting process, _"standing on the shoulders of giants"_
+- This requires #text(unibas-mint, weight: "bold")[Longevous Artifacts]
 - The dream: #emoji.sparkles precise introduction of Variation #emoji.sparkles
 ]
 
 
 #dslide(title: "Research Questions")[
+== #text(unibas-mint)[RQ1]: What are the current practices in Artifact Descriptions?
+== #text(unibas-mint)[RQ2]: Is the reproducibility of the current practices satisfactory?
+//#align(center)[
+//- RQ1: What are the current practices in Artifact Descriptions?
+//- RQ2: Is the reproducibility of the current practices satisfactory?
+//]
+
+
 #align(center)[
-- RQ1: What are the current practices in Artifact Descriptions?
-- RQ2: Is the reproducibility of the current practices satisfactory?
-]
-
-
 #sym.arrow.r *Let's review of the State of the Practice!*
+]
 
 ]
 
@@ -85,10 +96,11 @@
 - Parallel and Distributed systems conferences ("This is what we know/can judge")
 - 5 Conferences of 2023 (with their CORE rank):
   - CCGrid (A), EuroSys (A), OSDI (A\*), PPoPP (A), SC (A) 
-  - #sym.arrow.r 296 total papers
+  - AD/AE process
+  //- #sym.arrow.r 296 total papers
 - 4 dimensions
-  - Artifact badges and availability
-  - Source code availability
+  - Artifact Descriptions and badges
+  - Artifact availability
   - Experimental platforms
   - Software environment
 ]
@@ -116,7 +128,7 @@
     stack(
         spacing: 5%,
 	text[*Artifact Availability*:],
-	list([URL available? Valid?], [Git, Zenodo, ...?], [Fixed commit?])
+	list([URL available? Valid?], [GitHub, Zenodo, ...?], [Fixed commit?])
     )
   ),
   block(
@@ -147,14 +159,21 @@
 
 #new-section-slide("Observations and Findings")
 
-#dslide(title: "Artifact badges")[
-- TODO
-- report number of paper
-- how many with badges
-- how many with AD
-- how many with URL
-- how many with invalid URL
-- ...
+#dslide(title: "Artifact Descriptions and Badges")[
+#side-by-side(columns: (60%, 40%))[
+- 296 papers
+- 157 Artifact Descriptions
+  - 53% of total papers
+- 168 artifact links, 154 valid at the time of the study
+- 161 "Artifacts Available" Badges
+  - 54% of total papers, 102% of ADs #emoji.face.think
+- 101 got the top badge #emoji.medal.first 
+  - 34% of total papers, 64% of ADs
+][
+#image("figs/retracted.jpg", width: 90%)
+
+#image("figs/screenshot.png", width: 90%)
+]
 ]
 
 #dslide(title: "Sharing the code/data")[
@@ -167,9 +186,13 @@
 
 #dslide(title: "Number of commits in the shared repository")[
   #align(center)[
-    #image("figs/number_commits_repo.svg", height: 80%)
+    #image("figs/number_commits_repo.svg", height: 75%)
   ]
   - A lot of repositories are a "dump" of the artifact #sym.arrow.r no history / transparency
+  #align(center)[
+    #image("figs/single_commit.png", height: 6%)
+  ]
+
 ]
 
 #dslide(title: "Where are the experiments done?")[
@@ -189,15 +212,15 @@
 #dslide(title: "The case of Containers")[
   #side-by-side(columns: (45%, 55%))[
     #align(center)[
-	#image("figs/how_packaged.svg", width: 100%)
+	#image("figs/how_packaged.svg", width: 95%)
     ]
   ][
     #align(center)[
-	#image("figs/image_cache_bin.svg", width: 100%)
+	#image("figs/image_cache_bin.svg", width: 95%)
     ]
   ]
     #align(center)[
-	Containers are used in 12% of artifacts, but only 55% of them might be reusable...
+	#sym.arrow.r Containers are used in 12% of artifacts, but only 55% of them might be reusable...
     ]
 ]
 
@@ -294,16 +317,16 @@ align(center)[
 == Conclusion
 - AD/AE good for Open Science/Reproducibility
   - but can be improved!
-- State of the practice not satisfactory #sym.arrow.r lack _longevity_
+- State of the practice not satisfactory #sym.arrow.r lacks _longevity_
 - _Proposition_ of a new badge 
 == Perspectives
-- Exposing variations in software environment from `Dockerfile`s
+- Exposing variations in SW environment from `Dockerfile`s
 - Longitudinal study (in the past and future!)
   - *We need your help/feedback to refine the form!*
 
 ][
   #align(center)[
-    #image("figs/acm_badge.svg", width: 100%)
+    #image("figs/acm_badge.svg", width: 90%)
   ]
 ]
 
