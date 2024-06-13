@@ -52,7 +52,7 @@ plot <- df %>%
   pivot_longer(!c("doi", "conference"), names_to = "scores", values_to = "value") %>%
   mutate(scores = fct_recode(scores,
      "1. Source code score" = "final_score_source_code",
-     "2. Experimental setup score" = "final_score_experimental_setup",
+     "2. Experimental platform score" = "final_score_experimental_setup",
      "3. Software environment score" = "final_score_software_env",
      "Overall Longevity score" = "final_score_global"
   )) %>%

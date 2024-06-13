@@ -36,6 +36,7 @@ rule figs:
 
         "rep24/figs/sw_envs.svg",
         "rep24/figs/lifetime_score.svg",
+        "rep24/figs/qr-code-survey.svg"
 
 rule data:
     input:
@@ -165,6 +166,7 @@ rule compile_slides:
     expand("rep24/figs/{fig}.svg", fig=FIGS),
     "rep24/figs/sw_envs.svg",
     "rep24/figs/lifetime_score.svg",
+    "rep24/figs/qr-code-survey.svg",
     src="rep24/slides.typ"
   output:
     "rep24/slides.pdf"
