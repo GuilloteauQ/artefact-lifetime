@@ -439,7 +439,7 @@ align(center)[
 == Conclusion
 - AD/AE good for Open Science/Reproducibility
   - but can be improved!
-- State of the practice unsatisfactory #sym.arrow.r #text(unibas-mint)[*Lacks _"Longevity"_*]
+- State of the practice unsatisfactory #sym.arrow.r #text(unibas-badge)[*Lacks _"Longevity"_*]
 - Proposed a much #text(unibas-badge, weight: "semibold")[needed badge]
 == Perspectives
 //- Exposing variations in SW environment from `Dockerfile`s
