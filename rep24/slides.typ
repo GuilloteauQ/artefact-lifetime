@@ -267,7 +267,7 @@ caption: [Screenshot as proof]
   ]
   - mostly a Git(Hub|Lab) URL and/or a Zenodo archive 
   - when only using `git`, 93% do not report the commit
-  #takeaway[What if GitHub disappear? Partial exploration of the Artifacts?]
+  #takeaway[What if GitHub disappears? Partial exploration of the Artifacts?]
 ]
 
 #dslide(title: "Number of commits in the shared repository")[
