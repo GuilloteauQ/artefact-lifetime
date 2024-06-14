@@ -9,6 +9,31 @@
 ]
 
 
+#let takeaway(body, slide: 2) =  {
+  only(slide)[
+    #place(
+	top + left,
+	dx: -10%,
+	dy: -50%,
+	rect(
+	    width: 120%,
+	    height: 200%,
+	    fill: rgb(100, 100, 100).transparentize(50%)
+	)
+     )
+    #place(
+	center + horizon,
+	rect(
+	    width: 100%,
+	    height: 20%,
+	    stroke: unibas-mint,
+	    fill: white
+	)[#sym.arrow.r #body]
+     )
+  ]
+}
+
+
 // #set text(font: (
 //   "Segoe UI Emoji"
 // ))
@@ -39,17 +64,31 @@
 #set text(22pt)
 
 #dslide(title: "Reproducibility Crisis (in Parallel/Distributed Computing)")[
-- TODO
-- some baker et al
-- in HPC: Hunold
 #align(center)[
-	#image("figs/hunold.png", width: 80%)
-]
+    #only(1)[#figure(image("figs/hunold.png", width: 100%), caption: [From Hunold 2015 @hunold2015survey])]
+    #only(2)[#figure(image("figs/hunold2.png", height: 100%), caption: [From Hunold 2015 @hunold2015survey])]
+    #only(3)[
+	#figure(
+		image("figs/hunold2.png", height: 100%),
+		caption: [From Hunold 2015 @hunold2015survey]
+	)
+	#place(
+	    top + left,
+	    dx: 22%,
+	    dy: 60%,
+	    rect(
+		width: 52%,
+		height: 20pt,
+		stroke: 3pt + red
+	    ),
+	 )
+      ]
+    ]
 ]
 
 #dslide(title: "Answer of the Community: Artifact Description/Evaluation and Badges")[
 #side-by-side(columns: (60%, 40%))[
-- Validate/Promote/Reward
+- Validate/Promote/#underline[Reward]
 - First: 2011 at the ESC/FSE conference
 - In computer science: ACM gave definitions @acm-badges
   - #emoji.medal.third  _Repeatability_ (Same team, same setup)
@@ -71,17 +110,17 @@ caption: [Artifact description template (SC24)]
 
 #dslide(title: "Benefits of the Artifact Evaluation")[
 // == For who is the artifact evaluation beneficial?
-== Benefits of Artifact Evaluation (TODO)
-- Authors of the article?
-- Publication venue (Journal/Conference)?
-- Future researchers?
+== Benefits of Artifact Evaluation
+- Authors of the article? #sym.arrow.r Reward, visibility
+- Publication venue (Journals/Conferences)? #sym.arrow.r Advertisment/Promotion (?)
+- Future researchers? #sym.arrow.r Easier access to artifact, can audit/reproduce/extend
 
 == Our claim
 #align(center)[
 	*All of the above, but mainly for #underline[future researchers]* (including oneself)
 ]
 
-- Science: self-correcting process, _"standing on the shoulders of giants"_
+- #underline[Science]: self-correcting process, _"standing on the shoulders of giants"_
 - This requires #text(unibas-badge, weight: "bold")[Longevous Artifacts]
 - The dream: #emoji.sparkles precise introduction of Variation #emoji.sparkles
 ]
@@ -117,7 +156,7 @@ caption: [Artifact description template (SC24)]
   #block(
     width: 90%,
     stroke: unibas-mint,
-    fill: silver,
+    fill: luma(230),
     inset: 8pt,
     radius: 10pt,
     stack(
@@ -223,6 +262,7 @@ caption: [Screenshot as proof]
   ]
   - mostly a Git(Hub|Lab) URL and/or a Zenodo archive 
   - when only using `git`, 93% do not report the commit
+  #takeaway[What if GitHub disappear? Partial exploration of the Artifacts?]
 ]
 
 #dslide(title: "Number of commits in the shared repository")[
@@ -230,8 +270,8 @@ caption: [Screenshot as proof]
     #image("figs/number_commits_repo.svg", height: 72%)
   ]
   - A lot of repositories are a "dump" of the artifact #sym.arrow.r no history / transparency?
-#side-by-side(columns: (30%, 70%))[
-- What about Zenodo?
+#side-by-side(columns: (35%, 65%))[
+- What about `.git` in Zenodo?
 ][
   #align(center)[
     #stack(dir: rtl,
@@ -241,7 +281,7 @@ caption: [Screenshot as proof]
 	   )
   ]
 ]
-
+  #takeaway[Is the preparation of the Artifacts an "after-thought" for the authors?]
 ]
 
 
@@ -249,6 +289,7 @@ caption: [Screenshot as proof]
   #align(center)[
     #image("figs/sw_envs.svg", height: 100%)
   ]
+  #takeaway[Software environments are _partially_ described, difficult to exactly rebuild]
 ]
 
 #dslide(title: "The case of Containers")[
@@ -261,9 +302,11 @@ caption: [Screenshot as proof]
 	#image("figs/image_cache_bin.svg", width: 90%)
     ]
   ]
-    #align(center)[
-	#sym.arrow.r Containers are used in 20% of artifacts, but only 56% of them might be reusable...
-    ]
+  #takeaway[Containers are used in 20% of artifacts, but only 56% of them might be reusable...]
+
+    // #align(center)[
+    // 	#sym.arrow.r Containers are used in 20% of artifacts, but only 56% of them might be reusable...
+    // ]
 ]
 
 #dslide(title: "Where are the experiments executed?")[
@@ -271,7 +314,7 @@ caption: [Screenshot as proof]
     #image("figs/experimental_setup.svg", width: 65%)
   ]
   - How to get access to *those* machines? #sym.arrow Azure/AWS/Google Cloud .... #emoji.money.wings
-  - And for *how long*?
+  #takeaway[Difficult to get access to the same machines, and if so: for *how long*?]
 ]
 
 
@@ -292,9 +335,9 @@ caption: [Screenshot as proof]
 ]
 ]
 
-#dslide(title: "Observation")[
-- some kind of conclusion
-]
+//#dslide(title: "Observation")[
+//- some kind of conclusion
+//]
 
 #new-section-slide("Proposal for Artifact Longevity and Recommendations")
 
@@ -402,7 +445,8 @@ align(center)[
   #align(center)[
     #image("figs/acm_badge.svg", height: 45%)
 
-    #image("figs/qr-code-survey.svg", height: 45%)
+    #image("figs/qr-code-survey.svg", height: 25%)
+    Take our survey! #emoji.face.happy
   ]
 ]
 
