@@ -25,8 +25,9 @@
 	center + horizon,
 	rect(
 	    width: 100%,
+    	    radius: 10pt,
 	    height: 20%,
-	    stroke: unibas-mint,
+	    stroke: 3pt+unibas-mint,
 	    fill: white
 	)[#sym.arrow.r #body]
      )
@@ -39,7 +40,7 @@
 // ))
 
 
-#let pres_title = "Longevity of Artifacts in Leading Parallel and Distributed Systems Conferences: A Review of The State of the Practice in 2023"
+#let pres_title = "Longevity of Artifacts in Leading Parallel and Distributed Systems Conferences:\nA Review of The State of the Practice in 2023"
 #let short_title = "Longevity of Artifacts: Review of the State of the Practice in 2023 (hal-04562691)"
 #let presenter = "Quentin Guilloteau"
 #let date = "June 19th 2024"
@@ -143,7 +144,7 @@ caption: [Artifact description template (SC24)]
 - *Leading* Parallel and Distributed systems conferences//("This is what we know/can judge")
 - 5 conferences of 2023 (CORE ranking):
   - CCGrid (A), EuroSys (A), OSDI (A\*), PPoPP (A), SC (A) 
-  - with a Artifact Description (AD) / Artifact Evaluation (AE) process
+  - with a Artifact Description (AD) / Artifact Evaluation (AE) process #emoji.hands.clap
   //- #sym.arrow.r 296 total papers
 #side-by-side(columns: (52%, 48%))[
 - 4 dimensions
@@ -181,6 +182,7 @@ caption: [Artifact description template (SC24)]
 ]
 
 #dslide(title: "Study Questions")[
+#pause
 #grid(
   columns: (50%, 50%),
   gutter: 10pt,
@@ -192,7 +194,8 @@ caption: [Artifact description template (SC24)]
     stack(
         spacing: 5%,
 	text[*1. Artifact Badges*:],
-	list([How many badges?], [Which badges?], [How many AD sections?])
+	list([How many badges?], [Which badges?], [How many AD sections?]),
+	pause
     )
   ),
   block(
@@ -203,7 +206,8 @@ caption: [Artifact description template (SC24)]
     stack(
         spacing: 5%,
 	text[*2. Artifact Availability*:],
-	list([URL available? Valid?], [GitHub, Zenodo, ...?], [Fixed commit hash?])
+	list([URL available? Valid?], [GitHub, Zenodo, ...?], [Fixed commit hash?]),
+	pause
     )
   ),
   block(
@@ -214,7 +218,8 @@ caption: [Artifact description template (SC24)]
     stack(
         spacing: 5%,
 	text[*3. Software Environment*:],
-	list([How was the software environment described and shared?])
+	list([How was the software environment described and shared?]),
+	pause
 	)
     ),
   block(
@@ -302,6 +307,7 @@ caption: [Screenshot as proof]
 	#image("figs/image_cache_bin.svg", width: 90%)
     ]
   ]
+  - Binary cache #sym.arrow.r e.g., DockerHub; Long-term binary cache #sym.arrow.r e.g., Zenodo
   #takeaway[Containers are used in 20% of artifacts, but only 56% of them might be reusable...]
 
     // #align(center)[

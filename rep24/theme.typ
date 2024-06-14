@@ -28,6 +28,12 @@
      let affiliation_index = array_affiliations.position(a => a == d.affiliation)
      if d.is_presenter { underline(d.name) } else { d.name } + super(str(affiliation_index + 1))
   }).join(", ", last: ", ")
+  let original = read("figs/UT3.svg")
+  let changed = original.replace(
+    "#FFFFFF",
+    unibas-mint.to-hex(),
+  )
+
   let content = {
     stack(
         block(width: 100%, height: 20%, fill: unibas-mint,
@@ -36,10 +42,11 @@
 		dx: 2.5%,
 	    	stack(
 			dir: ltr,
-			spacing: 4%,
+			spacing: 3%,
 			image("logo.svg", height: 60%),
-			image("figs/t3.png", height: 60%),
-			image("figs/irit.svg", height: 60%),
+			image.decode(changed, height: 80%),
+			//image("figs/UT3.svg", height: 60%),
+			image("figs/logo-irit.svg", height: 60%),
 			image("figs/uga.svg", height: 60%),
 			image("figs/inria.svg", height: 60%)
 		)
@@ -51,6 +58,7 @@
         block(width: 100%, inset: 0.8em, above: 0pt, below: 0pt, breakable: false, text(fill: black, size: 0.55em, date + " - " + emph(event))),
         parbreak(),
         block(width: 100%, inset: 0.8em, above: 0pt, below: 0pt, breakable: false, text(fill: black, size: 0.59em, affiliations_str)),
+	place(bottom+right, dx: -1%, image("figs/daphne.png", width: 25%))
     )
   }
   polylux-slide(content)
