@@ -30,7 +30,21 @@
   }).join(", ", last: ", ")
   let content = {
     stack(
-        block(width: 100%, height: 20%, fill: unibas-mint, place(horizon+left, dx: 2.5%, image("logo.svg", width: 20%))),
+        block(width: 100%, height: 20%, fill: unibas-mint,
+	    place(
+		horizon+left,
+		dx: 2.5%,
+	    	stack(
+			dir: ltr,
+			spacing: 4%,
+			image("logo.svg", height: 60%),
+			image("figs/t3.png", height: 60%),
+			image("figs/irit.svg", height: 60%),
+			image("figs/uga.svg", height: 60%),
+			image("figs/inria.svg", height: 60%)
+		)
+	    )
+	),
         block(width: 100%, inset: 0.8em, above: 0pt, below: 0pt, breakable: false, text(fill: black, size: 1.2em, title)),
         line(start: (2.5%, 0%), length: 95%, stroke: (paint: unibas-mint, thickness: 2pt, dash: "loosely-dashed")),
         block(width: 100%, height: 10%, inset: 0.8em, above: 0pt, below: 0pt, breakable: false, text(fill: black, size: 0.7em, authors_str)),
