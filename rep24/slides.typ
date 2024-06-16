@@ -68,7 +68,7 @@
 #align(center)[
     #only(1)[#figure(image("figs/hunold.png", width: 100%), caption: [From Hunold 2015 @hunold2015survey])]
     #only(2)[#figure(image("figs/hunold2.png", height: 100%), caption: [From Hunold 2015 @hunold2015survey])]
-    #only(3)[
+    #only((beginning: 3))[
 	#figure(
 		image("figs/hunold2.png", height: 100%),
 		caption: [From Hunold 2015 @hunold2015survey]
@@ -85,9 +85,10 @@
 	 )
       ]
     ]
+    #takeaway(slide: 4)[But this was 10 years ago, surely it has changed]
 ]
 
-#dslide(title: "Answer of the Community: Artifact Description/Evaluation and Badges")[
+#dslide(title: "Community Answer: Artifact Description/Evaluation and Badges")[
 #side-by-side(columns: (60%, 40%))[
 - Validate/Promote/#underline[Reward]
 - First: 2011 at the ESC/FSE conference
@@ -111,7 +112,7 @@ caption: [Artifact description template (SC24)]
 
 #dslide(title: "Benefits of the Artifact Evaluation")[
 // == For who is the artifact evaluation beneficial?
-== Benefits of Artifact Evaluation
+// == Benefits of Artifact Evaluation
 - Authors of the article? #sym.arrow.r Reward, visibility
 - Publication venue (Journals/Conferences)? #sym.arrow.r Advertisment/Promotion (?)
 - Future researchers? #sym.arrow.r Easier access to artifact, can audit/reproduce/extend
@@ -128,8 +129,8 @@ caption: [Artifact description template (SC24)]
 
 
 #dslide(title: "Research Questions (in the context of Parallel/Distributed Computing)")[
-== #text(unibas-mint)[RQ1]: What are the current practices in research artifacts?
-== #text(unibas-mint)[RQ2]: Is the reproducibility of the current practices satisfactory?
+== #text(unibas-badge)[RQ1]: What are the current practices in research artifacts?
+== #text(unibas-badge)[RQ2]: Is the reproducibility of the current practices satisfactory?
 #v(20%)
 #align(center)[
 #sym.arrow.r *Let's review of the state of the practice!*
@@ -239,16 +240,16 @@ caption: [Artifact description template (SC24)]
 
 #new-section-slide("Observations and Findings")
 
-#dslide(title: "Artifact Descriptions and Badges")[
+#dslide(title: "1. Artifact Descriptions and Badges")[
 #side-by-side(columns: (60%, 40%))[
 - 296 papers
 - 157 Artifact Descriptions
-  - 53% of total papers
+  - 53% of papers
 - 168 artifact links, 154 valid at the time of the study
 - 161 "Artifacts Available" Badges
-  - 54% of total papers, 102% of ADs #emoji.face.think
+  - 54% of papers, 102% of ADs #emoji.face.think
 - 101 got the top badge #emoji.medal.first 
-  - 34% of total papers, 64% of ADs
+  - 34% of papers, 64% of ADs
 ][
 #figure(
 image("figs/retracted.jpg", width: 90%),
@@ -261,7 +262,7 @@ caption: [Screenshot as proof]
 ]
 ]
 
-#dslide(title: "Sharing the Artifacts")[
+#dslide(title: "2. Artifacts Sharing")[
   #align(center)[
     #image("figs/how_repo_shared.svg", height: 75%)
   ]
@@ -290,14 +291,14 @@ caption: [Screenshot as proof]
 ]
 
 
-#dslide(title: "How are the software environments captured/described?")[
+#dslide(title: "3. How are the software environments captured/described?")[
   #align(center)[
     #image("figs/sw_envs.svg", height: 100%)
   ]
   #takeaway[Software environments are _partially_ described, difficult to exactly rebuild]
 ]
 
-#dslide(title: "The case of Containers")[
+#dslide(title: "3. The case of Containers")[
   #side-by-side(columns: (40%, 60%))[
     #align(center)[
 	#image("figs/how_packaged.svg", width: 100%)
@@ -315,7 +316,7 @@ caption: [Screenshot as proof]
     // ]
 ]
 
-#dslide(title: "Where are the experiments executed?")[
+#dslide(title: "4. Where are the experiments executed?")[
   #align(center)[
     #image("figs/experimental_setup.svg", width: 65%)
   ]
@@ -379,7 +380,7 @@ align(center)[
 ]
 
 
-#dslide(title: "Recommendations for Artifact Longevity")[
+#dslide(title: "Recommendations to Improve Artifact Longevity")[
 
 #side-by-side(columns: (50%, 50%))[
 
@@ -437,8 +438,9 @@ align(center)[
 #dslide(title: "Conclusion and Perspectives")[
 #side-by-side(columns: (75%, 25%))[
 == Conclusion
-- AD/AE good for Open Science/Reproducibility
-  - but can be improved!
+- AD/AE good for Science, but can be improved!
+// - AD/AE good for Open Science/Reproducibility
+//   - but can be improved!
 - State of the practice unsatisfactory #sym.arrow.r #text(unibas-badge)[*Lacks _"Longevity"_*]
 - Proposed a much #text(unibas-badge, weight: "semibold")[needed badge]
 == Perspectives
@@ -446,6 +448,7 @@ align(center)[
 - Longitudinal study (from recent past to near term!)
   - *We need #underline[your help] to re(de)fine the study questions!*
 - Is the existing badging system _really_ enough?
+- Environmental cost of AE?
 
 ][
   #align(center)[
