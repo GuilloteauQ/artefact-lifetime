@@ -309,11 +309,27 @@ caption: [Screenshot as proof]
     ]
   ]
   - Binary cache #sym.arrow.r e.g., DockerHub; Long-term binary cache #sym.arrow.r e.g., Zenodo
-  #takeaway[Containers are used in 20% of artifacts, but only 56% of them might be reusable...]
-
-    // #align(center)[
-    // 	#sym.arrow.r Containers are used in 20% of artifacts, but only 56% of them might be reusable...
-    // ]
+  #only((beginning: 2))[
+    #place(
+	center + horizon,
+	rect(
+	    width: 100%,
+	    stroke: 3pt+unibas-mint,
+	    fill: white
+	)[#image("figs/nvidia.png", width: 95%)]
+     )
+    #place(
+	top + left,
+	dx: 46%,
+	dy: 42%,
+	rect(
+	    width: 41.5%,
+	    height: 23pt,
+	    stroke: 3pt + red
+	),
+	)
+  ]
+  #takeaway(slide: 3)[Containers are used in 20% of artifacts, but only 56% of them might be reusable...]
 ]
 
 #dslide(title: "4. Where are the experiments executed?")[
