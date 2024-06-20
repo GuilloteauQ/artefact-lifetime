@@ -66,9 +66,9 @@
 
 #dslide(title: "Reproducibility Crisis (in Parallel/Distributed Computing)")[
 #align(center)[
-    #only(1)[#figure(image("figs/hunold.png", width: 100%), caption: [From Hunold 2015 @hunold2015survey])]
-    #only(2)[#figure(image("figs/hunold2.png", height: 100%), caption: [From Hunold 2015 @hunold2015survey])]
-    #only((beginning: 3))[
+    #only(2)[#figure(image("figs/hunold.png", width: 100%), caption: [From Hunold 2015 @hunold2015survey])]
+    #only(3)[#figure(image("figs/hunold2.png", height: 100%), caption: [From Hunold 2015 @hunold2015survey])]
+    #only((beginning: 4))[
 	#figure(
 		image("figs/hunold2.png", height: 100%),
 		caption: [From Hunold 2015 @hunold2015survey]
@@ -85,7 +85,7 @@
 	 )
       ]
     ]
-    #takeaway(slide: 4)[But this was 10 years ago, surely it has changed]
+    #takeaway(slide: 5)[But this was 10 years ago, surely it has changed]
 ]
 
 #dslide(title: "Community Answer: Artifact Description/Evaluation and Badges")[
@@ -116,6 +116,8 @@ caption: [Artifact description template (SC24)]
 - Authors of the article? #sym.arrow.r Reward, visibility
 - Publication venue (Journals/Conferences)? #sym.arrow.r Advertisment/Promotion (?)
 - Future researchers? #sym.arrow.r Easier access to artifact, can audit/reproduce/extend
+
+#pause
 
 == Our claim
 #align(center)[
@@ -277,7 +279,7 @@ caption: [Screenshot as proof]
   ]
   - A lot of repositories are a "dump" of the artifact #sym.arrow.r no history / transparency?
 #side-by-side(columns: (35%, 65%))[
-- What about `.git` in Zenodo?
+- `git` archive in Zenodo?
 ][
   #align(center)[
     #stack(dir: rtl,
@@ -299,15 +301,18 @@ caption: [Screenshot as proof]
 ]
 
 #dslide(title: "3. The case of Containers")[
-  #side-by-side(columns: (40%, 60%))[
     #align(center)[
-	#image("figs/how_packaged.svg", width: 100%)
+	#image("figs/image_cache_bin.svg", width: 54%)
     ]
-  ][
-    #align(center)[
-	#image("figs/image_cache_bin.svg", width: 90%)
-    ]
-  ]
+  // #side-by-side(columns: (40%, 60%))[
+  //   #align(center)[
+  // 	#image("figs/how_packaged.svg", width: 100%)
+  //   ]
+  // ][
+  //   #align(center)[
+  // 	#image("figs/image_cache_bin.svg", width: 90%)
+  //   ]
+  // ]
   - Binary cache #sym.arrow.r e.g., DockerHub; Long-term binary cache #sym.arrow.r e.g., Zenodo
   #only((beginning: 2))[
     #place(
@@ -326,8 +331,8 @@ caption: [Screenshot as proof]
 	    width: 41.5%,
 	    height: 23pt,
 	    stroke: 3pt + red
-	),
-	)
+	))
+	
   ]
   #takeaway(slide: 3)[Containers are used in 20% of artifacts, but only 56% of them might be reusable...]
 ]
@@ -382,7 +387,7 @@ caption: [Screenshot as proof]
       - Software environment
       - Experimental platform
     - 0 to 4-point scale per dimension
-    - Overal score = avg. per dimension
+    - Overall score = avg. per dimension
     #text(weight: "semibold")[Overall score #sym.gt.eq 3 #sym.arrow.r.double Badge awarded]
   ][
     #align(center)[
@@ -400,7 +405,7 @@ align(center)[
 
 #side-by-side(columns: (50%, 50%))[
 
-=== Source code availability
+=== Source code availability @alliez2019attributing
 
   - For source code: Software Heritage
   - For data: Zenodo
@@ -412,7 +417,7 @@ align(center)[
 
 === Experimental platforms
 
-  - Shared Testbeds
+  - Shared Testbeds @nussbaum2017testbeds
     - (Grid'5000, Chameleon, CloudLab, etc.)
 ][
 #align(center)[
